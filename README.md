@@ -6,4 +6,4 @@ Integrantes:
 2. Alejandro Mac Carthy: Tengo 23 años y muchas ganas de aprender.
 3. Nestor Damian Villordo
 4. Francisco A. Martinez
-5. Martin Juan
+5. Martin Juan : Soy abogado, profesor y asesor financier. Hace 1 anio y medio que me estoy formando como desarrollador y con ganas de seguir formandome.
