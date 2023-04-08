@@ -3,7 +3,7 @@ Lo que ofreceremos será un sitio de ventas de productos tecnológicos. El mismo
 Integrantes:
 
 1. Federico Furia : Soy de Bahia Blanca, tengo 26 años. Soy fotógrafo y editor audiovisual. Entusiasmado con el mundo de la programación y las inteligencias artificiales. Mis pasiones son el cine, la música y las acrobacias. 
-2. Alejandro Mac Carthy: Tengo 23 años y muchas ganas de aprender.
+2. Alejandro Mac Carthy: Tengo 23 años, soy de Luján. Me gusta leer, entrenar, estar en constante aprendizaje. Nací para viajar. Con el curso descubrí que esto me encanta, así que tengo muchas ganas de aprender.
 3. Nestor Damian Villordo
 4. Francisco A. Martinez
 Soy nacido en Tucuman pero actualmente vivo en Ushuaia Tierra del Fuego, tengo 32 años, me dedico a trabajar cargando contenido en un sitio web destinado a abogados y contadores. 
