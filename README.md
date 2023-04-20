@@ -1,5 +1,6 @@
 # Grupo 14: TechHub.
-## URL: https://github.com/alemaccarthy/grupo_14_TechHub.git
+## URL repositorio: https://github.com/alemaccarthy/grupo_14_TechHub.git
+## URL Trello: https://trello.com/b/eznaEYeo/proyecto-integrador
 
 ### Descripción:
 
