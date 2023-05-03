@@ -1,0 +1,58 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 13vw;
+    padding: 1vw;
+}
+
+.background-video{
+    position: absolute;
+    width: 100vw;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.hamburguer-buttom{
+    padding: 1vw 1.5vw;
+    border: none;
+    color: #fff;
+    align-items: center;
+}
+
+.marcas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12vw;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo-samsung{
+    width: 10vw;
+    padding: 2vw;
+    transition: all 0.5s ease-in-out; 
+}
+
+.logo-apple{
+    width: 4vw;
+    padding: 2vw;
+    transition: all 0.5s ease-in-out; 
+}
+
+.logo-apple:hover {
+    transform: scale(1.5) rotate(360deg); 
+  }
+
+.logo-samsung:hover {
+    transform: scale(1.5) rotate(360deg); 
+  }
+  
+
+ 
+
+  
