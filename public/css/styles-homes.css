@@ -11,7 +11,7 @@ body {
     background-color: #000;
 }
 
-.banner img{
+.banner img {
     width: 100%;
 }
 
@@ -26,7 +26,7 @@ body {
     text-align: center;
 }
 
-.presentation-s23{
+.presentation-s23 {
     position: relative;
 }
 
@@ -187,7 +187,7 @@ body {
     margin-bottom: 15vw;
 }
 
-.outstanding-title {
+.outstanding-title h1 {
     color: #222;
     font-size: 5vw;
     padding: 2vw 3vw 0;
@@ -581,6 +581,9 @@ body {
         max-height: 673px;
     }
 
+    .os-product-2 {
+        height: 45%;
+    }
 
     .outstanding-product {
         transition: all 0.5s;
@@ -599,20 +602,26 @@ body {
         margin-bottom: 10vw;
     }
 
-    .outstanding-container-samsung{
+    .outstanding-container-samsung {
         margin-bottom: 10vw;
     }
 
     .small-products-container {
-        width: 31%;
+        width: 35%;
         margin-left: 3%;
     }
 
     .outstanding-title {
-        margin-left: 18%;
+        width: 63%;
+        max-width: 893px;
+        margin: 0 auto;
+    }
+
+    .outstanding-title h1 {
         font-size: 3.3vw;
+        width: 100%;
         color: #ffffff;
-        padding-top: 1vw;
+        padding: 2vw 0 0;
     }
 
     .os-small-product h2 {
@@ -625,24 +634,34 @@ body {
 
     .os-product-1 {
         height: 100%;
+        width: 60%;
     }
 
     .os-p-apple-1 img {
         width: 65%;
     }
 
-    .os-p-samsung-1 img,
-    .os-p-samsung-2 img {
+    .os-p-samsung-1 img{
         width: 70%;
         padding: 0;
     }
 
-    .os-small-product img {
+    .os-p-samsung-3 img,
+    .os-p-samsung-2 img {
         width: 70%;
+        padding: 0;
+    }
+    .os-p-samsung-2 h2{
+        display: inline-block;
+        margin: 0 auto;
     }
 
-    .os-p-samsung-3 img {
-        width: 80%;
+    .os-small-product img {
+        width: 65%;
+    }
+
+    .os-p-apple-3 img{
+        width: 62%;
     }
 
     .img-background {
@@ -785,19 +804,27 @@ body {
 
 
 @media(min-width:1200px) {
-    .outstanding-title {
+    .outstanding{
+        padding: 21.5px 43px 43px;
+    }
+
+    .outstanding-title{
+        width: 62%;
+    }
+    .outstanding-title h1 {
         font-size: 40px;
     }
 
     .os-small-product h2 {
-        font-size: 18px;
+        font-size: 118%;
     }
 
     .os-product-1 h2 {
-        font-size: 26px;
+        font-size: 180%;
     }
 
     .outstanding-product {
         padding: 15px;
     }
 }
+
