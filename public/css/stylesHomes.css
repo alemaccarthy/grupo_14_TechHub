@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+}
+
+.title-iphone14-wide-container {
+    width: 100%;
+}
+
+.smartphone-title {
+    color: #fff;
+    width: 100%;
+    font-size: 7vw;
+    text-align: center;
+}
+
+.presentation-s23{
+    position: relative;
+}
+
+.iphone14-video-mobile {
+    width: 100%;
+    position: relative;
+    top: 3vw;
+    border-bottom: solid 1px #aaa;
+    padding: 0 5vw;
+}
+
+.iphone14-video-desktop {
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 5vw;
+}
+
+.s23-img-wide {
+    width: 100%;
+    border-bottom: solid 1px #aaa;
+    position: relative;
+    top: 3vw;
+}
+
+.text-img-color-container-apple {
+    display: grid;
+    justify-items: center;
+    margin-left: 10%;
+    width: 90%;
+    border-left: solid 1px #aaa;
+    border-bottom: solid 1px #aaa;
+}
+
+.text-img-color-container-samsung {
+    display: grid;
+    justify-items: end;
+    margin: 0 auto;
+    width: 80%;
+    border-left: solid 1px #aaa;
+}
+
+.smartphone-text {
+    color: #fff;
+    width: 90%;
+    margin: 6vw 0;
+    font-size: 4vw;
+}
+
+.text-paragraph-smartphone {
+    padding-top: 3vw;
+}
+
+.iphone14-front-color {
+    width: 100%;
+    padding: 3vw 15%;
+}
+
+.s23-front-color {
+    width: 90%;
+}
+
+.s23-color-desktop {
+    display: none;
+}
+
+.pick-color-smartphone {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.pick-color-iphone14 {
+    width: 60%;
+    padding: 5vw 0;
+
+}
+
+.pick-color-s23 {
+    width: 50%;
+    padding: 13vw 0 7vw;
+}
+
+.s23-side-color {
+    width: 90%;
+    border: solid 1px #aaa;
+    border-left: none;
+    position: relative;
+    top: 7vw;
+    right: 20vw;
+    background-color: #000;
+}
+
+.pick-color-smartphone h1 {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding-top: 3vw;
+    font-size: 5vw;
+}
+
+.option-color-smartphone {
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+}
+
+.color-iphone14-deep-purple {
+    background-color: rgb(89, 79, 99);
+}
+
+.color-iphone14-gold {
+    background-color: rgb(244, 232, 206);
+}
+
+.color-iphone14-silver {
+    background-color: rgb(240, 242, 242);
+}
+
+.color-iphone14-space-black {
+    background-color: rgb(64, 62, 61);
+}
+
+.color-s23-green {
+    background-color: rgb(95, 100, 90);
+}
+
+.color-s23-phantom-black {
+    background-color: rgb(33, 30, 22);
+}
+
+.color-s23-lavender {
+    background-color: rgb(212, 199, 217);
+}
+
+.color-s23-cream {
+    background-color: rgb(240, 234, 224);
+}
+
+.text-link {
+    margin-left: 70%;
+    font-size: 4.5vw;
+    text-decoration: none;
+    color: #fff;
+}
+
+.outstanding-container {
+    background-color: #d7d7d7;
+}
+
+.outstanding {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 1.5vw 3vw 3vw;
+    height: 85vw;
+    margin-bottom: 15vw;
+}
+
+.outstanding-title {
+    color: #222;
+    font-size: 5vw;
+    padding: 2vw 3vw 0;
+}
+
+.outstanding-product {
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.os-p-apple-1,
+.os-p-apple-2,
+.os-p-apple-3 {
+    background-color: rgb(245, 245, 247);
+}
+
+.os-p-samsung-1,
+.os-p-samsung-2,
+.os-p-samsung-3 {
+    background-color: #fff;
+
+}
+
+
+.os-product-1 {
+    width: 57%;
+}
+
+.os-p-apple-1 img {
+    width: 85%;
+}
+
+.os-p-samsung-1 img {
+    width: 90%;
+    padding-top: 3vw;
+}
+
+
+.os-product-1 h2 {
+    color: #000;
+    font-size: 4vw;
+}
+
+.os-product-2 {
+    height: 44%;
+}
+
+.os-p-apple-2 img {
+    width: 70%;
+}
+
+.os-p-samsung-2 img {
+    width: 60%;
+    padding-top: 2vw;
+}
+
+
+.os-product-3 {
+    height: 52%;
+}
+
+.os-p-apple-3 img {
+    width: 65%;
+}
+
+.os-p-samsung-3 img {
+    width: 75%;
+}
+
+
+.outstanding-product {
+    padding: 1.3vw;
+}
+
+.os-small-product h2 {
+    color: #000;
+    font-size: 3.5vw;
+}
+
+.small-products-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.img-background {
+    width: 100%;
+    height: 52vw;
+    max-height: 610.5;
+    overflow: hidden;
+    display: none;
+}
+
+.presentation {
+    display: grid;
+    justify-items: center;
+    margin: 0 auto;
+    width: 90%;
+    background-color: #fff;
+}
+
+.galaxy-watch-5 {
+    position: relative;
+}
+
+.apple-watch-ultra {
+    align-items: center;
+    overflow: hidden;
+}
+
+.watch-title {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 5vw;
+    padding: 4vw 0;
+}
+
+.watch-intro {
+    color: #000;
+    font-size: 3.8vw;
+    padding: 5vw 5vw 0 5vw;
+}
+
+.watch-flex-apple {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.pick-color {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.color {
+    width: 5.2vw;
+    height: 5.2vw;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.green {
+    background-color: rgb(92, 95, 84);
+}
+
+.yellow {
+    background-color: rgb(244, 209, 82);
+}
+
+.starlight {
+    background-color: rgb(230, 220, 211);
+}
+
+.orange {
+    background-color: rgb(240, 108, 34);
+}
+
+.midnight {
+    background-color: rgb(60, 61, 66);
+}
+
+.white {
+    background-color: rgb(237, 234, 229);
+}
+
+.img-face-apple {
+    width: 120%;
+    padding: 7vw 0;
+}
+
+.img-band-apple {
+    width: 100%;
+}
+
+.bg-back-apple {
+    position: relative;
+    top: 20vw;
+    width: 100%;
+}
+
+.bg-front-apple {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.watch-background-apple {
+    position: relative;
+}
+
+.watch-flex-samsung {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: scroll;
+    gap: 3vw;
+    padding: 2vw 5vw 5vw;
+}
+
+.img-face-samsung {
+    width: 80%;
+    padding: 5vw 0;
+}
+
+.watch-flex-samsung .img-GW5 {
+    width: 22vw;
+}
+
+.bg-back-samsung {
+    width: 100%;
+}
+
+.bg-front-samsung {
+    position: relative;
+    width: 190%;
+    right: 85vw;
+    padding-bottom: 10vw;
+}
+
+.background-paragraph {
+    color: #fff;
+    position: absolute;
+    width: 60%;
+    margin-left: 35%;
+    font-size: 4vw;
+    top: 115vw;
+}
+
+.watch-background-samsung {
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-text {
+    font-size: 8vw;
+    position: absolute;
+    width: 60%;
+    color: rgb(254, 209, 89);
+    z-index: 1;
+}
+
+.bg-text-samsung {
+    top: 10vw;
+    left: 7vw;
+}
+
+.bg-text-apple {
+    top: 25vw;
+    left: 10vw;
+}
+
+.img-low-opacity-samsung {
+    display: none;
+}
+
+@media (min-width:481px) {
+    .presentation-iphone14 {
+        position: relative;
+    }
+
+    .iphone14-title {
+        font-size: 6vw;
+    }
+
+    .s23-title {
+        font-size: 6vw;
+    }
+
+    .title-iphone14-wide-container {
+        border-bottom: solid 1px #aaa;
+    }
+
+    .iphone14-video-mobile,
+    .s23-color-mobile {
+        display: none;
+    }
+
+    .s23-color-desktop {
+        display: inline-block;
+    }
+
+    .iphone14-video-desktop {
+        width: 60%;
+        display: block;
+    }
+
+    .text-img-color-container-apple {
+        grid-template: 1.5fr 1fr / 1fr 1.3fr;
+        justify-items: center;
+        width: 50%;
+        margin: 0 auto 5vw;
+        padding: 2vw 0 0;
+    }
+
+    .text-img-color-container-samsung {
+        justify-items: center;
+        grid-template: 2fr 1fr / 1fr 1fr;
+        width: 70%;
+        margin: 0 auto;
+        padding: 5vw 0 0;
+    }
+
+    .iphone14-text {
+        grid-area: 1 / 2 / 2 / 3;
+        width: 100%;
+        padding: 2vw 0 0 2vw;
+        margin: 0;
+        font-size: 1.9vw;
+    }
+
+    .s23-text {
+        grid-area: 1 / 1 / 2 / 2;
+        width: 80%;
+        padding-top: 2vw;
+        margin: 0;
+        font-size: 2vw;
+    }
+
+    .text-paragraph-smartphone {
+        font-size: 1.6vw;
+    }
+
+    .text-paragraph-apple {
+        padding-top: 1.5vw;
+    }
+
+    .iphone14-front-color {
+        grid-area: 1 / 1 / 3 / 2;
+        width: 90%;
+        place-self: end;
+        padding: 1vw 1vw 0 1vw;
+    }
+
+    .s23-front-color {
+        grid-area: 1 / 2 / 3 / 3;
+        width: 70%;
+    }
+
+    .s23-side-color {
+        position: static;
+        justify-self: start;
+        align-self: end;
+    }
+
+    .pick-color-iphone14 {
+        width: 20vw;
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 10vw;
+    }
+
+    .pick-color-s23 {
+        width: 25%;
+        padding: 3vw 0;
+    }
+
+    .option-color-smartphone {
+        width: 2.5vw;
+        height: 2.5vw;
+    }
+
+    .pick-color-smartphone h1 {
+        width: 100%;
+        text-align: center;
+        padding-top: 1.5vw;
+        font-size: 2vw;
+    }
+
+    .text-link {
+        font-size: 2vw;
+    }
+
+    .outstanding {
+        justify-content: center;
+        width: 70%;
+        margin: 0 auto;
+        height: 47vw;
+        max-width: 1000px;
+        max-height: 673px;
+    }
+
+
+    .outstanding-product {
+        transition: all 0.5s;
+    }
+
+    .os-small-product:hover {
+        transform: scale(1.02);
+    }
+
+    .os-product-1:hover {
+        transform: scale(1.01);
+    }
+
+    .outstanding-container {
+        background-image: url(./Samsung/fondoDestacados.jpg);
+        margin-bottom: 10vw;
+    }
+
+    .outstanding-container-samsung{
+        margin-bottom: 10vw;
+    }
+
+    .small-products-container {
+        width: 31%;
+        margin-left: 3%;
+    }
+
+    .outstanding-title {
+        margin-left: 18%;
+        font-size: 3.3vw;
+        color: #ffffff;
+        padding-top: 1vw;
+    }
+
+    .os-small-product h2 {
+        font-size: 1.5vw;
+    }
+
+    .os-product-1 h2 {
+        font-size: 2.2vw;
+    }
+
+    .os-product-1 {
+        height: 100%;
+    }
+
+    .os-p-apple-1 img {
+        width: 65%;
+    }
+
+    .os-p-samsung-1 img,
+    .os-p-samsung-2 img {
+        width: 70%;
+        padding: 0;
+    }
+
+    .os-small-product img {
+        width: 70%;
+    }
+
+    .os-p-samsung-3 img {
+        width: 80%;
+    }
+
+    .img-background {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    .watch-title {
+        font-size: 3vw;
+    }
+
+    .galaxy-watch-5 {
+        bottom: 2vw;
+    }
+
+    .apple-watch-ultra {
+        width: 65%;
+    }
+
+    .watch-intro {
+        font-size: 1.8vw;
+        padding: 0;
+        width: 80%;
+        align-self: center;
+    }
+
+    .watch-intro-apple {
+        grid-area: 1/2/2/3;
+        z-index: 1;
+    }
+
+    .img-face-apple {
+        grid-area: 1 / 1 / 3 / 2;
+        width: 140%;
+        padding: 3vw 0;
+    }
+
+    .watch-flex-apple {
+        grid-area: 2 / 2 / 3 / 3;
+        width: 100%;
+    }
+
+    .pick-color {
+        width: 90%;
+    }
+
+    .color {
+        width: 2.8vw;
+        height: 2.8vw;
+    }
+
+    .img-band-apple {
+        padding: 1vw;
+    }
+
+    .watch-intro-samsung {
+        grid-area: 3/2/4/3;
+    }
+
+    .img-face-samsung {
+        grid-area: 3 / 1 / 5 / 2;
+        width: 80%;
+        justify-self: start;
+        padding-left: 2vw;
+    }
+
+    .watch-flex-samsung {
+        grid-area: 4 / 2 / 5 / 3;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-self: center;
+        align-self: center;
+        justify-content: space-between;
+        gap: 5%;
+        overflow: hidden;
+        padding: 5%;
+    }
+
+    .watch-flex-samsung .img-GW5 {
+        width: 16%;
+    }
+
+    .background-paragraph {
+        font-size: 1.5vw;
+        margin-left: 55%;
+        padding-bottom: 3vw;
+        position: static;
+        width: 40%;
+    }
+
+    .bg-back-samsung {
+        width: 60%;
+        padding: 3vw 0;
+    }
+
+    .img-low-opacity-samsung {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+
+    .img-low-opacity-samsung img {
+        opacity: 0.3;
+        position: absolute;
+        width: 80%;
+        left: 40vw;
+        top: -15vw;
+    }
+
+    .img-container {
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        position: relative;
+        z-index: 1;
+    }
+
+    .bg-front-samsung {
+        width: 100%;
+        position: static;
+        padding-bottom: 2vw;
+    }
+
+    .bg-text-samsung {
+        font-size: 6vw;
+    }
+
+}
+
+@media(min-width:768px) {
+    .galaxy-watch-5 {
+        width: 70%;
+    }
+
+    .watch-intro-samsung {
+        font-size: 2vw;
+    }
+}
+
+
+@media(min-width:1200px) {
+    .outstanding-title {
+        font-size: 40px;
+    }
+
+    .os-small-product h2 {
+        font-size: 18px;
+    }
+
+    .os-product-1 h2 {
+        font-size: 26px;
+    }
+
+    .outstanding-product {
+        padding: 15px;
+    }
+}
