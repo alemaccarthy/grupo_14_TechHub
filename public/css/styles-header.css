@@ -6,11 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fff;
-}
-
 header {
     background-color: #000;
     min-width: 290px;

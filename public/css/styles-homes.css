@@ -11,6 +11,10 @@ body {
     background-color: #000;
 }
 
+.banner img{
+    width: 100%;
+}
+
 .title-iphone14-wide-container {
     width: 100%;
 }
@@ -591,7 +595,7 @@ body {
     }
 
     .outstanding-container {
-        background-image: url(./Samsung/fondoDestacados.jpg);
+        background-image: url(/imgs/Samsung/fondoDestacados.jpg);
         margin-bottom: 10vw;
     }
 
