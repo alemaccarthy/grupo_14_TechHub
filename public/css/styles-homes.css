@@ -464,7 +464,6 @@ body {
 @media (min-width:481px) {
     .presentation-iphone14 {
         position: relative;
-        width: 70%;
     }
 
     .iphone14-title {
