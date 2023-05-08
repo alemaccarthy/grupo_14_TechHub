@@ -641,7 +641,7 @@ body {
         width: 65%;
     }
 
-    .os-p-samsung-1 img{
+    .os-p-samsung-1 img {
         width: 70%;
         padding: 0;
     }
@@ -651,7 +651,8 @@ body {
         width: 70%;
         padding: 0;
     }
-    .os-p-samsung-2 h2{
+
+    .os-p-samsung-2 h2 {
         display: inline-block;
         margin: 0 auto;
     }
@@ -660,7 +661,7 @@ body {
         width: 65%;
     }
 
-    .os-p-apple-3 img{
+    .os-p-apple-3 img {
         width: 62%;
     }
 
@@ -676,7 +677,7 @@ body {
     }
 
     .galaxy-watch-5 {
-        bottom: 2vw;
+        width: 70%;
     }
 
     .apple-watch-ultra {
@@ -792,39 +793,41 @@ body {
 
 }
 
-@media(min-width:768px) {
-    .galaxy-watch-5 {
-        width: 70%;
-    }
 
-    .watch-intro-samsung {
-        font-size: 2vw;
+@media (min-width: 1400px) {
+    .outstanding {
+        padding: 21px 42px 42px;
     }
-}
-
-
-@media(min-width:1200px) {
-    .outstanding{
-        padding: 21.5px 43px 43px;
-    }
-
-    .outstanding-title{
-        width: 62%;
-    }
-    .outstanding-title h1 {
-        font-size: 40px;
+    .outstanding-title h1{
+        font-size: 46px;
     }
 
     .os-small-product h2 {
-        font-size: 118%;
+        font-size: 21px;
     }
 
-    .os-product-1 h2 {
-        font-size: 180%;
+    .os-product-1 h2{
+        font-size: 31px;
     }
 
-    .outstanding-product {
-        padding: 15px;
+    .galaxy-watch-5 {
+        max-width: 1120px;
+    }
+
+    .watch-intro {
+        font-size: 28px;
+        width: 594px;
+    }
+
+    .img-face-samsung {
+        width: 388px;
+    }
+
+    .img-GW5 {
+        width: 92px;
+    }
+
+    .watch-flex-samsung {
+        width: 635px;
     }
 }
-
