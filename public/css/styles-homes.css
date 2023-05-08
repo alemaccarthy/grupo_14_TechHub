@@ -363,12 +363,13 @@ body {
 }
 
 .img-face-apple {
-    width: 120%;
     padding: 7vw 0;
+    width: 100%;
 }
 
 .img-band-apple {
-    width: 100%;
+    width: 80%;
+    align-self: center;
 }
 
 .bg-back-apple {
@@ -457,6 +458,7 @@ body {
 @media (min-width:481px) {
     .presentation-iphone14 {
         position: relative;
+        width: 70%;
     }
 
     .iphone14-title {
@@ -687,19 +689,20 @@ body {
     .watch-intro {
         font-size: 1.8vw;
         padding: 0;
-        width: 80%;
+        width: 90%;
         align-self: center;
     }
 
     .watch-intro-apple {
         grid-area: 1/2/2/3;
         z-index: 1;
+        padding: 2vw 0 2vw 0;
     }
 
     .img-face-apple {
         grid-area: 1 / 1 / 3 / 2;
-        width: 140%;
         padding: 3vw 0;
+        max-width: 386px;
     }
 
     .watch-flex-apple {
@@ -709,6 +712,7 @@ body {
 
     .pick-color {
         width: 90%;
+        max-width: 472px;
     }
 
     .color {
@@ -718,6 +722,7 @@ body {
 
     .img-band-apple {
         padding: 1vw;
+        max-width: 419px;
     }
 
     .watch-intro-samsung {
@@ -815,8 +820,15 @@ body {
     }
 
     .watch-intro {
-        font-size: 28px;
+        font-size: 25px;
         width: 594px;
+    }
+    .watch-intro-apple{
+        max-width: 471px;
+    }
+
+    .apple-watch-ultra{
+        max-width: 910px;
     }
 
     .img-face-samsung {
@@ -825,9 +837,5 @@ body {
 
     .img-GW5 {
         width: 92px;
-    }
-
-    .watch-flex-samsung {
-        width: 635px;
     }
 }

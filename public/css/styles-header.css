@@ -158,10 +158,6 @@ display: none;
         transition: color 0.5s ease;
     }
 
-    .presentation {
-        width: 80%;
-        margin: 0 auto;
-    }
     .brands{
         top: 83px;
     }
