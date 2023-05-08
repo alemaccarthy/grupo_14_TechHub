@@ -49,7 +49,7 @@ header {
 }
 
 #main-header a {
-    color: #dcdcdc;
+    color: #aaa;
     text-decoration: none;
 }
 
@@ -64,12 +64,12 @@ header {
 .main-header-left button{
     background-color: transparent;
     border: none;
-    color: #dcdcdc;
+    color: #ccc;
     transition: all 0.5s;
 }
 
 .main-header-left button:hover{
-    color: white;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -88,10 +88,9 @@ header {
     padding: 0.8vw 0 0.5vw;
 }
 
-/* #home-1:target #apple, 
-#home-2:target #samsung{
-display: none;
-} */
+footer {
+    background-color: #444;
+}
 
 @media(min-width: 768px) {
     #logo{
