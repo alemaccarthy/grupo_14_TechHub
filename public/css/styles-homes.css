@@ -10,9 +10,61 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #000;
 }
+.banner{
+    position: relative;
+    overflow: hidden;
+}
 
-.banner img {
-    width: 100%;
+.banner-apple{
+    height: 140vw;
+    position: relative;
+}
+
+.banner-samsung img {
+    width: 400%;
+    margin-left: -85%;
+}
+
+.banner-apple .img-banner-apple-mobile{
+    width: 94%;
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+}
+
+.banner-apple .img-banner-apple-desktop{
+    display: none;
+}
+
+.banner-text{
+    color: #fff;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+}
+
+.banner-text-samsung{
+    bottom: 7vw;
+    left: 5%;
+    width: 90%;
+    font-size: 6vw;
+}
+
+.banner-text-apple{
+    bottom: 95vw;
+    width: 60%;
+    font-size: 7vw;
+    margin-left: 20%;
+}
+
+.banner-text > a {
+    align-self: flex-end;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4vw;
 }
 
 .title-iphone14-wide-container {
@@ -35,7 +87,7 @@ body {
     position: relative;
     top: 3vw;
     border-bottom: solid 1px #aaa;
-    padding: 0 5vw;
+    padding: 0 12vw;
 }
 
 .iphone14-video-desktop {
@@ -175,7 +227,8 @@ body {
 }
 
 .outstanding-container {
-    background-color: #aaa;
+    background-color: #000;
+    padding: 10vw 0;
 }
 
 .outstanding {
@@ -184,11 +237,10 @@ body {
     justify-content: space-between;
     padding: 1.5vw 3vw 3vw;
     height: 85vw;
-    margin-bottom: 15vw;
 }
 
 .outstanding-title h1 {
-    color: #222;
+    color: #fff;
     font-size: 5vw;
     padding: 2vw 3vw 0;
 }
@@ -463,6 +515,35 @@ body {
 }
 
 @media (min-width:481px) {
+
+    .banner-apple{
+        height: 100vw;
+    }
+
+    .banner-samsung img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .img-banner-apple-mobile{
+        display: none;
+    }
+
+    .img-banner-apple-desktop{
+        display: block;
+    }
+
+    .banner-text{
+        align-items: flex-end;
+        font-size: 2.8vw;
+        bottom: 5vw;
+        right: 3vw;
+    }
+    
+    .banner-text > a {
+        font-size: 1.5vw;
+    } 
+
     .presentation-iphone14 {
         position: relative;
     }
@@ -602,7 +683,7 @@ body {
     }
 
     .os-product-1:hover {
-        transform: scale(1.01);
+        transform: scale(1.015);
     }
 
     .outstanding-container {

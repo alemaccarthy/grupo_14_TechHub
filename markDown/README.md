@@ -10,12 +10,12 @@ Nuestro público objetivo está compuesto por personas de todas las edades que r
 Además, nuestro sitio está diseñado para satisfacer las necesidades de aquellos clientes que prefieren realizar sus compras de manera digital, brindándoles una experiencia de usuario amigable, segura y confiable.
 
 ### Paleta de colores
-1. #ffffff.
-2. #aaaaaa.
-3. #31d8ff.
-4. #164194.
-5. #444444.
-6. #000000.
+1. Blanco: #ffffff.
+2. Gris claro: #aaaaaa.
+3. Celeste: #31d8ff.
+4. Azul: #164194.
+5. Gris oscuro: #444444.
+6. Negro: #000000.
 
 ### Fuentes
 
