@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #164194;
+    color: white;
+    border: 1px solid grey;
+    height: 100px;
+    width: 100%;
+    margin-top: 17px;
+    border-radius: 5%;
+}
+
+.title h2,
+h4 {
+    margin-left: 20px;
+}
+
+.title h2 {
+    margin-bottom: 10px;
+}
+
+.cart-items .p {
+    max-height: 50%;
+    overflow-y: auto;
+}
+
+.cart-items .item-p {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 0 5vw;
+}
+
+.cart-items .item-p img {
+    width: 12%;
+}
+
+.cart-items .item-p .item-details-p {
+    display: grid;
+    align-content: center;
+    border-bottom: 1px solid grey;
+}
+
+.cart-items .item-p .item-details-p .item-title-p {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.cart-items .item-p .item-details-p .item-title-p:hover {
+    color: #FF6700;
+}
+
+.cart-items .item-p .item-details-p .select-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .modify-quantity {
+    font-size: 12px;
+    text-align: center;
+    padding: 2px;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .modify-quantity:hover {
+    color: #FF6700;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .selector {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 10%;
+}
+
+
+.cart-items .item-p .item-details-p .select-quantity .selector button {
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .selector button.no-border {
+    border:none;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .selector .number {
+    width: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .selector .item-price {
+    border: none;
+    font-size: 12px;
+    font-weight: 400;
+    background: transparent;
+    text-align: center; 
+}
+
+.cart-items .item-p .item-details-p .select-quantity .selector i {  
+    cursor: pointer;
+}
+
+.check-cart {
+    border-bottom: 1px solid grey;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.check-cart .cart-icon {
+    color: grey;
+    font-size: 22px;
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.check-cart span {
+    color: grey;
+
+}
+
+.sub-title {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 25px 4px 0px 12px;
+}
+
+.sub-title .user {
+    color: grey;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.sub-title span {
+    color: grey;
+    margin-left: 15px;
+}
+
+.login {
+    padding-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.log-in-btn {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+}
+
+.form {
+    margin: 20px;
+}
+
+.form label {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form .name-lastname,
+.password {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-group input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.name-lastname input,
+.password input {
+    width: 48%;
+    padding: 5px;
+}
+
+input[type="email"] {
+    width: 100%;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+}
+
+.order .subtotal {
+    padding: 10px;
+}
+
+.order .shipping {
+    padding-right: 10px;
+    padding-left: 10px;
+}
