@@ -197,7 +197,13 @@ h4 {
 }
 
 .form .name-lastname,
-.password {
+.password,
+.street-number,
+.floor-door,
+.city,
+.province-postalcode,
+.telephone
+{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -210,12 +216,28 @@ h4 {
 }
 
 .name-lastname input,
-.password input {
+.password input,
+.street-number input,
+.floor-door input,
+.province-postalcode input
+{
     width: 48%;
     padding: 5px;
 }
 
 input[type="email"] {
+    width: 100%;
+}
+
+input[type="dni"] {
+    width: 100%;
+}
+
+input[type="city"] {
+    width: 100%;
+}
+
+input[type="telephone"] {
     width: 100%;
 }
 
@@ -231,4 +253,18 @@ input[type="email"] {
 .order .shipping {
     padding-right: 10px;
     padding-left: 10px;
+}
+
+.shipping-details {
+    display: flex;
+    background-color: #00000008;
+    padding: 12px 25px;
+    width: 100%;
+    justify-content:flex-start;
+    
+}
+
+.card-title {
+    color: #777777;
+    font-size: 16px;
 }
