@@ -286,12 +286,13 @@ body {
     display: none;
 }
 
-.presentation {
+.presentation-watch {
     display: grid;
     justify-items: center;
     margin: 0 auto;
     width: 90%;
     background-color: #fff;
+    margin-bottom: 10vw;
 }
 
 .galaxy-watch-5 {

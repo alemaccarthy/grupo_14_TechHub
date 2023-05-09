@@ -88,8 +88,48 @@ header {
     padding: 0.8vw 0 0.5vw;
 }
 
-footer {
-    background-color: #444;
+footer{
+    background-color: #fff;
+    color: #444;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+footer h1 {
+    margin: 2vw;
+}
+
+footer section{
+    width: 80%;
+    padding: 5vw;
+    margin: 0 auto;
+}
+
+footer section:first-child {
+    padding: 5vw 5vw 0;
+}
+
+footer section:last-of-type{
+    padding: 0 5vw 5vw;
+}
+
+footer ul{
+    list-style: none;
+}
+
+footer a {
+    color: #000;
+    text-decoration: none;
+}
+footer li{
+    margin: 1.5vw;
+}
+
+.copyright{
+    margin: 0 5vw 5vw;
+    text-align: left;
+    font-weight: 200;
 }
 
 @media(min-width: 768px) {
