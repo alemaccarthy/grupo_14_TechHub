@@ -1,58 +1,189 @@
-.navbar{
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto:wght@300;400;700&display=swap');
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(/imgs/fondo_b.jpg);
+    height: 100%;
+}
+.navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.logo{
-    width: 13vw;
-    padding: 1vw;
+.logo {
+    width: 35vw;
+    padding: 0 1vw 0 0;
 }
 
-.background-video{
+/* .background img{
     position: absolute;
     width: 100vw;
     right: 0;
     bottom: 0;
     z-index: -1;
+} */
+
+.background video{
+    display: none;
 }
 
-.hamburguer-buttom{
+.hamburguer-buttom {
+    font-size: 25px;
     padding: 1vw 1.5vw;
     border: none;
-    color: #fff;
-    align-items: center;
+    color: white;
 }
 
-.marcas{
+.marcas {
+    height: 80% ;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12vw;
-    margin: 0;
+    margin: 0 auto;
     box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    right: 50%;
 }
 
-.logo-samsung{
-    width: 10vw;
+.logo-samsung {
+    width: 14vw;
     padding: 2vw;
-    transition: all 0.5s ease-in-out; 
 }
 
-.logo-apple{
-    width: 4vw;
+.logo-apple {
+    width: 15vw;
     padding: 2vw;
-    transition: all 0.5s ease-in-out; 
 }
 
-.logo-apple:hover {
-    transform: scale(1.5) rotate(360deg); 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 1rem;
   }
-
-.logo-samsung:hover {
-    transform: scale(1.5) rotate(360deg); 
+  
+  .slogan {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 6vw;
+    color: #fff;
+    position: fixed;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    bottom: 0;
   }
   
 
- 
+  @media(min-width: 1200px){
+    body {
+        background-image: none;
+    }
+    
+    .logo {
+        width: 13vw;
+        padding: 0 1vw 0 0;
+    }
+    
+    .background video {
+        display: inline-block;
+        position: absolute;
+        width: 100vw;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    
+    .hamburguer-buttom {
+        font-size: 22px;
+        padding: 1vw 1.5vw;
+        border: none;
+        color: #fff;
+    }
+    
+    .marcas {
+        position: static;
+        margin: 12vw;
+        padding-top: 2vw;
+    }
+    
+    .logo-samsung {
+        width: 7vw;
+        padding: 2vw;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .logo-apple {
+        width: 3vw;
+        padding: 2vw;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .logo-apple:hover {
+        transform: scale(1.3) rotateY(360deg);
+    }
+    
+    .logo-samsung:hover {
+        transform: scale(1.5) rotateY(360deg);
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 1rem;
+      }
+      
+      .slogan {
+        width: 40%;
+        margin: 0 auto;
+        font-family: 'Major Mono Display', monospace;
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        position: relative;
+        z-index: 2;
+        box-sizing: border-box;
+        padding: 0.4rem;
+        transition: all 1s ease-in-out
+      }
+      
+      .slogan:hover::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 0;
+        height: 100%;
+        border-left: 5px solid #2bbada;
+        border-right: 5px solid #2bbada;
+        animation: lines 1s linear forwards;
+      }
+    
+      .slogan:hover{
+       transform: scale(1.2);
+      }
+      
+      @keyframes lines {
+        0% {
+          width: 0;
+        }
+        
+        100% {
+          width: 95%;
+          box-shadow: 0px 0px 25px  #2bbada;
+        }
+      }
+    
 
-  
+  }

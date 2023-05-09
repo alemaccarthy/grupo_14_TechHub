@@ -9,6 +9,19 @@ Este es un sitio de comercio electrónico enfocado en la venta de productos tecn
 Nuestro público objetivo está compuesto por personas de todas las edades que residan en Argentina y que estén interesadas en adquirir productos tecnológicos de alto rendimiento y prestigio. Nos dirigimos a aquellos usuarios que valoran la innovación, el diseño y la funcionalidad en sus dispositivos electrónicos.
 Además, nuestro sitio está diseñado para satisfacer las necesidades de aquellos clientes que prefieren realizar sus compras de manera digital, brindándoles una experiencia de usuario amigable, segura y confiable.
 
+### Paleta de colores
+1. #ffffff.
+2. #aaaaaa.
+3. #31d8ff.
+4. #164194.
+5. #444444.
+6. #000000.
+
+### Fuentes
+
+Roboto 300, 400, 700.
+Albert Sans 300, 400, 700.
+
 ### Integrantes:
 
 1. Federico Furia: Soy de Bahia Blanca, tengo 26 años. Soy fotógrafo y editor audiovisual. Entusiasmado con el mundo de la programación y las inteligencias artificiales. Mis pasiones son el cine, la música y las acrobacias.
