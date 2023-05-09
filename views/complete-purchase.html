@@ -127,45 +127,6 @@
                 </div>
             </div>
         </article>
-
-        <article class="item-p">
-            <img src="/prueba/public/images/img-macbook-pro-2019.jpg" alt="">
-            <div class="item-details-p">
-                <span class="item-title-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto
-                    ipsam a optio libero consequuntur</span>
-                <div class="select-quantity">
-                    <div class="selector">
-                        <span class="select">
-                            <button><i class="fa-solid fa-minus modify-quantity remove-quantity"></i></button>
-                            <input type="text" value="1" class="number" disabled>
-                            <button><i class="fa-solid fa-plus modify-quantity add-quantity"></i></button>
-                        </span>
-                        <span class="item-price">$ 25.000</span>
-                        <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <article class="item-p">
-            <img src="/prueba/public/images/img-macbook-pro-2019.jpg" alt="">
-            <div class="item-details-p">
-                <span class="item-title-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto
-                    ipsam a optio libero consequuntur</span>
-                <div class="select-quantity">
-                    <div class="selector">
-                        <span class="select">
-                            <button><i class="fa-solid fa-minus modify-quantity remove-quantity"></i></button>
-                            <input type="text" value="1" class="number" disabled>
-                            <button><i class="fa-solid fa-plus modify-quantity add-quantity"></i></button>
-                        </span>
-                        <span class="item-price">$ 25.000</span>
-                        <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
     </div>
 
     <section class="sub-title">
@@ -190,6 +151,36 @@
                 <input type="password" id="password" name="password" required placeholder="Contraseña">
                 <input type="password" id="confirm-password" name="confirm-password" required
                     placeholder="Confirma contraseña">
+            </div>
+        </form>
+    </div>
+
+    <div class="shipping-details">
+        <h5 class="card-title"> <a data-toggle="collapse" aria-expanded="true" class=""> <i class="fa-pts pull-right fa-pts-angle-up"></i> Selecciona tu dirección de envío </a></h5>
+    </div>
+
+    <div class="form">
+        <form>
+            <div class="form-group dni">
+                <input type="dni" id="dni" name="dni" required placeholder="DNI">
+            </div>
+            <div class="form-group street-number">
+                <input type="street" id="street" name="street" required placeholder="Calle">
+                <input type="number" id="number" name="number" required placeholder="Altura">
+            </div>
+            <div class="form-group floor-door">
+                <input type="floor" id="floor" name="floor" required placeholder="Piso">
+                <input type="door" id="door" name="door" required placeholder="Departamento">
+            </div>
+            <div class="form-group city">
+                <input type="city" id="city" name="city" required placeholder="Ciudad">
+            </div>
+            <div class="form-group province-postalcode">
+                <input type="province" id="province" name="province" required placeholder="Provincia">
+                <input type="postalcode" id="postalcode" name="postalcode" required placeholder="Codigo Postal">
+            </div>
+            <div class="form-group telephone">
+                <input type="telephone" id="telephone" name="telephone" required placeholder="Telefono">
             </div>
         </form>
     </div>
