@@ -10,14 +10,14 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #000;
 }
-.banner{
+.banner-samsung{
     position: relative;
     overflow: hidden;
 }
 
 .banner-apple{
-    height: 140vw;
     position: relative;
+    height: 130vw;
 }
 
 .banner-samsung img {
@@ -25,47 +25,49 @@ body {
     margin-left: -85%;
 }
 
-.banner-apple .img-banner-apple-mobile{
+.img-banner-apple-mobile{
     width: 94%;
     position: absolute;
     bottom: 0;
     left: 3%;
 }
 
-.banner-apple .img-banner-apple-desktop{
+.img-banner-apple-desktop{
     display: none;
 }
 
 .banner-text{
-    color: #fff;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     position: absolute;
+    color: #fff;
     text-align: center;
+
 }
 
 .banner-text-samsung{
     bottom: 7vw;
-    left: 5%;
+    right: 5%;
     width: 90%;
     font-size: 6vw;
-}
+    }
 
 .banner-text-apple{
     bottom: 95vw;
-    width: 60%;
+    right: 10%;
+    width: 80%;
     font-size: 7vw;
-    margin-left: 20%;
 }
 
 .banner-text > a {
-    align-self: flex-end;
     color: #fff;
     text-decoration: none;
+    align-self: flex-end;
     font-size: 4vw;
 }
+
 
 .title-iphone14-wide-container {
     width: 100%;
@@ -517,7 +519,7 @@ body {
 @media (min-width:481px) {
 
     .banner-apple{
-        height: 100vw;
+        height: auto;
     }
 
     .banner-samsung img {
@@ -531,9 +533,17 @@ body {
 
     .img-banner-apple-desktop{
         display: block;
+        width: 100%;
+     }
+
+    .banner-text-apple{
+        align-items: flex-end;
+        font-size: 2.8vw;
+        bottom: 5vw;
+        right: 3vw;
     }
 
-    .banner-text{
+    .banner-text-samsung{
         align-items: flex-end;
         font-size: 2.8vw;
         bottom: 5vw;
