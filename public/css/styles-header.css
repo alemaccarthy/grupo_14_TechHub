@@ -16,6 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
     max-width: 1300px;
+    height: 50px;
 }
 .main-header-right {
     display: flex;
@@ -178,6 +179,12 @@ footer li{
 }
 
 @media(min-width: 768px) {
+
+    #main-header{
+        height: 6.55vw;
+        max-height: 70px;
+    }
+
     #logo{
         width: 180px;
     }
@@ -223,6 +230,7 @@ footer li{
 
 @media(min-width: 1200px) {
     #main-header {
+        max-height: 80px;
         margin: auto;
     }
 
