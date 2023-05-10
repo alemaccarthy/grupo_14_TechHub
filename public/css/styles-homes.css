@@ -545,7 +545,7 @@ body {
     }
 
     .banner-text{
-        animation: title-movement 1s ease-out;
+        animation: title-movement 1.5s ease-out;
     }
 
     .banner-apple{
