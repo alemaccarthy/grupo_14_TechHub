@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Robotopresentation-Z:wght@300;400;500;700&display=swap');
+
+#contenedor-principal-detalle{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    row-gap: 10px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+#contenedor-principal-detalle>article{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 2px red; */
+    background-color: rgb(250, 249, 249);
+    width: 90vw;
+    border-radius: 15px; 
+    margin:10px;   
+}
+
+.contenedor-izquierdo-detalle img{
+    max-height: 70vh;
+}
+
+.contenedor-derecho-detalle{
+    padding: 10px;
+    max-height: 75vh;
+    overflow: auto;
+}
+
+.contenedor-tabla-detalles{
+    margin:10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+}
+
+.contenedor-tabla-detalles dt{
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.contenedor-tabla-detalles dd{
+    margin-bottom: 5px;
+}
+
+.ul-colores{
+    margin: 5px;
+}
+
+.boton-comprar:hover{
+    background-color: #3f58f8;
+    text-emphasis-color: white;
+}
+
+.boton-carrito-detalle{
+    border-radius: 10px;
+    background-color: #fdfdffd0;
+    padding: 10px;
+    text-align: center;
+    color: #130bffd0;
+    display: block;
+    width: 90%;
+    margin:5px auto;
+    font-weight: bold; 
+
+}
+
+@media(min-width:768px){
+    #contenedor-principal-detalle{
+        flex-direction: row;
+        align-items: start;
+        margin: auto;
+        width: 60%;
+    }
+
+    .contenedor-izquierdo-detalle{
+        overflow: hidden;
+        flex-grow: 1; 
+        width: 50%;
+        align-items: center;
+    }
+
+    .contenedor-derecho-detalle{
+        max-height: 76vh;
+        overflow: auto;
+        padding: 10px;
+        width: 50%;
+    }
+
+    .ul-colores{
+        height: 4vh;
+    }
+
+    .boton-comprar{
+        width: 40vw;
+        font-size: larger;
+    }
+
+    .boton-carrito-detalle{
+        width: 40vw;
+        font-size: larger;
+    }
+
+    .boton-carrito-detalle:hover{
+        background-color: #130bffdb;
+        color: #ffffff;
+    }
+
+    .titulo-producto-seleccionado {
+        font-size: 4vw;
+        text-align: left;
+    }
+
+    .precio-producto{
+        font-size: 4vw;
+
+    }
+}

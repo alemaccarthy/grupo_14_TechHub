@@ -57,7 +57,11 @@ body {
 }
 
 .cart-items {
+<<<<<<< HEAD
     max-height: 250px;
+=======
+    max-height: 40vw;
+>>>>>>> afd68085e38293b9630ec92a0947672a6b8b0669
     overflow-y: auto;
 }
 
@@ -170,11 +174,10 @@ body {
 }
 
 .sub-title {
-
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 2vw 2vw 0vw;
+    padding: 5vw 2vw 0vw;
 }
 
 .sub-title .user {
