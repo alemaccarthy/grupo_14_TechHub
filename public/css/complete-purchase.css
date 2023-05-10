@@ -57,7 +57,7 @@ body {
 }
 
 .cart-items {
-    max-height: 50%;
+    max-height: 40vw;
     overflow-y: auto;
 }
 
