@@ -8,7 +8,7 @@
 }
 
 body {
-    overflow: auto;
+    overflow: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -38,17 +38,26 @@ body {
     -o-border-radius: 7px;
 }
 
-.title h2,
-h4 {
+.purchase-content .title h2,
+.purchase-content .title h4 {
     margin-left: 2vw;
 }
 
-.title h2 {
+.purchase-content .title h2 {
+    font-size: 4vw;
+}
+
+.purchase-content .title h4 {
+    font-size: 3vw;
+}
+
+.purchase-content .title h2 {
     margin-bottom: 1vw;
+
 }
 
 .cart-items {
-    /*max-height: 50%;*/
+    max-height: 50%;
     overflow-y: auto;
 }
 
@@ -107,6 +116,7 @@ h4 {
     width: 90%;
     margin-left: 10%;
     align-items: center;
+    font-size: 2.8vw;
 }
 
 
@@ -114,7 +124,6 @@ h4 {
     border-radius: 50%;
     border: 1px solid black;
     cursor: pointer;
-    font-size: 3vw;
 }
 
 .cart-items .item-p .item-details-p .select-quantity .selector button.no-border {
@@ -125,12 +134,10 @@ h4 {
     width: 15%;
     text-align: center;
     font-weight: 700;
-    font-size: 3vw;
 }
 
 .cart-items .item-p .item-details-p .select-quantity .selector .item-price {
     border: none;
-    font-size: 3vw;
     font-weight: 400;
     background: transparent;
     text-align: center;
@@ -145,11 +152,12 @@ h4 {
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    font-size: 3vw;
 }
 
 .check-cart .cart-icon {
     color: grey;
-    font-size: 4vw;
+    
     margin-left: 1vw;
     margin-top: 2vw;
     padding: 2vw;
@@ -396,12 +404,12 @@ input[type="telephone"] {
     z-index: 9999;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 20px;
+    padding: 3vw;
     margin: 0 auto;
 }
 
 .floating-buttons button {
-    padding: 20px;
+    padding: 4vw;
     width: 99.9%;
     border: none;
     flex-grow: 1;
