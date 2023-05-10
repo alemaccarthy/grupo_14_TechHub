@@ -95,13 +95,21 @@ body {
 }
 
 .cart-items .item-p .item-details-p .select-quantity {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.7fr;
+    justify-items: end;
     align-items: center;
+    align-content: center;
+    width: 90%;
+    margin-left: 10%;
+    font-size: 2.8vw;
 }
 
 .cart-items .item-p .item-details-p .select-quantity .modify-quantity {
-    font-size: 2.5vw;
+    font-size: 2.8vw;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .modify-quantity {
     text-align: center;
     padding: 2px;
 }
@@ -110,42 +118,35 @@ body {
     color: #FF6700;
 }
 
-.cart-items .item-p .item-details-p .select-quantity .selector {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin-left: 10%;
-    align-items: center;
-    font-size: 2.8vw;
-}
-
-
-.cart-items .item-p .item-details-p .select-quantity .selector button {
+.cart-items .item-p .item-details-p .select-quantity button {
     border-radius: 50%;
     border: 1px solid black;
     cursor: pointer;
+
 }
 
-.cart-items .item-p .item-details-p .select-quantity .selector button.no-border {
+.cart-items .item-p .item-details-p .select-quantity button.no-border {
+    background: transparent;
     border: none;
+    font-size: 2.8vw;
 }
 
-.cart-items .item-p .item-details-p .select-quantity .selector .number {
+.cart-items .item-p .item-details-p .select-quantity .number {
     width: 15%;
     text-align: center;
     font-weight: 700;
+    font-size: 2.8vw;
 }
 
-.cart-items .item-p .item-details-p .select-quantity .selector .item-price {
+.cart-items .item-p .item-details-p .select-quantity .item-price {
     border: none;
     font-weight: 400;
-    background: transparent;
-    text-align: center;
 }
 
-.cart-items .item-p .item-details-p .select-quantity .selector i {
+.cart-items .item-p .item-details-p .select-quantity i {
     cursor: pointer;
 }
+
 
 .check-cart {
     border-bottom: 1px solid grey;
@@ -464,20 +465,20 @@ input[type="telephone"] {
         font-size: 2vw;
     }
 
-    .cart-items .item-p .item-details-p .select-quantity .selector .item-price {
+/*     .cart-items .item-p .item-details-p .select-quantity .item-price {
         font-size: 2vw;
-    }
+    } */
 
     .cart-items .item-p .item-details-p .item-title-p {
         font-size: 2.5vw;
         padding: 1vw 3vw 1.5vw;
     }
 
-    .cart-items .item-p .item-details-p .select-quantity .selector .select button {
+    .cart-items .item-p .item-details-p .select-quantity .select button {
         font-size: 2vw;
     }
 
-    .cart-items .item-p .item-details-p .select-quantity .selector .select input {
+    .cart-items .item-p .item-details-p .select-quantity .select input {
         font-size: 2.5vw;
     }
 
