@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto:wght@300;400;700&display=swap');
-/* {
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
+}
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: black;
+    background-image: url("/imgs/fondo-mobile.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.background img {
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-}
+
 
 .background video {
     display: none;
@@ -25,18 +26,18 @@ body {
 
 .navbar {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 1vw 2vw 1vw 1vw;;
 }
 
 .logo {
     width: 40%;
-    padding: 2vw 2vw 0 0;
 }
 
 .hamburguer-buttom {
     font-size: 25px;
-    padding: 1vw 2vw;
+/*     padding: 1vw 2vw; */
     border: none;
     color: white;
     align-self: center;
@@ -47,40 +48,27 @@ body {
 }
 
 .marcas {
-    height: 60%;
+    width: 30%;
+    position: absolute;
+    top: 40%;
+    left: 35%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: fixed;
-    left: 50%;
-    right: 50%;
+    flex-direction: column;
 }
 
 .logo-samsung {
     width: 18vw;
-    padding-bottom: 2vw;
-
 }
 
 .logo-apple {
-    width: 10vw;
-    padding: 0vw;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 1vw;
+    width: 9vw;
 }
 
 .slogan {
     font-family: 'Major Mono Display', monospace;
-    font-size: 9vw;
+    font-size: 8vw;
     color: #fff;
     position: fixed;
     box-sizing: border-box;
@@ -89,64 +77,39 @@ body {
     margin: 2%;
 }
 
-@media(min-width: 768) {
-    .navbar {
-        display: flex;
+@media(min-width: 481px) {
+
+    .marcas {
         flex-direction: row;
-        justify-content: space-between;
+    }
+
+    .logo-samsung {
+        max-width: 150px;
+    }
+
+    .logo-apple {
+        max-width: 60px;
     }
 
     .logo {
-        width: 10%;
-        padding: 2vw 2vw 0 0;
+        max-width: 548px;
     }
 
-    .hamburguer-buttom {
-        font-size: 10px;
-        padding: 1vw 2vw;
-        border: none;
-        color: white;
-        align-self: center;
+    .slogan {
+        font-size: 6vw;
     }
-
-    .hamburguer-buttom .fa-solid {
-        padding-right: 2vw;
-    }
-
-    .marcas {
-        height: 30%;
-        flex-direction: row;
-        left: 50%;
-        right: 50%;
-    }
-    
-    .logo-samsung {
-        width: 18vw;
-        padding-bottom: 2vw;
-    
-    }
-    
-    .logo-apple {
-        width: 10vw;
-        padding: 0vw;
-    }
-
-
-
 }
+
+/* @media(min-width: 720px){
+    .slogan{
+        font-size: 350%;
+        bottom: 10%;
+    }
+} */
 
 @media(min-width: 1200px) {
     body {
         background-image: none;
-    }
-
-    .background img {
-        display: none;
-    }
-
-    .logo {
-        width: 13vw;
-        padding: 0 1vw 0 0;
     }
 
     .background video {
@@ -158,30 +121,12 @@ body {
         z-index: -1;
     }
 
-    .hamburguer-buttom {
-        font-size: 22px;
-        padding: 1vw 1.5vw;
-        border: none;
-        color: #fff;
-    }
-
-    .marcas {
-        position: static;
-        flex-direction: row;
-        margin: 12vw;
-        padding-top: 2vw;
-        justify-content: center;
-    }
-
     .logo-samsung {
-        width: 7vw;
         padding-right: 1vw;
         transition: all 0.5s ease-in-out;
-
     }
 
     .logo-apple {
-        width: 3vw;
         padding-left: 1vw;
         transition: all 0.5s ease-in-out;
     }
@@ -194,26 +139,17 @@ body {
         transform: scale(1.5) rotateX(360deg);
     }
 
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        width: 1rem;
-    }
-
     .slogan {
         width: 40%;
         margin: 0 auto;
-        font-family: 'Major Mono Display', monospace;
         font-size: 1.8rem;
         display: flex;
         justify-content: center;
-        color: #fff;
         position: relative;
         z-index: 2;
         box-sizing: border-box;
         padding: 0.4rem;
+        margin-top: 60vh;
         transition: all 1s ease-in-out
     }
 
