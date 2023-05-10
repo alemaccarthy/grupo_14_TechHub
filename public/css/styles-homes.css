@@ -10,13 +10,12 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #000;
 }
-.banner-samsung{
+.banner{
     position: relative;
     overflow: hidden;
 }
 
 .banner-apple{
-    position: relative;
     height: 130vw;
 }
 
@@ -230,7 +229,7 @@ body {
 
 .outstanding-container {
     background-color: #000;
-    padding: 10vw 0;
+    margin: 10vw 0;
 }
 
 .outstanding {
@@ -516,7 +515,38 @@ body {
     display: none;
 }
 
+
+@keyframes inicial-banner{
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes title-movement {
+    0%{
+        right: -1vw;
+        opacity: 0%;
+    }
+    100%{
+        right: 3vw;
+        opacity: 100%;
+    }
+}
+
+
 @media (min-width:481px) {
+
+    .banner {
+        animation: inicial-banner 1.3s linear;
+    }
+
+    .banner-text{
+        animation: title-movement 1s ease-out;
+    }
 
     .banner-apple{
         height: auto;
@@ -698,7 +728,6 @@ body {
 
     .outstanding-container {
         background-image: url(/imgs/Samsung/fondoDestacados.jpg);
-        margin-bottom: 10vw;
     }
 
     .outstanding-container-samsung {
