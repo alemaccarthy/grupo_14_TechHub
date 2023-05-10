@@ -1,0 +1,161 @@
+:root {
+    --colorTextos: #49454567;
+}
+
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,#164194, #31d8ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #164194, #31d8ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    font-weight: 700px;
+    margin: 50px ;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    
+    
+    
+}
+
+#logo{
+    position: relative;
+    bottom: -23px;
+    right: 30px;
+}
+
+.register-container{
+    background-color: #fff;
+    padding: 45px 10px;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding-top: 20px;
+   
+    
+}
+
+
+
+
+.form{
+    width: 100%;
+    margin: auto;
+}
+
+form .group{
+    position: relative;
+    margin: 20px    ;  
+    
+}
+
+input{
+    background: none;
+    color: #c6c6c6;
+    font-size: 22px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    /* width: 100%; */
+    border: none;
+    border-bottom: 1px solid var(--colorTextos) ;
+
+
+}
+
+.sesion-input label ,.sesion-input input{
+   position: static ;
+   display: inline-block;
+   padding: 10px;
+   font-size: 16px;
+   
+   
+    
+}
+
+.sesion-input{
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+    color: #666;
+}
+
+label{
+    color: var(--colorTextos);
+    font-size: 12px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.3s ease-in-out all;
+    pointer-events: none;
+
+}
+
+.group input:focus~label,
+.group input:valid~label{
+    top:-14px;
+    font-size: 10px;
+    color: #164194;
+
+}
+
+.barra{
+    position: relative;
+    display: block;
+    width: 100%;
+    
+}
+
+.barra::before{
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right,#164194, #31d8ff); 
+    transition: 0.3s ease width;
+    left: 0;
+}
+
+
+input:focus~.barra::before{
+    width: 100%;
+
+}
+
+button{
+    font-family: "roboto";
+    background: #ffffff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,#164194, #31d8ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #164194, #31d8ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 17px;
+    color: #ffffff;
+    border-radius: 10px;
+
+
+}
+
+
+
+
+
+
