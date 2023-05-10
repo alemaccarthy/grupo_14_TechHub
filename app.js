@@ -28,8 +28,12 @@ app.get('/completePurchase', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/complete-purchase.html'))
 })
 
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'))
+app.get('/product-detail', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/product-detail.html'))
+})
+
+app.get('/products-list', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/products-list.html'))
 })
 
 app.get('/register', (req, res) => {
