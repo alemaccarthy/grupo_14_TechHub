@@ -18,7 +18,7 @@ body {
 
 .cart {
     width: 320px;
-    height: 523px;
+    height: 490px;
     position: fixed;
     background-color: whitesmoke;
     right: 22vw;
@@ -29,7 +29,7 @@ body {
 
 .cart-items {
     width: 100%;
-    height: 50%;
+    height: 60%;
     overflow-y: scroll;
     transition: .3s;
     background-color: whitesmoke;
@@ -92,6 +92,7 @@ body {
 
 .cart-items .item .item-details .select-quantity .selector button.no-border {
     border:none;
+    background: transparent;
 }
 
 .cart-items .item .item-details .select-quantity .selector .number {
@@ -182,27 +183,6 @@ body {
 }
 
 .buttons .btn-checkcart:hover {
-    background-color: rgb(130, 127, 127);
+    background-color: #666;
 }
 
-.buttons .btn-cart {
-    display: flex;
-    background-color: #E2E6EA;
-    color: #333333;
-    font-size: 14px;
-    border: none;
-    padding: 14px 21px;
-    cursor: pointer;
-    margin-top: 0.5vw;
-    justify-content: center;
-    text-decoration: none;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.buttons .btn-cart:hover {
-    background-color: rgb(138, 135, 135);
-}
