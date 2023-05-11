@@ -588,10 +588,17 @@ input[type="telephone"] {
         font-size: 2.5vw;
     } */
 
+    .floating-buttons {
+        padding: 21.36px;
+        margin: 0px 26.7px;
+        border: none;
+    }
 
     .floating-buttons button {
-        font-size: 2.5vw;
-        padding: 0.9vw 5vw;
+        font-size: 26.9px;
+        padding: 9.612px 53.4px;
+        max-width: 690px;
+        
     }
 
     .log-in-btn {
@@ -611,7 +618,6 @@ input[type="telephone"] {
     .purchase-content .payment-method {
         grid-area: 2 / 2 / 3 / 3;
         padding: 0 1.5vw;
-    }
+    }    
 }
-
 
