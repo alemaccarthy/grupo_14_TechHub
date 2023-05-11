@@ -458,7 +458,7 @@ input[type="telephone"] {
     }
 
     .cart-container {
-        max-width: 691.2px;
+        max-width: 550px;
     }
 
     .check-cart .cart-icon {
@@ -481,8 +481,12 @@ input[type="telephone"] {
     }
     
     .cart-items .item-p .item-details-p .item-title-p {
-        font-size: 2.5vw;
+        font-size: 17.4px;
         padding: 1vw 3vw 1.5vw;
+    }
+
+    .cart-items .item-p .item-details-p .select-quantity {
+        font-size: 16.6px;
     }
 
     .cart-items .item-p .item-details-p .select-quantity .select button {
