@@ -433,10 +433,6 @@ input[type="telephone"] {
 }
 
 @media screen and (min-width: 576px) {
-    .cart-items .item-p .item-details-p .item-title-p {
-        font-size: 2.8vw;
-    }
-
     .floating-buttons {
         max-height: 25vw;
         padding: 2vw;
