@@ -432,6 +432,17 @@ input[type="telephone"] {
     margin-right: 1vw;
 }
 
+@media screen and (min-width: 481px) {
+    .cart-items .item-p .item-details-p .item-title-p {
+        font-size: 17.4px;
+        padding: 1vw 3vw 1.5vw;
+    }
+
+    .cart-items .item-p .item-details-p .select-quantity {
+        font-size: 16.6px;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .floating-buttons {
         max-height: 25vw;
@@ -478,15 +489,6 @@ input[type="telephone"] {
     } */
     .cart-items {
         max-width: 768px;
-    }
-    
-    .cart-items .item-p .item-details-p .item-title-p {
-        font-size: 17.4px;
-        padding: 1vw 3vw 1.5vw;
-    }
-
-    .cart-items .item-p .item-details-p .select-quantity {
-        font-size: 16.6px;
     }
 
     .cart-items .item-p .item-details-p .select-quantity .select button {
