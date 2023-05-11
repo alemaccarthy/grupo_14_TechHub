@@ -122,7 +122,6 @@ body {
     border-radius: 50%;
     border: 1px solid black;
     cursor: pointer;
-
 }
 
 .cart-items .item-p .item-details-p .select-quantity button.no-border {
@@ -433,9 +432,18 @@ input[type="telephone"] {
     margin-right: 1vw;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 576px) {
     .cart-items .item-p .item-details-p .item-title-p{
         font-size: 2.8vw;
+    }
+    .floating-buttons {
+        max-height: 25vw;
+        padding: 2vw;
+    }
+
+    .floating-buttons button {
+        max-height: 20vw;
+        padding: 2vw;
     }
 }
 
@@ -497,11 +505,12 @@ input[type="telephone"] {
     }
 
     .floating-buttons button {
-        font-size: 3vw;
+        font-size: 2.5vw;
+        padding: 0.9vw 5vw;
     }
 
     .log-in-btn {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 }
 
