@@ -20,11 +20,11 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/login.html'))
 })
 
-app.get('/productCart', (req, res) => {
+app.get('/product-cart', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/productCart.html'))
 })
 
-app.get('/completePurchase', (req, res) => {
+app.get('/complete-purchase', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/complete-purchase.html'))
 })
 

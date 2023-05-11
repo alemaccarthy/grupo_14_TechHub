@@ -43,14 +43,14 @@
         </nav>
     </header>
     <section class="purchase-content">
-        <section class="title">
-            <h2>Compra rapida</h2>
-            <h4>Revisa tu pedido</h4>
-        </section>
         <section class="cart-container">
+            <section class="title">
+                <h2>Compra rapida</h2>
+                <h4>Revisa tu pedido</h4>
+            </section>
             <section class="check-cart">
-                <i class="fa-solid fa-cart-shopping cart-icon" style="color: #ccd2db;"></i>
-                <span class="cart-title">RESUMEN DE PEDIDO</span>
+                
+                <span class="cart-title"><i class="fa-solid fa-cart-shopping cart-icon" style="color: #ccd2db;"></i>RESUMEN DE PEDIDO</span>
             </section>
 
             <div class="cart-items p">
@@ -60,9 +60,9 @@
                         <span class="item-title-p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
                         <div class="select-quantity">
                                 <span class="select">
-                                    <button><i class="fa-solid fa-minus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-minus modify-quantity"></i></button>
                                     <input type="text" value="1" class="number" disabled>
-                                    <button><i class="fa-solid fa-plus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-plus modify-quantity"></i></button>
                                 </span>
                                 <span class="item-price">$ 25.000</span>
                                 <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
@@ -76,9 +76,9 @@
                         <span class="item-title-p">Lorem ipsum dolor</span>
                         <div class="select-quantity">
                                 <span class="select">
-                                    <button><i class="fa-solid fa-minus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-minus modify-quantity"></i></button>
                                     <input type="text" value="1" class="number" disabled>
-                                    <button><i class="fa-solid fa-plus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-plus modify-quantity"></i></button>
                                 </span>
                                 <span class="item-price">$ 25.000</span>
                                 <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
@@ -93,9 +93,9 @@
                             ipsam a optio libero consequuntur</span>
                         <div class="select-quantity">
                                 <span class="select">
-                                    <button><i class="fa-solid fa-minus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-minus modify-quantity"></i></button>
                                     <input type="text" value="1" class="number" disabled>
-                                    <button><i class="fa-solid fa-plus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-plus modify-quantity"></i></button>
                                 </span>
                                 <span class="item-price">$ 25.000</span>
                                 <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
@@ -110,9 +110,9 @@
                             ipsam a optio libero consequuntur</span>
                         <div class="select-quantity">
                                 <span class="select">
-                                    <button><i class="fa-solid fa-minus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-minus modify-quantity"></i></button>
                                     <input type="text" value="1" class="number" disabled>
-                                    <button><i class="fa-solid fa-plus modify-quantity"></i></button>
+                                    <button class="no-border"><i class="fa-solid fa-plus modify-quantity"></i></button>
                                 </span>
                                 <span class="item-price">$ 25.000</span>
                                 <button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button>
@@ -167,10 +167,8 @@
                 </form>
             </div>
 
-            <div class="shipping-details">
-                <h5 class="card-title"> <a data-toggle="collapse" aria-expanded="true" class=""> <i
+                <h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true" class=""> <i
                             class="fa-pts pull-right fa-pts-angle-up"></i> Selecciona tu dirección de envío </a></h5>
-            </div>
 
             <div class="form">
                 <form>
@@ -200,8 +198,8 @@
         </section>
 
         <div class="payment-method">
-            <div class="option-1">
-                <input type="radio" id="payment-option-1" name="payment-option" class="payment_radio" value="mercadopago">
+            <div class="option-1 payment-radio-option">
+                <input type="radio" id="payment-option-1" name="payment-option" value="mercadopago">
                 <img class="payment-img1" src="/imgs/Cart/mpinfo_checkout.png" alt="">
                 <div class="payment-content">
                     <span class="payment-title">TARJETAS DE CREDITO Y DEBITO</span>
@@ -210,8 +208,8 @@
                     </p>
                 </div>
             </div>
-            <div class="option-2">
-                <input type="radio" id="payment-option-2" name="payment-option" class="payment_radio" value="mobbex">
+            <div class="option-2 payment-radio-option">
+                <input type="radio" id="payment-option-2" name="payment-option" value="mobbex">
                 <img class="payment-img2" src="/imgs/Cart/mobbex.jpeg" alt="">
                 <div class="payment-content">
                     <span class="payment-title">Quiero pagar con Mercado Pago sin costo adicional.</span>
