@@ -10,7 +10,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: black;
-    background-image: url("/imgs/fondo-mobile.jpg");
+    background-image: url("/imgs/index/fondo-mobile.jpg");
     height: 100vh;
     width: 100vw;
     background-position: center;
