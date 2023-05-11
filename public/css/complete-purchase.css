@@ -433,6 +433,10 @@ input[type="telephone"] {
 }
 
 @media screen and (min-width: 481px) {
+    .cart-container {
+        max-width: 550px;
+    }
+    
     .cart-items .item-p .item-details-p .item-title-p {
         font-size: 17.4px;
         padding: 1vw 3vw 1.5vw;
@@ -466,10 +470,6 @@ input[type="telephone"] {
         -moz-border-radius: 7px;
         -ms-border-radius: 7px;
         -o-border-radius: 7px;
-    }
-
-    .cart-container {
-        max-width: 550px;
     }
 
     .check-cart .cart-icon {
