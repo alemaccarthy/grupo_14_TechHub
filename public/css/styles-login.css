@@ -2,7 +2,6 @@
     --colorTextos: #49454567;
 }
 
-
 *,
 ::before,
 ::after {
@@ -27,9 +26,6 @@ h1{
     margin: 50px ;
     margin-top: 3px;
     margin-bottom: 3px;
-    
-    
-    
 }
 
 #logo{
@@ -44,12 +40,7 @@ h1{
     box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding-top: 20px;
-   
-    
 }
-
-
-
 
 .form{
     width: 100%;
@@ -79,10 +70,7 @@ input{
    position: static ;
    display: inline-block;
    padding: 10px;
-   font-size: 16px;
-   
-   
-    
+   font-size: 16px; 
 }
 
 .sesion-input{
@@ -102,7 +90,6 @@ label{
     top: 10px;
     transition: 0.3s ease-in-out all;
     pointer-events: none;
-
 }
 
 .group input:focus~label,
@@ -110,14 +97,12 @@ label{
     top:-14px;
     font-size: 10px;
     color: #164194;
-
 }
 
 .barra{
     position: relative;
     display: block;
     width: 100%;
-    
 }
 
 .barra::before{
@@ -150,12 +135,4 @@ button{
     font-size: 17px;
     color: #ffffff;
     border-radius: 10px;
-
-
 }
-
-
-
-
-
-
