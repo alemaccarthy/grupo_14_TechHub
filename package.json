@@ -1,5 +1,5 @@
 {
-  "name": "grupo_14_nombre",
+  "name": "grupo_14_TehcHub",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alemaccarthy/grupo_14_Nombre.git"
+    "url": "git+https://github.com/alemaccarthy/grupo_14_TehcHub.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alemaccarthy/grupo_14_Nombre/issues"
+    "url": "https://github.com/alemaccarthy/grupo_14_TehcHub/issues"
   },
-  "homepage": "https://github.com/alemaccarthy/grupo_14_Nombre#readme",
+  "homepage": "https://github.com/alemaccarthy/grupo_14_TehcHub#readme",
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.22"
