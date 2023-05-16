@@ -1,23 +1,13 @@
 const express = require('express');
 const path = require('path');
+const mainRoutes = require('./routes/mainRoutes');
 
 const app = express();
 
 app.use(express.static( path.join (__dirname, '/public')));
-
+app.use(mainRoutes)
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/index.html'))
-})
-
-app.get('/home-1', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/home-1.html'))
-})
-
-app.get('/home-2', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/home-2.html'))
-})
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/login.html'))
