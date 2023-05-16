@@ -1,6 +1,6 @@
 const path = require('path');
 
-const controllers = {
+const mainController = {
     getIndex: (req, res) => {
         res.sendFile(path.join(__dirname, '../views/index.html'))
     },
@@ -14,4 +14,4 @@ const controllers = {
     }
 }
 
-module.exports = controllers; 
+module.exports = mainController; 
