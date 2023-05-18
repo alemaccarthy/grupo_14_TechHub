@@ -54,7 +54,6 @@ input{
     border-bottom: 1px solid var(--colorTextos) ;
 }
 
-
 .sesion-input label ,.sesion-input input{
    position: static ;
    display: inline-block;
