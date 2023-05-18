@@ -42,6 +42,7 @@ main>section {
 .fran-title-a-wide-container{
     background-color: #dddce1;
     width: 100%;
+    overflow: hidden;
 }
 
 .fran-presentation-s23 video {

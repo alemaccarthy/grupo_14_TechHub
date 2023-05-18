@@ -2,15 +2,15 @@ const path = require('path');
 
 const mainController = {
     getIndex: (req, res) => {
-        res.sendFile(path.join(__dirname, '../views/index.html'))
+        res.render('index');
     },
 
     getHome1: (req, res) => {
-        res.sendFile(path.join(__dirname, '../views/home-1.html'))
+        res.render('home-1')
     },
     
     getHome2: (req, res) => {
-        res.sendFile(path.join(__dirname, '../views/home-2.html'))
+        res.render('home-2')
     }
 }
 

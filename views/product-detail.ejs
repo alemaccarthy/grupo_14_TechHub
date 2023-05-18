@@ -2,45 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/head') %>
+    
     <link rel="stylesheet" href="/css/styles-products-list.css">
     <link rel="stylesheet" href="/css/styles-homes.css">
     <link rel="stylesheet" href="/css/styles-product-detail.css">
     <link rel="stylesheet" href="/css/styles-header.css">
-    <script src="https://kit.fontawesome.com/ec3ac6c0de.js" crossorigin="anonymous"></script>
-
-    <title>Detalles de Producto</title>
 </head>
 
 <body>
-    <header>
-        <section id="main-header">
-            <section class="main-header-left">
-                <img id="logo" src="./imgs/logo-iso/LogoTechHub_Principal.png" alt="">
-                <ul class="left-list">
-                    <li><button>Tienda Online</button></li>
-                    <li><button>Smartphones</button></li>
-                    <li><button>Smartwatch</button></li>
-                    <li><button>Tablets</button></li>
-                </ul>
-            </section>
-
-            <section class="main-header-right">
-                <ul class="right-list">
-                    <li id="glass"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li id="cart"><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <li id="user"><a href=""><i class="fa-solid fa-user"></i></a></li>
-                    <li id="bars"><a href=""><i class="fa-solid fa-bars"></i></a></li>
-                </ul>
-            </section>
-        </section>
-        <nav class="brands">
-            <a href=""><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
-            <a href=""><img id="samsung" src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png" alt=""></a>
-        </nav>
-    </header>
+    <%- include('./partials/header') %>
 
     <main>
         <section id="contenedor-principal-detalle">
@@ -113,4 +84,6 @@
             <button class="boton-carrito-detalle" type="button">Agregar al Carrito</button>
         </section>
     </main>
+    <%- include('./partials/footer') %>
+
 </body>
