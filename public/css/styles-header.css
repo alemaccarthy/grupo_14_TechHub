@@ -18,6 +18,7 @@ header {
     max-width: 1300px;
     height: 50px;
 }
+
 .main-header-right {
     display: flex;
     justify-content: center;
@@ -50,22 +51,22 @@ header {
     margin: 8px;
 }
 
-.right-list i{
+.right-list i {
     font-size: 20px;
 }
 
-#user{
+#user {
     display: none;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
     color: #ccc;
     transition: all 0.5s;
 }
 
-#main-header button:hover{
+#main-header button:hover {
     color: #fff;
     cursor: pointer;
 }
@@ -85,14 +86,14 @@ button{
     padding: 0.8vw 0 0.5vw;
 }
 
-footer{
+footer {
     background-color: #fff;
     color: #444;
     text-align: center;
     max-height: 417px;
 }
 
-.footer-container{
+.footer-container {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -114,17 +115,17 @@ footer .footer-info:first-child {
     max-width: 340px;
 }
 
-footer .footer-info:nth-child(2){
+footer .footer-info:nth-child(2) {
     padding: 5vw;
     max-width: 395px;
 }
 
-footer .footer-info:last-of-type{
+footer .footer-info:last-of-type {
     padding: 0 5vw 5vw;
     max-width: 340px;
 }
 
-footer ul{
+footer ul {
     list-style: none;
 }
 
@@ -132,11 +133,12 @@ footer a {
     color: #000;
     text-decoration: none;
 }
-footer li{
+
+footer li {
     margin: 1.5vw;
 }
 
-.copyright{
+.copyright {
     padding: 3vw;
     text-align: left;
     font-weight: 200;
@@ -145,33 +147,35 @@ footer li{
     margin: 0 auto;
 }
 
-@media(min-width: 481px){
+@media(min-width: 481px) {
 
-    .footer-container{
+    .footer-container {
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: start;
         padding: 2vw;
         font-size: 1.8vw;
     }
-    .footer-container > section.footer-info {
+
+    .footer-container>section.footer-info {
         width: 30%;
         margin: 0;
         padding: 0;
     }
-    footer .footer-info:nth-child(2){
+
+    footer .footer-info:nth-child(2) {
         width: 35%;
     }
 
     footer h1 {
         margin: 1.3vw;
-    }    
+    }
 
-    footer li{
+    footer li {
         margin: 1vw;
     }
 
-    .copyright{
+    .copyright {
         width: 100%;
         font-size: 1.3vw;
         padding: 1.5vw;
@@ -180,12 +184,12 @@ footer li{
 
 @media(min-width: 768px) {
 
-    #main-header{
+    #main-header {
         height: 6.55vw;
         max-height: 70px;
     }
 
-    #logo{
+    #logo {
         width: 180px;
     }
 
@@ -208,7 +212,8 @@ footer li{
     .left-list li {
         margin: 0 7px;
     }
-    .brands{
+
+    .brands {
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 15px 0 0 15px;
         display: flex;
@@ -223,7 +228,8 @@ footer li{
         max-width: 50px;
         min-width: 35px;
     }
-    .left-list button{
+
+    .left-list button {
         font-size: 15px;
     }
 }
@@ -249,24 +255,24 @@ footer li{
         transition: color 0.5s ease;
     }
 
-    .brands{
+    .brands {
         top: 83px;
     }
 
-    .footer-container{
+    .footer-container {
         font-size: 22px;
         padding: 24px;
     }
 
     footer h1 {
         margin: 16px;
-    }    
+    }
 
-    footer li{
+    footer li {
         margin: 12px;
     }
 
-    .copyright{
+    .copyright {
         font-size: 16px;
         padding: 18px;
     }
