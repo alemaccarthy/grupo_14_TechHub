@@ -18,13 +18,6 @@ main>section {
     align-items: center;
 }
 
-.fran-presentation-categorias {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .fran-title-s23-wide-container {
     position: relative;
     width: 100%;
@@ -34,12 +27,12 @@ main>section {
     border-radius: 15px; */
 }
 
-.fran-title-z-wide-container{
+.fran-title-z-wide-container {
     background-color: #f4f4f4;
     width: 100%;
 }
 
-.fran-title-a-wide-container{
+.fran-title-a-wide-container {
     background-color: #dddce1;
     width: 100%;
     overflow: hidden;
@@ -51,7 +44,6 @@ main>section {
 
 .fran-presentation-z video {
     width: 70%;
-    
     margin-left: 15%;
 }
 
@@ -59,21 +51,17 @@ main>section {
     width: 100%;
     margin-left: 15%;
     height: 50vh;
-  
 }
 
 .grilla-articulos {
     display: grid;
     grid-template-columns: 100%;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: #cfc8c8;
     width: 70%;
     border-radius: 15px;
     margin: auto;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     padding: 10px;
     gap: 10px;
 }
@@ -103,7 +91,6 @@ main>section {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-
 }
 
 .ul-colores>a.black {
@@ -116,8 +103,7 @@ main>section {
 }
 
 .imagen-producto {
-
-    max-width: 100%;
+    width: 100%;
 }
 
 .boton-comprar {
@@ -154,7 +140,6 @@ main>section {
 }
 
 .titulo-producto-seleccionado {
-    font-family: 'Roboto', sans-serif;
     font-size: 7vw;
     color: #000;
 }
@@ -165,7 +150,6 @@ main>section {
     font-size: 4vw;
 }
 
-
 .precio-producto {
     font-size: 8vw;
     color: #000;
@@ -174,7 +158,6 @@ main>section {
 .fran-banner img {
     width: 100%;
 }
-
 
 .fran-smartphone-title {
     color: #fff;
@@ -197,101 +180,6 @@ main>section {
     margin: 10px 0;
 }
 
-
-
-
-.fran-text-link {
-    margin-left: 70%;
-    font-size: 4.5vw;
-    text-decoration: none;
-    color: #fff;
-}
-
-.fran-outstanding-container {
-    background-color: #d7d7d7;
-}
-
-.fran-outstanding {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    padding: 1.5vw 3vw 3vw;
-    height: 25vh;
-}
-
-.fran-outstanding-title h1 {
-    color: #ffffff;
-    font-size: 5vw;
-    padding: 2vw 3vw 0;
-}
-
-.fran-outstanding-product {
-    border-radius: 10px;
-    text-decoration: none;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.fran-os-p-samsung-1,
-.fran-os-p-samsung-2,
-.fran-os-p-samsung-3 {
-    background-color: #fff;
-}
-
-
-.fran-os-product-1 {
-    width: 57%;
-}
-
-.fran-os-p-samsung-1 img {
-    width: 60%;
-    padding-top: 3vw;
-}
-
-
-.fran-os-product-1 h2 {
-    color: #000;
-    font-size: 4vw;
-}
-
-.fran-os-product-2 {
-    height: 44%;
-   
-}
-
-
-.fran-os-p-samsung-2 img {
-    width: 60%;
-    padding-top: 2vw;
-}
-
-.fran-os-product-3 {
-    height: 52%;
-}
-
-
-.fran-os-p-samsung-3 img {
-    width: 75%;
-}
-
-.fran-os-small-product h2 {
-    color: #000;
-    font-size: 3.5vw;
-}
-
-.fran-small-products-container {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    width: 40%;
-    row-gap: 15px; 
-}
-
-
-
 @media (min-width:481px) {
 
     .grilla-articulos {
@@ -310,104 +198,12 @@ main>section {
     .ul-colores>a {
         width: 10px;
         height: 10px;
-        border-radius: 50%;
     }
 
     .precio-producto {
         color: #000;
         font-size: 5vw;
     }
-
-    .fran-s23-title {
-        font-size: 6vw;
-    }
-
-    .fran-text-link {
-        font-size: 2vw;
-    }
-
-    .fran-outstanding {
-        justify-content: center;
-        column-gap: 10px;
-        margin: 0 10px;
-        flex-direction: row;
-        height: 55vh;
-    }
-
-    .fran-os-product-2 {
-        height: 45%;
-    }
-
-    .fran-outstanding-product {
-        transition: all 0.5s;
-    }
-
-    .fran-os-small-product{
-        max-width: 200px;
-        max-height: 161px;
-    }
-
-    .fran-os-small-product:hover {
-        transform: scale(1.02);
-
-    }
-
-    .fran-os-product-1:hover {
-        transform: scale(1.01);
-    }
-
-    .fran-outstanding-container {
-        background-image: url(/imgs/Samsung/fondoDestacados.jpg);
-        margin-bottom: 10vw;
-    }
-
-    .fran-outstanding-container-samsung {
-        margin-bottom: 10vw;
-    }
-
-    .fran-outstanding-title {
-        width: 63%;
-        max-width: 893px;
-        margin: 0 auto;
-    }
-
-    .fran-outstanding-title h1 {
-       /*  font-size: 3.3vw;
-        width: 100%; */
-        color: #ffffff;
-        padding: 2vw 0 0;
-    }
-
-    .fran-os-small-product h2 {
-        font-size: 1.5vw;
-    }
-
-    .fran-os-product-1 h2 {
-        font-size: 3vw;
-    }
-
-    .fran-os-p-samsung-1 img {
-        padding: 0;
-        max-width: 30vw;
-        width: 80%;
-    }
-
-    .fran-os-p-samsung-3 img,
-    .fran-os-p-samsung-2 img {
-
-        padding: 0;
-    }
-
-    .fran-os-p-samsung-2 h2 {
-        display: inline-block;
-        margin: 0 auto;
-    }
-
-    .fran-os-small-product img {
-        width: 90%;
-        max-height: 30vh;
-    }
-
 }
 
 @media(min-width:770px) {
@@ -415,7 +211,6 @@ main>section {
     .grilla-articulos {
         grid-template-columns: 30% 30% 30%;
         justify-content: space-around;
-
     }
 
     .titulo-producto-seleccionado {
@@ -423,72 +218,33 @@ main>section {
     }
 
     .fran-smartphone-title.fran-z-title,
-.fran-smartphone-title.fran-a-title {
-    font-size: 5vw;
-}
+    .fran-smartphone-title.fran-a-title {
+        font-size: 5vw;
+    }
 
     .productos-seleccionados {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-radius: 15px;
-        background-color: rgba(244, 238, 238, 0.599);
-        color: #164194;
-        justify-content: center;
-        text-align: center;
-        padding-bottom: 20px;
         align-items: center;
         /* height: 507vh; */
         /* border: solid; */
     }
 
-    .opcion-colores{
+    .opcion-colores {
         font-size: 1.5vw;
     }
 
-
     .imagen-producto {
         max-width: 35vh;
-        height: 30vh;
     }
 
-    .boton-comprar{
+    .boton-comprar {
         width: 100%;
     }
 
-    .boton-detalle-producto{
+    .boton-detalle-producto {
         width: 100%
     }
 
-    .precio-producto{
+    .precio-producto {
         font-size: 2.5vw;
-    }
-
-
-}
-
-@media(min-width:1200px) {
-    .fran-outstanding {
-        padding: 21.5px 43px 43px;
-    }
-
-    .fran-outstanding-title {
-        width: 62%;
-    }
-
-    .fran-outstanding-title h1 {
-        font-size: 40px;
-    }
-
-    .fran-os-small-product h2 {
-        font-size: 118%;
-    }
-
-    .fran-os-product-1 h2 {
-        font-size: 180%;
-    }
-
-    .fran-outstanding-product {
-        padding: 15px;
     }
 }
