@@ -44,30 +44,28 @@ header {
 .right-list {
     list-style: none;
     display: flex;
-    font-size: 20px;
-}
-
-#main-header a {
-    color: #aaa;
-    text-decoration: none;
 }
 
 .right-list li {
     margin: 8px;
 }
 
+.right-list i{
+    font-size: 20px;
+}
+
 #user{
     display: none;
 }
 
-.main-header-left button{
+button{
     background-color: transparent;
     border: none;
     color: #ccc;
     transition: all 0.5s;
 }
 
-.main-header-left button:hover{
+#main-header button:hover{
     color: #fff;
     cursor: pointer;
 }
