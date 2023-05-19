@@ -175,6 +175,10 @@ body {
     border-radius: 7px;
 }
 
+.floating-buttons>button:hover {
+    background: #666;
+}
+
 footer.footer {
     margin-top: 30px;
     background-color: #ebebeb;
