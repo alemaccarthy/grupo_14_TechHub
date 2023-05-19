@@ -250,7 +250,7 @@ footer li {
         justify-content: space-between;
         align-items: start;
         padding: 2vw;
-        font-size: 1.8vw;
+        font-size: 2.3vw;
     }
 
     .footer-container>section.footer-info {
@@ -329,6 +329,10 @@ footer li {
         font-size: 15px;
     }
 
+    .footer-container {
+        font-size: 17px;
+    }
+
     /* .list-nav-mobile :nth-child(3),
     .list-nav-mobile :nth-child(4),
     .list-nav-mobile :nth-child(5),
@@ -363,7 +367,6 @@ footer li {
     }
 
     .footer-container {
-        font-size: 22px;
         padding: 24px;
     }
 
