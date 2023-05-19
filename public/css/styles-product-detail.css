@@ -256,13 +256,16 @@ footer.footer {
         width: 90%;
     }
     .img-container{
-        width: 50%;
-        margin: 0;
+        width: 48%;
+        margin: 0 10px 0 0;
     }
     .detail-container{
-        width: 42%;
+        width: 48%;
         margin-right: 0;
-        margin-left: 20px;
+        margin-left: 10px;
+    }
+    .product-info{
+        padding-top: 0;
     }
 }
 
