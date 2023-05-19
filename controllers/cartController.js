@@ -6,7 +6,13 @@ const cartController = {
     },
     getPurchase: (req, res) => {
         res.render('complete-purchase')
-    }
+    },
+
+    getCart2: (req, res) => {
+        res.render('./partials/cart')
+    },
 }
+
+
 
 module.exports = cartController;

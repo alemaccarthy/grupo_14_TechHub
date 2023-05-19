@@ -25,6 +25,19 @@ body {
     top: 10vw;
     border-radius: 10px;
     padding: 15px;
+    display: none;
+    animation: animatezoom .6s;
+    -webkit-animation: anima;
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 .cart-items {
@@ -91,7 +104,7 @@ body {
 }
 
 .cart-items .item .item-details .select-quantity .selector button.no-border {
-    border:none;
+    border: none;
     background: transparent;
 }
 
@@ -110,7 +123,7 @@ body {
     margin-left: 45px;
 }
 
-.cart-items .item .item-details .select-quantity .selector .item-price i {  
+.cart-items .item .item-details .select-quantity .selector .item-price i {
     margin-left: 40px;
     cursor: pointer;
 }
@@ -129,7 +142,7 @@ body {
 
 .order .subtotal,
 .order .shipping,
-.totals .total-purchase  {
+.totals .total-purchase {
     display: flex;
     justify-content: space-between;
     margin-top: 18px;
@@ -142,8 +155,8 @@ body {
 }
 
 .order .shipping .free-shipping {
-    color: #08b525; 
-    font-weight: 700; 
+    color: #08b525;
+    font-weight: 700;
     font-size: 12px;
 }
 
@@ -185,4 +198,3 @@ body {
 .buttons .btn-checkcart:hover {
     background-color: #666;
 }
-

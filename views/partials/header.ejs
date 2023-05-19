@@ -9,11 +9,11 @@
                 <li><button>Tablets</button></li>
             </ul>
         </section>
-
+        <%- include('./cart.ejs') %>
         <section class="main-header-right">
             <ul class="right-list">
                 <li id="glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-                <li id="cart"><button><i class="fa-solid fa-cart-shopping"></i></button></li>
+                <li id="cart"><button onclick="document.getElementById('carrito').style.display='block'"><i class="fa-solid fa-cart-shopping"></i></button></li>
                 <li id="user"><button onclick="document.getElementById('log-in-window').style.display='block'"><label for="side-menu"><i class="fa-solid fa-user"></i></label></button></li>
                 <li id="bars"><button onclick="document.getElementById('log-in-window').style.display='block'"><label for="side-menu"><i class="fa-solid fa-bars"></i></label></button></li>
             </ul>
@@ -25,6 +25,7 @@
             src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png"
             alt=""></a>
     </nav>
+    
 <!-- 
     <input type="checkbox" id="side-menu" class="cb-side-menu">
     <input type="checkbox" id="tienda-online-list" class="cb-tienda-online">
