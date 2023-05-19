@@ -11,12 +11,15 @@ header {
 }
 
 #main-header {
+    background-color: #000;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     max-width: 1300px;
     height: 50px;
+    position: relative;
+    z-index: 1000;
 }
 
 .main-header-right {
@@ -51,9 +54,12 @@ header {
     margin: 8px;
 }
 
-.right-list i {
+.right-list i,
+.right-list button{
     font-size: 20px;
 }
+
+
 
 #user {
     display: none;
@@ -66,7 +72,8 @@ button {
     transition: all 0.5s;
 }
 
-#main-header button:hover {
+#main-header button:hover,
+#main-header label:hover{
     color: #fff;
     cursor: pointer;
 }
@@ -85,6 +92,84 @@ button {
     width: 24px;
     padding: 0.8vw 0 0.5vw;
 }
+
+/*.list-nav-mobile, .list-tienda-online{
+    display: grid;
+    color: #fff;
+    list-style: none;
+    background-color: #164194;
+    width: 80%;
+    max-width: 250px;
+    position: absolute;
+    right: 0;
+    z-index: 50;
+    transform: translateY(-100%);
+    transition: 0.5s;
+}
+
+[type="checkbox"]{
+    display: none;
+}
+
+.cb-side-menu:checked ~ .list-nav-mobile {
+    transform: translateY(0);
+}
+
+ .list-tienda-online{
+    transition: 0.3s ease-out;
+    list-style: none;
+    z-index: 49;
+}
+
+header .fa-angle-right{
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    transition: 0.3s;
+}
+
+.cb-tienda-online:checked ~ .list-tienda-online {
+    transform: translateY(242px);
+}
+.cb-tienda-online:checked ~ .list-nav-mobile > button > .fa-angle-right {
+    transform: rotate(90deg);
+}
+
+.list-nav-mobile li{
+    padding: 12px 15px;
+    border-bottom: solid 1px #000;
+}
+
+.list-nav-mobile button {
+    position: relative;
+}
+
+.list-tienda-online li{
+    padding: 10px 30px;
+    border-bottom: solid 1px #000;
+    
+}
+
+
+.list-nav-mobile li:hover{
+    background-color: #444;
+    cursor: pointer;
+}
+
+.list-nav-mobile a,
+.list-nav-mobile button{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.list-tienda-online a{
+    color: #fff;
+    text-decoration: none;
+} */
+
+/* FOOTER */
 
 footer {
     background-color: #fff;
@@ -148,6 +233,16 @@ footer li {
 }
 
 @media(min-width: 481px) {
+
+    /* .list-nav-mobile,
+    .list-tienda-online {
+        background-color: #000;
+    }
+
+    .list-nav-mobile li,
+    .list-tienda-online li{
+        border-bottom: solid 1px #aaa;
+    } */
 
     .footer-container {
         flex-flow: row wrap;
@@ -232,6 +327,13 @@ footer li {
     .left-list button {
         font-size: 15px;
     }
+
+    /* .list-nav-mobile :nth-child(3),
+    .list-nav-mobile :nth-child(4),
+    .list-nav-mobile :nth-child(5),
+    .list-tienda-online{
+        display: none;
+    } */
 }
 
 @media(min-width: 1200px) {
