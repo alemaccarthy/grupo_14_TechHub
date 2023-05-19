@@ -25,7 +25,7 @@ header {
 .main-header-right {
     display: flex;
     justify-content: center;
-    padding: 2vw;
+    padding: 0 2vw;
     margin-right: 2vw;
 }
 
@@ -33,6 +33,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    height: 100%;
 }
 
 #logo {

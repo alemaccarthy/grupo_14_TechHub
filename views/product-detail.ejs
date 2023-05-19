@@ -3,87 +3,55 @@
 
 <head>
     <%- include('./partials/head') %>
-    
-    <link rel="stylesheet" href="/css/styles-products-list.css">
-    <link rel="stylesheet" href="/css/styles-homes.css">
-    <link rel="stylesheet" href="/css/styles-product-detail.css">
-    <link rel="stylesheet" href="/css/styles-header.css">
+
+        <link rel="stylesheet" href="/css/styles-product-detail.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
 </head>
 
 <body>
     <%- include('./partials/header') %>
 
-    <main>
-        <section id="contenedor-principal-detalle">
-            <article class="contenedor-izquierdo-detalle">
-                <!-- <div> -->
-                    <img src="imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="producto">
-                    <div class="ul-colores">
-                        <a class="colores-producto black"></a>
-                        <a class="colores-producto white"></a>
-                    </div>
-                <!-- </div> -->
-            </article>
+        <main>
+            <section class="product-detail-container">
+                <article class="img-container">
+                    <img class="main-img" src="imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png"
+                        alt="producto">
+                    <article class="small-imgs-slider">
+                        <img src="imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente-atras.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-perfil.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-atras.png" alt="">
+                    </article>
+                </article>
 
-            <article class="contenedor-derecho-detalle">
-                <h1 class="titulo-producto-seleccionado">Galaxy S23 Ultra</h1>
-                <p class="precio-producto">$00000</p>
-                <h3 class="especificaciones-tecnicas">
-                    Especificaciones Técnicas
-                </h3>
-                <div class="contenedor-tabla-detalles">
-                    <dl>
-                        <dt>CPU:</dt>
-                        <dd>OCTA-CORE 3.36GHz, 2.8GHz, 2GHz</dd>
-
-                        <dt>Resolución:</dt>
-                        <dd>Dynamic AMOLED 2X - 3088 x 1440 (Quad HD+)</dd>
-
-
-                        <dt>Cámara Trasera (Resolución Multiple):</dt>
-                        <dd>200.0 MP + 10.0 MP + 12.0 MP + 10.0 MP</dd>
-
-                        <dt>Cámara Trasera - ZOMM:</dt>
-                        <dd>Optical Zoom at 3x and 10x , Digital Zoom up to 100x</dd>
-
-                        <dt>Cámara frontal - Resolución:</dt>
-                        <dd>12.0 MP</dd>
-
-                        <dt>Cámara frontal - Auto focus:</dt>
-                        <dd>Sí</dd>
-
-                        <dt>Resolución de grabación de video:</dt>
-                        <dd>UHD 8K (7680 x 4320)@30fps</dd>
-
-                        <dt>Memoria (GB):</dt>
-                        <dd>12</dd>
-
-                        <dt>Almacenamiento (GB):</dt>
-                        <dd>512</dd>
-
-                        <dt>Interfaz USB:</dt>
-                        <dd>USB Type-C</dd>
-
-                        <dt>Verión USB:</dt>
-                        <dd>USB 3.2 Gen 1</dd>
-
-                        <dt>Wi-Fi Direct:</dt>
-                        <dd>Sí</dd>
-
-                        <dt>Versión de Bluetooth:</dt>
-                        <dd>Bluetooth v5.3</dd>
-
-                        <dt>NFC:</dt>
-                        <dd>Sí</dd>
-                    </dl>
-                </div>
-            </article>
-        </section>
-        <section>
-            <button class="boton-comprar" type="button">Comprar Ahora</button>
-            <button class="boton-carrito-detalle" type="button">Agregar al Carrito</button>
-        </section>
-    </main>
-    <%- include('./partials/footer') %>
-
+                <section class="detail-container">
+                    <h1 class="title-selected-product">Galaxy S23 Ultra</h1>
+                    <p class="product-price">$453.000</p>
+                    <h6 class="shipping-text">Envío gratis<i class="fa-solid fa-truck"></i></h6>
+                    <section class="pick-color-smartphone pick-color-s23">
+                        <span class="option-color-smartphone option-color-s23 color-s23-green"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-phantom-black"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-lavender"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-cream"></span>
+                        <h1>Color</h1>
+                    </section>
+                    <ul class="product-info">
+                        <li>Fotos nocturnas épicas que vas a compartir sí o sí</li>
+                        <li>Fotografía y gaming ultrarrápidos</li>
+                        <li>Diseñado para vos y el planeta</li>
+                        <li>S Pen incorporado compatible con más aplicaciones</li>
+                        <li>Cuidemos el planeta: No incluye cargador</li>
+                    </ul>
+                </section>
+                <section class="more-info-button">
+                    <button>Más información</button>
+                </section>
+            </section>
+            <section class="floating-buttons">
+                <button class="buy-button">Comprar ahora</button>
+                <button class="addToCart-button">Agregar al carrito</button>
+            </section>
+        </main>
+        <%- include('./partials/footer')  %>
 </body>
