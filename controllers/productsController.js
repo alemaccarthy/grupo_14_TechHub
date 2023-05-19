@@ -6,6 +6,9 @@ const productsController = {
     },
     getProductsList: (req, res) => {
         res.render('products-list');
+    },
+    getCreateProduct: (req, res) => {
+        res.render('create-product')
     }
 }
 
