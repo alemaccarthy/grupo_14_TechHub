@@ -6,4 +6,6 @@ productRoutes.get('/product-detail', productController.getProductDetail);
 
 productRoutes.get('/products-list', productController.getProductsList);
 
+productRoutes.get('/create-product', productController.getCreateProduct);
+
 module.exports = productRoutes;
