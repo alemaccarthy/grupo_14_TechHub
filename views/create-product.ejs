@@ -3,13 +3,45 @@
 <head>
     <%- include('./partials/head')  %>
     <link rel="stylesheet" href="/css/styles-header.css">
+    <link rel="stylesheet" href="/css/styles-createProduct.css">
 </head>
 <body>
     
     <%- include('./partials/header')  %>
     
     <main>
-
+        <section class="form-container-create">
+            <form action="" method="post">
+                <div>
+                    <label for="name">Nombre del producto</label>
+                    <input type="text" name="productName" id="name">
+                </div>
+                <div>
+                    <label for="description">Descripción</label>
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <div class="form-grandson">
+                        <label for="price">Precio</label>
+                        <input type="text" name="price" id="price">
+                    </div>
+                    <div class="form-grandson">
+                        <label for="">Categoría</label>
+                        <select name="category" id="category">
+                            <option value="" disabled>--Seleccione--</option>
+                            <option value="">--Seleccione--</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="watch">Watch</option>
+                            <option value="tablet">tablet</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="images">Agrega imágenes</label>
+                    <input type="file" name="images" id="images" accept="image/*" multiple>
+                </div>
+            </form>
+        </section>
     </main>
 </body>
 </html>
