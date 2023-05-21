@@ -92,7 +92,7 @@ header {
     padding: 0.8vw 0 0.5vw;
 }
 
-/*.list-nav-mobile, .list-tienda-online{
+/* .list-nav-mobile, .list-tienda-online{
     display: grid;
     color: #fff;
     list-style: none;
@@ -141,6 +141,8 @@ header .fa-angle-right{
 
 .list-nav-mobile button {
     position: relative;
+    background-color: #164194;
+    border: none;
 }
 
 .list-tienda-online li{
