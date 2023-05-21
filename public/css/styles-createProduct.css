@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form-container-create{
+    width: 100%;
+}
+
+.form-container-create form{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-container-create input[type="text"],
+.form-container-create textarea,
+.form-container-create select{
+    padding: 5px 3px;
+    border: solid 1px #ccc;
+    border-radius: 7px;
+    outline: none;
+    resize: none;
+}
+
+.form-container-create select{
+    text-align: center;
+}
+
+.form-container-create input[type="text"]:focus,
+.form-container-create textarea:focus,
+.form-container-create select:focus{
+    background: #efefef;
+}
+select option {
+    background-color: #fff;
+}
+
+select option:nth-child(2){
+    display: none;
+}
+
+.form-container-create div:first-child input,
+.form-container-create textarea{
+    width: 100%;
+}
+
+.form-container-create .form-grandson{
+    width: 48%;
+}
+.form-container-create .form-grandson:last-child{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container-create div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
