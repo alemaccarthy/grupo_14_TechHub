@@ -1,7 +1,24 @@
-const carrito = document.getElementById('carrito');
+document.addEventListener('DOMContentLoaded', function () {
+    const cartIcon = document.querySelector('.btn-cart');
 
-window.onclick = function (event) {
-    if (event.target == carrito) {
-        carrito.style.display = "none";
+    const modalContainer = document.querySelector('.cart');
+
+    function openModal() {
+        modalContainer.style.display = 'block';
     }
-}
+
+    function closeModal() {
+        modalContainer.style.display = 'none';
+    }
+
+    cartIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modalContainer) {
+            closeModal();
+        }
+    });
+});
