@@ -28,3 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function openNav() {
+    document.getElementById('list-nav-mobile').style.width = '100%';
+    document.getElementById('list-nav-mobile').style.opacity = '1';
+}
+
+const closeNav = () => {
+    document.getElementById('list-nav-mobile').style.width = '0';
+    document.getElementById('list-nav-mobile').style.opacity = '0';
+}

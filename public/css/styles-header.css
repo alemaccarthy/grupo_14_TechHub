@@ -46,6 +46,52 @@ header {
     display: none;
 }
 
+.list-nav-mobile {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgb(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    padding: 20% 0 0;
+    opacity: 0;
+    transition: 0.5s;
+    color: #31d8ff;
+}
+
+.list-nav-mobile button, a{
+    background: none;
+    text-decoration: none;
+    border: none;
+    font-size: 25px;
+    color: #fff;
+}
+
+.list-nav-mobile li:nth-child(5){
+    padding-bottom: 50px;
+}
+
+.list-nav-mobile li{
+    padding: 10px 5px;
+    font-size: 25px;
+}
+
+.list-nav-mobile li:first-child{
+    height: 10%;
+    align-self: flex-end;
+    padding-right: 20px;
+}
+
+.fa-xmark{
+    cursor: pointer;
+}
+
 .right-list {
     list-style: none;
     display: flex;
