@@ -2,54 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="/css/styles-register.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+    <%- include('./partials/head') %>
+    
+
+        <link rel="stylesheet" href="/css/styles-register.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <section class="register-container">
+    <%- include('./partials/header') %>
+    
 
-        <div>
+        <section class="register-container">
             <h1>Registro</h1>
-            
-        </div>
-       
-        <form action="" method="POST" id="form">
+            <form action="" method="POST" id="form">
+                <div class="form-container">
+
+                    <div class="group">
+                        <input type="text" name="" id="name" required><span class="barra"></span>
+                        <label for="">Nombre</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="" id="name" required><span class="barra"></span>
+                        <label for="">Usuario</label>
+                    </div>
+                    <div class="group">
+                        <input type="email" name="" id="name" required><span class="barra"></span>
+                        <label for="">E-mail</label>
+                    </div>
+                    <div class="group">
+                        <input type="password" name="" id="name" required><span class="barra"></span>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="group">
+                        <input type="password" name="" id="name" required><span class="barra"></span>
+                        <label for="">Confirmar Password</label>
+                    </div>
 
 
-            <div class="form">
-
-                <div class="group">
-                    <input type="text" name="" id="name" required><span class="barra"></span>
-                    <label for="">Nombre</label>
-                </div>
-                <div class="group">
-                    <input type="text" name="" id="name" required><span class="barra"></span>
-                    <label for="">Usuario</label>
-                </div>
-                <div class="group">
-                    <input type="email" name="" id="name" required><span class="barra"></span>
-                    <label for="">E-mail</label>
-                </div>
-                <div class="group">
-                    <input type="password" name="" id="name" required><span class="barra"></span>
-                    <label for="">Password</label>
-                </div>
-                <div class="group">
-                    <input type="password" name="" id="name" required><span class="barra"></span>
-                    <label for="">Confirmar Password</label>
                 </div>
 
                 <button type="submit">Registrarte</button>
-            </div>
+                <p>Ya tengo cuenta! <a href="/login">Loguearme</a></p>
 
-        </form>
-        <script src="main.js"></script>
-    </section>
+            </form>
+            
+        </section>
 </body>
 
 </html>

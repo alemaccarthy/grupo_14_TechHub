@@ -12,30 +12,12 @@
 }
 
 body {
+    
     font-family: 'Roboto';
     background: #bdc3c7;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right,#164194, #31d8ff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #164194, #31d8ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 650px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-h1{
-    text-align: center;
-    font-weight: 700px;
-    margin: 50px ;
-    margin-top: 3px;
-    margin-bottom: 3px;
     
-    
-    
-}
-
-#logo{
-    position: relative;
-    bottom: -23px;
-    right: 30px;
 }
 
 .register-container{
@@ -44,13 +26,46 @@ h1{
     box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding-top: 20px;
+    margin: 0, auto;
+    width: 300px;
+    
+}
+.register-container h1{
+    text-align: center;
+    font-weight: 700px;
+    margin: 50px ;
+    margin-top: 3px;
+    margin-bottom: 3px;
     
 }
 
+.register-container button{
+    font-family: "roboto";
+    background-color: #164194;
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 17px;
+    color: #ffffff;
+    border-radius: 10px;
 
 
+}
+.register-container label{
+    color: var(--colorTextos);
+    font-size: 12px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.3s ease-in-out all;
+    pointer-events: none;
 
-.form{
+}
+
+
+.form-container{
     width: 100%;
     margin: auto;
 }
@@ -78,16 +93,6 @@ input:focus{
     color: #666;
 }
 
-label{
-    color: var(--colorTextos);
-    font-size: 12px;
-    position: absolute;
-    left: 5px;
-    top: 10px;
-    transition: 0.3s ease-in-out all;
-    pointer-events: none;
-
-}
 
 input:focus~label,
 input:valid~label{
@@ -121,26 +126,22 @@ input:focus~.barra::before{
 
 }
 
-button{
-    font-family: "roboto";
-    background-color: #164194;
-    border: none;
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 15px;
-    font-size: 17px;
-    color: #ffffff;
-    border-radius: 10px;
-
-
-}
 
 button:hover{
     background-color: #666;
 }
 
+#form p{
+    font-size: 12px;
+}
 
+#form p a{
+    color: #164194;
+}
+
+#form{
+    text-align: center;
+}
 
 
 
