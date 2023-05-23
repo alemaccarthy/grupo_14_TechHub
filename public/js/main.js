@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cartIcon = document.querySelector('.btn-cart');
-
+    const modal = document.querySelector('.modal');
     const modalContainer = document.querySelector('.cart');
 
     function openModal() {
@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         openModal();
     });
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modalContainer) {
-            closeModal();
-        }
+    // window.addEventListener('click', (e) => {
+    //     if (e.target === pirulo) {
+    //         e.preventDefault();
+    //         closeModal();
+    //     }
+
+    modal.addEventListener('click', (e) => {
+        e.preventDefault();
+            closeModal();      
     });
 });
+
