@@ -16,7 +16,6 @@ body {
     display: none;
 }
 
-
 .purchase-content {
     display: grid;
     justify-content: center;
@@ -34,10 +33,6 @@ body {
     height: 18vw;
     margin-top: 2vw;
     border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
 }
 
 .purchase-content .title h2,
@@ -426,10 +421,6 @@ input[type="telephone"] {
     border-radius: 5px;
     background-color: #164194;
     color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
 }
 
 .floating-buttons button .fa-angle-left {
@@ -566,10 +557,6 @@ input[type="telephone"] {
         /*max-height: 18vw;*/
         margin-top: 2vw;
         border-radius: 7px;
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
-        -ms-border-radius: 7px;
-        -o-border-radius: 7px;
     }
 
     .check-cart {
