@@ -8,6 +8,9 @@
 
 header {
     background-color: #000;
+    position: sticky;
+    z-index: 100;
+    top: 0;
 }
 
 #main-header {
@@ -55,14 +58,13 @@ header {
     width: 0;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 100;
     background-color: rgb(0, 0, 0, 0.9);
     overflow-x: hidden;
-    padding: 20% 0 0;
+    padding: 18% 0 0;
     opacity: 0;
     transition: 0.5s;
-    color: #31d8ff;
 }
 
 .list-nav-mobile button, a{
@@ -80,12 +82,17 @@ header {
 .list-nav-mobile li{
     padding: 10px 5px;
     font-size: 25px;
+    display: inline-block;
 }
 
 .list-nav-mobile li:first-child{
-    height: 10%;
-    align-self: flex-end;
+    height: 12vh;
+    align-self: stretch;
+    text-align: end;
+    margin: 0 auto;
     padding-right: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .fa-xmark{
@@ -110,14 +117,16 @@ header {
     display: none;
 }
 
-#main-header button {
+.left-list button,
+.right-list button {
     background-color: transparent;
     border: none;
     color: #ccc;
     transition: all 0.5s;
 }
 
-#main-header button:hover,
+.left-list button:hover,
+.right-list button:hover,
 #main-header label:hover{
     color: #fff;
     cursor: pointer;
@@ -137,84 +146,6 @@ header {
     width: 24px;
     padding: 0.8vw 0 0.5vw;
 }
-
-/* .list-nav-mobile, .list-tienda-online{
-    display: grid;
-    color: #fff;
-    list-style: none;
-    background-color: #164194;
-    width: 80%;
-    max-width: 250px;
-    position: absolute;
-    right: 0;
-    z-index: 50;
-    transform: translateY(-100%);
-    transition: 0.5s;
-}
-
-[type="checkbox"]{
-    display: none;
-}
-
-.cb-side-menu:checked ~ .list-nav-mobile {
-    transform: translateY(0);
-}
-
- .list-tienda-online{
-    transition: 0.3s ease-out;
-    list-style: none;
-    z-index: 49;
-}
-
-header .fa-angle-right{
-    position: absolute;
-    right: 10px;
-    top: 14px;
-    transition: 0.3s;
-}
-
-.cb-tienda-online:checked ~ .list-tienda-online {
-    transform: translateY(242px);
-}
-.cb-tienda-online:checked ~ .list-nav-mobile > button > .fa-angle-right {
-    transform: rotate(90deg);
-}
-
-.list-nav-mobile li{
-    padding: 12px 15px;
-    border-bottom: solid 1px #000;
-}
-
-.list-nav-mobile button {
-    position: relative;
-    background-color: #164194;
-    border: none;
-}
-
-.list-tienda-online li{
-    padding: 10px 30px;
-    border-bottom: solid 1px #000;
-    
-}
-
-
-.list-nav-mobile li:hover{
-    background-color: #444;
-    cursor: pointer;
-}
-
-.list-nav-mobile a,
-.list-nav-mobile button{
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    text-align: center;
-}
-
-.list-tienda-online a{
-    color: #fff;
-    text-decoration: none;
-} */
 
 /* FOOTER */
 
@@ -281,16 +212,6 @@ footer li {
 
 @media(min-width: 481px) {
 
-    /* .list-nav-mobile,
-    .list-tienda-online {
-        background-color: #000;
-    }
-
-    .list-nav-mobile li,
-    .list-tienda-online li{
-        border-bottom: solid 1px #aaa;
-    } */
-
     .footer-container {
         flex-flow: row wrap;
         justify-content: space-between;
@@ -328,11 +249,14 @@ footer li {
 
     #main-header {
         height: 6.55vw;
+        width: 95%;
         max-height: 70px;
+        margin: 0 auto;
     }
 
     #logo {
         width: 180px;
+        margin: 0;
     }
 
     #user {
@@ -379,18 +303,55 @@ footer li {
         font-size: 17px;
     }
 
-    /* .list-nav-mobile :nth-child(3),
-    .list-nav-mobile :nth-child(4),
-    .list-nav-mobile :nth-child(5),
-    .list-tienda-online{
+    .list-nav-mobile{
+        padding: 0;
+        height: 0;
+        position: absolute;
+        top: 7vw;
+        right: 4.5vw;
+        justify-content: end;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .list-nav-mobile li:nth-last-child(1),
+    .list-nav-mobile li:nth-last-child(2),
+    .list-nav-mobile li:nth-last-child(3),
+    .list-nav-mobile li:nth-last-child(4),
+    .list-nav-mobile li:nth-last-child(5),
+    .list-nav-mobile li:nth-last-child(6){
         display: none;
-    } */
+    }
+
+    .list-nav-mobile li:first-child{
+        align-self: stretch;
+        text-align: end;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+
 }
+
+/* .list-nav-mobile {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgb(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    padding: 18% 0 0;
+    opacity: 0;
+    transition: 0.5s;
+} */
 
 @media(min-width: 1200px) {
     #main-header {
         max-height: 80px;
-        margin: auto;
     }
 
     #logo {
@@ -406,6 +367,10 @@ footer li {
     #main-header a:hover {
         color: #fff;
         transition: color 0.5s ease;
+    }
+
+    .list-nav-mobile {
+        top: 85px;
     }
 
     .brands {

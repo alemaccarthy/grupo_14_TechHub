@@ -3,7 +3,6 @@
         <section class="main-header-left">
             <a href="/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
             <ul class="left-list left-nav" id="left-nav">
-                <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
                 <li><button>Tienda</button></li>
                 <li><button>Smartphones</button></li>
                 <li><button>Smartwatch</button></li>
@@ -16,11 +15,12 @@
 
                 <li id="glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
                 <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
-                <li id="user"><button><i class="fa-solid fa-user"></i></button></li>
+                <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
                 <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
 
             </ul>
         </section>        
+        <%- include('./navbar.ejs') %>
     </section>
     <nav class="brands">
         <a id="home-1" href="/home-1"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
@@ -29,17 +29,6 @@
             alt=""></a>
     </nav>
     
-        <ul class="list-nav-mobile" id="list-nav-mobile">
-            <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
-            <li><button>Log In</button></li>
-            <li><a href="/register">Sign Up</a></li>
-            <li><a href="/home-1">Apple</a></li>
-            <li><a href="/home-2">Samsung</a></li>
-            <li><button>Tienda</button></li>
-            <li><button>Smartphones</button></li>
-            <li><button>Smartwatch</button></li>
-            <li><button>Tablets</button></li>
-        </ul>
 </header>
 
 <script src="/js/main.js"></script>

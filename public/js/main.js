@@ -26,14 +26,32 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
             closeModal();      
     });
+
+const deviceWidth = window.innerWidth;
+const navbar = document.getElementById('list-nav-mobile');
+
+openNav = () => {
+    navbar.style.opacity = '1';
+    if(deviceWidth < 768){
+        navbar.style.width = '100%';
+    }
+    else if(deviceWidth >= 768){
+        navbar.style.height = '130px';
+        navbar.style.width = '180px';
+    }
+},
+
+ closeNav = () => {
+    navbar.style.opacity = '0';
+    if(deviceWidth < 768){
+        navbar.style.width = '0';
+    }
+    else if(deviceWidth >= 768){
+        navbar.style.height = '0';
+        navbar.style.width = '0';
+    }
+}
 });
 
-function openNav() {
-    document.getElementById('list-nav-mobile').style.width = '100%';
-    document.getElementById('list-nav-mobile').style.opacity = '1';
-}
 
-const closeNav = () => {
-    document.getElementById('list-nav-mobile').style.width = '0';
-    document.getElementById('list-nav-mobile').style.opacity = '0';
-}
+
