@@ -4,6 +4,7 @@ const mainRoutes = require('./routes/mainRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
+const methodOverride = require('method-override');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(mainRoutes);
 app.use(cartRoutes);
 app.use(productsRoutes);
 app.use(usersRoutes);
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 // app.set('views', [path.join(__dirname, '/views/complete-purchase.ejs')]) //PREGUNTAR
