@@ -26,10 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
 
     const deviceWidth = window.innerWidth;
-    const navbar = document.getElementById('list-nav-mobile');
+    const navbar = document.getElementById('right-floating-nav');
     const logInWindow = document.getElementById('log-in-window');
     const searchBar = document.getElementById('searchbar-container');
     const body = document.body;
+    // const todoMenosHeader = document.querySelectorAll('body');
 
     openNav = () => {
         navbar.style.opacity = '1';
@@ -61,7 +62,13 @@ document.addEventListener('DOMContentLoaded', function () {
             logInWindow.style.display = 'none';
         },
         openSearchBar = () => {
+            // const header = document.getElementById('header');
             searchBar.style.height = '80px';
+/*             todoMenosHeader.forEach(el => {
+                if (el != header) {
+                    el.style.filter = 'blur(5px)';
+                }
+            }) */
         },
         closeSearchBar = () => {
             searchBar.style.height = '0';
@@ -71,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    document.querySelectorAll('body :not(#glass)').addEventListener('click', () => {
-        openSearchBar();
+    document.querySelectorAll('body :not(#searchbar-container)').addEventListener('click', () => {
+        body
     })
 })
 

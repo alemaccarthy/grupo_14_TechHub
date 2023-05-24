@@ -145,7 +145,7 @@ header {
 
 /* NAVBAR */
 
-.list-nav-mobile {
+.right-floating-nav {
     list-style: none;
     display: flex;
     flex-flow: column wrap;
@@ -163,7 +163,7 @@ header {
     transition: 0.5s;
 }
 
-.list-nav-mobile button,
+.right-floating-nav button,
 a {
     background: none;
     text-decoration: none;
@@ -172,17 +172,17 @@ a {
     color: #fff;
 }
 
-.list-nav-mobile li:nth-child(5) {
+.right-floating-nav li:nth-child(5) {
     padding-bottom: 50px;
 }
 
-.list-nav-mobile li {
+.right-floating-nav li {
     padding: 10px 5px;
     font-size: 25px;
     display: inline-block;
 }
 
-.list-nav-mobile li:first-child {
+.right-floating-nav li:first-child {
     height: 12vh;
     align-self: stretch;
     text-align: end;
@@ -712,7 +712,7 @@ input:focus~.barra::before {
         font-size: 17px;
     }
 
-    .list-nav-mobile {
+    .right-floating-nav {
         padding: 0;
         height: 0;
         position: absolute;
@@ -722,16 +722,16 @@ input:focus~.barra::before {
         background: rgba(0, 0, 0, 0.6);
     }
 
-    .list-nav-mobile li:nth-last-child(1),
-    .list-nav-mobile li:nth-last-child(2),
-    .list-nav-mobile li:nth-last-child(3),
-    .list-nav-mobile li:nth-last-child(4),
-    .list-nav-mobile li:nth-last-child(5),
-    .list-nav-mobile li:nth-last-child(6) {
+    .right-floating-nav li:nth-last-child(1),
+    .right-floating-nav li:nth-last-child(2),
+    .right-floating-nav li:nth-last-child(3),
+    .right-floating-nav li:nth-last-child(4),
+    .right-floating-nav li:nth-last-child(5),
+    .right-floating-nav li:nth-last-child(6) {
         display: none;
     }
 
-    .list-nav-mobile li:first-child {
+    .right-floating-nav li:first-child {
         align-self: stretch;
         text-align: end;
         margin: 0 auto;
@@ -771,7 +771,7 @@ input:focus~.barra::before {
         top: 78px;
     }
 
-    .list-nav-mobile,
+    .right-floating-nav,
     .cart {
         top: 85px;
     }
