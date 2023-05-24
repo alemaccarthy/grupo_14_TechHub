@@ -3,23 +3,24 @@
         <section class="main-header-left">
             <a href="/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
             <section class="left-list left-nav" id="left-nav">
-                <div><button>Tienda</button></div>
-                <div>
+                <div class="tienda-nav nav-button"><button>Tienda</button></div>
+                <div class="smartphone-nav nav-button">
                     <button>Smartphones</button>
                 </div>
-                <div><button>Smartwatch</button></div>
-                <div><button>Tablets</button></div>
+                <div class="smartwatch-nav nav-button"><button>Smartwatch</button></div>
+                <div class="tablet-nav nav-button"><button>Tablets</button></div>
+                <%- include('./navbar-dropdown.ejs') %>
             </section>
         </section>
         <%- include('./cart.ejs') %>
         <section class="main-header-right">
             <ul class="right-list">
-
+                
                 <li id="glass" onclick="openSearchBar()"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
                 <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
                 <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
                 <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
-
+                
             </ul>
         </section>        
         <%- include('./navbar.ejs') %>

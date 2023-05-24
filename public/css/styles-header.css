@@ -22,7 +22,6 @@ header {
     max-width: 1300px;
     height: 50px;
     position: relative;
-    z-index: 1000;
 }
 
 .main-header-right {
@@ -39,7 +38,13 @@ header {
     height: 100%;
 }
 
+a:has(#logo){
+    align-self: center;
+}
+
 #logo {
+    position: relative;
+    z-index: 10000;
     align-self: center;
     width: 140px;
     margin-left: 2vw;
@@ -205,10 +210,7 @@ a {
 
 /* DROPDOWN NAVBAR */
 
-/* .dropdown-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.dropdown-container{
     width: 100%;
     height: 0;
     position: fixed;
@@ -216,23 +218,38 @@ a {
     left: 0;
     background: #000;
     overflow: hidden;
-    transition: 0.5s;
-} */
-
-.dropdown{
-    display: none;
-    width: 0;
-    overflow: hidden;
-    transition: 0.7s;
 }
 
-.left-list div:hover .dropdown {
+.dropdown-sub-container{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: start;
+    position: relative;
+}
+
+.dropdown{
+    width: 100vw;
+    height: 0;
+    display: grid;
+    overflow: hidden;
+} 
+
+.dropdown a{
+    padding-left: calc(220px + 0.4%);
+}
+
+.dropdown-smartphone{
+    position: static;
+}
+
+
+/* .left-list:has(div:hover) ~ .dropdown-container{
     display: grid;
 }
 
 .left-list div:nth-child(2):hover ~ .dropdown-container > .dropdown{
     width: auto;
-}
+} */
 
 /* FOOTER */
 
@@ -808,6 +825,14 @@ input:focus~.barra::before {
     .searchbar-container{
         top: 78px;
     }
+
+/*     .dropdown a{
+        width: 57%;
+        max-width: 828px;
+        margin: 0 auto;
+        padding: 0;
+    } */
+    
 
     .right-floating-nav,
     .cart {

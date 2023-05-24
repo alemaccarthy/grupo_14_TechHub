@@ -64,24 +64,98 @@ document.addEventListener('DOMContentLoaded', function () {
         openSearchBar = () => {
             // const header = document.getElementById('header');
             searchBar.style.height = '80px';
-/*             todoMenosHeader.forEach(el => {
-                if (el != header) {
-                    el.style.filter = 'blur(5px)';
-                }
-            }) */
+            /*             todoMenosHeader.forEach(el => {
+                            if (el != header) {
+                                el.style.filter = 'blur(5px)';
+                            }
+                        }) */
         },
         closeSearchBar = () => {
             searchBar.style.height = '0';
         }
-})
+
+    const dropdownContainer = document.getElementById("dropdown-container");
+    const smartwatch = document.querySelector(".smartwatch-nav");
+    const smartphone = document.querySelector(".smartphone-nav");
+    const tablet = document.querySelector(".tablet-nav");
+    const dropdown = document.querySelector(".dropdown");
+    const smartphoneDropdown = document.querySelector(".dropdown-smartphone");
+    const smartwatchDropdown = document.querySelector(".dropdown-smartwatch");
+    const tabletDropdown = document.querySelector(".dropdown-tablet");
+
+    smartphone.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+        smartphoneDropdown.style.height = "auto";
+        smartphoneDropdown.style.padding = "3vw 0 20px";
+    });
+    smartwatch.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+        smartwatchDropdown.style.height = "auto";
+        smartwatchDropdown.style.padding = "3vw 0 20px";
+    });
+    tablet.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+        tabletDropdown.style.height = "auto";
+        tabletDropdown.style.padding = "3vw 0 20px";
+    });
+    
+    smartphoneDropdown.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+            smartphoneDropdown.style.height = "auto";
+            smartphoneDropdown.style.padding = "3vw 0 20px";
+    });
+    smartwatchDropdown.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+            smartwatchDropdown.style.height = "auto";
+            smartwatchDropdown.style.padding = "3vw 0 20px";
+    });
+    tabletDropdown.addEventListener("mouseenter", function () {
+        dropdownContainer.style.height = "auto";
+            tabletDropdown.style.height = "auto";
+            tabletDropdown.style.padding = "3vw 0 20px";
+    });
+    
+
+    smartphone.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        smartphoneDropdown.style.height = "0";
+        smartphoneDropdown.style.padding = "0";
+    })
+    smartwatch.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        smartwatchDropdown.style.height = "0";
+        smartwatchDropdown.style.padding = "0";
+    })
+    tablet.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        tabletDropdown.style.height = "0";
+        tabletDropdown.style.padding = "0";
+    })
+    
+    smartphoneDropdown.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        smartphoneDropdown.style.height = "0";
+        smartphoneDropdown.style.padding = "0";
+    })
+    smartwatchDropdown.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        smartwatchDropdown.style.height = "0";
+        smartwatchDropdown.style.padding = "0";
+    })
+    tabletDropdown.addEventListener("mouseleave", function () {
+        dropdownContainer.style.height = "0";
+        tabletDropdown.style.height = "0";
+        tabletDropdown.style.padding = "0";
+    })
+});
 
 
-document.addEventListener('DOMContentLoaded', function () {
+/* document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('body :not(#searchbar-container)').addEventListener('click', () => {
         body
     })
 })
-
+ */
 
 
