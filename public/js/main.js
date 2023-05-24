@@ -16,12 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         openModal();
     });
 
-    // window.addEventListener('click', (e) => {
-    //     if (e.target === pirulo) {
-    //         e.preventDefault();
-    //         closeModal();
-    //     }
-
     modal.addEventListener('click', (e) => {
         e.preventDefault();
         closeModal();
