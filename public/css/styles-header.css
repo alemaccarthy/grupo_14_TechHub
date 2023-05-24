@@ -49,6 +49,102 @@ header {
     display: none;
 }
 
+
+.right-list {
+    list-style: none;
+    display: flex;
+}
+
+.right-list li {
+    margin: 8px;
+}
+
+.right-list i,
+.right-list button {
+    font-size: 20px;
+}
+
+#user {
+    display: none;
+}
+
+.left-list button,
+.right-list button {
+    background-color: transparent;
+    border: none;
+    color: #ccc;
+    transition: all 0.5s;
+}
+
+.left-list button:hover,
+.right-list button:hover,
+#main-header label:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.brands {
+    display: none;
+}
+
+#samsung {
+    width: 27px;
+    justify-self: start;
+    padding: 0.5vw 0 0.5vw;
+}
+
+#apple {
+    width: 24px;
+    padding: 0.8vw 0 0.5vw;
+}
+
+/* SEARCHBAR */
+
+.searchbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 45px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0);
+    transition: 0.5s;
+}
+
+.searchbar-container form {
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.searchbar-container div {
+    padding: 10px;
+    border: solid 1px #222;
+    border-radius: 7px;
+}
+
+.searchbar-container input,
+.searchbar-container button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.searchbar-container input {
+    width: 90%;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.searchbar-container button {
+    color: #666;
+}
+
+/* NAVBAR */
+
 .list-nav-mobile {
     list-style: none;
     display: flex;
@@ -67,7 +163,8 @@ header {
     transition: 0.5s;
 }
 
-.list-nav-mobile button, a{
+.list-nav-mobile button,
+a {
     background: none;
     text-decoration: none;
     border: none;
@@ -75,17 +172,17 @@ header {
     color: #fff;
 }
 
-.list-nav-mobile li:nth-child(5){
+.list-nav-mobile li:nth-child(5) {
     padding-bottom: 50px;
 }
 
-.list-nav-mobile li{
+.list-nav-mobile li {
     padding: 10px 5px;
     font-size: 25px;
     display: inline-block;
 }
 
-.list-nav-mobile li:first-child{
+.list-nav-mobile li:first-child {
     height: 12vh;
     align-self: stretch;
     text-align: end;
@@ -95,56 +192,8 @@ header {
     max-width: 600px;
 }
 
-.fa-xmark{
+.fa-xmark {
     cursor: pointer;
-}
-
-.right-list {
-    list-style: none;
-    display: flex;
-}
-
-.right-list li {
-    margin: 8px;
-}
-
-.right-list i,
-.right-list button{
-    font-size: 20px;
-}
-
-#user {
-    display: none;
-}
-
-.left-list button,
-.right-list button {
-    background-color: transparent;
-    border: none;
-    color: #ccc;
-    transition: all 0.5s;
-}
-
-.left-list button:hover,
-.right-list button:hover,
-#main-header label:hover{
-    color: #fff;
-    cursor: pointer;
-}
-
-.brands {
-    display: none;
-}
-
-#samsung {
-    width: 27px;
-    justify-self: start;
-    padding: 0.5vw 0 0.5vw;
-}
-
-#apple {
-    width: 24px;
-    padding: 0.8vw 0 0.5vw;
 }
 
 /* FOOTER */
@@ -392,14 +441,22 @@ footer li {
 
 @media(min-width: 481px) {
 
-    .main-header-right{
+    .main-header-right {
         padding: 10px;
         margin: 10px;
     }
 
-    .right-list{
+    .right-list {
         padding: 10px;
         margin: 0 10px;
+    }
+
+    .searchbar-container{
+        top: 60px;
+    }
+
+    .searchbar-container form {
+        width: 70%;
     }
 
     .footer-container {
@@ -434,7 +491,7 @@ footer li {
         padding: 1.5vw;
     }
 
-    .cart{
+    .cart {
         right: calc(80px);
     }
 }
@@ -448,7 +505,7 @@ footer li {
         margin: 0 auto;
     }
 
-    .main-header-right{
+    .main-header-right {
         padding: 0 15.6px 0;
         margin: 0 15.6px 0;
     }
@@ -502,7 +559,7 @@ footer li {
         font-size: 17px;
     }
 
-    .list-nav-mobile{
+    .list-nav-mobile {
         padding: 0;
         height: 0;
         position: absolute;
@@ -517,11 +574,11 @@ footer li {
     .list-nav-mobile li:nth-last-child(3),
     .list-nav-mobile li:nth-last-child(4),
     .list-nav-mobile li:nth-last-child(5),
-    .list-nav-mobile li:nth-last-child(6){
+    .list-nav-mobile li:nth-last-child(6) {
         display: none;
     }
 
-    .list-nav-mobile li:first-child{
+    .list-nav-mobile li:first-child {
         align-self: stretch;
         text-align: end;
         margin: 0 auto;
@@ -530,7 +587,7 @@ footer li {
         height: auto;
     }
 
-    .cart{
+    .cart {
         right: calc(90px);
         top: 6.9vw;
     }
@@ -706,7 +763,8 @@ input:focus~.barra::before {
         transition: color 0.5s ease;
     }
 
-    .list-nav-mobile, .cart {
+    .list-nav-mobile,
+    .cart {
         top: 85px;
     }
 
@@ -735,6 +793,3 @@ input:focus~.barra::before {
         padding: 18px;
     }
 }
-
-
-

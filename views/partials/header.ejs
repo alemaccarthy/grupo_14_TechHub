@@ -13,7 +13,7 @@
         <section class="main-header-right">
             <ul class="right-list">
 
-                <li id="glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
+                <li id="glass" onclick="openSearchBar()"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
                 <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
                 <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
                 <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
@@ -23,6 +23,7 @@
         <%- include('./navbar.ejs') %>
         <%- include('./log-in.ejs') %>
     </section>
+    <%- include('./searchbar.ejs') %>
     <nav class="brands">
         <a id="home-1" href="/home-1"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
         <a id="home-2" href="/home-2"><img id="samsung"

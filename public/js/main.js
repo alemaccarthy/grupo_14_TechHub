@@ -27,9 +27,15 @@ document.addEventListener('DOMContentLoaded', function () {
         closeModal();
     });
 
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
     const deviceWidth = window.innerWidth;
     const navbar = document.getElementById('list-nav-mobile');
-    const logInWindow = document.getElementById('log-in-window')
+    const logInWindow = document.getElementById('log-in-window');
+    const searchBar = document.getElementById('searchbar-container');
+    const body = document.body;
 
     openNav = () => {
         navbar.style.opacity = '1';
@@ -54,14 +60,27 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         openLogIn = () => {
-            logInWindow.style.display = 'flex'
+            logInWindow.style.display = 'flex';
         },
-        
-        closeLogIn = () => {
-            logInWindow.style.display = 'none'
-        }
 
-});
+        closeLogIn = () => {
+            logInWindow.style.display = 'none';
+        },
+        openSearchBar = () => {
+            searchBar.style.height = '80px';
+        },
+        closeSearchBar = () => {
+            searchBar.style.height = '0';
+        }
+})
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('body :not(#glass)').addEventListener('click', () => {
+        openSearchBar();
+    })
+})
 
 
 
