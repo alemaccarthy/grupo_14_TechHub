@@ -34,12 +34,13 @@ header {
 
 .main-header-left {
     display: flex;
-    align-items: center;
+    align-content: stretch;
     justify-content: flex-start;
     height: 100%;
 }
 
 #logo {
+    align-self: center;
     width: 140px;
     margin-left: 2vw;
 }
@@ -49,6 +50,12 @@ header {
     display: none;
 }
 
+.left-list div{
+    display: flex;
+    align-content: center;
+    padding: 0 10px;
+    height: 100%;
+}
 
 .right-list {
     list-style: none;
@@ -194,6 +201,37 @@ a {
 
 .fa-xmark {
     cursor: pointer;
+}
+
+/* DROPDOWN NAVBAR */
+
+/* .dropdown-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background: #000;
+    overflow: hidden;
+    transition: 0.5s;
+} */
+
+.dropdown{
+    display: none;
+    width: 0;
+    overflow: hidden;
+    transition: 0.7s;
+}
+
+.left-list div:hover .dropdown {
+    display: grid;
+}
+
+.left-list div:nth-child(2):hover ~ .dropdown-container > .dropdown{
+    width: auto;
 }
 
 /* FOOTER */
@@ -680,8 +718,8 @@ input:focus~.barra::before {
         margin-left: 1.5vw;
     }
 
-    .left-list li {
-        margin: 0 7px;
+    .left-list button {
+        font-size: 17px;
     }
 
     .searchbar-container{
@@ -704,9 +742,6 @@ input:focus~.barra::before {
         min-width: 35px;
     }
 
-    .left-list button {
-        font-size: 15px;
-    }
 
     .footer-container {
         font-size: 17px;
@@ -757,9 +792,12 @@ input:focus~.barra::before {
         margin-left: 0;
     }
 
-    #main-header .left-list {
-        font-size: 18px;
-        margin: 0 15px;
+    .left-list button{
+    font-size: 19px;
+    }
+    
+    .left-list div{
+        padding: 0 15px;
     }
 
     #main-header a:hover {
