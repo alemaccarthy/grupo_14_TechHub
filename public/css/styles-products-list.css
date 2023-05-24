@@ -222,6 +222,7 @@ main>section {
         margin-top: 30px;
         position: relative;
         left: -3.5vw;
+        overflow: hidden;
     }
     
 }
