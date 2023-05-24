@@ -19,5 +19,5 @@ app.set('view engine', 'ejs');
 // app.set('views', [path.join(__dirname, '/views/complete-purchase.ejs')]) //PREGUNTAR
 
 app.listen(3000, () => {
-    console.log('Escuchando puerto 3000');
+    console.log('🎧 Escuchando puerto 3000 🎧');
 })
