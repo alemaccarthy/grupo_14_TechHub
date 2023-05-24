@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalContainer = document.querySelector('.cart');
 
     function openModal() {
-        modalContainer.style.display = 'block';
+        modalContainer.style.height = '490px';
     }
 
     function closeModal() {
-        modalContainer.style.display = 'none';
+        modalContainer.style.height = '0';
     }
 
     cartIcon.addEventListener('click', (e) => {
@@ -24,34 +24,63 @@ document.addEventListener('DOMContentLoaded', function () {
 
     modal.addEventListener('click', (e) => {
         e.preventDefault();
-            closeModal();      
+        closeModal();
     });
 
-const deviceWidth = window.innerWidth;
-const navbar = document.getElementById('list-nav-mobile');
-
-openNav = () => {
-    navbar.style.opacity = '1';
-    if(deviceWidth < 768){
-        navbar.style.width = '100%';
-    }
-    else if(deviceWidth >= 768){
-        navbar.style.height = '130px';
-        navbar.style.width = '180px';
-    }
-},
-
- closeNav = () => {
-    navbar.style.opacity = '0';
-    if(deviceWidth < 768){
-        navbar.style.width = '0';
-    }
-    else if(deviceWidth >= 768){
-        navbar.style.height = '0';
-        navbar.style.width = '0';
-    }
-}
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const deviceWidth = window.innerWidth;
+    const navbar = document.getElementById('list-nav-mobile');
+    const logInWindow = document.getElementById('log-in-window');
+    const searchBar = document.getElementById('searchbar-container');
+    const body = document.body;
+
+    openNav = () => {
+        navbar.style.opacity = '1';
+        if (deviceWidth < 768) {
+            navbar.style.width = '100%';
+        }
+        else if (deviceWidth >= 768) {
+            navbar.style.height = '130px';
+            navbar.style.width = '180px';
+        }
+    },
+
+        closeNav = () => {
+            navbar.style.opacity = '0';
+            if (deviceWidth < 768) {
+                navbar.style.width = '0';
+            }
+            else if (deviceWidth >= 768) {
+                navbar.style.height = '0';
+                navbar.style.width = '0';
+            }
+        },
+
+        openLogIn = () => {
+            logInWindow.style.display = 'flex';
+        },
+
+        closeLogIn = () => {
+            logInWindow.style.display = 'none';
+        },
+        openSearchBar = () => {
+            searchBar.style.height = '80px';
+        },
+        closeSearchBar = () => {
+            searchBar.style.height = '0';
+        }
+})
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('body :not(#glass)').addEventListener('click', () => {
+        openSearchBar();
+    })
+})
 
 
 
