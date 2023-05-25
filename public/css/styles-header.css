@@ -228,6 +228,7 @@ a {
     position: absolute;
     left: 10px;
     top: 80px;
+    transition: 0.7s;
 } 
 
 .dropdown a{

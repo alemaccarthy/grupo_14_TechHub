@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const smartwatchDropdown = document.querySelector(".dropdown-smartwatch");
     const tabletDropdown = document.querySelector(".dropdown-tablet");
 
+
     const hoverInSP = () => {
         dropContSmartphone.style.height = "170px";
         smartphoneDropdown.style.height = "auto";
