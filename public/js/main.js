@@ -74,7 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
             searchBar.style.height = '0';
         }
 
-    const dropdownContainer = document.getElementById("dropdown-container");
+    const dropContSmartphone = document.querySelector(".drop-cont-smartphone");
+    const dropContSmartwatch = document.querySelector(".drop-cont-smartwatch");
+    const dropContTablet = document.querySelector(".drop-cont-tablet");
     const smartwatch = document.querySelector(".smartwatch-nav");
     const smartphone = document.querySelector(".smartphone-nav");
     const tablet = document.querySelector(".tablet-nav");
@@ -83,70 +85,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const smartwatchDropdown = document.querySelector(".dropdown-smartwatch");
     const tabletDropdown = document.querySelector(".dropdown-tablet");
 
-    smartphone.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
+    const hoverInSP = () => {
+        dropContSmartphone.style.height = "170px";
         smartphoneDropdown.style.height = "auto";
-        smartphoneDropdown.style.padding = "3vw 0 20px";
-    });
-    smartwatch.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
-        smartwatchDropdown.style.height = "auto";
-        smartwatchDropdown.style.padding = "3vw 0 20px";
-    });
-    tablet.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
-        tabletDropdown.style.height = "auto";
-        tabletDropdown.style.padding = "3vw 0 20px";
-    });
-    
-    smartphoneDropdown.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
-            smartphoneDropdown.style.height = "auto";
-            smartphoneDropdown.style.padding = "3vw 0 20px";
-    });
-    smartwatchDropdown.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
-            smartwatchDropdown.style.height = "auto";
-            smartwatchDropdown.style.padding = "3vw 0 20px";
-    });
-    tabletDropdown.addEventListener("mouseenter", function () {
-        dropdownContainer.style.height = "auto";
-            tabletDropdown.style.height = "auto";
-            tabletDropdown.style.padding = "3vw 0 20px";
-    });
-    
+    }
+    const hoverOutSP = () => {
+        dropContSmartphone.style.height = "0";
+        smartphoneDropdown.style.height = "0";
+    }
 
-    smartphone.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
-        smartphoneDropdown.style.height = "0";
-        smartphoneDropdown.style.padding = "0";
-    })
-    smartwatch.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
+    const hoverInSW = () => {
+        dropContSmartwatch.style.height = "170px";
+        smartwatchDropdown.style.height = "auto";
+    }
+    const hoverOutSW = () => {
+        dropContSmartwatch.style.height = "0";
         smartwatchDropdown.style.height = "0";
-        smartwatchDropdown.style.padding = "0";
-    })
-    tablet.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
+    }
+
+    const hoverInT = () => {
+        dropContTablet.style.height = "170px";
+        tabletDropdown.style.height = "auto";
+    }
+    const hoverOutT = () => {
+        dropContTablet.style.height = "0";
         tabletDropdown.style.height = "0";
-        tabletDropdown.style.padding = "0";
-    })
-    
-    smartphoneDropdown.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
-        smartphoneDropdown.style.height = "0";
-        smartphoneDropdown.style.padding = "0";
-    })
-    smartwatchDropdown.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
-        smartwatchDropdown.style.height = "0";
-        smartwatchDropdown.style.padding = "0";
-    })
-    tabletDropdown.addEventListener("mouseleave", function () {
-        dropdownContainer.style.height = "0";
-        tabletDropdown.style.height = "0";
-        tabletDropdown.style.padding = "0";
-    })
+    }
+
+    smartphone.addEventListener('mouseenter', hoverInSP)
+    dropContSmartphone.addEventListener('mouseenter', hoverInSP)
+    smartphoneDropdown.addEventListener('mouseenter', hoverInSP)
+    smartphone.addEventListener('mouseleave', hoverOutSP)
+    dropContSmartphone.addEventListener('mouseleave', hoverOutSP)
+    smartphoneDropdown.addEventListener('mouseleave', hoverOutSP)
+
+    smartwatch.addEventListener('mouseenter', hoverInSW)
+    dropContSmartwatch.addEventListener('mouseenter', hoverInSW)
+    smartwatchDropdown.addEventListener('mouseenter', hoverInSW)
+    smartwatch.addEventListener('mouseleave', hoverOutSW)
+    dropContSmartwatch.addEventListener('mouseleave', hoverOutSW)
+    smartwatchDropdown.addEventListener('mouseleave', hoverOutSW)
+
+    tablet.addEventListener('mouseenter', hoverInT)
+    dropContTablet.addEventListener('mouseenter', hoverInT)
+    tabletDropdown.addEventListener('mouseenter', hoverInT)
+    tablet.addEventListener('mouseleave', hoverOutT)
+    dropContTablet.addEventListener('mouseleave', hoverOutT)
+    tabletDropdown.addEventListener('mouseleave', hoverOutT)
 });
 
 

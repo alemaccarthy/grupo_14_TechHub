@@ -9,7 +9,28 @@
                 </div>
                 <div class="smartwatch-nav nav-button"><button>Smartwatch</button></div>
                 <div class="tablet-nav nav-button"><button>Tablets</button></div>
-                <%- include('./navbar-dropdown.ejs') %>
+                <section class="drop-container drop-cont-smartphone">
+                </section>
+                <section class="drop-container drop-cont-smartwatch">
+                </section>
+                <section class="drop-container drop-cont-tablet">
+                </section>
+                        <article class="dropdown dropdown-smartphone">
+                            <a href="">Galaxy S23</a>
+                            <a href="">Galaxy Z</a>
+                            <a href="">Galaxy S</a>
+                            <a href="">Galaxy A34</a>
+                            <a href="">Galaxy A54</a>
+                        </article>
+                        <article class="dropdown dropdown-smartwatch">
+                            <a href="">Galaxy Watch5</a>
+                            <a href="">Galaxy Watch5 Pro</a>
+                        </article>
+                        <article class="dropdown dropdown-tablet">
+                            <a href="">Galaxy Tab S8</a>
+                            <a href="">Galaxy Tab S8 Ultra</a>
+                            <a href="">galaxy Tab A</a>
+                        </article>
             </section>
         </section>
         <%- include('./cart.ejs') %>

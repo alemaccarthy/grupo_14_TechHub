@@ -53,6 +53,7 @@ a:has(#logo){
 .left-list {
     list-style: none;
     display: none;
+    position: relative;
 }
 
 .left-list div{
@@ -210,7 +211,7 @@ a {
 
 /* DROPDOWN NAVBAR */
 
-.dropdown-container{
+.drop-container{
     width: 100%;
     height: 0;
     position: fixed;
@@ -220,36 +221,19 @@ a {
     overflow: hidden;
 }
 
-.dropdown-sub-container{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: start;
-    position: relative;
-}
-
 .dropdown{
-    width: 100vw;
     height: 0;
     display: grid;
     overflow: hidden;
+    position: absolute;
+    left: 10px;
+    top: 80px;
 } 
 
 .dropdown a{
-    padding-left: calc(220px + 0.4%);
+    font-size: 20px;
 }
 
-.dropdown-smartphone{
-    position: static;
-}
-
-
-/* .left-list:has(div:hover) ~ .dropdown-container{
-    display: grid;
-}
-
-.left-list div:nth-child(2):hover ~ .dropdown-container > .dropdown{
-    width: auto;
-} */
 
 /* FOOTER */
 
@@ -825,14 +809,6 @@ input:focus~.barra::before {
     .searchbar-container{
         top: 78px;
     }
-
-/*     .dropdown a{
-        width: 57%;
-        max-width: 828px;
-        margin: 0 auto;
-        padding: 0;
-    } */
-    
 
     .right-floating-nav,
     .cart {
