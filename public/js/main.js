@@ -88,29 +88,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const hoverInSP = () => {
         dropContSmartphone.style.height = "170px";
+        dropContSmartphone.style.opacity = "1";
         smartphoneDropdown.style.height = "auto";
+        smartphoneDropdown.style.opacity = "1";
     }
     const hoverOutSP = () => {
         dropContSmartphone.style.height = "0";
+        dropContSmartphone.style.opacity = "0";
         smartphoneDropdown.style.height = "0";
+        smartphoneDropdown.style.opacity = "0";
     }
 
     const hoverInSW = () => {
         dropContSmartwatch.style.height = "170px";
+        dropContSmartwatch.style.opacity = "1";
         smartwatchDropdown.style.height = "auto";
+        smartwatchDropdown.style.opacity = "1";
     }
     const hoverOutSW = () => {
         dropContSmartwatch.style.height = "0";
+        dropContSmartwatch.style.opacity = "0";
         smartwatchDropdown.style.height = "0";
+        smartwatchDropdown.style.opacity = "0";
     }
 
     const hoverInT = () => {
         dropContTablet.style.height = "170px";
+        dropContTablet.style.opacity = "1";
         tabletDropdown.style.height = "auto";
+        tabletDropdown.style.opacity = "1";
     }
     const hoverOutT = () => {
         dropContTablet.style.height = "0";
+        dropContTablet.style.opacity = "0";
         tabletDropdown.style.height = "0";
+        tabletDropdown.style.opacity = "0";
     }
 
     smartphone.addEventListener('mouseenter', hoverInSP)
