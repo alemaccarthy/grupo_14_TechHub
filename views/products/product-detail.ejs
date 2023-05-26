@@ -2,22 +2,22 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
 
         <link rel="stylesheet" href="/css/styles-product-detail.css">
         <link rel="stylesheet" href="/css/styles-header.css">
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header.ejs') %>
 
         <main>
             <section class="product-detail-container">
                 <article class="img-container">
-                    <img class="main-img" src="imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png"
+                    <img class="main-img" src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png"
                         alt="producto">
                     <article class="small-imgs-slider">
-                        <img src="imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="producto">
                         <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente.png" alt="">
                         <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente-atras.png" alt="">
                         <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-perfil.png" alt="">
@@ -53,5 +53,5 @@
                 <button class="addToCart-button">Agregar al carrito</button>
             </section>
         </main>
-        <%- include('./partials/footer')  %>
+        <%- include('../partials/footer')  %>
 </body>
