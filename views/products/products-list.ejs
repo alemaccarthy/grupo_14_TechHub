@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles-header.css">
+    <link rel="stylesheet" href="/css/styles-products-list.css">
+    <link rel="stylesheet" href="/css/styles-product-detail.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <section class="fran-banner">
+            <img src="imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
+        </section>
+
+        <section class="fran-presentation-s23">
+            <section class="fran-title-s23-wide-container">
+                <h1 class="fran-smartphone-title s23-title">Galaxy S23 Series</h1>
+                <video autoplay="" loop="" muted="" plays-inline="">
+                    <source src="/videos/galaxy-s23-series.mp4" type="video/mp4">
+                </video>
+                </div>
+            </section>
+        </section>
+
+        <section class="grilla-articulos">
+            <%- include('../partials/product') %>            
+        </section>
+
+        <section class="fran-presentation-z">
+            <section class="fran-title-z-wide-container">
+                <h1 class="fran-smartphone-title fran-z-title">Galaxy Z</h1>
+                <video autoplay="" loop="" muted="" plays-inline="">
+                    <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
+                </video>
+                </div>
+            </section>
+        </section>
+</main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

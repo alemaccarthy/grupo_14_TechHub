@@ -1,53 +1,61 @@
-<header>
+<header id="header">
     <section id="main-header">
         <section class="main-header-left">
-            <a href="/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
-            <ul class="left-list">
-                <li><button>Tienda Online</button></li>
-                <li><button>Smartphones</button></li>
-                <li><button>Smartwatch</button></li>
-                <li><button>Tablets</button></li>
-            </ul>
+            <a href="/main/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
+            <section class="left-list left-nav" id="left-nav">
+                <div class="tienda-nav nav-button"><button>Tienda</button></div>
+                <div class="smartphone-nav nav-button">
+                    <button>Smartphones</button>
+                </div>
+                <div class="smartwatch-nav nav-button"><button>Smartwatch</button></div>
+                <div class="tablet-nav nav-button"><button>Tablets</button></div>
+                <section class="main-drop-container">
+                </section>
+                <section class="drop-container drop-cont-smartphone">
+                </section>
+                <section class="drop-container drop-cont-smartwatch">
+                </section>
+                <section class="drop-container drop-cont-tablet">
+                </section>
+                        <article class="dropdown dropdown-smartphone">
+                            <a href="">Galaxy S23</a>
+                            <a href="">Galaxy Z</a>
+                            <a href="">Galaxy S</a>
+                            <a href="">Galaxy A34</a>
+                            <a href="">Galaxy A54</a>
+                        </article>
+                        <article class="dropdown dropdown-smartwatch">
+                            <a href="">Galaxy Watch5</a>
+                            <a href="">Galaxy Watch5 Pro</a>
+                        </article>
+                        <article class="dropdown dropdown-tablet">
+                            <a href="">Galaxy Tab S8</a>
+                            <a href="">Galaxy Tab S8 Ultra</a>
+                            <a href="">galaxy Tab A</a>
+                        </article>
+            </section>
         </section>
         <%- include('./cart.ejs') %>
         <section class="main-header-right">
             <ul class="right-list">
-                <!-- <li id="glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-                <li id="cart"><button onclick="document.getElementById('carrito').style.display='block'"><i class="fa-solid fa-cart-shopping"></i></button></li>
-                <li id="user"><button onclick="document.getElementById('log-in-window').style.display='block'"><label for="side-menu"><i class="fa-solid fa-user"></i></label></button></li>
-                <li id="bars"><button onclick="document.getElementById('log-in-window').style.display='block'"><label for="side-menu"><i class="fa-solid fa-bars"></i></label></button></li> -->
                 
-                <li id="glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
+                <li id="glass" onclick="openSearchBar()"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
                 <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
-                <li id="user"><button><label for="side-menu"><i class="fa-solid fa-user"></i></label></button></li>
-                <li id="bars"><button><label for="side-menu"><i class="fa-solid fa-bars"></i></label></button></li>
-
+                <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
+                <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
+                
             </ul>
         </section>        
+        <%- include('./navbar.ejs') %>
+        <%- include('./log-in.ejs') %>
     </section>
+    <%- include('./searchbar.ejs') %>
     <nav class="brands">
-        <a id="home-1" href="/home-1"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
-        <a id="home-2" href="/home-2"><img id="samsung"
+        <a id="home-1" href="/main/home-1"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
+        <a id="home-2" href="/main/home-2"><img id="samsung"
             src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png"
             alt=""></a>
     </nav>
     
-
-    <!--<input type="checkbox" id="side-menu" class="cb-side-menu">
-    <input type="checkbox" id="tienda-online-list" class="cb-tienda-online">
-    
-     <ul class="list-nav-mobile">
-        <button><li>Log In</li></button>
-        <a href="/register"><li>Sign Up</li></a>
-        <a href="/home-1"><li>Apple</li></a>
-        <a href="/home-2"><li>Samsung</li></a>
-        <button><label for="tienda-online-list"><li>Tienda Online</li></label><i class="fa-solid fa-angle-right"></i></button>
-        
-    </ul>
-    <ul class="list-tienda-online">
-        <a href=""><li>Celulares</li></a>
-        <a href=""><li>Tablets</li></a>
-        <a href=""><li>Relojes</li></a>
-    </ul> -->
-
+    <script src="/js/main.js"></script>
 </header>

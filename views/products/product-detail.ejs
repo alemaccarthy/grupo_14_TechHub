@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+
+        <link rel="stylesheet" href="/css/styles-product-detail.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+
+        <main>
+            <section class="product-detail-container">
+                <article class="img-container">
+                    <img class="main-img" src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png"
+                        alt="producto">
+                    <article class="small-imgs-slider">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="producto">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente-atras.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-perfil.png" alt="">
+                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-atras.png" alt="">
+                    </article>
+                </article>
+
+                <section class="detail-container">
+                    <h1 class="title-selected-product">Galaxy S23 Ultra</h1>
+                    <p class="product-price">$453.000</p>
+                    <h6 class="shipping-text">Envío gratis<i class="fa-solid fa-truck"></i></h6>
+                    <section class="pick-color-smartphone pick-color-s23">
+                        <span class="option-color-smartphone option-color-s23 color-s23-green"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-phantom-black"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-lavender"></span>
+                        <span class="option-color-smartphone option-color-s23 color-s23-cream"></span>
+                        <h1>Color</h1>
+                    </section>
+                    <ul class="product-info">
+                        <li>Fotos nocturnas épicas que vas a compartir sí o sí</li>
+                        <li>Fotografía y gaming ultrarrápidos</li>
+                        <li>Diseñado para vos y el planeta</li>
+                        <li>S Pen incorporado compatible con más aplicaciones</li>
+                        <li>Cuidemos el planeta: No incluye cargador</li>
+                    </ul>
+                </section>
+                <section class="more-info-button">
+                    <button>Más información</button>
+                </section>
+            </section>
+            <section class="floating-buttons">
+                <button class="buy-button">Comprar ahora</button>
+                <button class="addToCart-button">Agregar al carrito</button>
+            </section>
+        </main>
+        <%- include('../partials/footer')  %>
+</body>
