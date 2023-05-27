@@ -34,9 +34,10 @@ body {
 
 .small-imgs-slider {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     overflow-x: scroll;
     width: 100%;
+    /* padding-left: 150px; */
 }
 
 .small-imgs-slider>div {
