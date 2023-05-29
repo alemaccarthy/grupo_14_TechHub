@@ -13,17 +13,17 @@
 
 body {
     font-family: 'Roboto';
-    background: #bdc3c7;
-    /* fallback for old browsers */
+    background: #ebebeb;
 }
 
 .register-container {
     background-color: #fff;
     padding: 45px 10px;
     padding-top: 20px;
-    margin: 0 auto 20px;
+    margin: 60px auto;
     width: 95%;
-    padding-bottom: 2vw;
+    max-width: 600px;
+    padding-bottom: 20px;
 }
 
 .register-container h1 {
@@ -34,7 +34,7 @@ body {
     margin-bottom: 3px;
 }
 
-.register-container button {
+.register-container > form > button {
     font-family: "roboto";
     background-color: #164194;
     border: none;
@@ -49,7 +49,7 @@ body {
 
 .register-container label {
     color: var(--colorTextos);
-    font-size: 20px;
+    font-size: 16px;
     position: absolute;
     left: 5px;
     top: 10px;
@@ -57,21 +57,15 @@ body {
     pointer-events: none;
 }
 
-
-.form-contain-containerr {
-    width: 100%;
-    margin: auto;
-}
-
-form .group {
+.register-container form .group {
     position: relative;
     margin: 20px;
 }
 
-input {
+.register-container input {
     background: none;
     color: #c6c6c6;
-    font-size: 22px;
+    font-size: 14px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
@@ -79,14 +73,14 @@ input {
     border-bottom: 1px solid var(--colorTextos);
 }
 
-input:focus {
+.register-container input:focus {
     outline: none;
     color: #666;
 }
 
 
-input:focus~label,
-input:valid~label {
+.register-container input:focus~label,
+.register-container input:valid~label {
     top: -14px;
     font-size: 10px;
     color: #000000;
@@ -109,24 +103,41 @@ input:valid~label {
     left: 0;
 }
 
-
 input:focus~.bar::before {
     width: 100%;
 }
 
 
-button:hover {
+.register-container > form > button:hover {
     background-color: #666;
 }
 
-#form p {
+.register-container > form p {
     font-size: 12px;
 }
 
-#form p a {
+.register-container > form p a {
     color: #164194;
+    font-size: 14px;
+    text-decoration: underline;
 }
 
-#form {
+.register-container > form {
     text-align: center;
+}
+
+
+@media(min-width: 481px){
+    .register-container{
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+    }
+}
+
+@media(min-height: 895px){
+        footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 }
