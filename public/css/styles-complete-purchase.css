@@ -54,7 +54,7 @@ body {
 .cart-items {
     width: 95%;
     margin: 0 auto;
-    max-height: 40vw;
+    max-height: 440px;
     overflow-y: auto;
     border-left: solid 1px #aaa;
     border-right: solid 1px #aaa;
@@ -167,6 +167,7 @@ body {
 .user-data,
 .payment-method {
     max-width: 550px;
+   
 }
 
 .sub-title {
@@ -538,12 +539,12 @@ input[type="telephone"] {
 
 @media screen and (min-width: 576px) {
     .floating-buttons {
-        max-height: 25vw;
+        max-height: 140px;
         padding: 2vw;
     }
 
     .floating-buttons button {
-        max-height: 20vw;
+        max-height: 50px;
         padding: 2vw;
     }
 }
