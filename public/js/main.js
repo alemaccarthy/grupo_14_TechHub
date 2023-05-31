@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dropContSmartphone.style.opacity = "1";
         smartphoneDropdown.style.height = "auto";
         smartphoneDropdown.style.opacity = "1";
+        searchBar.style.height = "0";
     }
     const hoverOutSP = () => {
         dropContSmartphone.style.height = "0";
@@ -104,6 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
         dropContSmartwatch.style.opacity = "1";
         smartwatchDropdown.style.height = "auto";
         smartwatchDropdown.style.opacity = "1";
+        searchBar.style.height = "0";
+
     }
     const hoverOutSW = () => {
         dropContSmartwatch.style.height = "0";
@@ -117,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
         dropContTablet.style.opacity = "1";
         tabletDropdown.style.height = "auto";
         tabletDropdown.style.opacity = "1";
+        searchBar.style.height = "0";
+
     }
     const hoverOutT = () => {
         dropContTablet.style.height = "0";

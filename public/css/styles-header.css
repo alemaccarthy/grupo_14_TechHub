@@ -90,8 +90,7 @@ a:has(#logo){
 }
 
 .left-list button:hover,
-.right-list button:hover,
-#main-header label:hover {
+.right-list button:hover{
     color: #fff;
     cursor: pointer;
 }
@@ -123,7 +122,7 @@ a:has(#logo){
     width: 100%;
     height: 0;
     overflow: hidden;
-    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
     transition: 0.5s;
 }
 
@@ -135,8 +134,12 @@ a:has(#logo){
 
 .searchbar-container div {
     padding: 10px;
-    border: solid 1px #222;
-    border-radius: 7px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
 }
 
 .searchbar-container input,
@@ -149,12 +152,13 @@ a:has(#logo){
 
 .searchbar-container input {
     width: 90%;
-    color: #fff;
-    padding: 0 10px;
+    color: #000;
+    margin-left: 2vw;
 }
 
 .searchbar-container button {
     color: #666;
+    margin-left: 1vw;
 }
 
 /* NAVBAR */
@@ -221,6 +225,7 @@ a {
     left: 0;
     background: #000;
     overflow: hidden;
+    z-index: 10;
 }
 
 .dropdown{
@@ -232,6 +237,7 @@ a {
     left: 10px;
     top: 80px;
     transition: 1s;
+    z-index: 10;
 } 
 
 .dropdown a{
@@ -245,7 +251,6 @@ footer {
     background-color: #fff;
     color: #444;
     text-align: center;
-    max-height: 417px;
 }
 
 .footer-container {
@@ -258,7 +263,7 @@ footer {
 }
 
 footer h1 {
-    margin: 2vw;
+    margin: 9px;
 }
 
 footer .footer-info {
@@ -266,17 +271,17 @@ footer .footer-info {
 }
 
 footer .footer-info:first-child {
-    padding: 5vw 5vw 0;
+    padding: 18px 18px 0;
     max-width: 340px;
 }
 
 footer .footer-info:nth-child(2) {
-    padding: 5vw;
+    padding: 18px;
     max-width: 395px;
 }
 
 footer .footer-info:last-of-type {
-    padding: 0 5vw 5vw;
+    padding: 0 18px 18px;
     max-width: 340px;
 }
 
@@ -295,7 +300,7 @@ footer li {
 }
 
 .copyright {
-    padding: 3vw;
+    padding: 10px;
     text-align: left;
     font-weight: 200;
     font-size: 2.7vw;
@@ -516,9 +521,10 @@ footer li {
     min-width: 266px;
     text-align: center;
     position: fixed;
-    left: 2.5%;
-    top: 10px;
-    z-index: 50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 5000;
 }
 
 .log-in-form .group {
@@ -555,7 +561,6 @@ footer li {
 
 .log-in-form input:focus {
     outline: none;
-    color: #666;
 }
 
 .log-in-form input[type="checkbox"] {
@@ -620,15 +625,17 @@ input:focus~.barra::before {
 
 .log-in-form p a {
     color: #164194;
+    font-size: 14px;
+    text-decoration: underline;
 }
 
 @keyframes animatezoom {
     from {
-        transform: scale(0)
+        transform: scaleY(0)
     }
 
     to {
-        transform: scale(1)
+        transform: scaleY(1)
     }
 }
 
@@ -640,7 +647,7 @@ input:focus~.barra::before {
     }
 
     .right-list {
-        padding: 10px;
+        padding: 10px 0 10px 10px;
         margin: 0 10px;
     }
 

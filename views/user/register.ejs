@@ -18,39 +18,43 @@
 
         <section class="register-container">
             <h1>Registro</h1>
-            <form action="" method="POST" id="form">
-                <div class="form-container">
+            <form action="" method="POST">
+                <div class="form-contain-container">
 
                     <div class="group">
-                        <input type="text" name="" id="name" required><span class="barra"></span>
+                        <input type="text" name="name" id="name" required><span class="bar"></span>
                         <label for="">Nombre</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="" id="name" required><span class="barra"></span>
+                        <input type="text" name="lastname" id="name" required><span class="bar"></span>
+                        <label for="">Apellido</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="username" id="name" required><span class="bar"></span>
                         <label for="">Usuario</label>
                     </div>
                     <div class="group">
-                        <input type="email" name="" id="name" required><span class="barra"></span>
+                        <input type="email" name="email" id="name" required><span class="bar"></span>
                         <label for="">E-mail</label>
                     </div>
                     <div class="group">
-                        <input type="password" name="" id="name" required><span class="barra"></span>
-                        <label for="">Password</label>
+                        <input type="password" name="password" id="name" required><span class="bar"></span>
+                        <label for="">Contraseña</label>
                     </div>
                     <div class="group">
-                        <input type="password" name="" id="name" required><span class="barra"></span>
-                        <label for="">Confirmar Password</label>
+                        <input type="password" name="confirm-password" id="name" required><span class="bar"></span>
+                        <label for="">Confirmar contraseña</label>
                     </div>
 
 
                 </div>
 
-                <button type="submit">Registrarte</button>
-                <p>Ya tengo cuenta! <a href="../main/">Loguearme</a></p>
+                <button type="submit">Registrarme</button>
+                <p>¿Ya tenés cuenta? <a href="../main/">Ingresá</a></p>
 
             </form>
             
         </section>
+        <%- include('../partials/footer') %>
 </body>
-
 </html>
