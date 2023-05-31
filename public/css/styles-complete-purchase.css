@@ -35,7 +35,8 @@ body {
 
 .purchase-content .title h2,
 .purchase-content .title h4 {
-    margin-left: 2vw;
+    margin-left: 22px;
+    margin-bottom: 11px;
 }
 
 .purchase-content .title h2 {
@@ -46,18 +47,13 @@ body {
     font-size: 3vw;
 }
 
-.purchase-content .title h2 {
-    margin-bottom: 1vw;
-
-}
-
 .cart-items {
     width: 95%;
     margin: 0 auto;
     max-height: 440px;
     overflow-y: auto;
-    border-left: solid 1px #aaa;
-    border-right: solid 1px #aaa;
+    border: solid 1px #aaa;
+    
 }
 
 .cart-items .item-p {
@@ -157,12 +153,10 @@ body {
 
 
 .check-cart {
-    border-bottom: 1px solid #aaa;
     width: 95%;
     margin: 0 auto;
     text-align: center;
     font-size: 3vw;
-    padding: 2vw;
 }
 
 .check-cart .cart-icon {
@@ -562,10 +556,9 @@ input[type="telephone"] {
 
 @media screen and (min-width: 768px) {
     .title {
-        margin: 0 auto;
+       
         max-width: 90%;
         /*max-height: 18vw;*/
-        margin-top: 2vw;
         border-radius: 7px;
     }
 
@@ -592,6 +585,10 @@ input[type="telephone"] {
 }
 
 @media (min-width: 1100px){
+    .title {
+        margin-top: 22px;
+    }
+    
     .purchase-content .cart-container {
         grid-area: 1 / 1 / 3 / 2;
         padding: 0 16.5px;
