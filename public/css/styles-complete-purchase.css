@@ -62,7 +62,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 2.5vw 1vw 0vw;
+    padding: 2.5vw 3.5vw 0vw;
 }
 
 .cart-items .item-p img {
@@ -175,6 +175,7 @@ body {
 }
 
 .user-data {
+    width: 100%;
     max-width: 550px;
     margin: 0 auto;
 }
@@ -579,7 +580,7 @@ input[type="telephone"] {
     .floating-buttons {
         padding: 21.36px;
         margin: 0px 26.7px;
-        border: none;
+        
     }
 
     .floating-buttons button {
