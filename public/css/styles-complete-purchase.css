@@ -102,13 +102,23 @@ body {
     width: 90%;
     margin-left: 10%;
     font-size: 2.8vw;
+    max-height: 37px;
 }
+
+.select-quantity > * {
+    max-height: 25px;
+}
+
+.cart-items .item-p .item-details-p .select-quantity .select {
+    display: flex;
+}
+
 
 .cart-items .item-p .item-details-p .select-quantity .modify-quantity {
     font-size: 2.8vw;
 }
 
-.cart-items .item-p .item-details-p .select-quantity .modify-quantity {
+.cart-items .item-p .item-details-p .select-quantity .select .modify-quantity {
     text-align: center;
     padding: 2px;
 }
@@ -167,7 +177,6 @@ body {
 .user-data,
 .payment-method {
     max-width: 550px;
-   
 }
 
 .sub-title {
@@ -218,8 +227,8 @@ body {
 }
 
 .form-group {
-    justify-content: space-between;
-    margin-bottom: 1vw;
+
+    margin-bottom: 8px;
 }
 
 .form .name-lastname,
@@ -232,6 +241,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .form-group input {
@@ -271,25 +281,25 @@ input[type="telephone"] {
 }
 
 .order-purchase .subtotal-purchase {
-    padding: 0.5vw 5.5vw;
+    padding: 3px 30px;
 }
 
 .order-purchase .shipping {
-    padding: 0.5vw 5.5vw;
-    margin-top: 1vw;
+    padding: 3px 30px;
+    margin-top: 31.5px;
 }
 
 .shipping-details {
     color: #444444;
-    background-color: #ebebeb;
+    background-color: #164194;
     padding: 1.5vw 2vw;
     width: 100%;
+    border-radius: 8px;
 }
 
 .payment-method {
     display: flex;
     flex-direction: column;
-
 }
 
 .payment-radio-option {
@@ -346,11 +356,11 @@ input[type="telephone"] {
 .totals-purchase .total {
     display: flex;
     justify-content: space-between;
-    margin-top: 3vw;
+    margin-top: 27.8px;
 }
 
 .totals-purchase .total {
-    padding: 0.5vw 5.5vw;
+    padding: 3px 30px;
 }
 
 .order-purchase .subtotal-purchase .subtotal-amount,
@@ -425,6 +435,7 @@ input[type="telephone"] {
 .floating-buttons button .fa-angle-left {
     margin-right: 1vw;
 }
+
 
 @media screen and (min-width: 481px) {
 
@@ -562,18 +573,6 @@ input[type="telephone"] {
         font-size: 23px;
     }
 
-/*     .cart-items .item-p .item-details-p .select-quantity .select button {
-        font-size: 2vw;
-    }
-
-    .cart-items .item-p .item-details-p .select-quantity .select input {
-        font-size: 2.5vw;
-    }
-
-    .order-purchase .products-quantity {
-        font-size: 2.5vw;
-    } */
-
     .floating-buttons {
         padding: 21.36px;
         margin: 0px 26.7px;
@@ -596,14 +595,17 @@ input[type="telephone"] {
     .purchase-content .cart-container {
         grid-area: 1 / 1 / 3 / 2;
         padding: 0 16.5px;
+        margin: 0 auto;
     }
     .purchase-content .user-data {
         grid-area: 1 / 2 / 2 / 3;
         padding: 0 16.5px;
+        margin: 0 auto;
     }
     .purchase-content .payment-method {
         grid-area: 2 / 2 / 3 / 3;
         padding: 0 16.5px;
+        margin: 0 auto;
     }    
 }
 
