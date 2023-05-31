@@ -1,31 +1,33 @@
-<section class="register-container">
-    <h1>Registro</h1>
-    <form action="" method="POST">
-        <div class="form-contain-container">
-
-            <div class="group">
-                <input type="text" name="name" required placeholder="Nombre"><span class="bar"></span>
+<section class="user-data">
+    <section class="sub-title">
+        <i class="fa-solid fa-user user"></i>
+        <span>Tus datos</span>
+    </section>
+    <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+    <form action="" method="POST" class="form">
+            <div class="form-group">
+                <input type="text" name="name" required placeholder="Nombre">
+                <span class="bar"></span>
                 <label for="name">Nombre</label>
             </div>
-            <div class="group">
-                <input type="text" name="lastname" required placeholder="Apellido"><span class="bar"></span>
+            <div class="form-group">
+                <input type="text" name="lastname" required placeholder="Apellido">
+                <span class="bar"></span>
                 <label for="">Apellido</label>
             </div>
-            <div class="group">
-                <input type="email" name="email" required placeholder="E-mail"><span class="bar"></span>
+            <div class="form-group">
+                <input type="email" name="email" required placeholder="E-mail">
+                <span class="bar"></span>
                 <label for="">E-mail</label>
             </div>
-            <div class="group">
-                <input type="password" name="password" required placeholder="Contraseña"><span class="bar"></span>
+            <div class="form-group form-4">
+                <input type="password" name="password" required placeholder="Contraseña">
+                <span class="bar"></span>
                 <label for="">Contraseña</label>
-            </div>
-            <div class="group">
-                <input type="password" name="confirm-password" required placeholder="Confirma contraseña"><span class="bar"></span>
+                <input type="password" name="confirm-password" required placeholder="Confirma contraseña">
+                <span class="bar"></span>
                 <label for="">Confirmar contraseña</label>
             </div>
-
-
-        </div>
 
         <button type="submit">Registrarme</button>
         <p>¿Ya tenés cuenta? <a href="../main/">Ingresá</a></p>

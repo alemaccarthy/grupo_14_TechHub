@@ -16,7 +16,7 @@ body {
     background: #ebebeb;
 }
 
-.register-container {
+.user-data {
     background-color: #fff;
     padding: 45px 10px;
     padding-top: 20px;
@@ -26,7 +26,7 @@ body {
     padding-bottom: 20px;
 }
 
-.register-container h1 {
+.user-data h1 {
     text-align: center;
     font-weight: 700px;
     margin: 50px;
@@ -34,7 +34,7 @@ body {
     margin-bottom: 3px;
 }
 
-.register-container > form > button {
+.user-data>.form>button {
     font-family: "roboto";
     background-color: #164194;
     border: none;
@@ -47,7 +47,7 @@ body {
     border-radius: 10px;
 }
 
-.register-container label {
+.user-data label {
     color: var(--colorTextos);
     font-size: 16px;
     position: absolute;
@@ -57,12 +57,12 @@ body {
     pointer-events: none;
 }
 
-.register-container form .group {
+.user-data .form .form-group {
     position: relative;
     margin: 20px;
 }
 
-.register-container input {
+.user-data input {
     background: none;
     color: #c6c6c6;
     font-size: 14px;
@@ -73,14 +73,13 @@ body {
     border-bottom: 1px solid var(--colorTextos);
 }
 
-.register-container input:focus {
+.user-data input:focus {
     outline: none;
     color: #666;
 }
 
-
-.register-container input:focus~label,
-.register-container input:valid~label {
+.user-data input:focus~label,
+.user-data input:valid~label {
     top: -14px;
     font-size: 10px;
     color: #000000;
@@ -108,40 +107,68 @@ input:focus~.bar::before {
 }
 
 
-.register-container > form > button:hover {
+.user-data>.form>button:hover {
     background-color: #666;
 }
 
-.register-container > form p {
+.user-data>.form p {
     font-size: 12px;
 }
 
-.register-container > form p a {
+.user-data>.form p a {
     color: #164194;
     font-size: 14px;
     text-decoration: underline;
 }
 
-.register-container > form {
+.user-data>.form {
     text-align: center;
 }
 
-.group input::placeholder{
+.form-group input::placeholder {
     position: relative;
     z-index: -100;
 }
 
-@media(min-width: 481px){
-    .register-container{
+.form-4{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.form-4 .bar{
+    position: absolute;
+    top: 38px;
+    width: 48%;
+}
+
+.form-4 .bar:last-of-type{
+    left: 52%;
+}
+
+.form-4 :last-child{
+    position: absolute;
+    left: 286px;
+}
+
+.form-4 input:first-child, 
+.form-4 input:last-of-type{
+    width: 48%;
+}
+
+
+
+/* @media(min-width: 481px) {
+    .user-data {
         padding-bottom: 40px;
         margin-bottom: 50px;
     }
 }
 
-@media(min-height: 895px){
-        footer{
+@media(min-height: 895px) {
+    footer {
         position: absolute;
         bottom: 0;
         width: 100%;
     }
-}
+} */
