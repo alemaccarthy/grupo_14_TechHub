@@ -90,8 +90,7 @@ a:has(#logo){
 }
 
 .left-list button:hover,
-.right-list button:hover,
-#main-header label:hover {
+.right-list button:hover{
     color: #fff;
     cursor: pointer;
 }
@@ -522,9 +521,10 @@ footer li {
     min-width: 266px;
     text-align: center;
     position: fixed;
-    left: 2.5%;
-    top: 10px;
-    z-index: 50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 5000;
 }
 
 .log-in-form .group {
@@ -561,7 +561,6 @@ footer li {
 
 .log-in-form input:focus {
     outline: none;
-    color: #666;
 }
 
 .log-in-form input[type="checkbox"] {
@@ -626,15 +625,17 @@ input:focus~.barra::before {
 
 .log-in-form p a {
     color: #164194;
+    font-size: 14px;
+    text-decoration: underline;
 }
 
 @keyframes animatezoom {
     from {
-        transform: scale(0)
+        transform: scaleY(0)
     }
 
     to {
-        transform: scale(1)
+        transform: scaleY(1)
     }
 }
 
