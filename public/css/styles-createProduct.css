@@ -1,62 +1,218 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-.form-container-create{
+.form-container-create {
     width: 100%;
 }
 
-.form-container-create form{
+.form-container-create form,
+.form-container-create h1 {
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
+    max-width: 550px;
 }
 
-.form-container-create input[type="text"],
+.form-container-create h1 {
+    font-size: 21px;
+}
+
+.form-container-create form div {
+    margin: 10px 0;
+}
+
+.form-container-create input,
 .form-container-create textarea,
-.form-container-create select{
-    padding: 5px 3px;
+.form-container-create select {
+    padding: 5px 10px;
     border: solid 1px #ccc;
     border-radius: 7px;
     outline: none;
     resize: none;
+    transition: 0.5s;
 }
 
-.form-container-create select{
+.form-container-create select {
     text-align: center;
 }
 
-.form-container-create input[type="text"]:focus,
-.form-container-create textarea:focus,
-.form-container-create select:focus{
-    background: #efefef;
+.form-container-create select,
+.form-container-create div input::placeholder {
+    color: #888;
 }
+
+.form-container-create input:focus,
+.form-container-create textarea:focus,
+.form-container-create select:focus {
+    background: #efefef;
+    border: solid 1px #164194;
+}
+
 select option {
     background-color: #fff;
 }
 
-select option:nth-child(2){
+select option:nth-child(2) {
     display: none;
 }
 
 .form-container-create div:first-child input,
-.form-container-create textarea{
+.form-container-create textarea {
     width: 100%;
 }
 
-.form-container-create .form-grandson{
-    width: 48%;
-}
-.form-container-create .form-grandson:last-child{
-    display: flex;
-    flex-direction: column;
+.form-container-create input:hover,
+.form-container-create textarea:hover,
+.form-container-create select:hover{
+    border: 1px solid #164194;
 }
 
-.form-container-create div:nth-child(3){
+.form-container-create form > div:nth-child(3){
+    display: grid;
+    grid-template: 1fr / 1.3fr 1fr;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.form-grandson:first-child{
+    display: flex;
+    max-width: 245px;
+}
+
+.form-grandson:first-child select{
+    padding: 0;
+}
+
+.form-grandson:first-child input{
+    margin: 0 10px 0 5px;
+}
+
+.form-grandson:first-child input{
+    flex-grow: 1;
+}
+
+
+select#category{
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+.form-container-create form > div:nth-child(4) {
     display: flex;
     justify-content: space-between;
+    flex-flow: column wrap;
     align-items: center;
 }
+
+.form-container-create div:nth-last-child(2) label {
+    width: 100%;
+    padding: 60px 0;
+    border: dashed 1px #888;
+    border-radius: 7px;
+    position: relative;
+    transition: 0.5s;
+}
+
+.form-container-create div:nth-last-child(2) label:hover{
+    border: dashed 1.5px #164194;
+
+}
+
+.form-container-create form > div > h3{
+    font-weight: 400;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.form-container-create div:last-child label{
+    font-size: 14px;
+}
+
+.form-container-create form > div:nth-child(4) p{
+    font-size: 13px;
+}
+
+.form-container-create form > div:nth-child(4) p:first-child,
+.form-container-create form > div:nth-child(4) p:last-child{
+    width: 40%;
+    max-width: 170px;
+}
+
+input#images {
+    display: none;
+}
+
+input#colors {
+    padding: 5px;
+}
+
+.input-img-text {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    align-items: center;
+}
+
+.input-img-text p:first-of-type {
+    border: solid 1px #888;
+    border-radius: 7px;
+    padding: 3px 5px;
+    transition: 0.3s;
+}
+
+.input-img-text p:first-of-type:hover {
+    border: 1px solid #164194;
+    background-color: #d8e2ff;
+    color: #164194;
+}
+
+.form-container-create form > div:last-child div{
+    width: 90%;
+    max-width: 320px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container-create input[type="color"] {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    padding: 3px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%; /* Para hacerlo redondo */
+  }
+
+footer{
+    background-color: #ebebeb;
+}
+
+  @media(width >= 481px){
+    .form-container-create form > div > h3{
+        font-size: 18px;
+    }
+    .form-container-create form > div:nth-child(4) p{
+        font-size: 15px;
+    }
+    .form-container-create div:last-child label{
+        font-size: 16px;
+    }
+    .form-container-create h1 {
+        font-size: 24px;
+    }
+  }

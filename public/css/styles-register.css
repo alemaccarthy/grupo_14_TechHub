@@ -158,7 +158,7 @@ input:focus~.bar::before {
 
 
 
-/* @media(min-width: 481px) {
+@media(min-width: 481px) {
     .user-data {
         padding-bottom: 40px;
         margin-bottom: 50px;
@@ -171,4 +171,4 @@ input:focus~.bar::before {
         bottom: 0;
         width: 100%;
     }
-} */
+}

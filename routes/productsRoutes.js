@@ -11,4 +11,7 @@ productRoutes.get('/detail', productController.getProductDetail);
 // @GET /products/create
 productRoutes.get('/create', productController.getCreateProduct);
 
+// @GET /products/update
+productRoutes.get('/update', productController.getUpdateProduct);
+
 module.exports = productRoutes;
