@@ -126,6 +126,10 @@ input:focus~.bar::before {
     text-align: center;
 }
 
+.group input::placeholder{
+    position: relative;
+    z-index: -100;
+}
 
 @media(min-width: 481px){
     .register-container{
