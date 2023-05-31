@@ -110,7 +110,7 @@ select#category{
     align-items: center;
 }
 
-.form-container-create div:nth-last-child(2) label {
+.form-container-create div:nth-last-of-type(2) label {
     width: 100%;
     padding: 60px 0;
     border: dashed 1px #888;
@@ -119,7 +119,7 @@ select#category{
     transition: 0.5s;
 }
 
-.form-container-create div:nth-last-child(2) label:hover{
+.form-container-create div:nth-last-of-type(2) label:hover{
     border: dashed 1.5px #164194;
 
 }
@@ -130,7 +130,7 @@ select#category{
     margin: 10px 0;
 }
 
-.form-container-create div:last-child label{
+.form-container-create div:last-of-type label{
     font-size: 14px;
 }
 
@@ -173,7 +173,7 @@ input#colors {
     color: #164194;
 }
 
-.form-container-create form > div:last-child div{
+.form-container-create form > div:last-of-type div{
     width: 90%;
     max-width: 320px;
     margin: 30px auto;
@@ -198,6 +198,27 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 50%; /* Para hacerlo redondo */
   }
 
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.buttons input{
+    background-color: #666;
+    color: #fff;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+.buttons input:hover{
+    background-color: #164194;
+}
+
+.buttons input:first-child{
+    margin-right: 15px;
+}
+
 footer{
     background-color: #ebebeb;
 }
@@ -209,10 +230,14 @@ footer{
     .form-container-create form > div:nth-child(4) p{
         font-size: 15px;
     }
-    .form-container-create div:last-child label{
+    .form-container-create div:last-of-type label{
         font-size: 16px;
     }
     .form-container-create h1 {
         font-size: 24px;
+    }
+    .buttons input {
+        font-size: 16px;
+        padding: 8px 10px;
     }
   }
