@@ -14,7 +14,9 @@
         <main>
             <section class="form-container-create">
                 <h1>Editá el producto</h1>
-                <%- include('../partials/formProduct') %>
+                <form action="/product/<%= updatedProduct.id %>/update?_method:put" method="post">
+                    <%- include('../partials/formProduct') %>
+                </form>
             </section>
         </main>
 </body>

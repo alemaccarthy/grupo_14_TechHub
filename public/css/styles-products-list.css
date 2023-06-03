@@ -195,6 +195,10 @@ main>section {
     margin: 10px 0;
 }
 
+.box-img-product{
+    overflow: hidden;
+}
+
 @media (min-width:481px) {
     .titulo-producto-seleccionado {
         font-size: 35px;

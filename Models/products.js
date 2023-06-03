@@ -15,7 +15,7 @@ const productModel = {
     },
 
     findbyId(id) {
-        const findProduct = findAll();
+        const findProduct = this.findAll();
 
         //buscamos el índice del producto
         let searched = findProduct.find(el => el.id === id);
@@ -33,8 +33,11 @@ const productModel = {
         products[index].title = newData.title;
         products[index].price = newData.price;
         products[index].description = newData.description;
-        products[index].colors = newData.colors;
+        products[index].colors = newData.colors; //PREGUNTAR
         products[index].category = newData.category;
+        // products[index].images = newData.images; // PREGUNTAR
+
+        updatedProduct =  products[index];
 
         //pasamos a JSON
         const productsJSON = JSON.stringify(products);
@@ -54,11 +57,13 @@ const productModel = {
     },
 
     createProduct(product){
-        const products = this.findAll();
+        let products = this.findAll();
 
         //se pushea el objeto al array
+        product.id = products[products.length -1].id + 1
+        
         products.push(product);
-
+        
         //pasamos el nuevo array a JSON
         const productsJSON = JSON.stringify(products);
 

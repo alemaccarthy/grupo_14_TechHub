@@ -3,15 +3,15 @@ const productModel = require('../models/products');
 
 const productsController = {
     getProducts (req, res){
-        res.render('products-list', {title: 'Productos'});
+        res.render('products-list', {title: '| Productos'});
     },
 
     getProductDetail (req, res){
-        res.render('product-detail', {title: 'Detalle'});
+        res.render('product-detail', {title: '| Detalle'});
     },
 
     getCreateProduct (req, res){
-        res.render('create-product', {title: 'Crear producto'});
+        res.render('create-product', {title: '| Crear producto'});
     },
 
     postProduct (req, res){
@@ -25,7 +25,17 @@ const productsController = {
     },
 
     getUpdateProduct (req, res){
-        res.render('update-product', {title: 'Editar producto'});
+        const id = Number(req.params.id);
+
+        const updatedProduct = productModel.findbyId(id);
+
+        if (!updatedProduct) {
+            // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
+            // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
+            return res.send('error de id');
+        }
+
+        res.render('update-product', {title: 'Editar producto', updatedProduct});
     },
 
     deleteProduct(req, res){
@@ -38,11 +48,11 @@ const productsController = {
 
     updateProduct(req, res){
         let id = Number(req.params.id);
-        let data = req.body
+        let data = req.body;
 
         productModel.updateById(id, data);
 
-        res.redirect('/products/:id/detail')
+        res.redirect('/products/:id/detail');
     }
 }
 

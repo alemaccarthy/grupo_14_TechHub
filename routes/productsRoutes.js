@@ -19,7 +19,7 @@ productRoutes.post('/create', productController.postProduct);
 productRoutes.delete('/:id/delete', productController.deleteProduct)
 
 // @GET /products/update
-productRoutes.get('/:id/update', productController.getUpdateProduct);
+productRoutes.get('/update', productController.getUpdateProduct);
 
 // @POST /products/update
 productRoutes.put('/:id/update', productController.updateProduct)

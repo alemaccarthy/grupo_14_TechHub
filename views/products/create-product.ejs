@@ -14,10 +14,13 @@
         <main>
             <section class="form-container-create">
                 <h1>Creá un nuevo producto</h1>
-                <%- include('../partials/formProduct') %>
+                <form action="/product/create/" method="post">
+                    <%- include('../partials/formProduct') %>
+                </form>
             </section>
         </main>
 </body>
 
 <%- include('../partials/footer') %>
+
 </html>
