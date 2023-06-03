@@ -9,19 +9,19 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', [
+    path.join(__dirname, '/views/'),
     path.join(__dirname, '/views/products'),
-    path.join(__dirname, '/views/main'),
     path.join(__dirname, '/views/user')
 ])
 
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
-app.use('/main', mainRoutes);
+app.use(mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
 
 app.listen(3000, () => {
-    console.log('🎧 Escuchando puerto 3000 🎧');
+    console.log('🎧 Escuchando puerto http://localhost:3000 🎧');
 })

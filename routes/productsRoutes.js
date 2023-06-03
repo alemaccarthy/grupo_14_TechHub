@@ -6,12 +6,22 @@ const productController = require('../controllers/productsController');
 productRoutes.get('/', productController.getProducts);
 
 // @GET /products/detail
-productRoutes.get('/detail', productController.getProductDetail);
+productRoutes.get('/:id/detail', productController.getProductDetail);
 
 // @GET /products/create
-productRoutes.get('/create', productController.getCreateProduct);
+productRoutes.get('/:id/create', productController.getCreateProduct);
+
+// @POST /products/create
+productRoutes.post('/create', productController.postProduct);
+
+// @DELETE /products/update
+
+productRoutes.delete('/:id/delete', productController.deleteProduct)
 
 // @GET /products/update
-productRoutes.get('/update', productController.getUpdateProduct);
+productRoutes.get('/:id/update', productController.getUpdateProduct);
+
+// @POST /products/update
+productRoutes.put('/:id/update', productController.updateProduct)
 
 module.exports = productRoutes;

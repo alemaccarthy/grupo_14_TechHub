@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const modelProducts = {
+const productModel = {
     route: '../data/products.json',
 
     findAll() {
@@ -25,7 +25,7 @@ const modelProducts = {
         return searched;
     },
 
-    editById(id, newData) {
+    updateById(id, newData) {
         const products = this.findbyId(id)
         const index = products.findIndex(el => el.id === id);
         
@@ -67,4 +67,4 @@ const modelProducts = {
     }
 }
 
-module.exports = modelProducts;
+module.exports = productModel;
