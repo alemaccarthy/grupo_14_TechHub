@@ -9,7 +9,7 @@ productRoutes.get('/', productController.getProducts);
 productRoutes.get('/:id/detail', productController.getProductDetail);
 
 // @GET /products/create
-productRoutes.get('/:id/create', productController.getCreateProduct);
+productRoutes.get('/create', productController.getCreateProduct);
 
 // @POST /products/create
 productRoutes.post('/create', productController.postProduct);

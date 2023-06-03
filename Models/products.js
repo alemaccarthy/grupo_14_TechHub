@@ -59,10 +59,15 @@ const productModel = {
     createProduct(product){
         let products = this.findAll();
 
+        console.log(products);
+
         //se pushea el objeto al array
-        product.id = products[products.length -1].id + 1
+        product.id = products.length + 1;
+        product.deleted = false;
         
-        products.push(product);
+        console.log(products.push(product));
+
+        console.log(products);
         
         //pasamos el nuevo array a JSON
         const productsJSON = JSON.stringify(products);

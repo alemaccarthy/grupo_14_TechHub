@@ -1,9 +1,11 @@
 const path = require('path');
 const productModel = require('../models/products');
+const { log } = require('console');
 
 const productsController = {
     getProducts (req, res){
-        res.render('products-list', {title: '| Productos'});
+        const products = productModel.findAll();
+        res.render('products-list', {title: '| Productos', products});
     },
 
     getProductDetail (req, res){
@@ -16,6 +18,8 @@ const productsController = {
 
     postProduct (req, res){
         let product = req.body;
+
+        /* console.log(product); */
 
         product.price = Number(product.price);
         
