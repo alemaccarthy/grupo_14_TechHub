@@ -10,29 +10,29 @@ Nuestro público objetivo está compuesto por personas de todas las edades que r
 Además, nuestro sitio está diseñado para satisfacer las necesidades de aquellos clientes que prefieren realizar sus compras de manera digital, brindándoles una experiencia de usuario amigable, segura y confiable.
 
 ### Paleta de colores
-1. Blanco: #ffffff.
-2. Gris claro: #aaaaaa.
-3. Celeste: #31d8ff.
-4. Azul: #164194.
-5. Gris oscuro: #444444.
-6. Negro: #000000.
+* Blanco: #ffffff.
+* Gris claro: #aaaaaa.
+* Celeste: #31d8ff.
+* Azul: #164194.
+* Gris oscuro: #444444.
+* Negro: #000000.
 
 ### Fuentes
 
-Roboto 300, 400, 700.
-Albert Sans 300, 400, 700.
+* Roboto 300, 400, 700.
+* Albert Sans 300, 400, 700.
 
 ### Integrantes:
 
 1. Federico Furia: Soy de Bahia Blanca, tengo 26 años. Soy fotógrafo y editor audiovisual. Entusiasmado con el mundo de la programación y las inteligencias artificiales. Mis pasiones son el cine, la música y las acrobacias.
 
-2. Alejandro Mac Carthy: Tengo 23 años, soy de Luján. Me gusta leer, entrenar, estar en constante aprendizaje. Nací para viajar. Con el curso descubrí que esto me encanta, así que tengo muchas ganas de aprender.
+1. Alejandro Mac Carthy: Tengo 23 años, soy de Luján. Me gusta leer, entrenar, estar en constante aprendizaje. Nací para viajar. Con el curso descubrí que esto me encanta, así que tengo muchas ganas de aprender.
 
-3. Nestor Damian Villordo: Soy de Moron, tengo 24 años. Soy estudiante de ing.industrial. Actualmente trabajo para Telecom S.A.
+1. Nestor Damian Villordo: Soy de Moron, tengo 24 años. Soy estudiante de ing.industrial. Actualmente trabajo para Telecom S.A.
 
-4. Francisco A. Martinez: Hola!! 🙂 soy Fran, tengo 32 años, nací en tucuman pero actualmente vivo en Ushuaia - Tierra del Fuego. Actualmente me dedico a trabajar en un sitio web dedicado a profesionales como contadores y abogados. Pero sigo formandome en el área de la programacion web para un crecimiento tanto laboral como personal.
+1. Francisco A. Martinez: Hola!! 🙂 soy Fran, tengo 32 años, nací en tucuman pero actualmente vivo en Ushuaia - Tierra del Fuego. Actualmente me dedico a trabajar en un sitio web dedicado a profesionales como contadores y abogados. Pero sigo formandome en el área de la programacion web para un crecimiento tanto laboral como personal.
 
-5. Martin Juan: Soy abogado, profesor y asesor financiero. Hace 1 año y medio que me estoy formando como desarrollador y con ganas de seguir formandome.
+1. Martin Juan: Soy abogado, profesor y asesor financiero. Hace 1 año y medio que me estoy formando como desarrollador y con ganas de seguir formandome.
 
 ### Páginas de referencia:
 
