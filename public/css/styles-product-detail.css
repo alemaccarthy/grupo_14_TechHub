@@ -138,7 +138,7 @@ body {
 
 .product-info{
     font-size: 3.4vw;
-    padding: 5vw 0 5vw 3.8vw;
+    padding: 5vw 0;
 }
 
 .more-info-button button {
@@ -230,8 +230,7 @@ footer.footer {
 
     .product-info{
         font-size: 16px;
-        padding: 24px 0 24px 18px;
-
+        padding: 24px 0;
     }
 
     .more-info-button button {
@@ -269,8 +268,6 @@ footer.footer {
         margin-right: 0;
         margin-left: 10px;
     }
-    .product-info{
-        padding-top: 0;
-    }
+
 }
 

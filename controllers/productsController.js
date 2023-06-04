@@ -9,7 +9,9 @@ const productsController = {
     },
 
     getProductDetail (req, res){
-        res.render('product-detail', {title: '| Detalle'});
+        const id = Number(req.params.id)
+        const product = productModel.findbyId(id)
+        res.render('product-detail', {title: '| Detalle', product});
     },
 
     getCreateProduct (req, res){

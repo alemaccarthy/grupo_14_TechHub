@@ -26,8 +26,8 @@
                 </article>
 
                 <section class="detail-container">
-                    <h1 class="title-selected-product">Galaxy S23 Ultra</h1>
-                    <p class="product-price">$453.000</p>
+                    <h1 class="title-selected-product"><%= product.title %></h1>
+                    <p class="product-price">$<%= product.price %></p>
                     <h6 class="shipping-text">Envío gratis<i class="fa-solid fa-truck"></i></h6>
                     <section class="pick-color-smartphone pick-color-s23">
                         <span class="option-color-smartphone option-color-s23 color-s23-green"></span>
@@ -36,13 +36,7 @@
                         <span class="option-color-smartphone option-color-s23 color-s23-cream"></span>
                         <h1>Color</h1>
                     </section>
-                    <ul class="product-info">
-                        <li>Fotos nocturnas épicas que vas a compartir sí o sí</li>
-                        <li>Fotografía y gaming ultrarrápidos</li>
-                        <li>Diseñado para vos y el planeta</li>
-                        <li>S Pen incorporado compatible con más aplicaciones</li>
-                        <li>Cuidemos el planeta: No incluye cargador</li>
-                    </ul>
+                    <p class="product-info"><%= product.description %></p>
                 </section>
                 <section class="more-info-button">
                     <button>Más información</button>
