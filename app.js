@@ -4,8 +4,8 @@ const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
-
 const app = express();
+const logMiddleware = require('./middlewares/logMiddleware');
 
 app.set('view engine', 'ejs');
 app.set('views', [
@@ -18,6 +18,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(logMiddleware);
 
 //  ROUTES
 app.use(mainRoutes);
