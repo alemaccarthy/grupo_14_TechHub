@@ -12,9 +12,12 @@
     <%- include('../partials/header.ejs') %>
 
         <main>
-            <div>
-                <a href="/products/<%= product.id %>/update"><button>Editar producto</button></a>
-            </div>
+            <section class="update-container">
+                <div  class="update-button">
+                    <button><a href="/products/<%= product.id %>/update">Editar producto</a></button>
+                </div>
+            </section>
+
             <section class="product-detail-container">
                 <article class="img-container">
                     <img class="main-img" src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png"

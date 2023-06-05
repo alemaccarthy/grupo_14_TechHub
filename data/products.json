@@ -1,1 +1,34 @@
-[{"title":"Producto 1","description":"Hola soy el producto 1 nuevo\r\n                ","currency":"ARS","price":"124000","category":"","images":"","colors":"","color1":"#000000","color2":"#000000","color3":"#000000","color4":"#000000","id":1,"deleted":false},{"title":"Producto 2","description":"Hola soy el producto 2 modificado\r\n                \r\n                \r\n                \r\n                \r\n                ","currency":"ARS","price":"100000","category":"","images":"","colors":"","color1":"#000000","color2":"#000000","color3":"#000000","color4":"#000000","id":2,"deleted":false},{"title":"Producto 3","description":"Hola soy el producto 3 modificado\r\n                ","currency":"ARS","price":"500000","category":"","images":"","colors":"","color1":"#000000","color2":"#e83b3b","color3":"#d9d9d9","color4":"#2d49d7","id":3,"deleted":true},{"title":"Producto 4","description":"Hola soy el producto 4\r\n\r\n","currency":"ARS","price":"245158","category":"smartphone","images":"","colors":"","color1":"#000000","color2":"#e83b3b","color3":"#d9d9d9","color4":"#2d49d7","id":4,"deleted":true},{"title":"Producto 5","description":"Hola soy el producto 5","currency":"ARS","price":245158,"category":"smartphone","images":"","colors":"4","color1":"#000000","color2":"#2bb0e9","color3":"#d9d9d9","color4":"#2d49d7","id":5,"deleted":true},{"title":"Producto 6","description":"Soy el producto 6\r\n\r\n","currency":"ARS","price":"12200","category":"smartwatch","images":"","colors":"","color1":"#000000","color2":"#000000","color3":"#000000","color4":"#000000","id":6,"deleted":true}]
+[
+    {
+        "title": "Producto 1",
+        "brand": "apple",
+        "description": "Soy el producto 1 ",
+        "currency": "ARS",
+        "price": 123456,
+        "category": "smartphone",
+        "images": "",
+        "colors": "",
+        "color1": "#d62929",
+        "color2": "#21f267",
+        "color3": "#464592",
+        "color4": "#cbb85d",
+        "id": 1,
+        "deleted": false
+    },
+    {
+        "title": "Producto 2",
+        "brand": "samsung",
+        "description": "Soy el producto 2",
+        "currency": "ARS",
+        "price": 789123,
+        "category": "smartwatch",
+        "images": "",
+        "colors": "",
+        "color1": "#000000",
+        "color2": "#e89191",
+        "color3": "#6dcce3",
+        "color4": "#b8b8b8",
+        "id": 2,
+        "deleted": false
+    }
+]

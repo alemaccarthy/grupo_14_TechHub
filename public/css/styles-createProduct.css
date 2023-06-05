@@ -14,7 +14,7 @@
 .form-container-create form,
 .form-container-create h1 {
     width: 90%;
-    margin: 20px auto;
+    margin: 20px auto 7px;
     max-width: 550px;
 }
 
@@ -35,6 +35,19 @@
     outline: none;
     resize: none;
     transition: 0.5s;
+}
+
+div:first-of-type{
+    display: flex;
+    justify-content: space-between;
+}
+
+input#name{
+    width: 60%;
+}
+
+div:first-of-type select{
+    width: 35%;
 }
 
 .form-container-create select {
@@ -155,8 +168,9 @@ input#colors {
 .input-img-text {
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: 95%;
     position: absolute;
+    left: 2.5%;
     align-items: center;
 }
 
@@ -204,20 +218,30 @@ input[type="color"]::-webkit-color-swatch {
     width: 100%;
 }
 
-.buttons input{
+.buttons input,
+.form-delete input{
     background-color: #666;
     color: #fff;
     padding: 7px;
     border-radius: 7px;
+    min-width: 127px;
 }
 
-.buttons input:hover{
+.buttons input:hover,
+.form-delete input:hover{
     background-color: #164194;
 }
 
-.buttons input:first-child{
+.buttons input[value="Crear producto"]{
     margin-right: 15px;
 }
+
+form.form-delete{
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 footer{
     background-color: #ebebeb;
@@ -236,8 +260,10 @@ footer{
     .form-container-create h1 {
         font-size: 24px;
     }
-    .buttons input {
-        font-size: 16px;
-        padding: 8px 10px;
+    .buttons input,
+    .form-delete input{
+        font-size: 15px;
+        padding: 5px 7px;
+        min-width: 148px;
     }
   }

@@ -3,6 +3,18 @@
     value="<%= updatedProduct.title %>"
         <% } %>
             >
+            <select name="brand" id="brand">
+                <option value="" disabled>Marca</option>
+                <option value="">Marca</option>
+                <option value="apple" <%if(updatedProduct){%>
+                    <%  if(updatedProduct.category === "apple"){%>
+                        selected
+                        <% }} %>>Apple</option>
+                <option value="samsung" <%if(updatedProduct){%>
+                    <%  if(updatedProduct.category === "samsung"){%>
+                        selected
+                        <% }} %>>Samsung</option>
+            </select>
 </div>
 <div>
     <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(updatedProduct){%>
