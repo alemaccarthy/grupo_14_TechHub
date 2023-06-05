@@ -642,12 +642,12 @@ input:focus~.barra::before {
 @media(min-width: 481px) {
 
     .main-header-right {
-        padding: 10px;
+        padding: 0;
         margin: 10px;
     }
 
     .right-list {
-        padding: 10px 0 10px 10px;
+        padding: 10px 0;
         margin: 0 10px;
     }
 
@@ -705,13 +705,12 @@ input:focus~.barra::before {
     #main-header {
         height: 6.55vw;
         width: 95%;
-        max-height: 70px;
         margin: 0 auto;
     }
 
     .main-header-right {
-        padding: 0 15.6px 0;
-        margin: 0 15.6px 0;
+        padding: 0;
+        margin: 0;
     }
 
     #logo {
@@ -751,7 +750,7 @@ input:focus~.barra::before {
         align-items: center;
         justify-items: center;
         position: fixed;
-        top: 75px;
+        top: 6.9vw;
         right: 0;
         z-index: 100;
         width: 4vw;

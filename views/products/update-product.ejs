@@ -16,11 +16,14 @@
 
                 <h1>Editá el producto</h1>
                 
-                <form action="/products/<%= updatedProduct.id %>/update?_method:put" method="post">
+                <form action="/products/<%= updatedProduct.id %>/update?_method=put" method="post">
                     <%- include('../partials/formProduct') %>
+                    <section class="buttons">
+                        <input type="submit" value="Editar producto">
+                    </section>
                 </form>
 
-                <form action="/products/<%= updatedProduct.id %>/delete?_method:delete" method="post">
+                <form class="form-delete" action="/products/<%= updatedProduct.id %>/delete?_method=delete" method="post">
                     <input type="submit" value="Eliminar producto">
                 </form>
                 

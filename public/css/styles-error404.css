@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #333;
+}
+
+.main-error404 {
+    display: grid;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.logo-error {
+    width: 50%;
+    max-width: 150px;
+    justify-self: center;
+}
+
+.main-error404 .text-container {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 40px auto 0;
+    max-width: 320px;
+}
+
+.main-error404 .text-container p,
+.main-error404 .text-container a {
+    color: #fff;
+    font-size: 14px;
+    width: 80%;
+    margin: 10px auto;
+    text-decoration: none;
+}
+
+.main-error404 .text-container p:first-of-type {
+    font-size: 17px;
+}
+
+.main-error404 .text-container a {
+    margin: 2px auto;
+}
+
+.main-error404 .text-container h1 {
+    font-weight: 700;
+    font-size: 80px;
+    align-self: center;
+}
+
+.main-error404 img:last-of-type {
+    display: none;
+}
+
+
+@media(width >=768px) {
+    .main-error404 img:last-of-type {
+        grid-area: 2 / 3 / 4 / 5;
+        display: inline-block;
+        width: 430px;
+    }
+
+    .main-error404 .text-container {
+        grid-area: 2 / 1 / 5 / 3;
+        max-width: none;
+        margin-top: 0;
+        justify-content: flex-end;
+    }
+
+    .logo-error {
+        grid-area: 1 / 2 / 2 / 4;
+        width: 200px;
+        margin-bottom: 100px;
+    }
+}
+
+@media(width >=1200px) {
+    .main-error404 img:last-of-type {
+        width: 550px;
+    }
+
+    .main-error404 .text-container h1 {
+        font-size: 100px;
+    }
+
+    .main-error404 div.text-container p,
+    .main-error404 div.text-container a {
+        font-size: 18px;
+    }
+
+    .main-error404 .text-container p:first-of-type {
+        font-size: 22px;
+    }
+}

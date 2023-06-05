@@ -3,12 +3,24 @@
     value="<%= updatedProduct.title %>"
         <% } %>
             >
+            <select name="brand" id="brand">
+                <option value="" disabled>Marca</option>
+                <option value="">Marca</option>
+                <option value="apple" <%if(updatedProduct){%>
+                    <%  if(updatedProduct.category === "apple"){%>
+                        selected
+                        <% }} %>>Apple</option>
+                <option value="samsung" <%if(updatedProduct){%>
+                    <%  if(updatedProduct.category === "samsung"){%>
+                        selected
+                        <% }} %>>Samsung</option>
+            </select>
 </div>
 <div>
     <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(updatedProduct){%>
 <%= updatedProduct.description %>
-                </textarea>
-    <% } %>
+<% } %>
+</textarea>
 </div>
 <div>
     <div class="form-grandson">
@@ -24,9 +36,18 @@
         <select name="category" id="category">
             <option value="" disabled>Categoría</option>
             <option value="">Categoría</option>
-            <option value="smartphone">Smartphone</option>
-            <option value="smartwatch">Smartwatch</option>
-            <option value="tablet">Tablet</option>
+            <option value="smartphone" <%if(updatedProduct){%>
+                <%  if(updatedProduct.category === "smartphone"){ %>
+                    selected
+                    <% }} %>>Smartphone</option>
+            <option value="smartwatch" <%if(updatedProduct){%>
+                <%  if(updatedProduct.category === "smartwatch"){%>
+                    selected
+                    <% }} %>>Smartwatch</option>
+            <option value="tablet" <%if(updatedProduct){%>
+                <%  if(updatedProduct.category === "tablet"){%>
+                    selected
+                    <% }} %>>Tablet</option>
         </select>
     </div>
 </div>
@@ -47,13 +68,17 @@
     <label for="images">¿En cuántos colores estará disponible el producto?</label>
     <input type="number" name="colors" id="colors" min="1" max="4">
     <div>
-        <input type="color" name="color1">
-        <input type="color" name="color2">
-        <input type="color" name="color3">
-        <input type="color" name="color4">
+        <input type="color" name="color1" <%if(updatedProduct){%>
+            value="<%= updatedProduct.color1 %>"
+            <% } %>>
+        <input type="color" name="color2" <%if(updatedProduct){%>
+            value="<%= updatedProduct.color2 %>"
+            <% } %>>
+        <input type="color" name="color3" <%if(updatedProduct){%>
+            value="<%= updatedProduct.color3 %>"
+            <% } %>>
+        <input type="color" name="color4" <%if(updatedProduct){%>
+            value="<%= updatedProduct.color4 %>"
+            <% } %>>
     </div>
 </div>
-<section class="buttons">
-    <input type="submit" value="Crear producto">
-    <input type="reset" value="Restablecer">
-</section>
