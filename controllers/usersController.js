@@ -14,14 +14,16 @@ const usersController = {
         let newUser = req.body;
         newUser.id = Number(newUser.id);
         let errors = registerValidations(req);
-        // falta usar condicional para enviar a la vista que pasa si hay errores en la validacion
-        //if(!errors.isEmpty()){ 
-            //return res.render('register', {errors: errors.mapped());
-
-            userModel.createUser(newUser);
-
-        //res.redirect('/products' + newuser.id); VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario
+        //if(errors.isEmpty()){
+            //userModel.createUser(newUser);
+            //res.redirect('/products' + newuser.id); VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
+        //}
+        // else {
+            //return res.render('register', {errors: errors.array(), userData: req.body});
+            //});
     }
+            
+    
     
 }
 
