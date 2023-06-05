@@ -1,4 +1,5 @@
 const path = require('path');
+const userModel = require('../models/users');
 
 const usersController = {
     getRegister: (req, res) => {
@@ -10,6 +11,11 @@ const usersController = {
 
     postRegister: (req, res) => {
         let newUser = req.body;
+        newUser.id = Number(newUser.id);
+        
+        userModel.createUser(newUser);
+
+        //res.redirect('/products'); VER ESTO
         
     }
 }

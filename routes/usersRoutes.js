@@ -1,14 +1,20 @@
 const express = require('express');
 const usersRoutes = express.Router();
 const usersController = require('../controllers/usersController');
-const {body} = require('express-validator');
+const { body } = require('express-validator');
 const validations = [
     body('name').notEmpty(),
     body('lastname').notEmpty(),
-    body('email').notEmpty(),
-    body('password').notEmpty(),
-    body('confirm-password').notEmpty(),
+    body('email').isEmail().normalizeEmail(),
+    body('password').notEmpty().withMessage('El campo de contraseña es obligatorio'),
+    body('confirm-password').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error('Las contraseñas no coinciden');
+        }
+        return true;
+    }),
 ]
+
 // @ GET /user/complete-purchase
 usersRoutes.get('/complete-purchase', usersController.getPurchase);
 
