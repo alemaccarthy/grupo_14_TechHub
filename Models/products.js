@@ -52,6 +52,11 @@ const productModel = {
 
         //cambiamos la propiedad deleted a true
         products[index].deleted = true;
+
+        const productsJSON = JSON.stringify(products);
+
+        //sobreescribimos el JSON
+        fs.writeFileSync(path.join(__dirname, this.route), productsJSON);
     },
 
     createProduct(product){

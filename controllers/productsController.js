@@ -64,7 +64,7 @@ const productsController = {
 
         productModel.updateById(id, data);
 
-        res.redirect('/products');
+        res.redirect(`/products/${id}/detail`);
     }
 }
 
