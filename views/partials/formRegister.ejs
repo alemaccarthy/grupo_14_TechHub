@@ -3,35 +3,42 @@
         <i class="fa-solid fa-user user"></i>
         <span>Tus datos</span>
     </section>
-    <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
-    <form action="/register" method="POST" class="form">
-            <div class="form-group">
-                <input type="text" name="name" required placeholder="Nombre">
-                <span class="bar"></span>
-                <label for="name">Nombre</label>
-            </div>
-            <div class="form-group">
-                <input type="text" name="lastname" required placeholder="Apellido">
-                <span class="bar"></span>
-                <label for="">Apellido</label>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" required placeholder="E-mail">
-                <span class="bar"></span>
-                <label for="">E-mail</label>
-            </div>
-            <div class="form-group form-4">
-                <input type="password" name="password" required placeholder="Contraseña">
-                <span class="bar"></span>
-                <label for="">Contraseña</label>
-                <input type="password" name="confirm-password" required placeholder="Confirma contraseña">
-                <span class="bar"></span>
-                <label for="">Confirmar contraseña</label>
-            </div>
+    <% if(locals && locals.errors) {%>
+        <%for(let error in errors) {%>
+            <p class="error">
+                <%= errors[error].msg %>
+            </p>
+            <%}>
+                <%}%>
+                    <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+                    <form action="/register" method="POST" class="form">
+                        <div class="form-group">
+                            <input type="text" name="name" required placeholder="Nombre">
+                            <span class="bar"></span>
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname" required placeholder="Apellido">
+                            <span class="bar"></span>
+                            <label for="">Apellido</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" required placeholder="E-mail">
+                            <span class="bar"></span>
+                            <label for="">E-mail</label>
+                        </div>
+                        <div class="form-group form-4">
+                            <input type="password" name="password" required placeholder="Contraseña">
+                            <span class="bar"></span>
+                            <label for="">Contraseña</label>
+                            <input type="password" name="confirm-password" required placeholder="Confirma contraseña">
+                            <span class="bar"></span>
+                            <label for="">Confirmar contraseña</label>
+                        </div>
 
-        <button type="submit">Registrarme</button>
-        <p>¿Ya tenés cuenta? <a href="/">Ingresá</a></p>
+                        <button type="submit">Registrarme</button>
+                        <p>¿Ya tenés cuenta? <a href="/">Ingresá</a></p>
 
-    </form>
-    
+                    </form>
+
 </section>
