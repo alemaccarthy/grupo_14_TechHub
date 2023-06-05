@@ -15,17 +15,17 @@
                     <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
                     <form action="/register" method="POST" class="form">
                         <div class="form-group">
-                            <input type="text" name="name" id="name"required placeholder="Nombre" value="<%= locals.userData && userData.name ? userData.name : "" %>">
+                            <input type="text" name="name" id="name"required placeholder="Nombre" value="<%= locals.userData && userData.name ? userData.name : '' %>">
                             <span class="bar"></span>
                             <label for="name">Nombre</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="lastname" required placeholder="Apellido">
+                            <input type="text" name="lastname" id="lastname" required placeholder="Apellido" value="<%= locals.userData && userData.name ? userData.lastname : '' %>">
                             <span class="bar"></span>
                             <label for="">Apellido</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" required placeholder="E-mail">
+                            <input type="email" name="email" id="email" required placeholder="E-mail" value="<%= locals.userData && userData.email ? userData.name : '' %>">
                             <span class="bar"></span>
                             <label for="">E-mail</label>
                         </div>
