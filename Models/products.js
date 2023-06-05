@@ -26,7 +26,7 @@ const productModel = {
     },
 
     updateById(id, newData) {
-        const products = this.findbyId(id)
+        const products = this.findAll();
         const index = products.findIndex(el => el.id === id);
         
         //editamos las propiedades con los datos recibidos del formulario
@@ -36,8 +36,6 @@ const productModel = {
         products[index].colors = newData.colors; //PREGUNTAR
         products[index].category = newData.category;
         // products[index].images = newData.images; // PREGUNTAR
-
-        updatedProduct =  products[index];
 
         //pasamos a JSON
         const productsJSON = JSON.stringify(products);

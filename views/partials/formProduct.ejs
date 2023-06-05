@@ -1,52 +1,59 @@
-    <div>
-        <input type="text" name="title" id="name" placeholder="Nombre del producto">
+<div>
+    <input type="text" name="title" id="name" placeholder="Nombre del producto" <%if(updatedProduct){%>
+    value="<%= updatedProduct.title %>"
+        <% } %>
+            >
+</div>
+<div>
+    <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(updatedProduct){%>
+<%= updatedProduct.description %>
+                </textarea>
+    <% } %>
+</div>
+<div>
+    <div class="form-grandson">
+        <select name="currency" id="currency">
+            <option value="ARS">ARS</option>
+        </select>
+        <input type="text" name="price" id="price" placeholder="Precio" <%if(updatedProduct){%>
+        value="<%= updatedProduct.price %>"
+            <% } %>
+                >
     </div>
-    <div>
-        <textarea name="description" id="description" cols="30" rows="10"
-            placeholder="Descripción del producto"></textarea>
+    <div class="form-grandson">
+        <select name="category" id="category">
+            <option value="" disabled>Categoría</option>
+            <option value="">Categoría</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="smartwatch">Smartwatch</option>
+            <option value="tablet">Tablet</option>
+        </select>
     </div>
-    <div>
-        <div class="form-grandson">
-            <select name="currency" id="currency">
-                <option value="ARS">ARS</option>
-            </select>
-            <input type="text" name="price" id="price" placeholder="Precio">
-        </div>
-        <div class="form-grandson">
-            <select name="category" id="category">
-                <option value="" disabled>Categoría</option>
-                <option value="">Categoría</option>
-                <option value="smartphone">Smartphone</option>
-                <option value="smartwatch">Smartwatch</option>
-                <option value="tablet">Tablet</option>
-            </select>
-        </div>
-    </div>
-    <div>
-        <h3>Agrega imágenes</h3>
+</div>
+<div>
+    <h3>Agrega imágenes</h3>
 
-        <label for="images">
-            <div class="input-img-text">
-                <p>Selecciona un archivo</p>
-                <p>o</p>
-                <p>Arrástralo hasta aquí</p>
-            </div>
-        </label>
-        <input type="file" name="images" id="images" accept="image/*" multiple>
-    </div>
-    <div>
-        <h3>Agrega colores</h3>
-        <label for="images">¿En cuántos colores estará disponible el producto?</label>
-        <input type="number" name="colors" id="colors" min="1" max="4">
-        <div>
-            <input type="color" name="color1">
-            <input type="color" name="color2">
-            <input type="color" name="color3">
-            <input type="color" name="color4">
+    <label for="images">
+        <div class="input-img-text">
+            <p>Selecciona un archivo</p>
+            <p>o</p>
+            <p>Arrástralo hasta aquí</p>
         </div>
+    </label>
+    <input type="file" name="images" id="images" accept="image/*" multiple>
+</div>
+<div>
+    <h3>Agrega colores</h3>
+    <label for="images">¿En cuántos colores estará disponible el producto?</label>
+    <input type="number" name="colors" id="colors" min="1" max="4">
+    <div>
+        <input type="color" name="color1">
+        <input type="color" name="color2">
+        <input type="color" name="color3">
+        <input type="color" name="color4">
     </div>
-    <section class="buttons">
-        <button>Eliminar producto</button>
-        <input type="submit" value="Crear producto">
-        <input type="reset" value="Restablecer">
-    </section>
+</div>
+<section class="buttons">
+    <input type="submit" value="Crear producto">
+    <input type="reset" value="Restablecer">
+</section>

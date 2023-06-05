@@ -13,10 +13,17 @@
 
         <main>
             <section class="form-container-create">
+
                 <h1>Editá el producto</h1>
-                <form action="/product/<%= updatedProduct.id %>/update?_method:put" method="post">
+                
+                <form action="/products/<%= updatedProduct.id %>/update?_method:put" method="post">
                     <%- include('../partials/formProduct') %>
                 </form>
+
+                <form action="/products/<%= updatedProduct.id %>/delete?_method:delete" method="post">
+                    <input type="submit" value="Eliminar producto">
+                </form>
+                
             </section>
         </main>
 </body>

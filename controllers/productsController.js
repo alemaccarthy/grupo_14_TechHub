@@ -9,13 +9,19 @@ const productsController = {
     },
 
     getProductDetail (req, res){
-        const id = Number(req.params.id)
-        const product = productModel.findbyId(id)
+        const id = Number(req.params.id);
+        const product = productModel.findbyId(id);
+        if(!product){
+            return res.send('<h1>Lo sentimos, el producto solicitado no existe 😢</h1>'); //RETOCAR?
+        }
         res.render('product-detail', {title: '| Detalle', product});
     },
 
     getCreateProduct (req, res){
-        res.render('create-product', {title: '| Crear producto'});
+        const id = Number(req.params.id);
+        const updatedProduct = productModel.findbyId(id);
+
+        res.render('create-product', {title: '| Crear producto', updatedProduct});
     },
 
     postProduct (req, res){
@@ -53,12 +59,12 @@ const productsController = {
     },
 
     updateProduct(req, res){
-        let id = Number(req.params.id);
-        let data = req.body;
+        const id = Number(req.params.id);
+        const data = req.body;
 
         productModel.updateById(id, data);
 
-        res.redirect('/products/:id/detail');
+        res.redirect('/products');
     }
 }
 
