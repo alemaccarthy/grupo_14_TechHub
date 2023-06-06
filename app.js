@@ -6,12 +6,14 @@ const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
 const app = express();
 // const logMiddleware = require('./middlewares/logMiddleware');
+const Middleware404 = require('./middlewares/404Middleware');
 
 app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname, '/views/'),
     path.join(__dirname, '/views/products'),
-    path.join(__dirname, '/views/user')
+    path.join(__dirname, '/views/user'),
+    path.join(__dirname, '/views/errors')
 ])
 
 app.use(express.static('public'));
@@ -25,6 +27,7 @@ app.use(mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
+app.use(Middleware404);
 
 app.listen(3000, () => {
     console.log('🎧 Escuchando puerto http://localhost:3000 🎧');
