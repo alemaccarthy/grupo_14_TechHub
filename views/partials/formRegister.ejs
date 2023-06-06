@@ -1,46 +1,65 @@
-<section class="user-data">
-    <section class="sub-title">
-        <i class="fa-solid fa-user user"></i>
-        <span>Tus datos</span>
-    </section>
-    <% if (locals.errors) { %>
-        <% for (let error in errors) { %>
-            <p class="feedback is-danger">
-                <%= errors[error].msg %>
-            </p>
-        <% } %>
-    <% } %>
+<section class="register-container" id="form-container">
     
+    <h1>Registro</h1>
+    
+    <section class="user-data">
+        
+        <div class="form-userdata">
+        
+            <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+            <form class="form">
+            <div class="form-group name-lastname">
+                <input type="text" id="nombres" name="nombres" required placeholder="Nombres">
+                <input type="text" id="apellido" name="apellido" required placeholder="Apellido">
+            </div>
+            <div class="form-group email">
+                <input type="email" id="correo" name="correo" required placeholder="Email">
+            </div>
+            <div class="form-group password">
+                <input type="password" id="password" name="password" required placeholder="Contraseña">
+                <input type="password" id="confirm-password" name="confirm-password" required
+                placeholder="Confirma contraseña">
+            </div>
+            </form>
+        
+            <h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true"> Coloca tu dirección</a></h5>
+        
+        </div>
+       
+        <div class="form-adress">
+            <form>
+                <div class="form-group dni">
+                    <input type="dni" id="dni" name="dni" required placeholder="DNI">
+                </div>
+                <div class="form-group street-number">
+                    <input type="street" id="street" name="street" required placeholder="Calle">
+                    <input type="number" id="number" name="number" required placeholder="Altura">
+                </div>
+                <div class="form-group floor-door">
+                    <input type="floor" id="floor" name="floor" required placeholder="Piso">
+                    <input type="door" id="door" name="door" required placeholder="Departamento">
+                </div>
+                <div class="form-group city">
+                    <input type="city" id="city" name="city" required placeholder="Ciudad">
+                </div>
+                <div class="form-group province-postalcode">
+                    <input type="province" id="province" name="province" required placeholder="Provincia">
+                    <input type="postalcode" id="postalcode" name="postalcode" required placeholder="Codigo Postal">
+                </div>
+                <div class="form-group telephone">
+                    <input type="telephone" id="telephone" name="telephone" required placeholder="Telefono">
+                </div>
+                
+            
+            </form>
+       
+        </div>
+    
+    </section>
+    <section class="register-button">
 
-                    <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
-                    <form action="/register" method="POST" class="form">
-                        <div class="form-group">
-                            <input type="text" name="name" id="name"required placeholder="Nombre" value="<%= locals.userData && userData.name ? userData.name : '' %>">
-                            <span class="bar"></span>
-                            <label for="name">Nombre</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="lastname" id="lastname" required placeholder="Apellido" value="<%= locals.userData && userData.name ? userData.lastname : '' %>">
-                            <span class="bar"></span>
-                            <label for="">Apellido</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" required placeholder="E-mail" value="<%= locals.userData && userData.email ? userData.name : '' %>">
-                            <span class="bar"></span>
-                            <label for="">E-mail</label>
-                        </div>
-                        <div class="form-group form-4">
-                            <input type="password" name="password" required placeholder="Contraseña">
-                            <span class="bar"></span>
-                            <label for="">Contraseña</label>
-                            <input type="password" name="confirm-password" required placeholder="Confirma contraseña">
-                            <span class="bar"></span>
-                            <label for="">Confirmar contraseña</label>
-                        </div>
-
-                        <button type="submit">Registrarme</button>
-                        <p>¿Ya tenés cuenta? <a href="/">Ingresá</a></p>
-
-                    </form>
-
+        <button type="submit">Registrarte</button>
+        <p>Ya tengo cuenta! <a href="../main/">Loguearme</a></p>
+        
+    </section>
 </section>
