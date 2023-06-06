@@ -3,13 +3,14 @@
         <i class="fa-solid fa-user user"></i>
         <span>Tus datos</span>
     </section>
-    <% if(locals.errors) {%>
-        <%for(let error in errors) {%>
+    <% if (locals.errors) { %>
+        <% for (let error in errors) { %>
             <p class="feedback is-danger">
                 <%= errors[error].msg %>
             </p>
-            <%}>
-                <%}%>
+        <% } %>
+    <% } %>
+    
 
                     <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
                     <form action="/register" method="POST" class="form">

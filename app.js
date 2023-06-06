@@ -5,7 +5,7 @@ const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
 const app = express();
-const logMiddleware = require('./middlewares/logMiddleware');
+// const logMiddleware = require('./middlewares/logMiddleware');
 
 app.set('view engine', 'ejs');
 app.set('views', [
