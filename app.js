@@ -20,7 +20,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(logMiddleware);
+//app.use(logMiddleware);
 
 //  ROUTES
 app.use(mainRoutes);
