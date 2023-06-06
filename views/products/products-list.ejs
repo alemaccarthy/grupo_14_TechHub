@@ -6,55 +6,41 @@
 
         <link rel="stylesheet" href="/css/styles-header.css">
         <link rel="stylesheet" href="/css/styles-products-list.css">
-        <link rel="stylesheet" href="/css/styles-product-detail.css">
 </head>
 
 <body>
     <%- include('../partials/header') %>
 
         <main>
-            <section class="fran-banner">
+            <section class="banner-list">
                 <img src="imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
             </section>
 
-            <section class="fran-presentation-s23">
-                <section class="fran-title-s23-wide-container">
-                    <h1 class="fran-smartphone-title s23-title">Galaxy S23 Series</h1>
-                    <video autoplay="" loop="" muted="" plays-inline="">
-                        <source src="/videos/galaxy-s23-series.mp4" type="video/mp4">
-                    </video>
-                    </div>
-                </section>
-            </section>
-
-            <section class="grilla-articulos">
+            <section class="products-container">
 
                 <%products.forEach(el=> { 
                     if(el.deleted === false){%>
                     <a href="/products/<%= el.id %>/detail">
-                    <article class="productos-seleccionados">
+                    <article class="selected-products">
                         <div class="box-img-product">
                             <img class="imagen-producto" src="/imgs/samsung/products/galaxy-s/s23 Ultra/galaxy-s23-ultra-diagonal.avif"
                                 alt="z-fold-4">
                         </div>
                     
                         <div>
-                            <h2 class="titulo-producto-seleccionado"><%= el.title %></h2>
-                            <p class="precio-producto"><%= el.price %></p>
+                            <h2 class="product-title"><%= el.title %></h2>
+                            <p class="product-price">$<%= el.price %></p>
                         </div>
                     </article>
                     </a>
                     <% }}) %>
             </section>
 
-            <section class="fran-presentation-z">
-                <section class="fran-title-z-wide-container">
-                    <h1 class="fran-smartphone-title fran-z-title">Galaxy Z</h1>
-                    <video autoplay="" loop="" muted="" plays-inline="">
+            <section class="presentation-z-list">
+                    <h1 class="smartphone-title-list">Galaxy Z</h1>
+                    <video autoplay loop muted plays-inline="">
                         <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
                     </video>
-                    </div>
-                </section>
             </section>
         </main>
         <%- include('../partials/footer') %>
