@@ -7,10 +7,9 @@ const registerValidations = [
     body('name').notEmpty().withMessage('El campo de nombre es obligatorio'),
     body('lastname').notEmpty().withMessage('El campo de apellido es obligatorio'),
     body('email')
-    .isEmail()
-    .withMessage('El campo de apellido es obligatorio')
-    .normalizeEmail()
-    .withMessage('El campo de email es obligatorio'),
+    .notEmpty().withMessage('El campo de email es obligatorio').bail()
+    .isEmail().withMessage('El campo de email es obligatorio').bail()  
+    .normalizeEmail(),
     body('password').notEmpty().withMessage('El campo de contraseña es obligatorio'),
     body('confirm-password').custom((value, { req }) => {
         if (value !== req.body.password) {

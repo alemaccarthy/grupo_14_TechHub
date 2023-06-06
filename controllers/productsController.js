@@ -1,6 +1,7 @@
 const path = require('path');
 const productModel = require('../models/products');
 const { log } = require('console');
+const {validationResult} = require('express-validator');
 
 const productsController = {
     getProducts (req, res){
@@ -26,11 +27,16 @@ const productsController = {
 
     postProduct (req, res){
         let product = req.body;
+        let resultValidation = validationResult(req);
+        product.price = Number(product.price);
 
         /* console.log(product); */
 
-        product.price = Number(product.price);
-        
+        if (resultValidation.errors.length > 0) {
+            return res.render('create-product', {
+                errors: resultValidation.mapped(), 
+                product});
+        }     
         productModel.createProduct(product);
 
         res.redirect('/products');
