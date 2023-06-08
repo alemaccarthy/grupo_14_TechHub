@@ -1,7 +1,7 @@
-/* const fs = require('fs');
+const fs = require('fs');
 function logMiddleware(req,res,next){
-    //fs.appendFileSync('log.txt', 'El usuario ha ingresado en la ruta ' + req.url + "\n");
+    fs.appendFileSync('../resources/log.txt', 'El usuario ha ingresado en la ruta ' + req.url);
     next();
 }
 
-module.exports = logMiddleware; */
+module.exports = logMiddleware;
