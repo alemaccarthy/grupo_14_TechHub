@@ -5,12 +5,8 @@ const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
 const app = express();
-<<<<<<< HEAD
-/* const logMiddleware = require('./middlewares/logMiddleware'); */
-=======
 // const logMiddleware = require('./middlewares/logMiddleware');
 const Middleware404 = require('./middlewares/404Middleware');
->>>>>>> 393e4a055fc06c2e88ca4276ab620e007dd55f7c
 
 app.set('view engine', 'ejs');
 app.set('views', [
@@ -24,11 +20,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-<<<<<<< HEAD
 /* app.use(logMiddleware); */
-=======
-// app.use(logMiddleware);
->>>>>>> 393e4a055fc06c2e88ca4276ab620e007dd55f7c
 
 //  ROUTES
 app.use(mainRoutes);
