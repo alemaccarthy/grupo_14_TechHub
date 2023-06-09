@@ -23,7 +23,16 @@ const registerValidations = [
     .notEmpty().withMessage('El email es obligatorio').bail()
     .isEmail().withMessage('Debe indicar un email válido').bail()  
     .normalizeEmail(),
-    body('password').notEmpty().withMessage('La contraseña es obligatoria'),
+    body('password')
+        .notEmpty().withMessage('La contraseña es obligatoria').bail()
+        .isLength({min:10}).withMessage('La contraseña debe contener al menos 10 caracteres')
+        .custom((value, {req}) => {
+            const patron = /(?=.*\d{3,})(?=.*[A-Z]{1,})(?=.*\W{1,})/
+            if(!patron.test(req.body.password)){
+            throw new Error ('La contraseña debe contener al menos 1 mayúscula, 1 número y un símbolo');
+        }
+            return true;
+        }),
     body('dni').notEmpty().withMessage('El DNI es obligatorio'),
     body('confirmPassword').custom((value, { req }) => {
         if (value !== req.body.password) {
