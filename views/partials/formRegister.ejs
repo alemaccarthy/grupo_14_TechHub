@@ -1,65 +1,120 @@
 <section class="register-container" id="form-container">
-    
+
     <h1>Registro</h1>
-    
+
     <section class="user-data">
-        
+
         <div class="form-userdata">
-        
+
             <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
             <form class="form">
-            <div class="form-group name-lastname">
-                <input type="text" id="nombres" name="nombres" required placeholder="Nombres">
-                <input type="text" id="apellido" name="apellido" required placeholder="Apellido">
-            </div>
-            <div class="form-group email">
-                <input type="email" id="correo" name="correo" required placeholder="Email">
-            </div>
-            <div class="form-group password">
-                <input type="password" id="password" name="password" required placeholder="Contraseña">
-                <input type="password" id="confirm-password" name="confirm-password" required
-                placeholder="Confirma contraseña">
-            </div>
-            </form>
-        
-            <h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true"> Coloca tu dirección</a></h5>
-        
-        </div>
-       
-        <div class="form-adress">
-            <form>
-                <div class="form-group dni">
-                    <input type="dni" id="dni" name="dni" required placeholder="DNI">
+                <div class="form-group name-lastname">
+                    <input type="text" id="nombres" name="name" placeholder="Nombres"
+                        class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"
+                        value="<%= locals.oldData ? oldData.name : null %>"
+                        >
+                    <input type="text" id="apellido" name="lastName" placeholder="Apellido"
+                        class="<%= locals.errors && errors.lastName ? 'is-invalid' : null%>"
+                        value="<%= locals.oldData ? oldData.lastName : null %>"
+                        >
                 </div>
+                <div>
+                    <% if (locals.errors && errors.name) { %>
+                        <span class="text-danger">
+                            <%= errors.name.msg %>
+                        </span>
+                        <% } %>
+
+                            <% if (locals.errors && errors.lastName) { %>
+                                <span class="text-danger">
+                                    <%= errors.lastName.msg %>
+                                </span>
+                                <% } %>
+                </div>
+                <div class="form-group email">
+
+                    <input type="email" id="correo" name="email" placeholder="Email"
+                        class="<%= locals.errors && errors.email ? 'is-invalid' : null%>"
+                        value="<%= locals.oldData ? oldData.email : null %>"
+                        >
+
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>
+                        <% } %>
+
+                </div>
+                <div class="form-group password">
+
+                    <input type="password" id="password" name="password" placeholder="Contraseña"
+                        class="<%= locals.errors && errors.password ? 'is-invalid' : null%>"
+                        >
+
+                    <input type="password" id="confirm-password" name="confirmPassword"
+                        placeholder="Confirmar contraseña">
+
+                </div>
+                <div>
+
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>
+                        <% } %>
+                    <% if (locals.errors && errors.confirmPassword) { %>
+                        <div class="text-danger">
+                            <%= errors.confirmPassword.msg %>
+                        </div>
+                        <% } %>
+
+                </div>
+                <div class="form-group dni">
+                    <input type="dni" id="dni" name="dni" placeholder="DNI"
+                        class="<%= locals.errors && errors.dni ? 'is-invalid' : null%>"
+                        value="<%= locals.oldData ? oldData.dni : null %>"
+                        >
+                    <% if (locals.errors && errors.dni) { %>
+                        <div class="text-danger">
+                            <%= errors.dni.msg %>
+                        </div>
+                        <% } %>
+                </div>
+
+            <h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true"> Coloca tu dirección</a></h5>
+
+        </div>
+
+        <div class="form-adress">
+            
                 <div class="form-group street-number">
-                    <input type="street" id="street" name="street" required placeholder="Calle">
-                    <input type="number" id="number" name="number" required placeholder="Altura">
+                    <input type="street" id="street" name="street" placeholder="Calle">
+                    <input type="number" id="number" name="number" placeholder="Altura">
                 </div>
                 <div class="form-group floor-door">
-                    <input type="floor" id="floor" name="floor" required placeholder="Piso">
-                    <input type="door" id="door" name="door" required placeholder="Departamento">
+                    <input type="floor" id="floor" name="floor" placeholder="Piso">
+                    <input type="door" id="door" name="door" placeholder="Departamento">
                 </div>
                 <div class="form-group city">
-                    <input type="city" id="city" name="city" required placeholder="Ciudad">
+                    <input type="city" id="city" name="city" placeholder="Ciudad">
                 </div>
                 <div class="form-group province-postalcode">
-                    <input type="province" id="province" name="province" required placeholder="Provincia">
-                    <input type="postalcode" id="postalcode" name="postalcode" required placeholder="Codigo Postal">
+                    <input type="province" id="province" name="province" placeholder="Provincia">
+                    <input type="postalcode" id="postalcode" name="postalCode" placeholder="Codigo Postal">
                 </div>
                 <div class="form-group telephone">
-                    <input type="telephone" id="telephone" name="telephone" required placeholder="Telefono">
+                    <input type="telephone" id="telephone" name="telephone" placeholder="Telefono">
                 </div>
-                
-            
+
             </form>
-       
+
         </div>
-    
+
     </section>
     <section class="register-button">
 
         <button type="submit">Registrarte</button>
         <p>Ya tengo cuenta! <a href="../main/">Loguearme</a></p>
-        
+
     </section>
 </section>

@@ -1,6 +1,6 @@
 const path = require('path');
 const userModel = require('../models/users');
-const {registerValidations} = require('express-validator');
+const {validationResult} = require('express-validator');
 
 const usersController = {
     getRegister: (req, res) => {
@@ -11,18 +11,21 @@ const usersController = {
     },
 
     postRegister: (req, res) => {
-        let newUser = req.body;
-        newUser.id = Number(newUser.id);
-        let errors = registerValidations(req);
-        //if(errors.isEmpty()){
-            //userModel.createUser(newUser);
-            //res.redirect('/products' + newuser.id); VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
-        //}
-        // else {
-            //return res.render('register', {errors: errors.array(), userData: req.body});
-            //});
+        const userValidation = validationResult(req);
+        const oldData = req.body;
+
+        console.log(oldData);
+
+        if(userValidation.errors.length > 0){
+            res.render('register', {title: '| Registrarse', errors: userValidation.mapped(), oldData})
+        }
+        else {
+            res.redirect('/')
+        };
     }
-            
+    
+    // userModel.createUser(newUser);
+    // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
     
     
 }
