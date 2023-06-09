@@ -4,9 +4,10 @@ const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
-const app = express();
-// const logMiddleware = require('./middlewares/logMiddleware');
 const Middleware404 = require('./middlewares/404Middleware');
+const session = require('express-session');
+
+const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', [
@@ -20,7 +21,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-// app.use(logMiddleware);
+app.use(session({secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan"}));
+/* app.use(logMiddleware); */
 
 //  ROUTES
 app.use(mainRoutes);

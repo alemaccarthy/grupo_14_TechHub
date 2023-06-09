@@ -4,7 +4,7 @@
         <% } %>
             >        
                 <% if (locals.errors && errors.title) { %>
-                    <div class ="text-danger">
+                    <div class= "text-danger">
                         <%= errors.title.msg %>
                     </div>
                 <% } %>
@@ -22,7 +22,7 @@
                         <% }} %>>Samsung</option>
             </select>
             <% if (locals.errors && errors.brand) { %>
-                <div class ="text-danger">
+                <div class= "text-danger">
                     <%= errors.brand.msg %>
                 </div>
             <% } %>
@@ -44,7 +44,7 @@
             <option value="ARS">ARS</option>
         </select>
         <% if (locals.errors && errors.currency) { %>
-            <div class ="text-danger">
+            <div class= "text-danger">
                 <%= errors.currency.msg %>
             </div>
         <% } %>
@@ -54,7 +54,7 @@
                 >
     </div>
     <% if (locals.errors && errors.price) { %>
-        <div class ="text-danger">
+        <div class= "text-danger">
             <%= errors.price.msg %>
         </div>
     <% } %>
@@ -77,7 +77,7 @@
         </select>
     </div>
     <% if (locals.errors && errors.category) { %>
-        <div class ="text-danger">
+        <div class= "text-danger">
             <%= errors.category.msg %>
         </div>
     <% } %>
@@ -94,7 +94,7 @@
     </label>
     <input type="file" name="products-images" id="images" accept="image/*" multiple>
     <% if (locals.errors && errors.images) { %>
-        <div class ="text-danger">
+        <div class= "text-danger">
             <%= errors.images.msg %>
         </div>
     <% } %>
@@ -105,7 +105,7 @@
     <label for="images">¿En cuántos colores estará disponible el producto?</label>
     <input type="number" name="colors" class=<%= locals.errors && errors.number ? 'is-invalid' : null%> id="colors" min="1" max="4">
     <% if (locals.errors && errors.number) { %>
-        <div class ="text-danger">
+        <div class= "text-danger">
             <%= errors.number.msg %>
         </div>
     <% } %>
