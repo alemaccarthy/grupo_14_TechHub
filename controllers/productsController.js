@@ -13,7 +13,7 @@ const productsController = {
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
         if(!product){
-            return res.send('<h1>Lo sentimos, el producto solicitado no existe 😢</h1>'); //RETOCAR?
+            return res.render('product-not-found', {title: 'Error'});
         }
         res.render('product-detail', {title: '| Detalle', product});
     },
@@ -35,7 +35,7 @@ const productsController = {
         if (resultValidation.errors.length > 0) {
             return res.render('create-product', {
                 errors: resultValidation.mapped(), 
-                product});
+                oldData: product});
         }     
         productModel.createProduct(product);
 
@@ -50,7 +50,7 @@ const productsController = {
         if (!updatedProduct) {
             // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
             // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
-            return res.send('error de id');
+            return res.render('product-not-found', {title: 'Error'});
         }
 
         res.render('update-product', {title: 'Editar producto', updatedProduct});
