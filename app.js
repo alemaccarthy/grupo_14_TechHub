@@ -21,7 +21,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(session({secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan"}));
+app.use(session({
+    secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan",
+    resave: false,
+    saveUninitialized: false
+}));
 /* app.use(logMiddleware); */
 
 //  ROUTES

@@ -52,7 +52,7 @@ const productsController = {
         const id = Number(req.params.id);
 
         const updatedProduct = productModel.findbyId(id);
-
+        
         if (!updatedProduct) {
             // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
             // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
@@ -73,7 +73,7 @@ const productsController = {
     updateProduct(req, res){
         const id = Number(req.params.id);
         const data = req.body;
-
+        
         productModel.updateById(id, data);
 
         res.redirect(`/products/${id}/detail`);
