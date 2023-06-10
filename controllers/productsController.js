@@ -19,10 +19,9 @@ const productsController = {
     },
 
     getCreateProduct (req, res){
-        const id = Number(req.params.id);
-        const updatedProduct = productModel.findbyId(id);
+        const product = req.body;
 
-        res.render('create-product', {title: '| Crear producto', updatedProduct});
+        res.render('create-product', {title: '| Crear producto', product});
     },
 
     postProduct (req, res){
@@ -34,6 +33,8 @@ const productsController = {
 
         if (resultValidation.errors.length > 0) {
             return res.render('create-product', {
+                title: '| Detalle',
+                product, 
                 errors: resultValidation.mapped(), 
                 oldData: product});
         }     
@@ -53,7 +54,7 @@ const productsController = {
             return res.render('product-not-found', {title: 'Error'});
         }
 
-        res.render('update-product', {title: 'Editar producto', updatedProduct});
+        res.render('update-product', {title: 'Editar producto', product: updatedProduct});
     },
 
     deleteProduct(req, res){
