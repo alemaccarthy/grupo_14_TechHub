@@ -1,4 +1,3 @@
-const path = require('path');
 const productModel = require('../models/products');
 const { log } = require('console');
 const { validationResult } = require('express-validator');
