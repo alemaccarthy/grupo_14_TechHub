@@ -1,6 +1,7 @@
 const path = require('path');
 const productModel = require('../models/products');
 const { log } = require('console');
+const { validationResult } = require('express-validator');
 
 const productsController = {
     getProducts (req, res){
@@ -18,18 +19,26 @@ const productsController = {
     },
 
     getCreateProduct (req, res){
-        const id = Number(req.params.id);
-        const updatedProduct = productModel.findbyId(id);
+        const product = req.body;
 
-        res.render('create-product', {title: '| Crear producto', updatedProduct});
+        // console.log(req.body);
+
+        res.render('create-product', {title: '| Crear producto', product});
     },
 
     postProduct (req, res){
         let product = req.body;
-
-        /* console.log(product); */
-
+        let resultValidation = validationResult(req);
         product.price = Number(product.price);
+
+        if (resultValidation.errors.length > 0) {
+
+            return res.render('create-product', {
+                title: '| Detalle',
+                product, 
+                errors: resultValidation.mapped(), 
+                oldData: product});
+        }  
 
         console.log(req.files);
         product.images = '/imgs/products-images/' + req.file.filename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename)
@@ -50,7 +59,7 @@ const productsController = {
             return res.render('product-not-found');
         }
 
-        res.render('update-product', {title: 'Editar producto', updatedProduct});
+        res.render('update-product', {title: 'Editar producto', product: updatedProduct});
     },
 
     deleteProduct(req, res){
