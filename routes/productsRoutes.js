@@ -2,6 +2,7 @@ const express = require('express');
 const productRoutes = express.Router();
 const productController = require('../controllers/productsController');
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
