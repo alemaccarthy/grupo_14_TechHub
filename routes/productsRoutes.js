@@ -6,6 +6,19 @@ const multer = require('multer');
 
 const productController = require('../controllers/productsController');
 
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/imgs/products-images');
+    },
+    filename: function (req, file, cb) {
+        let filename = `${Date.now()}_img${path.extname(file.originalname)}`;
+        cb(null, filename);
+    }
+});
+
+const upload = multer({ storage });
+
 const validations = [
     body('title').notEmpty().withMessage('El titulo no puede estar vacio'),
     body('brand').notEmpty().withMessage('La marca no puede estar vacia'),
@@ -16,7 +29,7 @@ const validations = [
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
     body('productImages').custom((value, { req }) => {
         let file = req.file;
-        console.log(file);
+        // console.log(file);
         let acceptedExtensions = ['.jpg', '.png', ',jpeg'];
         let fileExtension = path.extname(file.originalname);
 
@@ -31,18 +44,6 @@ const validations = [
     })
 ]
 
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/imgs/products-images');
-    },
-    filename: function (req, file, cb) {
-        let filename = `${Date.now()}_img${path.extname(file.originalname)}`;
-        cb(null, filename);
-    }
-});
-
-const upload = multer({ storage });
 
 // @Get /products
 productRoutes.get('/', productController.getProducts);

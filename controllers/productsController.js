@@ -28,12 +28,11 @@ const productsController = {
         let product = req.body;
         let resultValidation = validationResult(req);
         product.price = Number(product.price);
-
-        /* console.log(product); */
+        product.images = req.files.map(file => '/imgs/products-images' + file.filename);
+        console.log(req.files);
 
         if (resultValidation.errors.length > 0) {
 
-            return res.send(resultValidation.mapped())
             return res.render('create-product', {
                 title: '| Detalle',
                 product, 
