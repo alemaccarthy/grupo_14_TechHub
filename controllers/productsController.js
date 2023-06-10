@@ -32,6 +32,8 @@ const productsController = {
         /* console.log(product); */
 
         if (resultValidation.errors.length > 0) {
+
+            return res.send(resultValidation.mapped())
             return res.render('create-product', {
                 title: '| Detalle',
                 product, 

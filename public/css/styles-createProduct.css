@@ -157,9 +157,9 @@ select#category{
     max-width: 170px;
 }
 
-input#images {
+/* input#images {
     display: none;
-}
+} */
 
 input#colors {
     padding: 5px;

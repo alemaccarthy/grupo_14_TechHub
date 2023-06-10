@@ -91,17 +91,17 @@
             <p>Arrástralo hasta aquí</p>
         </div>
     </label>
-    <input type="file" name="products-images" id="images" accept="image/*" multiple>
-    <% if (locals.errors && errors.images) { %>
+    <input type="file" name="productImages" id="images" accept="image/*" multiple>
+    <% if (locals.errors && errors.productImages) { %>
         <div class= "text-danger">
-            <%= errors.images.msg %>
+            <%= errors.productImages.msg %>
         </div>
     <% } %>
 </div>
 
 <div>
     <h3>Agrega colores</h3>
-    <label for="images">¿En cuántos colores estará disponible el producto?</label>
+    <label for="">¿En cuántos colores estará disponible el producto?</label>
     <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
     value="<%= product ? product.colors : null %>">
     <% if (locals.errors && errors.number) { %>
