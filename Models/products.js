@@ -28,6 +28,7 @@ const productModel = {
     updateById(id, newData) {
         const products = this.findAll();
         const index = products.findIndex(el => el.id === id);
+        
         //editamos las propiedades con los datos recibidos del formulario
         products[index].title = newData.title;
         products[index].price = newData.price;
@@ -38,12 +39,11 @@ const productModel = {
 
         //pasamos a JSON
         const productsJSON = JSON.stringify(products);
-        console.log(products);
+
         //sobreescribimos el JSON
         fs.writeFileSync(path.join(__dirname, this.route), productsJSON);
-        
-        return products;
 
+        return products;
     },
 
     deleteById(id){

@@ -36,6 +36,6 @@ productRoutes.delete('/:id/delete', productController.deleteProduct)
 productRoutes.get('/:id/update', productController.getUpdateProduct);
 
 // @PUT /products/:id/update
-productRoutes.put('/:id/update', productController.updateProduct)
+productRoutes.put('/:id/update', [upload.single('images')], productController.updateProduct)
 
 module.exports = productRoutes;
