@@ -94,23 +94,5 @@
         "color4": "#000000",
         "id": 6,
         "deleted": false
-    },
-    {
-        "title": "ddfasdfasdf",
-        "brand": "apple",
-        "description": "\r\n\r\nasfasdfasdf\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-        "currency": "ARS",
-        "price": 124000,
-        "category": "smartphone",
-        "colors": "2",
-        "color1": "#000000",
-        "color2": "#000000",
-        "color3": "#000000",
-        "color4": "#000000",
-        "images": [
-            "/imgs/products-images1686369344812_img.jpg"
-        ],
-        "id": 7,
-        "deleted": false
     }
 ]

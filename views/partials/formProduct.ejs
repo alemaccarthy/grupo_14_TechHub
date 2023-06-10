@@ -3,9 +3,9 @@
     value="<%= product ? product.title : null %>"
             >        
                 <% if (locals.errors && errors.title) { %>
-                    <div class= "text-danger">
+                    <span class= "text-danger">
                         <%= errors.title.msg %>
-                    </div>
+                    </span>
                 <% } %>
             
             <select name="brand" id="brand" class=<%= locals.errors && errors.brand ? 'is-invalid' : null%>>
@@ -21,9 +21,9 @@
                         <% }} %>>Samsung</option>
             </select>
             <% if (locals.errors && errors.brand) { %>
-                <div class= "text-danger">
+                <span class= "text-danger">
                     <%= errors.brand.msg %>
-                </div>
+                </span>
             <% } %>
 </div>
 <div>
@@ -33,9 +33,9 @@
 </textarea>
 </div>
 <% if (locals.errors && errors.description) { %>
-    <div class ="text-danger">
+    <span class ="text-danger">
         <%= errors.description.msg %>
-    </div>
+    </span>
 <% } %>
 <div>
     <div class="form-grandson">
@@ -43,9 +43,9 @@
             <option value="ARS">ARS</option>
         </select>
         <% if (locals.errors && errors.currency) { %>
-            <div class= "text-danger">
+            <span class= "text-danger">
                 <%= errors.currency.msg %>
-            </div>
+            </span>
         <% } %>
         <input type="text" name="price" class=<%= locals.errors && errors.price ? 'is-invalid' : null%> id="price" placeholder="Precio" <%if(product){%>
         value="<%= product.price %>"
@@ -53,9 +53,9 @@
                 >
     </div>
     <% if (locals.errors && errors.price) { %>
-        <div class= "text-danger">
+        <span class= "text-danger">
             <%= errors.price.msg %>
-        </div>
+        </span>
     <% } %>
     <div class="form-grandson">
         <select name="category" id="category" class=<%= locals.errors && errors.category ? 'is-invalid' : null%>>
@@ -76,9 +76,9 @@
         </select>
     </div>
     <% if (locals.errors && errors.category) { %>
-        <div class= "text-danger">
+        <span class= "text-danger">
             <%= errors.category.msg %>
-        </div>
+        </span>
     <% } %>
 </div>
 <div>
@@ -93,21 +93,21 @@
     </label>
     <input type="file" name="productImages" id="images" accept="image/*" multiple>
     <% if (locals.errors && errors.productImages) { %>
-        <div class= "text-danger">
+        <span class= "text-danger">
             <%= errors.productImages.msg %>
-        </div>
+        </span>
     <% } %>
 </div>
 
 <div>
     <h3>Agrega colores</h3>
     <label for="">¿En cuántos colores estará disponible el producto?</label>
-    <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
+    <input type="number" name="colors" class="<%= locals.errors && errors.colors ? 'is-invalid' : null%>" id="colors" min="1" max="4"
     value="<%= product ? product.colors : null %>">
-    <% if (locals.errors && errors.number) { %>
-        <div class= "text-danger">
-            <%= errors.number.msg %>
-        </div>
+    <% if (locals.errors && errors.colors) { %>
+        <span class= "text-danger">
+            <%= errors.colors.msg %>
+        </span>
     <% } %>
     <div>
         <input type="color" name="color1" <%if(product){%>

@@ -28,19 +28,44 @@ const productsController = {
         let product = req.body;
         let resultValidation = validationResult(req);
         product.price = Number(product.price);
-        product.images = req.files.map(file => '/imgs/products-images' + file.filename);
+        product.images = '/imgs/products-images' + req.filesfilename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename) 
+
+        console.log(req.files);
 
         if (resultValidation.errors.length > 0) {
 
+            // return res.send(resultValidation.mapped())
             return res.render('create-product', {
                 title: '| Detalle',
                 product, 
                 errors: resultValidation.mapped(), 
                 oldData: product});
         }     
+
         productModel.createProduct(product);
 
         res.redirect('/products');
+
+        /*         let resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+
+            return res.render('create-product', {
+                title: '| Detalle', 
+                errors: resultValidation.mapped(), 
+                product: req.body});
+        }     
+
+        let product = req.body;
+
+        product.price = Number(product.price);
+        
+        product.images = req.files.map(file => '/imgs/products-images' + file.filename);
+
+
+        productModel.createProduct(product);
+
+        res.redirect('/products'); */
     },
 
     getUpdateProduct (req, res){

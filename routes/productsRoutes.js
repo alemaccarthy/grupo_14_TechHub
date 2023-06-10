@@ -23,7 +23,6 @@ const validations = [
     body('title').notEmpty().withMessage('El titulo no puede estar vacio'),
     body('brand').notEmpty().withMessage('La marca no puede estar vacia'),
     body('description').notEmpty().withMessage('Debes darle una descripcion al producto'),
-    body('currency').notEmpty().withMessage('Debes elegir una moneda para expresar el precio del producto'),
     body('price').notEmpty().withMessage('Debes asignar un precio al producto'),
     body('category').notEmpty().withMessage('Debes seleccionar una categoria para el producto'),
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
@@ -58,7 +57,7 @@ productRoutes.get('/:id/detail', productController.getProductDetail);
 productRoutes.get('/create', productController.getCreateProduct);
 
 // @POST /products/create
-productRoutes.post('/create', [upload.any('products-images'), validations], productController.postProduct);
+productRoutes.post('/create', [upload.single('productImages'), validations], productController.postProduct);
 
 // @DELETE /products/:id/delete
 
