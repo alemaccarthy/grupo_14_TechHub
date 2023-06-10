@@ -29,17 +29,20 @@ const validations = [
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
     body('productImages').custom((value, { req }) => {
         let file = req.file;
-        // console.log(file);
-        let acceptedExtensions = ['.jpg', '.png', ',jpeg'];
-        let fileExtension = path.extname(file.originalname);
 
+        let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
+        
         if (!file) {
+            
             throw new Error('Debes subir una imagen del producto');
-        }
-
+            
+        } else {
+            let fileExtension = path.extname(file.originalname);
+            
             if (!acceptedExtensions.includes(fileExtension)) {
                 throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
             }
+        }
         return true;
     })
 ]
