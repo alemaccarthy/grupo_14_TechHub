@@ -40,9 +40,12 @@ const productsController = {
                 oldData: product});
         }  
 
-        console.log(req.files);
+        //console.log(req.files);
         product.images = '/imgs/products-images/' + req.file.filename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename)
-        
+        //if (req.files && req.files.length > 0) {
+           // product.images = req.files.map((file) => '/imgs/products-images/' + file.filename);
+          //}
+
         productModel.createProduct(product);
 
         res.redirect('/products');
