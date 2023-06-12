@@ -18,8 +18,8 @@
 
             <section class="products-container">
 
-                <%products.forEach(el=> {
-                    if(el.deleted === false){%>
+                <%products.forEach(el=> {%>
+                    <%if(el.deleted === false){%>
                     <a class="selected-products" href="/products/<%= el.id %>/detail">
                         <article>
                             <div class="box-img-product">
