@@ -36,7 +36,8 @@ body {
 }
 
 .box-img-product {
-    background-color: rgba(244, 238, 238, 0.599);
+    /* background-color: rgba(244, 238, 238, 0.599); */
+    background: #fff;
 }
 
 .selected-products {
@@ -57,7 +58,7 @@ body {
 
 .imagen-producto {
     width: 100%;
-    scale: 1.1;
+    padding: 1.5vw;
 }
 
 .product-title,
@@ -134,6 +135,10 @@ body {
         font-size: 18px;
     }
 
+    .imagen-producto {
+        padding: 11.5px;
+    }
+
     .product-price {
         padding-top: 8px;
     }
@@ -152,6 +157,10 @@ body {
     .smartphone-title-list {
         font-size: 80px;
         left: 0;
+    }
+
+    .imagen-producto {
+        padding: 15px;
     }
 
     .product-title,

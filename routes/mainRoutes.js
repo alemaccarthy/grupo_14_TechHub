@@ -6,10 +6,10 @@ const mainController = require('../controllers/mainController');
 // @GET /main
 mainRoutes.get('/', mainController.getIndex)
 
-// @GET /main/home-1
-mainRoutes.get('/home-1', mainController.getHome1)
+// @GET /main/apple
+mainRoutes.get('/apple', mainController.getHome1)
 
-// @GET /main/home-1
-mainRoutes.get('/home-2', mainController.getHome2)
+// @GET /main/samsung
+mainRoutes.get('/samsung', mainController.getHome2)
 
 module.exports = mainRoutes;
