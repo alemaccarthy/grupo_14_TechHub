@@ -1,5 +1,4 @@
 const productModel = require('../models/products');
-const { log } = require('console');
 const { validationResult } = require('express-validator');
 
 const productsController = {
@@ -27,7 +26,7 @@ const productsController = {
 
     postProduct (req, res){
         let product = req.body;
-        let resultValidation = validationResult(req);
+        const resultValidation = validationResult(req);
         product.price = Number(product.price);
 
         if (resultValidation.errors.length > 0) {

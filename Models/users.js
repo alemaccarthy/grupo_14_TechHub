@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid');
 
 const userModel = {
     route: '../data/users.json',
@@ -15,11 +15,11 @@ const userModel = {
         return users;
     },
 
-    findById(id) {
+    findByEmail(email) {
         const findUser = this.findAll();
 
         //buscamos el índice del usuario
-        let searched = findUser.find(el => el.id === id);
+        let searched = findUser.find(el => el.email === email);
 
         if (!searched) null
 
@@ -28,7 +28,7 @@ const userModel = {
 
     createUser(newUser) {
         let users = this.findAll();
-        newUser.id = uuidv4.v4();
+        newUser.id = uuid.v4();
         newUser.deleted = false;
 
         //agregamos el usuario al array
@@ -45,7 +45,7 @@ const userModel = {
 
     updateUser() {
         const users = this.findAll();
-        const index = users.findIndex(el => el.id === id);
+        const index = users.findIndex(el => el.email === email);
         //editamos las propiedades con los datos recibidos del formulario
         users[index].name = newData.name;
         users[index].lastname = newData.lastname;
@@ -54,9 +54,9 @@ const userModel = {
         users[index].confirmPassword = newData.confirmPassword;
     },
 
-    deleteUserById(id) {
+    deleteUserByEmail(email) {
         const users = this.findAll();
-        const index = users.findIndex(el => el.id === id);
+        const index = users.findIndex(el => el.email === email);
         users[index].deleed = true;
     }
 }
