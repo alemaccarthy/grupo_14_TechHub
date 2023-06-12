@@ -23,12 +23,14 @@ const usersController = {
 
             res.redirect('/');
     
-    }
+    },
     
     // userModel.createUser(newUser);
     // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
     
-    
+    getProfile(req, res){
+        res.render('profile', {title: `| Nombre del usuario`})
+    }
 }
 
 module.exports = usersController;

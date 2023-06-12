@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cover {
+    height: 20vw;
+    max-height: 240px;
+    background-color: rgb(254, 188, 35);
+}
+
+.profile-picture-container {
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.profile-picture-container img {
+    position: absolute;
+    bottom: -40%;
+    right: 5%;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 50%;
+    border: 5px solid #a54c89;
+}
+
+@media(width >=768px) {
+    .profile-picture-container img{
+        width: 14vw;
+        height: 14vw;
+        bottom: -32%;
+    }
+}
+
+@media(width >= 1200px) {
+    .profile-picture-container img{
+        width: 168px;
+        height: 168px;
+        right: 0;
+    }
+}
+
