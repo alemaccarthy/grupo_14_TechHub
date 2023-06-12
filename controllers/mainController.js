@@ -6,11 +6,11 @@ const mainController = {
     },
 
     getHome1: (req, res) => {
-        res.render('home-1', {title: 'TechHub'})
+        res.render('apple', {title: 'TechHub'})
     },
     
     getHome2: (req, res) => {
-        res.render('home-2', {title: 'TechHub'})
+        res.render('samsung', {title: 'TechHub'})
     }
 }
 
