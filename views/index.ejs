@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechHub</title>
     <link rel="stylesheet" href="/css/styles-index.css">
+    <link rel="stylesheet" href="/css/styles-header.css">
     <script src="https://kit.fontawesome.com/c4ac9449c7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <%- include('./partials/navbar.ejs') %>
+    <%- include('./partials/log-in.ejs') %>
+
     <div class="background">
         <video autoplay loop muted plays-inline>
             <source src="/videos/clip_index.mp4" type="video/mp4">
@@ -18,7 +22,7 @@
     </div>
     <div class="navbar">
         <a href=""><img src="/imgs/logo-iso/LogoTechHub_Principal.png" class="logo"></a>
-        <a href="#" class="hamburguer-buttom"> <i class="fa-solid fa-bars"></i> </a>
+        <button href="" class="hamburguer-buttom"> <i onclick="openNav()" class="fa-solid fa-bars"></i> </button>
     </div>
     <div class="marcas">
         <a href="/samsung"><img src="/imgs/marcas-logos/Samsung-logo-blanco.png" class="logo-samsung"></a>
@@ -27,6 +31,8 @@
     <h1 class="slogan">
         coNectAte coN el futuRo
     </h1>
+
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

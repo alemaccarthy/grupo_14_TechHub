@@ -188,6 +188,7 @@ a {
     border: none;
     font-size: 25px;
     color: #fff;
+    cursor: pointer;
 }
 
 .right-floating-nav li:nth-child(5) {

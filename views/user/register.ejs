@@ -12,10 +12,14 @@
 
 <body>
     <%- include('../partials/header') %>
-    <form action="/user/register" method="post">
-        <%- include('../partials/formRegister') %>
-    </form>
-            <%- include('../partials/footer') %>
+
+        <section class="register-container" id="form-container">
+
+            <h1>Registro</h1>
+
+            <%- include('../partials/formRegister') %>
+
+        <%- include('../partials/footer') %>
 </body>
 
 </html>

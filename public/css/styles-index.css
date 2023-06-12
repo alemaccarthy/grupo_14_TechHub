@@ -18,6 +18,10 @@ body {
     background-size: cover;
 }
 
+header{
+    display: none;
+}
+
 
 
 .background video {
@@ -41,6 +45,8 @@ body {
     border: none;
     color: white;
     align-self: center;
+    background: transparent;
+    cursor: pointer;
 }
 
 .hamburguer-buttom .fa-solid {

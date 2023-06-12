@@ -5,38 +5,38 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-}    
+}
 
 body {
     overflow-y: scroll;
-    background-color: #6f6f6f ;
+    background-color: #6f6f6f;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////  CONTAINER CSS ////////////////////////////////////////////////////// */
-.register-container{
+
+
+.register-container {
     background-color: #fff;
     padding: 45px 10px;
-    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding-top: 20px;
-    margin: 1vw auto;
+    margin: 30px auto;
     max-width: 500px;
-    
-   
+
 }
 
-.register-container h1{
+.register-container h1 {
     text-align: center;
     font-weight: 700px;
-    margin: 50px ;
+    margin: 50px;
     margin-top: 3px;
     margin-bottom: 3px;
     font-size: 30px;
-    
+
 }
 
-.register-container button{
+.register-container .register-button {
     font-family: "roboto";
     background-color: #164194;
     border: none;
@@ -47,15 +47,21 @@ body {
     font-size: 17px;
     color: #ffffff;
     border-radius: 10px;
-
-
 }
 
-#form-container p{
+.register-button-container .open-login-button {
+    color: #164194;
+    font-size: 14px;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+}
+
+#form-container p {
     font-size: 12px;
 }
 
-#form-container{
+#form-container {
     text-align: center;
 }
 
@@ -70,7 +76,7 @@ body {
     width: 100%;
     max-width: 550px;
     margin: 0 auto;
-}  
+}
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// FORM USER DATA /////////////////////////////////////////////////////// */
@@ -86,30 +92,29 @@ body {
     justify-content: space-between;
 
 }
+
 .sub-title {
     width: 100%;
     display: flex;
     flex-direction: row;
     padding: 27px 11px 0px;
-}    
+}
 
 .sub-title .user {
     color: grey;
     font-size: 4.5vw;
     margin-left: 1vw;
-}    
+}
 
 .sub-title span {
     color: grey;
     margin-left: 10px;
-    font-size: 3vw; 
-}    
+    font-size: 3vw;
+}
 
 .login {
-    padding-bottom: 1vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-}    
+    display: none;
+}
 
 .log-in-btn {
     background-color: #164194;
@@ -121,30 +126,30 @@ body {
     max-height: 27px;
     border: none;
     font-style: 100px;
-}    
+}
 
 .form-userdata,
 .form-adress {
-    margin: 20px;
-}    
+    margin: 2.5vw;
+}
 
 .form label {
     font-size: 2.5vw;
     display: inline-block;
     padding: 1vw 0vw;
-}    
+}
 
 .form-group {
 
     margin-bottom: 8px;
-}    
+}
 
 
 .form-group input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}    
+}
 
 .name-lastname input,
 .password input,
@@ -153,23 +158,22 @@ body {
 .province-postalcode input {
     width: 48%;
     padding: 5px;
-}    
+}
 
 input[type="email"] {
     width: 100%;
-}    
+}
 
 #dni,
 #city,
-#telephone
-{
+#telephone {
     width: 100%;
-}    
+}
 
 .date {
     display: flex;
     flex-direction: column;
-}    
+}
 
 
 .shipping-details {
@@ -179,47 +183,36 @@ input[type="email"] {
     width: 100%;
     border-radius: 8px;
     text-align: center;
-}    
+}
 
 .shipping-details a {
     font-size: 14px;
-}    
+}
 
 @media screen and (min-width: 481px) {
 
 
-    section.sub-title{
+    section.sub-title {
         padding: 27px 11px 0;
-    }    
-
-    section.sub-title .user{
-        font-size: 25px;
-    }    
-
-    .shipping-details{
-        padding: 7.2px 9.5px;
-    }    
- 
-    .login,
-    .login .log-in-btn,
-    .form label {
-        padding: 1px;
     }
-   
 
-    .login .log-in-btn{
-        display: none;
-    }    
+    section.sub-title .user {
+        font-size: 25px;
+    }
 
-    .user-data .form label{
+    .shipping-details {
+        padding: 7.2px 9.5px;
+    }
+
+    .user-data .form label {
         font-size: 14px;
-    }    
+    }
 
+    .form-userdata,
+    .form-adress {
+        margin: 20px;
+    }
 
-}  
+}
 
 /* /////////////////////////////////////////////////////////////////////////////////////// */
-
-
-
-
