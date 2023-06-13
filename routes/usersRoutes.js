@@ -3,6 +3,7 @@ const usersRoutes = express.Router();
 const { body } = require('express-validator');
 const usersController = require('../controllers/usersController');
 const multer = require('multer');
+const guestMiddleware = require('../middlewares/guestMiddleware');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -42,11 +43,25 @@ const registerValidations = [
     }),
 ]
 
+const loginValidations = [
+    body('email')
+    .notEmpty().withMessage('El email es obligatorio').bail()
+    .isEmail().withMessage('Debe indicar un email válido').bail()  
+    .normalizeEmail(),
+    body('password').notEmpty().withMessage('La contraseña es obligatoria').bail(), 
+    body('confirmPassword').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error('Las contraseñas no coinciden');
+        }
+        return true;
+    }),
+]
+
 // @ GET /user/complete-purchase
 usersRoutes.get('/complete-purchase', usersController.getPurchase);
 
 // @GET /user/register
-usersRoutes.get('/register', usersController.getRegister);
+usersRoutes.get('/register', guestMiddleware, usersController.getRegister);
 
 // @GET /user/profile
 usersRoutes.get('/profile', usersController.getProfile);
@@ -54,6 +69,12 @@ usersRoutes.get('/profile', usersController.getProfile);
 // @POST /register
 usersRoutes.post('/register', registerValidations, usersController.postRegister); // Falta crear el metodo postRegister
 //falta agregar upload.single('nombre del cmampo')
+
+// @GET /login
+usersRoutes.get('/login', loginValidations, usersController.login);
+
+// @POST /login
+usersRoutes.post('/login', usersController.processLogin);
 
 module.exports = usersRoutes;
 
