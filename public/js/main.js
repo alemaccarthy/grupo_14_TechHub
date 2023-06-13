@@ -152,6 +152,32 @@ document.addEventListener('DOMContentLoaded', function () {
     tabletDropdown.addEventListener('mouseleave', hoverOutT)
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const colorsInput = document.getElementById('colors');
+    const colorContainer = document.getElementById('colorInputsContainer');
+
+    colorsInput.addEventListener('change', function () {
+        const numColors = parseInt(this.value);
+
+        if (numColors > 0) {
+            colorContainer.style.display = 'block';
+        } else {
+            colorContainer.style.display = 'none';
+        }
+
+        const colorInputs = colorContainer.getElementsByTagName('input');
+        for (let i = 0; i < colorInputs.length; i++) {
+            if (i < numColors) {
+                colorInputs[i].style.display = 'block';
+            } else {
+                colorInputs[i].style.display = 'none';
+            }
+        }
+    });
+});
+
+
+
 
 /* document.addEventListener('DOMContentLoaded', function () {
 

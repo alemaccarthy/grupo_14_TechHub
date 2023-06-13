@@ -99,28 +99,55 @@
     <% } %>
 </div>
 
+<!-- <div>
+    <h3>Agrega colores</h3>
+    <label for="">¿En cuántos colores estará disponible el producto?</label>
+    <input type="number" name="colors" class="<%# locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
+    value="<%# product ? product.colors : null %>">
+    <%# if (locals.errors && errors.number) { %>
+        <div class= "text-danger">
+            <%# errors.number.msg %>
+        </div>
+    <%# } %>
+    <div>
+        <input type="color" name="color1" <%#if(product){%>
+            value="<%# product.color1 %>"
+            <%# } %>>
+        <input type="color" name="color2" <%#if(product){%>
+            value="<%# product.color2 %>"
+            <%# } %>>
+        <input type="color" name="color3" <%#if(product){%>
+            value="<%# product.color3 %>"
+            <%# } %>>
+        <input type="color" name="color4" <%#if(product){%>
+            value="<%# product.color4 %>"
+            <%# } %>>
+    </div>
+</div> -->
+
 <div>
     <h3>Agrega colores</h3>
     <label for="">¿En cuántos colores estará disponible el producto?</label>
     <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
-    value="<%= product ? product.colors : null %>">
+        value="<%= product ? product.colors : null %>">
     <% if (locals.errors && errors.number) { %>
-        <div class= "text-danger">
+        <div class="text-danger">
             <%= errors.number.msg %>
         </div>
     <% } %>
-    <div>
-        <input type="color" name="color1" <%if(product){%>
-            value="<%= product.color1 %>"
-            <% } %>>
-        <input type="color" name="color2" <%if(product){%>
-            value="<%= product.color2 %>"
-            <% } %>>
-        <input type="color" name="color3" <%if(product){%>
-            value="<%= product.color3 %>"
-            <% } %>>
-        <input type="color" name="color4" <%if(product){%>
-            value="<%= product.color4 %>"
-            <% } %>>
-    </div>
+    <div id="colorInputsContainer" style="display: none;">
+        <% for (let i = 1; i <= 4; i++) { %>
+            <input id='input-color' type="color" name="color<%= i %>" value="<%= product['color' + i] %>">
+        <% } %>
+        </div>
 </div>
+
+<script>
+    var color1Value = "<%= product.color1 %>";
+    var color2Value = "<%= product.color2 %>";
+    var color3Value = "<%= product.color3 %>";
+    var color4Value = "<%= product.color4 %>";
+</script>
+
+<script src="./js/main.js"></script>
+
