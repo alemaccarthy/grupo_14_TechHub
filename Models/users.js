@@ -57,7 +57,7 @@ const userModel = {
     deleteUserByEmail(email) {
         const users = this.findAll();
         const index = users.findIndex(el => el.email === email);
-        users[index].deleed = true;
+        users[index].deleted = true;
     }
 }
 
