@@ -162,8 +162,9 @@ select#category{
     display: none;
 } */
 
-input#colors {
+input#input-color {
     padding: 5px;
+    margin: 0 15px;
 }
 
 .input-img-text {
@@ -242,8 +243,6 @@ form.form-delete{
     display: flex;
     justify-content: flex-end;
 }
-
-
 
 
 footer{

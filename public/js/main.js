@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (numColors > 0) {
             colorContainer.style.display = 'flex';
+            colorContainer.style.justifyContent = 'center';
             
         } else {
             colorContainer.style.display = 'none';
