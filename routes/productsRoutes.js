@@ -6,6 +6,7 @@ const path = require('path');
 const { body } = require('express-validator');
 
 const storage = multer.diskStorage({
+
     destination: function (req, file, cb) {
         cb(null, './public/imgs/products-images');
     },
@@ -26,19 +27,24 @@ const validations = [
     body('category').notEmpty().withMessage('Debes seleccionar una categoria para el producto'),
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
     body('images').custom((value, { req }) => {
-        let files = req.file;
-        // console.log(files);
-        let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        let fileExtension = path.extname(files.originalname);
+        let files = req.files;
 
         if (!files) {
             throw new Error('Debes subir una imagen del producto');
         }
+        
+        let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
 
-        if (!acceptedExtensions.includes(fileExtension)) {
-            throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-        }
+        files.forEach(el => {
+            let fileExtension = path.extname(el.originalname);
+            
+            if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
+        });
+
         return true;
+
     })
 ]
 
@@ -52,7 +58,7 @@ productRoutes.get('/:id/detail', productController.getProductDetail);
 productRoutes.get('/create', productController.getCreateProduct);
 
 // @POST /products/create
-productRoutes.post('/create', [upload.single('images'), validations], productController.postProduct);
+productRoutes.post('/create', [upload.any('images'), validations], productController.postProduct);
 
 // @DELETE /products/:id/delete
 
@@ -62,6 +68,6 @@ productRoutes.delete('/:id/delete', productController.deleteProduct);
 productRoutes.get('/:id/update', productController.getUpdateProduct);
 
 // @PUT /products/:id/update
-productRoutes.put('/:id/update', [upload.single('images'), validations], productController.updateProduct);
+productRoutes.put('/:id/update', [upload.any('images'), validations], productController.updateProduct);
 
 module.exports = productRoutes;

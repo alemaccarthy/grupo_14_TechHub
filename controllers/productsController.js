@@ -2,70 +2,65 @@ const productModel = require('../models/products');
 const { validationResult } = require('express-validator');
 
 const productsController = {
-    getProducts (req, res){
+    getProducts(req, res) {
         const products = productModel.findAll();
-        res.render('products-list', {title: '| Productos', products});
+        res.render('products-list', { title: '| Productos', products });
     },
 
-    getProductDetail (req, res){
+    getProductDetail(req, res) {
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
-        if(!product){
+        if (!product) {
             return res.render('product-not-found');
         }
-        res.render('product-detail', {title: '| Detalle', product});
+        res.render('product-detail', { title: '| Detalle', product });
     },
 
-    getCreateProduct (req, res){
+    getCreateProduct(req, res) {
         const product = req.body;
 
         // console.log(req.body);
 
-        res.render('create-product', {title: '| Crear producto', product});
+        res.render('create-product', { title: '| Crear producto', product });
     },
 
-    postProduct (req, res){
+    postProduct(req, res) {
         let product = req.body;
         const resultValidation = validationResult(req);
         product.price = Number(product.price);
 
         if (resultValidation.errors.length > 0) {
-            
+
             return res.render('create-product', {
                 title: '| Detalle',
-                product, 
-                errors: resultValidation.mapped(), 
-                oldData: product});
-            }  
-            
-            //console.log(req.files);
-            product.images = '/imgs/products-images/' + req.file.filename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename)
-            console.log(product);
-            
-        //if (req.files && req.files.length > 0) {
-           // product.images = req.files.map((file) => '/imgs/products-images/' + file.filename);
-          //}
+                product,
+                errors: resultValidation.mapped(),
+                oldData: product
+            });
+        }
+
+        product.images = req.files.map(el => '/imgs/products-images/' + el.filename);
 
         productModel.createProduct(product);
 
         res.redirect('/products');
     },
 
-    getUpdateProduct (req, res){
+    getUpdateProduct(req, res) {
         const id = Number(req.params.id);
 
         const updatedProduct = productModel.findbyId(id);
-        
+
         if (!updatedProduct) {
             // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
             // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
             return res.render('product-not-found');
         }
 
-        res.render('update-product', {title: 'Editar producto', product: updatedProduct});
+        res.render('update-product', { title: 'Editar producto', product: updatedProduct });
     },
 
-    deleteProduct(req, res){
+    deleteProduct(req, res) {
         let id = Number(req.params.id);
 
         productModel.deleteById(id);
@@ -73,11 +68,13 @@ const productsController = {
         res.redirect('/products');
     },
 
-    updateProduct(req, res){
+    updateProduct(req, res) {
         const id = Number(req.params.id);
-        const data = req.body;
+        const product = req.body;
         
-        productModel.updateById(id, data);
+        product.images = req.files.map(el => '/imgs/products-images/' + el.filename);
+
+        productModel.updateById(id, product);
 
         res.redirect(`/products/${id}/detail`);
     }
