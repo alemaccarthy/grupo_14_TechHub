@@ -37,6 +37,7 @@
     transition: 0.5s;
 }
 
+
 div:first-of-type{
     display: flex;
     justify-content: space-between;
@@ -241,6 +242,8 @@ form.form-delete{
     display: flex;
     justify-content: flex-end;
 }
+
+
 
 
 footer{

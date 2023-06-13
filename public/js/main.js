@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const numColors = parseInt(this.value);
 
         if (numColors > 0) {
-            colorContainer.style.display = 'block';
+            colorContainer.style.display = 'flex';
+            
         } else {
             colorContainer.style.display = 'none';
         }
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const colorInputs = colorContainer.getElementsByTagName('input');
         for (let i = 0; i < colorInputs.length; i++) {
             if (i < numColors) {
-                colorInputs[i].style.display = 'block';
+                colorInputs[i].style.display = 'flex';
             } else {
                 colorInputs[i].style.display = 'none';
             }

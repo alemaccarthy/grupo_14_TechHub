@@ -1,105 +1,114 @@
 <div>
-    <input type="text" class="<%= locals.errors && errors.title ? 'is-invalid' : null %>" name="title" id="name" placeholder="Nombre del producto"
-    value="<%= product ? product.title : null %>"
-            >        
-                <% if (locals.errors && errors.title) { %>
-                    <div class= "text-danger">
-                        <%= errors.title.msg %>
-                    </div>
-                <% } %>
-            
+    <input type="text" class="<%= locals.errors && errors.title ? 'is-invalid' : null %>" name="title" id="name"
+        placeholder="Nombre del producto" value="<%= product ? product.title : null %>">
+    <% if (locals.errors && errors.title) { %>
+        <div class="text-danger">
+            <%= errors.title.msg %>
+        </div>
+        <% } %>
+
             <select name="brand" id="brand" class="<%= locals.errors && errors.brand ? 'is-invalid' : null%>">
                 <option value="" disabled>Marca</option>
                 <option value="">Marca</option>
                 <option value="apple" <%if(product){%>
-                    <%  if(product.brand === "apple"){ %>
+                    <% if(product.brand==="apple" ){ %>
                         selected
-                        <% }} %>>Apple</option>
+                        <% }} %>>Apple
+                </option>
                 <option value="samsung" <%if(product){%>
-                    <%  if(product.brand === "samsung"){ %>
+                    <% if(product.brand==="samsung" ){ %>
                         selected
-                        <% }} %>>Samsung</option>
+                        <% }} %>>Samsung
+                </option>
             </select>
             <% if (locals.errors && errors.brand) { %>
-                <div class= "text-danger">
+                <div class="text-danger">
                     <%= errors.brand.msg %>
                 </div>
-            <% } %>
+                <% } %>
 </div>
 <div>
-    <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' : null%>" id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(product){%>
+    <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' : null%>"
+        id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(product){%>
 <%= product.description %>
 <% } %>
 </textarea>
 </div>
 <% if (locals.errors && errors.description) { %>
-    <div class ="text-danger">
+    <div class="text-danger">
         <%= errors.description.msg %>
     </div>
-<% } %>
-<div>
-    <div class="form-grandson">
-        <select name="currency" id="currency" class="<%= locals.errors && errors.currency ? 'is-invalid' : null%>">
-            <option value="ARS">ARS</option>
-        </select>
-        <% if (locals.errors && errors.currency) { %>
-            <div class= "text-danger">
-                <%= errors.currency.msg %>
+    <% } %>
+        <div>
+            <div class="form-grandson">
+                <select name="currency" id="currency"
+                    class="<%= locals.errors && errors.currency ? 'is-invalid' : null%>">
+                    <option value="ARS">ARS</option>
+                </select>
+                <% if (locals.errors && errors.currency) { %>
+                    <div class="text-danger">
+                        <%= errors.currency.msg %>
+                    </div>
+                    <% } %>
+                        <input type="text" name="price"
+                            class="<%= locals.errors && errors.price ? 'is-invalid' : null%>" id="price"
+                            placeholder="Precio" <%if(product){%>
+                        value="<%= product.price %>"
+                            <% } %>
+                                >
             </div>
-        <% } %>
-        <input type="text" name="price" class="<%= locals.errors && errors.price ? 'is-invalid' : null%>" id="price" placeholder="Precio" <%if(product){%>
-        value="<%= product.price %>"
-            <% } %>
-                >
-    </div>
-    <% if (locals.errors && errors.price) { %>
-        <div class= "text-danger">
-            <%= errors.price.msg %>
+            <% if (locals.errors && errors.price) { %>
+                <div class="text-danger">
+                    <%= errors.price.msg %>
+                </div>
+                <% } %>
+                    <div class="form-grandson">
+                        <select name="category" id="category"
+                            class="<%= locals.errors && errors.category ? 'is-invalid' : null%>">
+                            <option value="" disabled>Categoría</option>
+                            <option value="">Categoría</option>
+                            <option value="smartphone" <%if(product){%>
+                                <% if(product.category==="smartphone" ){ %>
+                                    selected
+                                    <% }} %>>Smartphone
+                            </option>
+                            <option value="smartwatch" <%if(product){%>
+                                <% if(product.category==="smartwatch" ){%>
+                                    selected
+                                    <% }} %>>Smartwatch
+                            </option>
+                            <option value="tablet" <%if(product){%>
+                                <% if(product.category==="tablet" ){%>
+                                    selected
+                                    <% }} %>>Tablet
+                            </option>
+                        </select>
+                    </div>
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="text-danger">
+                            <%= errors.category.msg %>
+                        </div>
+                        <% } %>
         </div>
-    <% } %>
-    <div class="form-grandson">
-        <select name="category" id="category" class="<%= locals.errors && errors.category ? 'is-invalid' : null%>">
-            <option value="" disabled>Categoría</option>
-            <option value="">Categoría</option>
-            <option value="smartphone" <%if(product){%>
-                <%  if(product.category === "smartphone"){ %>
-                    selected
-                    <% }} %>>Smartphone</option>
-            <option value="smartwatch" <%if(product){%>
-                <%  if(product.category === "smartwatch"){%>
-                    selected
-                    <% }} %>>Smartwatch</option>
-            <option value="tablet" <%if(product){%>
-                <%  if(product.category === "tablet"){%>
-                    selected
-                    <% }} %>>Tablet</option>
-        </select>
-    </div>
-    <% if (locals.errors && errors.category) { %>
-        <div class= "text-danger">
-            <%= errors.category.msg %>
-        </div>
-    <% } %>
-</div>
-<div>
-    <h3>Agrega imágenes</h3>
+        <div>
+            <h3>Agrega imágenes</h3>
 
-    <label for="images">
-        <div class="input-img-text">
-            <p>Selecciona un archivo</p>
-            <p>o</p>
-            <p>Arrástralo hasta aquí</p>
+            <label for="images">
+                <div class="input-img-text">
+                    <p>Selecciona un archivo</p>
+                    <p>o</p>
+                    <p>Arrástralo hasta aquí</p>
+                </div>
+            </label>
+            <input type="file" name="images" id="images" accept="image/*" multiple>
+            <% if (locals.errors && errors.productImages) { %>
+                <div class="text-danger">
+                    <%= errors.productImages.msg %>
+                </div>
+                <% } %>
         </div>
-    </label>
-    <input type="file" name="images" id="images" accept="image/*" multiple>
-    <% if (locals.errors && errors.productImages) { %>
-        <div class= "text-danger">
-            <%= errors.productImages.msg %>
-        </div>
-    <% } %>
-</div>
 
-<!-- <div>
+        <!-- <div>
     <h3>Agrega colores</h3>
     <label for="">¿En cuántos colores estará disponible el producto?</label>
     <input type="number" name="colors" class="<%# locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
@@ -125,29 +134,29 @@
     </div>
 </div> -->
 
-<div>
-    <h3>Agrega colores</h3>
-    <label for="">¿En cuántos colores estará disponible el producto?</label>
-    <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors" min="1" max="4"
-        value="<%= product ? product.colors : null %>">
-    <% if (locals.errors && errors.number) { %>
-        <div class="text-danger">
-            <%= errors.number.msg %>
+        <div>
+            <h3>Agrega colores</h3>
+            <label for="">¿En cuántos colores estará disponible el producto?</label>
+            <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>"
+                id="colors" min="1" max="4" value="<%= product ? product.colors : null %>">
+            <% if (locals.errors && errors.number) { %>
+                <div class="text-danger">
+                    <%= errors.number.msg %>
+                </div>
+                <% } %>
+                    <div class="colorContainer" id="colorInputsContainer" style="display: none;">
+                        <% for (let i=1; i <=4; i++) { %>
+                            <input id='input-color' type="color" name="color<%= i %>"
+                                value="<%= product['color' + i] %>">
+                            <% } %>
+                    </div>
         </div>
-    <% } %>
-    <div id="colorInputsContainer" style="display: none;">
-        <% for (let i = 1; i <= 4; i++) { %>
-            <input id='input-color' type="color" name="color<%= i %>" value="<%= product['color' + i] %>">
-        <% } %>
-        </div>
-</div>
 
-<script>
-    var color1Value = "<%= product.color1 %>";
-    var color2Value = "<%= product.color2 %>";
-    var color3Value = "<%= product.color3 %>";
-    var color4Value = "<%= product.color4 %>";
-</script>
+        <script>
+            var color1Value = "<%= product.color1 %>";
+            var color2Value = "<%= product.color2 %>";
+            var color3Value = "<%= product.color3 %>";
+            var color4Value = "<%= product.color4 %>";
+        </script>
 
-<script src="./js/main.js"></script>
-
+        <script src="./js/main.js"></script>
