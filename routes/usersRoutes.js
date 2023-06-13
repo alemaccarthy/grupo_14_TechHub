@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage});
+const upload = multer({storage}); //no está en uso
 
 const registerValidations = [
     body('name').notEmpty().withMessage('El nombre es obligatorio'),
