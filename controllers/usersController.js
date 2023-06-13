@@ -1,7 +1,7 @@
 const userModel = require('../models/users');
 const fs = require('fs');
 const session = require('express-session');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
 const usersController = {

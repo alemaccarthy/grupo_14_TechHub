@@ -22,7 +22,7 @@ app.set('views', [
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({
@@ -30,10 +30,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-app.use(Middleware404);
-app.use(authMiddleware);
-app.use(guestMiddleware)
-app.use(rememberMiddleware);
+// app.use(authMiddleware);
+/* app.use(guestMiddleware)
+app.use(rememberMiddleware); */
 /* app.use(logMiddleware); */
 
 //  ROUTES
@@ -41,7 +40,7 @@ app.use(mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
-
+app.use(Middleware404);
 
 app.listen(3000, () => {
     console.log('🎧 Escuchando puerto http://localhost:3000 🎧');

@@ -61,7 +61,7 @@ const loginValidations = [
 usersRoutes.get('/complete-purchase', usersController.getPurchase);
 
 // @GET /user/register
-usersRoutes.get('/register', guestMiddleware, usersController.getRegister);
+usersRoutes.get('/register'/* , guestMiddleware */, usersController.getRegister);
 
 // @GET /user/profile
 usersRoutes.get('/profile', usersController.getProfile);
@@ -70,11 +70,11 @@ usersRoutes.get('/profile', usersController.getProfile);
 usersRoutes.post('/register', registerValidations, usersController.postRegister); // Falta crear el metodo postRegister
 //falta agregar upload.single('nombre del cmampo')
 
-// @GET /login
+/* // @GET /login
 usersRoutes.get('/login', loginValidations, usersController.login);
 
 // @POST /login
-usersRoutes.post('/login', usersController.processLogin);
+usersRoutes.post('/login', usersController.processLogin); */
 
 module.exports = usersRoutes;
 
