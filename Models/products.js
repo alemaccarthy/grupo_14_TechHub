@@ -29,6 +29,8 @@ const productModel = {
         const products = this.findAll();
         const index = products.findIndex(el => el.id === id);
         
+        // products[index].images.forEach(el => fs.unlink(el, cb => console.log('imagenes eliminadas')));
+
         //editamos las propiedades con los datos recibidos del formulario
         products[index].title = newData.title;
         products[index].price = newData.price;
@@ -36,6 +38,7 @@ const productModel = {
         products[index].colors = newData.colors;
         products[index].category = newData.category;
         products[index].images = newData.images;
+
 
         //pasamos a JSON
         const productsJSON = JSON.stringify(products);

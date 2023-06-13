@@ -69,9 +69,10 @@ const productsController = {
     },
 
     updateProduct(req, res) {
+
         const id = Number(req.params.id);
         const product = req.body;
-        
+
         product.images = req.files.map(el => '/imgs/products-images/' + el.filename);
 
         productModel.updateById(id, product);
