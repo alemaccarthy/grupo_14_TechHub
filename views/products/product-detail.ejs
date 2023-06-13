@@ -20,14 +20,12 @@
 
             <section class="product-detail-container">
                 <article class="img-container">
-                    <img class="main-img" src="<%= product.images %>"
+                    <img class="main-img" src="<%= product.images[2] %>"
                         alt="producto">
                     <article class="small-imgs-slider">
-                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-diagonal.png" alt="">
-                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente.png" alt="">
-                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-frente-atras.png" alt="">
-                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-perfil.png" alt="">
-                        <img src="/imgs/samsung/products/galaxy-s/s23 Ultra/s23-ultra-atras.png" alt="">
+                        <% product.images.forEach(el => {%>
+                            <img src="<%= el %>" alt="">
+                            <% }) %>
                     </article>
                 </article>
 

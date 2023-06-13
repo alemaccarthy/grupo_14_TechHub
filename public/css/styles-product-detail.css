@@ -71,7 +71,6 @@ body {
     justify-content: center;
     overflow-x: scroll;
     width: 100%;
-    /* padding-left: 150px; */
 }
 
 .small-imgs-slider>div {
@@ -85,17 +84,7 @@ body {
 .small-imgs-slider>img {
     width: 21vw;
     margin: 0 auto;
-    background-color: #f5f5f7;
-    padding: 1vw 2vw;
     margin: 2vw;
-}
-
-.small-imgs-slider img:first-child {
-    margin-left: 0;
-}
-
-.small-imgs-slider img:last-child {
-    margin-right: 0;
 }
 
 .img-container .fa-chevron-right {
@@ -225,7 +214,6 @@ footer.footer {
 
     .small-imgs-slider>img {
         width: 101px;
-        padding: 5px 10px;
         margin: 9.6px;
     }
 
