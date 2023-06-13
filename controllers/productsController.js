@@ -30,16 +30,18 @@ const productsController = {
         product.price = Number(product.price);
 
         if (resultValidation.errors.length > 0) {
-
+            
             return res.render('create-product', {
                 title: '| Detalle',
                 product, 
                 errors: resultValidation.mapped(), 
                 oldData: product});
-        }  
-
-        //console.log(req.files);
-        product.images = '/imgs/products-images/' + req.file.filename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename)
+            }  
+            
+            //console.log(req.files);
+            product.images = '/imgs/products-images/' + req.file.filename; //Object.values(req.files).map(el => '/imgs/products-images' + el.filename)
+            console.log(product);
+            
         //if (req.files && req.files.length > 0) {
            // product.images = req.files.map((file) => '/imgs/products-images/' + file.filename);
           //}

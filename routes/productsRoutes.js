@@ -26,11 +26,12 @@ const validations = [
     body('category').notEmpty().withMessage('Debes seleccionar una categoria para el producto'),
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
     body('images').custom((value, { req }) => {
-        let file = req.file;
+        let files = req.file;
+        // console.log(files);
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        let fileExtension = path.extname(file.originalname);
+        let fileExtension = path.extname(files.originalname);
 
-        if (!file) {
+        if (!files) {
             throw new Error('Debes subir una imagen del producto');
         }
 
