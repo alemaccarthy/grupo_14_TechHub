@@ -55,6 +55,7 @@ body {
     text-decoration: underline;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 #form-container p {
