@@ -3,7 +3,7 @@ const usersRoutes = express.Router();
 const { body } = require('express-validator');
 const usersController = require('../controllers/usersController');
 const multer = require('multer');
-const guestMiddleware = require('../middlewares/guestMiddleware');
+const middleware = require('../middlewares/middlewares');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -61,7 +61,7 @@ const loginValidations = [
 usersRoutes.get('/complete-purchase', usersController.getPurchase);
 
 // @GET /user/register
-usersRoutes.get('/register'/* , guestMiddleware */, usersController.getRegister);
+usersRoutes.get('/register', usersController.getRegister);
 
 // @GET /user/profile
 usersRoutes.get('/profile', usersController.getProfile);

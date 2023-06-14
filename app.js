@@ -4,10 +4,8 @@ const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
-const Middleware404 = require('./middlewares/404Middleware');
-const rememberMiddleware = require('./middlewares/rememberMiddleware');
-const authMiddleware = require('./middlewares/authMiddleware');
-const guestMiddleware = require('./middlewares/guestMiddleware');
+const morgan = require('morgan');
+const middlewares = require('./middlewares/middlewares');
 const session = require('express-session');
 
 const app = express();
@@ -25,6 +23,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use(cookieParser());
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'));
 app.use(session({
     secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan",
     resave: false,
@@ -40,7 +39,7 @@ app.use(mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
-app.use(Middleware404);
+app.use(middlewares.middleware404);
 
 app.listen(3000, () => {
     console.log('🎧 Escuchando puerto http://localhost:3000 🎧');
