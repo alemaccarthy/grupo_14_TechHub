@@ -67,7 +67,7 @@ usersRoutes.get('/register'/* , guestMiddleware */, usersController.getRegister)
 usersRoutes.get('/profile', usersController.getProfile);
 
 // @POST /register
-usersRoutes.post('/register', registerValidations, usersController.postRegister); // Falta crear el metodo postRegister
+usersRoutes.post('/register', registerValidations, usersController.postRegister);
 //falta agregar upload.single('nombre del cmampo')
 
 /* // @GET /login
