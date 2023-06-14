@@ -33,7 +33,6 @@ const productsController = {
 
             return res.render('create-product', {
                 title: '| Detalle',
-                product,
                 errors: resultValidation.mapped(),
                 oldData: product
             });

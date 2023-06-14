@@ -25,7 +25,6 @@ const usersController = {
         if (userValidation.errors.length > 0) {
             return res.render('register', {
                 title: '|Registrarse',
-                user,
                 errors: userValidation.mapped(),
                 oldData: user
             });
