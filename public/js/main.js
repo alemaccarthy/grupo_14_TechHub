@@ -55,11 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         openLogIn = () => {
+            userData = document.querySelector('.user-data');
             logInWindow.style.display = 'flex';
+            userData.style.filter = 'blur(5px)';
         },
 
         closeLogIn = () => {
+            userData = document.querySelector('.user-data');
             logInWindow.style.display = 'none';
+            userData.style.filter = 'none';
         },
         openSearchBar = () => {
             // const header = document.getElementById('header');
