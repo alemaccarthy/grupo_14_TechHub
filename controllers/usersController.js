@@ -29,9 +29,9 @@ const usersController = {
                 userData
             });
         }
-        userModel.createUser(user);
+        userModel.createUser(user, req);
 
-        res.redirect('/');
+        res.redirect('/user/profile');
 
     },
 
