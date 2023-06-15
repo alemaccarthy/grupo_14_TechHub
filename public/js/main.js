@@ -53,18 +53,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 navbar.style.width = '0';
             }
         },
-/* 
-        openLogIn = () => {
-            userData = document.querySelector('.user-data');
-            logInWindow.style.display = 'flex';
-            userData.style.filter = 'blur(5px)';
-        },
-
-        closeLogIn = () => {
-            userData = document.querySelector('.user-data');
-            logInWindow.style.display = 'none';
-            userData.style.filter = 'none';
-        }, */
+        /* 
+                openLogIn = () => {
+                    userData = document.querySelector('.user-data');
+                    logInWindow.style.display = 'flex';
+                    userData.style.filter = 'blur(5px)';
+                },
+        
+                closeLogIn = () => {
+                    userData = document.querySelector('.user-data');
+                    logInWindow.style.display = 'none';
+                    userData.style.filter = 'none';
+                }, */
         openSearchBar = () => {
             // const header = document.getElementById('header');
             searchBar.style.height = '80px';
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (numColors > 0) {
             colorContainer.style.display = 'flex';
             colorContainer.style.justifyContent = 'center';
-            
+
         } else {
             colorContainer.style.display = 'none';
         }
@@ -193,4 +193,16 @@ document.addEventListener('DOMContentLoaded', function () {
 })
  */
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    const questions = document.querySelectorAll('.question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', () => {
+            
+            const answer = document.querySelectorAll('.answer');
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+        });
+    });
+});
 
