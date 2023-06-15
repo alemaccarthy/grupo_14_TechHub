@@ -26,7 +26,7 @@ const userModel = {
         return searched;
     },
 
-    createUser(newUser) {
+    createUser(newUser, req) {
         let users = this.findAll();
         newUser.id = uuid.v4();
         newUser.deleted = false;
@@ -40,7 +40,24 @@ const userModel = {
         //sobreescribimos el JSON
         fs.writeFileSync(path.join(__dirname, this.route), usersJSON);
 
-        return users;
+        req.session.user = {
+            id: newUser.id,
+            name: newUser.name,
+            lastname: newUser.lastname,
+            email: newUser.email,
+            dni: newUser.dni,
+            street: newUser.street,
+            number: newUser.number,
+            floor: newUser.floor,
+            door: newUser.door,
+            city: newUser.city,
+            province: newUser.province,
+            postalcode: newUser.postalcode,
+            telephone: newUser.telephone,
+
+        };
+
+        return newUser;
     },
 
     updateUser() {
