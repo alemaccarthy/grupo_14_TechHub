@@ -63,18 +63,21 @@ usersRoutes.get('/complete-purchase', usersController.getPurchase);
 // @GET /user/register
 usersRoutes.get('/register', usersController.getRegister);
 
-// @GET /user/profile
-usersRoutes.get('/profile', usersController.getProfile);
-
 // @POST /register
 usersRoutes.post('/register', registerValidations, usersController.postRegister);
 //falta agregar upload.single('nombre del cmampo')
 
 // @GET /login
-usersRoutes.get('/login', loginValidations, usersController.getLogin);
+usersRoutes.get('/login', usersController.getLogin);
 
 // @POST /login
 usersRoutes.post('/login', usersController.loginUser);
+
+// @GET /user/profile
+usersRoutes.get('/profile', usersController.getProfile);
+
+// @GET /user/sign-out
+usersRoutes.get('/sign-out', usersController.signOut);
 
 module.exports = usersRoutes;
 

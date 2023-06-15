@@ -1,11 +1,18 @@
 <ul class="right-floating-nav" id="right-floating-nav">
-    <li><button class="closebtn-nav"><i class="fa-solid fa-xmark"></i></button></li>
-    <li><a href="/user/login">Log in</a></li>
-    <li><a href="/user/register">Sign Up</a></li>
-    <li><a href="/apple">Apple</a></li>
-    <li><a href="/samsung">Samsung</a></li>
-    <li><button>Tienda</button></li>
-    <li><button>Smartphones</button></li>
-    <li><button>Smartwatch</button></li>
-    <li><button>Tablets</button></li>
+    <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
+
+    <% if (userData.email) { %>
+        <li><a href="/user/profile">Mi cuenta</a></li>
+        <li><form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form></li>
+        <% }else{ %>
+            <li><a href="/user/login">Ingresa</a></li>
+            <li><a href="/user/register">Registrate</a></li>
+            <% } %>
+
+                <li><a href="/apple">Apple</a></li>
+                <li><a href="/samsung">Samsung</a></li>
+                <li><button>Tienda</button></li>
+                <li><button>Smartphones</button></li>
+                <li><button>Smartwatch</button></li>
+                <li><button>Tablets</button></li>
 </ul>

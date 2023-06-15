@@ -1,3 +1,36 @@
 [
-    
+    {
+        "name": "Alejandro",
+        "lastName": "Mac Carthy",
+        "email": "ale.maccarthy@gmail.com",
+        "password": "$2b$12$ejIz/7dl/xoJ9IhaZVCBNOs1ktKC/suZNLxwrYDgFSreMQLZiRJPC",
+        "dni": "42491805",
+        "street": "",
+        "number": "",
+        "floor": "",
+        "door": "",
+        "city": "",
+        "province": "",
+        "postalCode": "",
+        "telephone": "",
+        "id": "60d2cbbb-59db-42f7-9fb5-3028a8421012",
+        "deleted": false
+    },
+    {
+        "name": "Alejandro",
+        "lastName": "Mac Carthy",
+        "email": "ale_mac.carthy@hotmail.com",
+        "password": "Pepito-123456789",
+        "dni": "42491805",
+        "street": "",
+        "number": "",
+        "floor": "",
+        "door": "",
+        "city": "",
+        "province": "",
+        "postalCode": "",
+        "telephone": "",
+        "id": "15950591-5727-400a-b1ee-4fe66972b6e6",
+        "deleted": false
+    }
 ]

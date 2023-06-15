@@ -22,6 +22,7 @@ body {
     border-radius: 10px;
     padding-top: 20px;
     margin: 30px auto;
+    width: 95%;
     max-width: 500px;
 
 }
@@ -147,6 +148,7 @@ body {
 
 
 .form-group input {
+    outline: none;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -190,7 +192,7 @@ input[type="email"] {
     font-size: 14px;
 }
 
-@media(min-height: 895px) {
+@media(min-height: 1000px) {
     footer {
         position: absolute;
         bottom: 0;

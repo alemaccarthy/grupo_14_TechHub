@@ -6,6 +6,7 @@ const usersRoutes = require('./routes/usersRoutes');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const middlewares = require('./middlewares/middlewares');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const app = express();
@@ -24,11 +25,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+app.use(cookieParser())
 app.use(session({
     secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan",
     resave: false,
     saveUninitialized: false
 }));
+app.use(middlewares.rememberMiddleware);
 // app.use(authMiddleware);
 /* app.use(guestMiddleware)
 app.use(rememberMiddleware); */

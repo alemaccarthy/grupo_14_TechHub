@@ -2,15 +2,22 @@ const path = require('path');
 
 const mainController = {
     getIndex: (req, res) => {
-        res.render('index', {title: 'TechHub'});
+        let userData = req.session.user;
+        if(!userData) userData = {};
+        console.log(userData.email);
+        res.render('index', {title: 'TechHub', userData});
     },
 
     getHome1: (req, res) => {
-        res.render('apple', {title: 'TechHub'})
+        let userData = req.session.user;
+        if(!userData) userData = {};
+        res.render('apple', {title: 'TechHub', userData})
     },
     
     getHome2: (req, res) => {
-        res.render('samsung', {title: 'TechHub'})
+        let userData = req.session.user;
+        if(!userData) userData = {};
+        res.render('samsung', {title: 'TechHub', userData})
     }
 }
 

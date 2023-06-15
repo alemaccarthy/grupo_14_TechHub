@@ -6,10 +6,13 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-        res.render('register', { title: '| Registrarse' });
+        const userData = {};
+        res.render('register', { title: '| Registrarse', userData});
     },
     getPurchase(req, res) {
-        res.render('complete-purchase', { title: '| Finalizar compra' })
+        let userData = req.session.user;
+        if(!userData) userData = {};
+        res.render('complete-purchase', { title: '| Finalizar compra', userData})
     },
 
     postRegister(req, res) {
@@ -17,10 +20,6 @@ const usersController = {
         const user = req.body;
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
-
-        /*if (userValidation.errors.length > 0) {
-            return res.render('register', { title: '| Registrarse', errors: userValidation.mapped(), user })
-        }*/
 
         if (userValidation.errors.length > 0) {
             return res.render('register', {
@@ -39,25 +38,54 @@ const usersController = {
     // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
 
     getProfile(req, res) {
-        res.render('profile', { title: `| Nombre del usuario` })
+        let userData = req.session.user;
+        if(!userData) userData = {};
+        res.render('profile', { title: `| Nombre del usuario`, userData })
     },
 
-    getLogin(req, res){
-        res.render('login', {title: '| Ingresa'});
+    getLogin(req, res) {
+        const error = req.query.error || '';
+        const userData = {};
+
+        res.render('login', { title: '| Ingresa', error, userData });
     },
 
-    loginUser(req, res){
-        const user = req.body;
-        const searchedUser = userModel.findByEmail(user);
+    loginUser(req, res) {
+        const searchedUser = userModel.findByEmail(req.body.email);
 
-        if(!searchedUser){
-            return 
+        if (!searchedUser) {
+            return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
         }
-        
-        const {password: hashedPW} = searchedUser;
+        const { password: hashedPW } = searchedUser;
 
-        const comparePW = bcrypt.compareSync(user.password, hashedPW);  
+        const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
 
+        if (comparePW) {
+            if (req.body.remember) {
+                res.cookie('email', searchedUser.email, {
+                    maxAge: 1000 * 60 * 60 * 24 * 365
+                });
+            }else{
+                res.cookie('email', searchedUser.email, {maxAge: 1000* 60* 60* 2});
+            }
+
+            delete searchedUser.password;
+            delete searchedUser.id;
+
+            req.session.user = searchedUser;
+
+            return res.redirect('/');
+        } else {
+            return res.redirect('/user/login?error=La contraseña es incorrecta');
+        }
+    },
+    signOut(req, res){
+
+        res.clearCookie('email');
+
+        req.session.user = {};
+
+        res.redirect('/user/login');
     }
 }
 

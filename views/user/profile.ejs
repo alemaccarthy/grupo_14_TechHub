@@ -4,14 +4,19 @@
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/styles-profile.css">
     <link rel="stylesheet" href="/css/styles-header.css">
+    <link rel="stylesheet" href="/css/styles-register.css">
 </head>
 <body>
     <%- include('../partials/header') %>
     <main>
         <section class="cover">
-                <section class="profile-picture-container">
-                    <img src="/imgs/profile-images/no-image-profile.jpg" alt="">
-                </section>
+            <img src="/imgs/profile-images/portada-perfil.jpg" alt="">
+            <section class="profile-picture-container">
+                <img src="/imgs/profile-images/no-image-profile.jpg" alt="profile-pic">
+            </section>
+        </section>
+        <section class="user-info">
+            <%- include('../partials/formRegister')  %>
         </section>
     </main>
     <%- include('../partials/footer') %>
