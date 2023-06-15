@@ -31,16 +31,16 @@ const productsController = {
     },
 
     postProduct(req, res) {
-        let product = req.body;
+        const product = req.body;
         const resultValidation = validationResult(req);
         product.price = Number(product.price);
 
         if (resultValidation.errors.length > 0) {
 
             return res.render('create-product', {
-                title: '| Detalle',
+                title: '| Crear producto',
                 errors: resultValidation.mapped(),
-                oldData: product
+                product
             });
         }
 

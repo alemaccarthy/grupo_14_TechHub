@@ -20,11 +20,11 @@ const upload = multer({ storage });
 
 const validations = [
     body('title').notEmpty().withMessage('El titulo no puede estar vacio'),
-    body('brand').notEmpty().withMessage('La marca no puede estar vacia'),
+    body('brand').notEmpty().withMessage('Selecciona una marca'),
     body('description').notEmpty().withMessage('Debes darle una descripcion al producto'),
     body('currency').notEmpty().withMessage('Debes elegir una moneda para expresar el precio del producto'),
     body('price').notEmpty().withMessage('Debes asignar un precio al producto'),
-    body('category').notEmpty().withMessage('Debes seleccionar una categoria para el producto'),
+    body('category').notEmpty().withMessage('Debes seleccionar una categoria'),
     body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
     body('images').custom((value, { req }) => {
         let files = req.files;
