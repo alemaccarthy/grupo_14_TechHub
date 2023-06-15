@@ -1,6 +1,5 @@
-const userModel = require('../models/users');
+const userModel = require('../models/user');
 const fs = require('fs');
-const session = require('express-session');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
@@ -18,6 +17,7 @@ const usersController = {
     postRegister(req, res) {
         const userValidation = validationResult(req);
         const user = req.body;
+        const userData = {};
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
 
@@ -25,7 +25,8 @@ const usersController = {
             return res.render('register', {
                 title: '|Registrarse',
                 errors: userValidation.mapped(),
-                oldData: user
+                oldData: user,
+                userData
             });
         }
         userModel.createUser(user);

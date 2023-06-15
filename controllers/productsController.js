@@ -1,27 +1,33 @@
-const productModel = require('../models/products');
+const productModel = require('../models/product');
 const { validationResult } = require('express-validator');
 
 const productsController = {
     getProducts(req, res) {
+        let userData = req.session.user;
+        if(!userData) userData = {};
         const products = productModel.findAll();
-        res.render('products-list', { title: '| Productos', products });
+        res.render('products-list', { title: '| Productos', products, userData });
     },
 
     getProductDetail(req, res) {
+        let userData = req.session.user;
+        if(!userData) userData = {};
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
         if (!product) {
-            return res.render('product-not-found',{ title: '| Producto no disponible'});
+            return res.render('product-not-found',{ title: '| Producto no disponible', userData});
         }
-        res.render('product-detail', { title: '| Detalle', product });
+        res.render('product-detail', { title: '| Detalle', product, userData});
     },
 
     getCreateProduct(req, res) {
+        let userData = req.session.user;
+        if(!userData) userData = {};
         const product = req.body;
 
         // console.log(req.body);
 
-        res.render('create-product', { title: '| Crear producto', product });
+        res.render('create-product', { title: '| Crear producto', product, userData});
     },
 
     postProduct(req, res) {
@@ -46,6 +52,8 @@ const productsController = {
     },
 
     getUpdateProduct(req, res) {
+        let userData = req.session.user;
+        if(!userData) userData = {};
         const id = Number(req.params.id);
 
         const updatedProduct = productModel.findbyId(id);
@@ -56,7 +64,7 @@ const productsController = {
             return res.render('product-not-found');
         }
 
-        res.render('update-product', { title: 'Editar producto', product: updatedProduct });
+        res.render('update-product', { title: 'Editar producto', product: updatedProduct, userData });
     },
 
     deleteProduct(req, res) {

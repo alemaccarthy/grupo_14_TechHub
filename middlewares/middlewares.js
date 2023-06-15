@@ -20,7 +20,7 @@ const middlewares = {
     rememberMiddleware(req, res, next) {
         
         if(req.cookies.email){
-            const userModel = require('../models/users');
+            const userModel = require('../models/user');
 
             const user = userModel.findByEmail(req.cookies.email);
 
