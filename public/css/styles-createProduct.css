@@ -86,7 +86,7 @@ select option:nth-child(2) {
     border: 1px solid #164194;
 }
 
-.form-container-create form > div:nth-child(3){
+.form-container-create form > div:nth-child(4){
     display: grid;
     grid-template: 1fr / 1.3fr 1fr;
     justify-content: space-between;
@@ -117,7 +117,7 @@ select#category{
     width: 100%;
 }
 
-.form-container-create form > div:nth-child(4) {
+.form-container-create form > div:nth-child(6) {
     display: flex;
     justify-content: space-between;
     flex-flow: column wrap;
@@ -148,12 +148,12 @@ select#category{
     font-size: 14px;
 }
 
-.form-container-create form > div:nth-child(4) p{
+.form-container-create form > div:nth-child(6) p{
     font-size: 13px;
 }
 
-.form-container-create form > div:nth-child(4) p:first-child,
-.form-container-create form > div:nth-child(4) p:last-child{
+.form-container-create form > div:nth-child(6) p:first-child,
+.form-container-create form > div:nth-child(6) p:last-child{
     width: 40%;
     max-width: 170px;
 }
@@ -244,6 +244,20 @@ form.form-delete{
     justify-content: flex-end;
 }
 
+.text-danger-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 !important;
+}
+
+.text-danger{
+    color: red;
+    margin: 0 !important;
+}
+
+.is-invalid {
+    border: 1px solid red !important;
+}
 
 footer{
     background-color: #ebebeb;
@@ -253,7 +267,7 @@ footer{
     .form-container-create form > div > h3{
         font-size: 18px;
     }
-    .form-container-create form > div:nth-child(4) p{
+    .form-container-create form > div:nth-child(6) p{
         font-size: 15px;
     }
     .form-container-create div:last-of-type label{

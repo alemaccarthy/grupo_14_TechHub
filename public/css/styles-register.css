@@ -192,6 +192,20 @@ input[type="email"] {
     font-size: 14px;
 }
 
+.text-danger-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.text-danger{
+    color: red;
+}
+
+.is-invalid {
+    border: 1px solid red !important;
+}
+
+
 @media(min-height: 1000px) {
     footer {
         position: absolute;
