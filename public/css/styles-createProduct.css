@@ -37,7 +37,6 @@
     transition: 0.5s;
 }
 
-
 div:first-of-type{
     display: flex;
     justify-content: space-between;
