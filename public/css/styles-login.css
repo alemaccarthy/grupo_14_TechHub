@@ -1,0 +1,173 @@
+/* LOG IN */
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #ededed;
+}
+
+main{
+    height: 80vh;
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#log-in-window h1 {
+    text-align: center;
+    font-size: 30px;
+    width: 100%;
+}
+
+.log-in-container {
+    position: relative;
+}
+
+.log-in-container .close-window {
+    position: absolute;
+    right: 15px;
+    top: -10px;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+}
+
+#log-in-window {
+    flex-flow: column wrap;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px 0;
+    width: 95%;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 380px;
+    min-width: 266px;
+    text-align: center;
+}
+
+.log-in-form .group {
+    position: relative;
+    margin: 20px;
+}
+
+.log-in-form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.log-in-form input {
+    background: none;
+    color: #c6c6c6;
+    font-size: 22px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #49454567;
+}
+
+.log-in-form .sesion-input label {
+    position: static;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.log-in-form .sesion-input {
+    text-align: center;
+}
+
+.log-in-form input:focus {
+    outline: none;
+}
+
+.log-in-form input[type="checkbox"] {
+    display: inline-block;
+    width: 12px;
+}
+
+.log-in-form .group>label {
+    color: #49454567;
+    font-size: 15px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.3s ease-in-out all;
+    pointer-events: none;
+}
+
+.group input:focus~label,
+.group input:valid~label {
+    top: -14px;
+    font-size: 10px;
+    color: #164194;
+}
+
+.log-in-form .barra {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.log-in-form .barra::before {
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, #164194, #31d8ff);
+    transition: 0.3s ease width;
+    left: 0;
+}
+
+
+input:focus~.barra::before {
+    width: 100%;
+}
+
+.log-in-form button {
+    background: #164194;
+    border: none;
+    display: block;
+    width: 70%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 17px;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.log-in-form p {
+    font-size: 12px;
+}
+
+.log-in-form p a {
+    color: #164194;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scaleY(0)
+    }
+
+    to {
+        transform: scaleY(1)
+    }
+}
+
+@media(min-height: 895px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+}

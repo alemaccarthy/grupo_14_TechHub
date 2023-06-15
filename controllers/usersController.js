@@ -40,6 +40,24 @@ const usersController = {
 
     getProfile(req, res) {
         res.render('profile', { title: `| Nombre del usuario` })
+    },
+
+    getLogin(req, res){
+        res.render('login', {title: '| Ingresa'});
+    },
+
+    loginUser(req, res){
+        const user = req.body;
+        const searchedUser = userModel.findByEmail(user);
+
+        if(!searchedUser){
+            return 
+        }
+        
+        const {password: hashedPW} = searchedUser;
+
+        const comparePW = bcrypt.compareSync(user.password, hashedPW);  
+
     }
 }
 

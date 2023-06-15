@@ -70,11 +70,11 @@ usersRoutes.get('/profile', usersController.getProfile);
 usersRoutes.post('/register', registerValidations, usersController.postRegister);
 //falta agregar upload.single('nombre del cmampo')
 
-/* // @GET /login
-usersRoutes.get('/login', loginValidations, usersController.login);
+// @GET /login
+usersRoutes.get('/login', loginValidations, usersController.getLogin);
 
 // @POST /login
-usersRoutes.post('/login', usersController.processLogin); */
+usersRoutes.post('/login', usersController.loginUser);
 
 module.exports = usersRoutes;
 

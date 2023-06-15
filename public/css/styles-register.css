@@ -9,7 +9,7 @@
 
 body {
     overflow-y: scroll;
-    background-color: #6f6f6f;
+    background-color: #edededed;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,6 +188,14 @@ input[type="email"] {
 
 .shipping-details a {
     font-size: 14px;
+}
+
+@media(min-height: 895px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 481px) {

@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 navbar.style.width = '0';
             }
         },
-
+/* 
         openLogIn = () => {
             userData = document.querySelector('.user-data');
             logInWindow.style.display = 'flex';
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
             userData = document.querySelector('.user-data');
             logInWindow.style.display = 'none';
             userData.style.filter = 'none';
-        },
+        }, */
         openSearchBar = () => {
             // const header = document.getElementById('header');
             searchBar.style.height = '80px';
