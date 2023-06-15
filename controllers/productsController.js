@@ -11,7 +11,7 @@ const productsController = {
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
         if (!product) {
-            return res.render('product-not-found');
+            return res.render('product-not-found',{ title: '| Producto no disponible'});
         }
         res.render('product-detail', { title: '| Detalle', product });
     },
