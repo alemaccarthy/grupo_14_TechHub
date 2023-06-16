@@ -18,11 +18,30 @@
                 <section class="drop-container drop-cont-tablet">
                 </section>
                         <article class="dropdown dropdown-smartphone">
-                            <a href="">Galaxy S23</a>
+                            <% products.forEach(el => { %>
+                                <% if (el.title === "Galaxy S23") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% } %>
+                                <% if (el.title === "Galaxy Z") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% } %>
+                                <% if (el.title === "Galaxy S") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% } %>
+                                <% if (el.title === "Galaxy A34") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% } %>
+                                <% if (el.title === "Galaxy A54") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% } %>
+                            <% }); %>
+                            
+                                
+                            <!--a href="">Galaxy S23</-a>
                             <a href="">Galaxy Z</a>
                             <a href="">Galaxy S</a>
                             <a href="">Galaxy A34</a>
-                            <a href="">Galaxy A54</a>
+                            <a-- href="">Galaxy A54</a-->
                         </article>
                         <article class="dropdown dropdown-smartwatch">
                             <a href="">Galaxy Watch5</a>

@@ -6,7 +6,7 @@ const productsController = {
         let userSession = req.session.user;
         if(!userSession) userSession = {};
         const products = productModel.findAll();
-
+        res.app.locals.products = products;
         res.render('products-list', { title: '| Productos', products, userSession });
     },
 
@@ -49,6 +49,7 @@ const productsController = {
 
         productModel.createProduct(product);
 
+        res.app.locals.product = createdProduct;
         res.redirect('/products');
     },
 
