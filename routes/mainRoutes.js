@@ -4,18 +4,16 @@ const mainController = require('../controllers/mainController');
 
 
 // @GET /main
-mainRoutes.get('/', mainController.getIndex)
+mainRoutes.get('/', mainController.getIndex);
 
 // @GET /main/apple
-mainRoutes.get('/apple', mainController.getHome1)
+mainRoutes.get('/apple', mainController.getHome1);
 
 // @GET /main/samsung
-mainRoutes.get('/samsung', mainController.getHome2)
+mainRoutes.get('/samsung', mainController.getHome2);
 
 //@GET /faq
-mainRoutes.get('/faq', mainController.getFaq)
+mainRoutes.get('/faq', mainController.getFaq);
 
-//@GET /returns
-mainRoutes.get('/faq', mainController.getFaq)
 
 module.exports = mainRoutes;

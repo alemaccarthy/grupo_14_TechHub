@@ -7,10 +7,10 @@
             <div class="form-group name-lastname">
                 <input type="text" id="nombres" name="name" placeholder="Nombres"
                     class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"
-                    value="<%= locals.oldData ? oldData.name : null %>">
+                    value="<%= locals.user ? user.name : null %>">
                 <input type="text" id="apellido" name="lastName" placeholder="Apellido"
                     class="<%= locals.errors && errors.lastName ? 'is-invalid' : null%>"
-                    value="<%= locals.oldData ? oldData.lastName : null %>">
+                    value="<%= locals.user ? user.lastName : null %>">
             </div>
             <div class="text-danger-container">
                 <% if (locals.errors && errors.name) { %>
@@ -27,9 +27,9 @@
             </div>
             <div class="form-group email">
 
-                <input type="email" id="correo" name="email" placeholder="Email"
+                <input type="email" id="correo" name="email" placeholder="Email" 
                     class="<%= locals.errors && errors.email ? 'is-invalid' : null%>"
-                    value="<%= locals.oldData ? oldData.email : null %>">
+                    value="<%= locals.user ? user.email : null %>">
 
                 <% if (locals.errors && errors.email) { %>
                     <span class="text-danger">
@@ -63,7 +63,7 @@
             <div class="form-group dni">
                 <input type="dni" id="dni" name="dni" placeholder="DNI"
                     class="<%= locals.errors && errors.dni ? 'is-invalid' : null%>"
-                    value="<%= locals.oldData ? oldData.dni : null %>">
+                    value="<%= locals.user ? user.dni : null %>">
                 <% if (locals.errors && errors.dni) { %>
                     <span class="text-danger">
                         <%= errors.dni.msg %>
@@ -79,29 +79,29 @@
 
         <div class="form-group street-number">
             <input type="street" id="street" name="street" placeholder="Calle"
-            value="<%= locals.oldData ? oldData.street : null %>">
+            value="<%= locals.user ? user.street : null %>">
             <input type="number" id="number" name="number" placeholder="Altura"
-            value="<%= locals.oldData ? oldData.number : null %>">
+            value="<%= locals.user ? user.number : null %>">
         </div>
         <div class="form-group floor-door">
             <input type="floor" id="floor" name="floor" placeholder="Piso"
-            value="<%= locals.oldData ? oldData.floor : null %>">
+            value="<%= locals.user ? user.floor : null %>">
             <input type="door" id="door" name="door" placeholder="Departamento"
-            value="<%= locals.oldData ? oldData.door : null %>">
+            value="<%= locals.user ? user.door : null %>">
         </div>
         <div class="form-group city">
             <input type="city" id="city" name="city" placeholder="Ciudad"
-            value="<%= locals.oldData ? oldData.city : null %>">
+            value="<%= locals.user ? user.city : null %>">
         </div>
         <div class="form-group province-postalcode">
             <input type="province" id="province" name="province" placeholder="Provincia"
-            value="<%= locals.oldData ? oldData.province : null %>">
+            value="<%= locals.user ? user.province : null %>">
             <input type="postalcode" id="postalcode" name="postalCode" placeholder="Código Postal"
-            value="<%= locals.oldData ? oldData.postalcode : null %>">
+            value="<%= locals.user ? user.postalcode : null %>">
         </div>
         <div class="form-group telephone">
             <input type="telephone" id="telephone" name="telephone" placeholder="Teléfono"
-            value="<%= locals.oldData ? oldData.telephone : null %>">
+            value="<%= locals.user ? user.telephone : null %>">
         </div>
 
         <button type="submit" class="register-button">Registrarte</button>

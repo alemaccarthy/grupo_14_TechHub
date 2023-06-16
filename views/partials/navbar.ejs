@@ -1,7 +1,7 @@
 <ul class="right-floating-nav" id="right-floating-nav">
     <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
 
-    <% if (userData.email) { %>
+    <% if (userSession.email) { %>
         <li><a href="/user/profile">Mi cuenta</a></li>
         <li><form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form></li>
         <% }else{ %>

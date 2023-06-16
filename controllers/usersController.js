@@ -5,28 +5,41 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-        const userData = {};
-        res.render('register', { title: '| Registrarse', userData});
+        const userSession = {};
+        res.render('register', { title: '| Registrarse', userSession});
     },
     getPurchase(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
-        res.render('complete-purchase', { title: '| Finalizar compra', userData})
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
+        res.render('complete-purchase', { title: '| Finalizar compra', userSession})
     },
 
     postRegister(req, res) {
         const userValidation = validationResult(req);
         const user = req.body;
-        const userData = {};
+        const userSession = {};
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
+        userSessionBase = userModel.findByEmail(req.body.email);
+
+        if(userSessionBase){
+            return res.render('register', { title : '| Registrarse',
+            userSession, 
+            user,
+                errors: {
+                    email:{
+                        msg: 'El email ya está registrado'
+                    }
+                }
+            })
+        }
 
         if (userValidation.errors.length > 0) {
             return res.render('register', {
-                title: '|Registrarse',
+                title: '| Registrarse',
                 errors: userValidation.mapped(),
                 oldData: user,
-                userData
+                userSession
             });
         }
         userModel.createUser(user, req);
@@ -39,16 +52,16 @@ const usersController = {
     // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
 
     getProfile(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
-        res.render('profile', { title: `| Nombre del usuario`, userData })
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
+        res.render('profile', { title: `| Nombre del usuario`, userSession })
     },
 
     getLogin(req, res) {
         const error = req.query.error || '';
-        const userData = {};
+        const userSession = {};
 
-        res.render('login', { title: '| Ingresa', error, userData });
+        res.render('login', { title: '| Ingresa', error, userSession });
     },
 
     loginUser(req, res) {

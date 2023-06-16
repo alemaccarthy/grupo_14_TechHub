@@ -3,31 +3,32 @@ const { validationResult } = require('express-validator');
 
 const productsController = {
     getProducts(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
         const products = productModel.findAll();
-        res.render('products-list', { title: '| Productos', products, userData });
+
+        res.render('products-list', { title: '| Productos', products, userSession });
     },
 
     getProductDetail(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
+
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
+
         if (!product) {
-            return res.render('product-not-found',{ title: '| Producto no disponible', userData});
+            return res.render('product-not-found',{ title: '| Producto no disponible', userSession});
         }
-        res.render('product-detail', { title: '| Detalle', product, userData});
+        res.render('product-detail', { title: '| Detalle', product, userSession});
     },
 
     getCreateProduct(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
         const product = req.body;
 
-        // console.log(req.body);
-
-        res.render('create-product', { title: '| Crear producto', product, userData});
+        res.render('create-product', { title: '| Crear producto', product, userSession});
     },
 
     postProduct(req, res) {
@@ -52,8 +53,8 @@ const productsController = {
     },
 
     getUpdateProduct(req, res) {
-        let userData = req.session.user;
-        if(!userData) userData = {};
+        let userSession = req.session.user;
+        if(!userSession) userSession = {};
         const id = Number(req.params.id);
 
         const updatedProduct = productModel.findbyId(id);
@@ -64,7 +65,7 @@ const productsController = {
             return res.render('product-not-found');
         }
 
-        res.render('update-product', { title: 'Editar producto', product: updatedProduct, userData });
+        res.render('update-product', { title: 'Editar producto', product: updatedProduct, userSession });
     },
 
     deleteProduct(req, res) {
