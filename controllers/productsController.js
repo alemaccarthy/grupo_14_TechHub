@@ -42,7 +42,6 @@ const productsController = {
 
         productModel.createProduct(product);
 
-        res.app.locals.product = createdProduct;
         res.redirect('/products');
     },
 
