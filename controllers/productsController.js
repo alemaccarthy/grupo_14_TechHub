@@ -4,7 +4,6 @@ const { validationResult } = require('express-validator');
 const productsController = {
     getProducts(req, res) {
         const products = productModel.findAll();
-
         res.render('products-list', { title: '| Productos', products});
     },
 
@@ -43,6 +42,7 @@ const productsController = {
 
         productModel.createProduct(product);
 
+        res.app.locals.product = createdProduct;
         res.redirect('/products');
     },
 
