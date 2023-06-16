@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.style.width = '100%';
         }
         else if (deviceWidth >= 768) {
-            navbar.style.height = '130px';
+            navbar.style.height = '150px';
             navbar.style.width = '180px';
         }
     },

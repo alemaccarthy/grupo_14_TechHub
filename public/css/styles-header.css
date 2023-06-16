@@ -216,6 +216,11 @@ a {
     cursor: pointer;
 }
 
+.nav-profile-pic{
+    width: 25px;
+    border-radius: 50%;
+}
+
 /* DROPDOWN NAVBAR */
 
 .drop-container{
@@ -625,7 +630,7 @@ footer li {
         position: absolute;
         top: 6.9vw;
         right: 4.5vw;
-        justify-content: end;
+        justify-content: start;
         background: rgba(0, 0, 0, 0.6);
     }
 

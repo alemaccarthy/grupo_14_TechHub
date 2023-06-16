@@ -2,30 +2,18 @@ const path = require('path');
 
 const mainController = {
     getIndex: (req, res) => {
-        let userSession = req.session.user;
-        if (!userSession) userSession = {};
-
-        res.render('index', { title: 'TechHub', userSession });
+        res.render('index', { title: 'TechHub'});
     },
 
     getHome1: (req, res) => {
-        let userSession = req.session.user;
-        if (!userSession) userSession = {};
-
-        res.render('apple', { title: 'TechHub', userSession })
+        res.render('apple', { title: 'TechHub'})
     },
 
-    getHome2: (req, res) => {
-        let userSession = req.session.user;
-        if (!userSession) userSession = {};
-        
-        res.render('samsung', { title: 'TechHub', userSession })
+    getHome2: (req, res) => {       
+        res.render('samsung', { title: 'TechHub'})
     },
     getFaq: (req, res) => {
-        let userSession = req.session.user;
-        if (!userSession) userSession = {};
-        
-        res.render('faq', { title: 'Preguntas frecuentes', userSession })
+        res.render('faq', { title: 'Preguntas frecuentes'})
     }
 }
 

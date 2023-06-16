@@ -19,6 +19,7 @@ app.set('views', [
     path.join(__dirname, '/views/errors')
 ])
 
+
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 // app.use(cookieParser());
@@ -31,11 +32,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(middlewares.userLoggedMiddleware);
 app.use(middlewares.rememberMiddleware);
-// app.use(authMiddleware);
-/* app.use(guestMiddleware)
-app.use(rememberMiddleware); */
-/* app.use(logMiddleware); */
+
 
 //  ROUTES
 app.use(mainRoutes);

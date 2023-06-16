@@ -5,26 +5,23 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-        const userSession = {};
-        res.render('register', { title: '| Registrarse', userSession});
+
+        res.render('register', { title: '| Registrarse'});
     },
     getPurchase(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
-        res.render('complete-purchase', { title: '| Finalizar compra', userSession})
+
+        res.render('complete-purchase', { title: '| Finalizar compra'})
     },
 
     postRegister(req, res) {
         const userValidation = validationResult(req);
         const user = req.body;
-        const userSession = {};
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
-        userSessionBase = userModel.findByEmail(req.body.email);
+        userDataBase = userModel.findByEmail(req.body.email);
 
-        if(userSessionBase){
+        if(userDataBase){
             return res.render('register', { title : '| Registrarse',
-            userSession, 
             user,
                 errors: {
                     email:{
@@ -39,7 +36,6 @@ const usersController = {
                 title: '| Registrarse',
                 errors: userValidation.mapped(),
                 oldData: user,
-                userSession
             });
         }
         userModel.createUser(user, req);
@@ -52,16 +48,14 @@ const usersController = {
     // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
 
     getProfile(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
-        res.render('profile', { title: `| Nombre del usuario`, userSession })
+        const user= req.session.user; 
+        res.render('profile', { title: `| Nombre del usuario`, user})
     },
 
     getLogin(req, res) {
         const error = req.query.error || '';
-        const userSession = {};
 
-        res.render('login', { title: '| Ingresa', error, userSession });
+        res.render('login', { title: '| Ingresa', error});
     },
 
     loginUser(req, res) {
@@ -93,11 +87,11 @@ const usersController = {
             return res.redirect('/user/login?error=La contraseña es incorrecta');
         }
     },
-    signOut(req, res){
+    logOut(req, res){
 
+        req.session.destroy();
+        
         res.clearCookie('email');
-
-        req.session.user = {};
 
         res.redirect('/user/login');
     }

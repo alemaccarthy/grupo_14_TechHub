@@ -10,9 +10,9 @@
     <%- include('../partials/header') %>
     <main>
         <section class="cover">
-            <img src="/imgs/profile-images/portada-perfil.jpg" alt="">
+            <img src="/imgs/profile-images/fondo-perfil.jpg" alt="">
             <section class="profile-picture-container">
-                <img src="/imgs/profile-images/no-image-profile.jpg" alt="profile-pic">
+                <img src=" <%= user.profile? user.profile : '/imgs/profile-images/no-image-profile.jpg' %>" alt="profile-pic">
             </section>
         </section>
         <section class="user-info">

@@ -3,32 +3,26 @@ const { validationResult } = require('express-validator');
 
 const productsController = {
     getProducts(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
         const products = productModel.findAll();
 
-        res.render('products-list', { title: '| Productos', products, userSession });
+        res.render('products-list', { title: '| Productos', products});
     },
 
     getProductDetail(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
 
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
 
         if (!product) {
-            return res.render('product-not-found',{ title: '| Producto no disponible', userSession});
+            return res.render('product-not-found',{ title: '| Producto no disponible'});
         }
-        res.render('product-detail', { title: '| Detalle', product, userSession});
+        res.render('product-detail', { title: '| Detalle', product});
     },
 
     getCreateProduct(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
         const product = req.body;
 
-        res.render('create-product', { title: '| Crear producto', product, userSession});
+        res.render('create-product', { title: '| Crear producto', product});
     },
 
     postProduct(req, res) {
@@ -53,8 +47,6 @@ const productsController = {
     },
 
     getUpdateProduct(req, res) {
-        let userSession = req.session.user;
-        if(!userSession) userSession = {};
         const id = Number(req.params.id);
 
         const updatedProduct = productModel.findbyId(id);
@@ -65,7 +57,7 @@ const productsController = {
             return res.render('product-not-found');
         }
 
-        res.render('update-product', { title: 'Editar producto', product: updatedProduct, userSession });
+        res.render('update-product', { title: 'Editar producto', product: updatedProduct});
     },
 
     deleteProduct(req, res) {

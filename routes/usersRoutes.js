@@ -3,7 +3,7 @@ const usersRoutes = express.Router();
 const { body } = require('express-validator');
 const usersController = require('../controllers/usersController');
 const multer = require('multer');
-const middleware = require('../middlewares/middlewares');
+const middlewares = require('../middlewares/middlewares');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -61,23 +61,23 @@ const loginValidations = [
 usersRoutes.get('/complete-purchase', usersController.getPurchase);
 
 // @GET /user/register
-usersRoutes.get('/register', usersController.getRegister);
+usersRoutes.get('/register', middlewares.guestMiddleware, usersController.getRegister);
 
 // @POST /register
 usersRoutes.post('/register', registerValidations, usersController.postRegister);
 //falta agregar upload.single('nombre del cmampo')
 
 // @GET /login
-usersRoutes.get('/login', usersController.getLogin);
+usersRoutes.get('/login', middlewares.guestMiddleware, usersController.getLogin);
 
 // @POST /login
 usersRoutes.post('/login', usersController.loginUser);
 
 // @GET /user/profile
-usersRoutes.get('/profile', usersController.getProfile);
+usersRoutes.get('/profile'/* , middlewares.authMiddleware */, usersController.getProfile);
 
 // @GET /user/sign-out
-usersRoutes.get('/sign-out', usersController.signOut);
+usersRoutes.get('/sign-out', usersController.logOut);
 
 module.exports = usersRoutes;
 

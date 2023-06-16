@@ -1,9 +1,10 @@
 <ul class="right-floating-nav" id="right-floating-nav">
     <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
 
-    <% if (userSession.email) { %>
-        <li><a href="/user/profile">Mi cuenta</a></li>
+    <% if (locals.isLogged) { %>
+        <li><a href="/user/profile">Perfil <img class="nav-profile-pic" src="<%= locals.user.profile %>" alt=""></a></li>
         <li><form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form></li>
+
         <% }else{ %>
             <li><a href="/user/login">Ingresa</a></li>
             <li><a href="/user/register">Registrate</a></li>
@@ -16,3 +17,5 @@
                 <li><button>Smartwatch</button></li>
                 <li><button>Tablets</button></li>
 </ul>
+
+<!-- <img class="nav-profile-pic" src="<%#= locals.user && locals.user.profile? locals.user.profile : '/imgs/profile-images/no-image-profile.jpg' %>" alt=""> -->

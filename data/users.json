@@ -14,7 +14,8 @@
         "postalCode": "",
         "telephone": "",
         "id": "60d2cbbb-59db-42f7-9fb5-3028a8421012",
-        "deleted": false
+        "deleted": false,
+        "profile": "/imgs/profile-images/perfil-prueba.jpg"
     },
     {
         "name": "Alejandro",

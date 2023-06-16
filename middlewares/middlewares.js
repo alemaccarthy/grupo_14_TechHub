@@ -1,4 +1,5 @@
 const fs = require('fs');
+const userModel = require('../models/user')
 
 const middlewares = {
     middleware404(req, res, next) {
@@ -6,10 +7,27 @@ const middlewares = {
     },
 
     guestMiddleware(req, res, next) {
-        if (req.session.logguedUser == undefined) {
-            next();
+        if (req.session.user) {
+            return res.redirect('/user/profile');
         }
-        res.send('Esta página es solo para invitados')
+        next();
+    },
+
+    authMiddleware(req, res, next){
+        if(!req.session.user){
+            return res.redirect('/')
+        }
+        next()
+    },
+
+    userLoggedMiddleware(req, res, next){
+        res.locals.isLogged = false;
+        if(req.session && req.session.user){
+        res.locals.isLogged = true;
+        res.locals.user = req.session.user;
+        };
+
+        next();
     },
 
     logMiddleware(req, res, next) {
@@ -22,12 +40,12 @@ const middlewares = {
         if(req.cookies.email){
             const userModel = require('../models/user');
 
-            const user = userModel.findByEmail(req.cookies.email);
+            const userFromCookies = userModel.findByEmail(req.cookies.email);
 
-            delete user.id;
-            delete user.password;
+            delete userFromCookies.id;
+            delete userFromCookies.password;
 
-            req.session.user = user;
+            req.session.user = userFromCookies;
         }
         
         next();
