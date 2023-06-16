@@ -183,7 +183,7 @@ a:has(#logo){
 }
 
 .right-floating-nav button,
-.right-floating-nav a,
+a,
 .right-floating-nav form input {
     background: none;
     text-decoration: none;
