@@ -183,7 +183,8 @@ a:has(#logo){
 }
 
 .right-floating-nav button,
-a {
+.right-floating-nav a,
+.right-floating-nav form input {
     background: none;
     text-decoration: none;
     border: none;
@@ -625,13 +626,18 @@ footer li {
     }
 
     .right-floating-nav {
-        padding: 0;
-        height: 0;
+        display: none;
+        opacity: 0;
+        width: 180px;
+        height: auto;
+        padding: 10px;
         position: absolute;
         top: 6.9vw;
         right: 4.5vw;
+        border-radius: 10px;
         justify-content: start;
-        background: rgba(0, 0, 0, 0.6);
+        flex-flow: column wrap;
+        background: rgba(0, 0, 0);
     }
 
     .right-floating-nav li:nth-last-child(1),

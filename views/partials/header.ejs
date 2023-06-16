@@ -19,22 +19,9 @@
                 </section>
                         <article class="dropdown dropdown-smartphone">
                             <% products.forEach(el => { %>
-                                <% if (el.title === "Galaxy S23") { %>
+                                <% if (el.category === "smartphone") { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% } %>
-                                <% if (el.title === "Galaxy Z") { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% } %>
-                                <% if (el.title === "Galaxy S") { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% } %>
-                                <% if (el.title === "Galaxy A34") { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% } %>
-                                <% if (el.title === "Galaxy A54") { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% } %>
-                            <% }); %>
+                                <% }}) %>
                             
                                 
                             <!--a href="">Galaxy S23</-a>
@@ -44,13 +31,24 @@
                             <a-- href="">Galaxy A54</a-->
                         </article>
                         <article class="dropdown dropdown-smartwatch">
-                            <a href="">Galaxy Watch5</a>
-                            <a href="">Galaxy Watch5 Pro</a>
+                            <% products.forEach(el => { %>
+                                <% if (el.category === "smartwatch") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% }}) %>
+
+                            <!-- <a href="">Galaxy Watch5</a>
+                            <a href="">Galaxy Watch5 Pro</a> -->
                         </article>
                         <article class="dropdown dropdown-tablet">
-                            <a href="">Galaxy Tab S8</a>
+
+                            <% products.forEach(el => { %>
+                                <% if (el.category === "tablet") { %>
+                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
+                                <% }}) %>
+
+                            <!-- <a href="">Galaxy Tab S8</a>
                             <a href="">Galaxy Tab S8 Ultra</a>
-                            <a href="">Galaxy Tab A</a>
+                            <a href="">Galaxy Tab A</a> -->
                         </article>
             </section>
         </section>

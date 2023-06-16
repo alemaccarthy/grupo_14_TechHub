@@ -1,5 +1,4 @@
 const fs = require('fs');
-const userModel = require('../models/user')
 
 const middlewares = {
     middleware404(req, res, next) {
@@ -51,6 +50,13 @@ const middlewares = {
         next();
     },
 
+    header(req, res, next){
+        const productModel = require('../models/product');
+        
+        res.locals.products = productModel.findAll();
+        
+        next();
+    }
     
 }
 

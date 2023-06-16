@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.style.width = '100%';
         }
         else if (deviceWidth >= 768) {
-            navbar.style.height = '150px';
-            navbar.style.width = '180px';
+            navbar.style.display = 'flex';
+            navbar.style.opacity = '1';
         }
     },
 
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 navbar.style.width = '0';
             }
             else if (deviceWidth >= 768) {
-                navbar.style.height = '0';
-                navbar.style.width = '0';
+                navbar.style.display = 'none';
+                navbar.style.opacity = '0';
             }
         },
         /* 

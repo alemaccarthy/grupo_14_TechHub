@@ -35,6 +35,7 @@ app.use(session({
 
 app.use(middlewares.userLoggedMiddleware);
 app.use(middlewares.rememberMiddleware);
+app.use(middlewares.header);
 
 
 //  ROUTES
