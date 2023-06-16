@@ -3,56 +3,68 @@
 
 <head>
     <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/styles-header.css">
-    <link rel="stylesheet" href="/css/faq.css">
-    <script src="main.js"></script>
-        <title>Document</title>
+        <link rel="stylesheet" href="/css/styles-header.css">
+        <link rel="stylesheet" href="/css/faq.css">
+        <script src="main.js"></script>
+        <title>
+            <%= title %>
+        </title>
 </head>
 
 <body>
     <h1>Preguntas frecuentes</h1>
 
     <div class="faq">
-        <div class="question">
-            ¿El artículo que quiero está agotado. ¿Puedo hacer un pedido de todos modos, así recibo el artículo tan
-            pronto como se vuelva a tener en existencia?
-        </div>
-        <div class="answer">
-            Si el articulo que deseas esta agotado, deberias contactarte por alguno de los canales disponibles para
-            confirmar su pronta disponibilidad.
-        </div>
-
-        <div class="question">
-            Olvidé pedir algo. ¿Puedo agregarlo a mi pedido existente?
-        </div>
-        <div class="answer">
-            Lamentablemente, no puedes agregar más artículos a un pedido que ya se ha realizado y deberás realizar un
-            segundo pedido. Pero no te preocupes, ofrecemos entrega rápida gratuita de todos los productos que compras
-            en TechHub, por lo que el segundo pedido no te costará más.
-        </div>
-        <div class="question">
-            ¿Puedo hacer una compra por teléfono?
-        </div>
-        <div class="answer">
-            Sí, puedes hacer un pedido por teléfono. Comunícate con nuestro Servicio al Cliente o alguno de los otros
-            canales de contacto disponibles. Puedes optar por pagar por teléfono o por medio de un enlace.
-        </div>
-        <div class="question">
-            ¿Tengo garantia de los productos que compro en TechHub?
-        </div>
-        <div class="answer">
-            Sí, absolutamente. Dispones de 30 días para devolver el producto y obtener un reembolso completo. Además,
-            todos los productos cuentan con la garantia oficial que otorga tanto Samsung como Apple.
-        </div>
-        <div class="question">
-            ¿Todos los productos que compro en TechHub son nuevos?
-        </div>
-        <div class="answer">
-            Si, absolutamente. Todos los productos que vendemos son nuevos, vienen con su embalaje original y cuentan
-            con la garantia correspondiente.
-        </div>
-
+        <ul>
+            <li>
+                <div class="question">
+                    <h3>¿El artículo que quiero está agotado. ¿Puedo hacer un pedido de todos modos?</h3>
+                </div>
+                <div class="answer">
+                    Si el articulo que deseas esta agotado, deberias contactarte por alguno de los canales disponibles
+                    para confirmar su pronta disponibilidad.
+                </div>
+            </li>
+            <li>
+                <div class="question">
+                    <h3>Olvidé pedir algo. ¿Puedo agregarlo a mi pedido existente?</h3>
+                </div>
+                <div class="answer">
+                    Lamentablemente, no puedes agregar más artículos a un pedido que ya se ha realizado y deberás
+                    realizar un segundo pedido. Pero no te preocupes, ofrecemos entrega rápida gratuita de todos los
+                    productos que compras en TechHub, por lo que el segundo pedido no te costará más.
+                </div>
+            </li>
+            <li>
+                <div class="question">
+                    <h3>¿Puedo hacer una compra por teléfono?</h3>
+                </div>
+                <div class="answer">
+                    Sí, puedes hacer un pedido por teléfono. Comunícate con nuestro Servicio al Cliente o alguno de los
+                    otros canales de contacto disponibles. Puedes optar por pagar por teléfono o por medio de un enlace.
+                </div>
+            </li>
+            <li>
+                <div class="question">
+                    <h3>¿Tengo garantia de los productos que compro en TechHub?</h3>
+                </div>
+                <div class="answer">
+                    Sí, absolutamente. Dispones de 30 días para devolver el producto y obtener un reembolso completo.
+                    Además, todos los productos cuentan con la garantia oficial que otorga tanto Samsung como Apple.
+                </div>
+            </li>
+            <li>
+                <div class="question">
+                    <h3>¿Todos los productos que compro en TechHub son nuevos?</h3>
+                </div>
+                <div class="answer">
+                    Si, absolutamente. Todos los productos que vendemos son nuevos, vienen con su embalaje original y
+                    cuentan con la garantia correspondiente.
+                </div>
+            </li>
+        </ul>
     </div>
+    <%- include('../partials/footer') %>
 </body>
 
 </html>
