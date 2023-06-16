@@ -2,7 +2,7 @@
     {
         "title": "Apple Watch SE",
         "brand": "apple",
-        "description": "Soy un Apple Watch SE\r\n\r\n\r\n\r\n",
+        "description": "Soy un Apple Watch SE",
         "currency": "ARS",
         "price": "12200",
         "category": "smartwatch",
@@ -42,7 +42,7 @@
     {
         "title": "Apple Watch ultra",
         "brand": "samsung",
-        "description": "Soy un Apple Watch Ultra\r\n\r\n\r\n\r\n",
+        "description": "Soy un Apple Watch Ultra",
         "currency": "ARS",
         "price": "180000",
         "category": "smartwatch",
@@ -62,7 +62,7 @@
     {
         "title": "IPhone 14 ",
         "brand": "samsung",
-        "description": "Soy el Iphone 14 \r\n\r\n\r\n\r\n",
+        "description": "Soy el Iphone 14",
         "currency": "ARS",
         "price": "320000",
         "category": "smartphone",
@@ -80,31 +80,11 @@
         "deleted": true
     },
     {
-        "title": "Samsung Galaxy S23",
-        "brand": "samsung",
-        "description": "Soy el Samsung Galaxy S23\r\n\r\n\r\n\r\n\r\n\r\n",
-        "currency": "ARS",
-        "price": "340000",
-        "category": "smartphone",
-        "colors": "2",
-        "color1": "#000000",
-        "color2": "#000000",
-        "color3": "#000000",
-        "color4": "#000000",
-        "images": [
-            "/imgs/products-images/1686945828869_img.png",
-            "/imgs/products-images/1686945828869_img.png",
-            "/imgs/products-images/1686945828869_img.png"
-        ],
-        "id": 5,
-        "deleted": false
-    },
-    {
-        "title": "sdfgsdfsdf",
+        "title": "IPhone 14",
         "brand": "apple",
-        "description": "\r\n\r\nsdfsdfsdfsdf\r\n\r\n",
+        "description": "Soy el IPhone 14",
         "currency": "ARS",
-        "price": 245158,
+        "price": "360000",
         "category": "smartphone",
         "colors": "2",
         "color1": "#000000",
@@ -112,31 +92,51 @@
         "color3": "#000000",
         "color4": "#000000",
         "images": [
-            "/imgs/products-images/1686945666034_img.jpg",
-            "/imgs/products-images/1686945666034_img.jpg",
-            "/imgs/products-images/1686945666035_img.jpg"
+            "/imgs/products-images/1686947990403_img.jpg",
+            "/imgs/products-images/1686947990405_img.jpg",
+            "/imgs/products-images/1686947990404_img.jpg"
         ],
         "id": 6,
         "deleted": false
     },
     {
-        "title": "sdfgsdfsdf",
+        "title": "IPhone 14 Pro",
         "brand": "apple",
-        "description": "\r\n\r\nsdfsdfsdfsdf\r\n\r\n",
+        "description": "Soy el IPhone 14 Pro",
         "currency": "ARS",
-        "price": 245158,
+        "price": 410000,
         "category": "smartphone",
-        "colors": "2",
+        "colors": "4",
         "color1": "#000000",
         "color2": "#000000",
         "color3": "#000000",
         "color4": "#000000",
         "images": [
-            "/imgs/products-images/1686945731481_img.jpg",
-            "/imgs/products-images/1686945731482_img.jpg",
-            "/imgs/products-images/1686945731485_img.jpg"
+            "/imgs/products-images/1686948822981_img.jpg",
+            "/imgs/products-images/1686948822980_img.jpg",
+            "/imgs/products-images/1686948822979_img.jpg"
         ],
         "id": 7,
+        "deleted": false
+    },
+    {
+        "title": "IPhone 14 Pro Max",
+        "brand": "apple",
+        "description": "Soy el IPhone 14 Pro Max",
+        "currency": "ARS",
+        "price": 480000,
+        "category": "smartphone",
+        "colors": "4",
+        "color1": "#000000",
+        "color2": "#000000",
+        "color3": "#000000",
+        "color4": "#000000",
+        "images": [
+            "/imgs/products-images/1686949176375_img.jpg",
+            "/imgs/products-images/1686949176377_img.jpg",
+            "/imgs/products-images/1686949176373_img.jpg"
+        ],
+        "id": 8,
         "deleted": false
     }
 ]
