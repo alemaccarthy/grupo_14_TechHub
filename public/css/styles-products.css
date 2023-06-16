@@ -134,6 +134,14 @@ body {
     background: #666;
 }
 
+.title-selected-product{
+    font-size: 8vw;
+}
+
+.selected-product-price{
+    color: #164194;
+}
+
 .product-detail-container {
     display: flex;
     flex-flow: column wrap;
@@ -186,12 +194,12 @@ body {
 
 .detail-container {
     width: 85%;
-    max-width: 392px;
+    max-width: 440px;
     margin: 0 auto;
     font-size: 7vw;
 }
 
-.product-price {
+.selected-product-price {
     padding: 4vw 0;
 }
 
@@ -211,7 +219,7 @@ body {
     margin: 0 auto;
     width: 70%;
     padding: 10vw 0 5vw;
-    max-width: 250px;
+    max-width: 300px;
 }
 
 .pick-color-smartphone h1 {
@@ -335,7 +343,7 @@ footer.footer {
         font-size: 38px;
     }
 
-    .product-price {
+    .selected-product-price {
         font-size: 33px;
         padding: 19px 0;
     }
@@ -430,6 +438,11 @@ footer.footer {
         margin-top: 30px;
         width: 90%;
     }
+
+    .title-selected-product {
+        font-size: 35px;
+    }
+
     .img-container{
         width: 48%;
         margin: 0 10px 0 0;

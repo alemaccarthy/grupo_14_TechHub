@@ -83,11 +83,18 @@ a:has(#logo){
 }
 
 .left-list button,
+.left-list button a,
 .right-list button {
     background-color: transparent;
     border: none;
     color: #ccc;
     transition: all 0.5s;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
 .left-list button:hover,
@@ -183,7 +190,7 @@ a:has(#logo){
 }
 
 .right-floating-nav button,
-a,
+.dropdown a,
 .right-floating-nav form input {
     background: none;
     text-decoration: none;
