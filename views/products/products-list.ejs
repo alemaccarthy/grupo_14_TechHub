@@ -16,33 +16,65 @@
                 <img src="imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
             </section>
             <section class="update-container">
-                <div  class="update-button">
+                <div class="update-button">
                     <button><a href="/products/create">Crear producto +</a></button>
                 </div>
             </section>
 
             <section class="products-container">
+                <% if(currentURL==='/products' ){%>
+                    <%products.forEach(el=> {%>
+                        <%if(el.deleted===false){%>
+                            <a class="selected-products" href="/products/<%= el.id %>/detail">
+                                <article>
+                                    <div class="box-img-product">
+                                        <img class="imagen-producto" src="<%= el.images[2] %>" alt="product">
+                                    </div>
 
-                <%products.forEach(el=> {%>
-                    <%if(el.deleted === false){%>
-                    <a class="selected-products" href="/products/<%= el.id %>/detail">
-                        <article>
-                            <div class="box-img-product">
-                                <img class="imagen-producto"
-                                    src="<%= el.images[2] %>"
-                                    alt="product">
-                            </div>
+                                    <div>
+                                        <h2 class="product-title">
+                                            <%= el.title %>
+                                        </h2>
+                                        <p class="product-price">$<%= el.price %>
+                                        </p>
+                                    </div>
+                                </article>
+                            </a>
+                            <% } } ) %>
+                                <% }else{ %>
 
-                            <div>
-                                <h2 class="product-title">
-                                    <%= el.title %>
-                                </h2>
-                                <p class="product-price">$<%= el.price %>
-                                </p>
-                            </div>
-                        </article>
-                    </a>
-                    <% } } ) %>
+                                    <% if(currentURL.includes('/products/apple')){ switch (currentURL) {
+                                        case '/products/apple/smartphone' : currentCategory='smartphone' ;
+                                        currentBrand='apple' ; break; case '/products/apple/smartwatch' :
+                                        currentCategory='smartwatch' ; currentBrand='apple' ; break;
+                                        case '/products/apple/tablet' : currentCategory='tablet' ; currentBrand='apple'
+                                        ; break; }}else if(currentURL.includes('/products/samsung')){ switch (currentURL)
+                                        { case '/products/samsung/smartphone' : currentCategory='smartphone' ;
+                                        currentBrand='samsung' ; break; case '/products/samsung/smartwatch' :
+                                        currentCategory='smartwatch' ; currentBrand='samsung' ; break;
+                                        case '/products/samsung/tablet' : currentCategory='tablet' ;
+                                        currentBrand='samsung' ; break; }}else{ } %>
+
+                                        <%products.forEach(el=> {%>
+                                            <%if(el.deleted===false && el.category===currentCategory &&
+                                                el.brand===currentBrand){%>
+                                                <a class="selected-products" href="/products/<%= el.id %>/detail">
+                                                    <article>
+                                                        <div class="box-img-product">
+                                                            <img class="imagen-producto" src="<%= el.images[2] %>"
+                                                                alt="product">
+                                                        </div>
+
+                                                        <div>
+                                                            <h2 class="product-title">
+                                                                <%= el.title %>
+                                                            </h2>
+                                                            <p class="product-price">$<%= el.price %>
+                                                            </p>
+                                                        </div>
+                                                    </article>
+                                                </a>
+                                                <% } } ) }%>
             </section>
 
             <section class="presentation-product-container">

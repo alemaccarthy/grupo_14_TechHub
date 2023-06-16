@@ -21,7 +21,7 @@
     },
     {
         "title": "Apple Watch Series 8",
-        "brand": "samsung",
+        "brand": "apple",
         "description": "Soy el Apple Watch Series 8",
         "currency": "ARS",
         "price": "150000",
@@ -41,7 +41,7 @@
     },
     {
         "title": "Apple Watch ultra",
-        "brand": "samsung",
+        "brand": "apple",
         "description": "Soy un Apple Watch Ultra",
         "currency": "ARS",
         "price": "180000",
@@ -60,26 +60,6 @@
         "deleted": false
     },
     {
-        "title": "IPhone 14 ",
-        "brand": "samsung",
-        "description": "Soy el Iphone 14",
-        "currency": "ARS",
-        "price": "320000",
-        "category": "smartphone",
-        "colors": "4",
-        "color1": "#000000",
-        "color2": "#000000",
-        "color3": "#000000",
-        "color4": "#000000",
-        "images": [
-            "/imgs/products-images/1686945324551_img.jpeg",
-            "/imgs/products-images/1686945324551_img.jpeg",
-            "/imgs/products-images/1686945324551_img.jpeg"
-        ],
-        "id": 4,
-        "deleted": true
-    },
-    {
         "title": "IPhone 14",
         "brand": "apple",
         "description": "Soy el IPhone 14",
@@ -96,7 +76,7 @@
             "/imgs/products-images/1686947990405_img.jpg",
             "/imgs/products-images/1686947990404_img.jpg"
         ],
-        "id": 6,
+        "id": 5,
         "deleted": false
     },
     {
@@ -116,7 +96,7 @@
             "/imgs/products-images/1686948822980_img.jpg",
             "/imgs/products-images/1686948822979_img.jpg"
         ],
-        "id": 7,
+        "id": 6,
         "deleted": false
     },
     {
@@ -135,6 +115,27 @@
             "/imgs/products-images/1686949176375_img.jpg",
             "/imgs/products-images/1686949176377_img.jpg",
             "/imgs/products-images/1686949176373_img.jpg"
+        ],
+        "id": 7,
+        "deleted": false
+    },
+    {
+        "title": "Samsung Galaxy S23",
+        "brand": "samsung",
+        "description": "Soy el Samsung Galaxy S23",
+        "currency": "ARS",
+        "price": 390000,
+        "category": "smartphone",
+        "colors": "4",
+        "color1": "#000000",
+        "color2": "#000000",
+        "color3": "#000000",
+        "color4": "#000000",
+        "images": [
+            "/imgs/products-images/1686949796872_img.png",
+            "/imgs/products-images/1686949796873_img.png",
+            "/imgs/products-images/1686949796875_img.png",
+            "/imgs/products-images/1686949796877_img.png"
         ],
         "id": 8,
         "deleted": false

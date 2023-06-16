@@ -3,8 +3,11 @@ const { validationResult } = require('express-validator');
 
 const productsController = {
     getProducts(req, res) {
+
+        const currentURL = req.originalUrl;
+
         const products = productModel.findAll();
-        res.render('products-list', { title: '| Productos', products});
+        res.render('products-list', { title: '| Productos', products, currentURL});
     },
 
     getProductDetail(req, res) {
