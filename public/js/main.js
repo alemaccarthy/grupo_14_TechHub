@@ -201,13 +201,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const answer = question.nextElementSibling;
             const isOpen = question.classList.contains('active');
 
-            // Ocultar todas las respuestas
             questions.forEach(q => {
                 q.nextElementSibling.classList.remove('show');
                 q.classList.remove('active');
             });
 
-            // Mostrar la respuesta de la pregunta actual
             if (!isOpen) {
                 answer.classList.add('show');
                 question.classList.add('active');
