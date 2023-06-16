@@ -26,6 +26,7 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .question {
@@ -35,6 +36,8 @@ h1 {
     position: relative;
     border-bottom: 1px solid black;
     padding: 10px 0;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .question:first-child {
@@ -45,13 +48,18 @@ h1 {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     margin-bottom: 10px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .answer.show {
     max-height: 1000px;
     opacity: 1;
+    margin-top: 20px;
 }
 
 .question.underline {
@@ -63,11 +71,12 @@ h1 {
     content: '';
     position: absolute;
     bottom: -2px;
-    left: 0;
-    right: 0;
+    left: 5%;
+    right: 5%;
     height: 1px;
     background-color: #000;
     animation: underlineAnimation 0.5s forwards;
+    -webkit-animation: underlineAnimation 0.5s forwards;
 }
 
 .faq ul {

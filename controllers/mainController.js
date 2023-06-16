@@ -20,7 +20,9 @@ const mainController = {
         res.render('samsung', { title: 'TechHub', userData })
     },
     getFaq: (req, res) => {
-        res.render('faq', { title: 'Preguntas frecuentes' })
+        let userData = req.session.user;
+        if (!userData) userData = {};
+        res.render('faq', { title: 'Preguntas frecuentes', userData })
     },
     getReturns: (req, res) => {
         res.render('returns', { title: 'Devoluciones' })
