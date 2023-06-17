@@ -24,7 +24,7 @@
             <section class="products-container">
                 <% if(currentURL==='/products' ){%>
                     <%products.forEach(el=> {%>
-                        <%if(el.deleted===false){%>
+                        <%if(el.deleted===false && el.category===currentCategory && el.brand===currentBrand){%>
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
                                 <article>
                                     <div class="box-img-product">

@@ -52,22 +52,7 @@ const validations = [
 productRoutes.get('/', productController.getProducts);
 
 // @Get /products/apple/smartwatch
-productRoutes.get('/apple/smartphone', productController.getProducts);
-
-// @Get /products/apple/smartwatch
-productRoutes.get('/apple/smartwatch', productController.getProducts);
-
-// @Get /products/apple/smartwatch
-productRoutes.get('/apple/tablet', productController.getProducts);
-
-// @Get /products/samsung/smartwatch
-productRoutes.get('/samsung/smartphone', productController.getProducts);
-
-// @Get /products/samsung/smartwatch
-productRoutes.get('/samsung/smartwatch', productController.getProducts);
-
-// @Get /products/samsung/smartwatch
-productRoutes.get('/samsung/tablet', productController.getProducts);
+productRoutes.get('/:brand/:category', productController.getProducts);
 
 // @GET /products/:id/detail
 productRoutes.get('/:id/detail', productController.getProductDetail);

@@ -12,18 +12,18 @@ const middlewares = {
         next();
     },
 
-    authMiddleware(req, res, next){
-        if(!req.session.user){
+    authMiddleware(req, res, next) {
+        if (!req.session.user) {
             return res.redirect('/')
         }
         next()
     },
 
-    userLoggedMiddleware(req, res, next){
+    userLoggedMiddleware(req, res, next) {
         res.locals.isLogged = false;
-        if(req.session && req.session.user){
-        res.locals.isLogged = true;
-        res.locals.user = req.session.user;
+        if (req.session && req.session.user) {
+            res.locals.isLogged = true;
+            res.locals.user = req.session.user;
         };
 
         next();
@@ -35,8 +35,8 @@ const middlewares = {
     },
 
     rememberMiddleware(req, res, next) {
-        
-        if(req.cookies.email){
+
+        if (req.cookies.email) {
             const userModel = require('../models/user');
 
             const userFromCookies = userModel.findByEmail(req.cookies.email);
@@ -46,18 +46,20 @@ const middlewares = {
 
             req.session.user = userFromCookies;
         }
-        
+
         next();
     },
 
-    header(req, res, next){
-        const productModel = require('../models/product');
-        
-        res.locals.products = productModel.findAll();
-        
+    header(req, res, next) {
+        if (!req.session.products) {
+            const productModel = require('../models/product');
+
+            req.session.products = productModel.findAll();
+        }
+
         next();
     }
-    
+
 }
 
 module.exports = middlewares;
