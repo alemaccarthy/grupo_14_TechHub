@@ -51,11 +51,11 @@ const middlewares = {
     },
 
     header(req, res, next) {
-        if (!req.session.products) {
-            const productModel = require('../models/product');
-
-            req.session.products = productModel.findAll();
-        }
+        const productModel = require('../models/product');
+        
+        res.locals.products = productModel.findAll();
+        /* if (!req.session.products) {
+        } */
 
         next();
     }

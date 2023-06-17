@@ -4,10 +4,12 @@ const { validationResult } = require('express-validator');
 const productsController = {
     getProducts(req, res) {
 
-        const currentURL = req.originalUrl;
+        const brand = req.params.brand; 
+        const category = req.params.category; 
+        console.log(brand, category);
 
         const products = productModel.findAll();
-        res.render('products-list', { title: '| Productos', products, currentURL});
+        res.render('products-list', { title: '| Productos', products, brand, category});
     },
 
     getProductDetail(req, res) {
