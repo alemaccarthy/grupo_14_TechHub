@@ -14,13 +14,15 @@ const productsController = {
 
     getProductDetail(req, res) {
 
+        const brand = req.params.brand;
+        const category = req.params.category;
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
 
         if (!product) {
             return res.render('product-not-found',{ title: '| Producto no disponible'});
         }
-        res.render('product-detail', { title: '| Detalle', product});
+        res.render('product-detail', { title: '| Detalle', brand, category, product});
     },
 
     getCreateProduct(req, res) {
