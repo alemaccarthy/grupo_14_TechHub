@@ -44,7 +44,7 @@
                 <% }else{%>
                     <%products.forEach(el=> {%>
                         <%if(el.deleted===false){%>
-                            <a class="selected-products" href="/products/<%= el.id %>/detail">
+                            <a class="selected-products" href="/products/:brand/:category/<%= el.id %>/detail">
                                 <article>
                                     <div class="box-img-product">
                                         <img class="imagen-producto" src="<%= el.images[2] %>" alt="product">

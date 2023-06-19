@@ -55,7 +55,7 @@ productRoutes.get('/', productController.getProducts);
 productRoutes.get('/:brand/:category', productController.getProducts);
 
 // @GET /products/:id/detail
-productRoutes.get('/:id/detail', productController.getProductDetail);
+productRoutes.get('/:brand/:category/:id/detail', productController.getProductDetail);
 
 // @GET /products/create
 productRoutes.get('/create', productController.getCreateProduct);
