@@ -86,7 +86,7 @@ body {
     margin-left: -50%;
 }
 
-.presentation-product{
+.presentation-product {
     position: relative;
     max-width: 1300px;
 }
@@ -100,7 +100,7 @@ body {
 }
 
 /* --------------------product-detail------------------------- */
-.update-container{
+.update-container {
     background-color: #ebebeb;
     position: sticky;
     top: 50px;
@@ -115,7 +115,7 @@ body {
     margin: 0 auto;
 }
 
-.update-button button{
+.update-button button {
     margin: 10px;
     padding: 5px 7px;
     color: #fff;
@@ -126,19 +126,19 @@ body {
     transition: 0.3s;
 }
 
-.update-button a{
+.update-button a {
     font-size: 15px;
 }
 
-.update-button button:hover{
+.update-button button:hover {
     background: #666;
 }
 
-.title-selected-product{
+.title-selected-product {
     font-size: 8vw;
 }
 
-.selected-product-price{
+.selected-product-price {
     color: #164194;
 }
 
@@ -256,7 +256,7 @@ body {
     width: 100%;
 }
 
-.product-info{
+.product-info {
     font-size: 3.4vw;
     padding: 5vw 0;
 }
@@ -286,21 +286,28 @@ body {
     background: #fff;
 }
 
-.floating-buttons>button {
+.floating-buttons .button-link {
+    width: 100%;
+    margin: 0.5vw 0;
+}
+
+.floating-buttons .button-link button {
     color: #fff;
     width: 100%;
     font-size: 5vw;
     padding: 2vw;
-    margin: 0.5vw 0;
     background: #164194;
     border-radius: 7px;
     border: none;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.floating-buttons>button:hover {
+
+.floating-buttons .button-link:hover button {
     background: #666;
 }
+
 
 footer.footer {
     margin-top: 30px;
@@ -370,7 +377,7 @@ footer.footer {
         padding-top: 14.5px;
     }
 
-    .product-info{
+    .product-info {
         font-size: 16px;
         padding: 24px 0;
     }
@@ -386,12 +393,15 @@ footer.footer {
         padding: 9.62px;
     }
 
-    .floating-buttons>button {
-        font-size: 24px;
+    .floating-buttons .button-link {
         width: 48%;
+        margin: 0.5vw 1%;
+    }
+
+    .floating-buttons .button-link button {
+        font-size: 24px;
+        width: 100%;
         padding: 9.62px;
-        margin: 0;
-        cursor: pointer;
     }
 }
 
@@ -423,16 +433,16 @@ footer.footer {
 
     /* ----------------------------- product-detail------------------------------ */
 
-    .update-container{
-        top:6.55vw;
+    .update-container {
+        top: 6.55vw;
     }
 
-    .update-button button{
+    .update-button button {
         font-size: 17px;
         margin-right: 70px;
     }
 
-    .product-detail-container{
+    .product-detail-container {
         flex-direction: row;
         justify-content: space-between;
         margin-top: 30px;
@@ -443,11 +453,12 @@ footer.footer {
         font-size: 35px;
     }
 
-    .img-container{
+    .img-container {
         width: 48%;
         margin: 0 10px 0 0;
     }
-    .detail-container{
+
+    .detail-container {
         width: 48%;
         margin-right: 0;
         margin-left: 10px;
@@ -474,9 +485,9 @@ footer.footer {
         font-size: 20px;
     }
 
-/* -----------------product-detail---------------------- */
+    /* -----------------product-detail---------------------- */
 
-    .update-container{
-        top:80px;
+    .update-container {
+        top: 80px;
     }
 }
