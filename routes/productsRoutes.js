@@ -48,14 +48,14 @@ const validations = [
     })
 ]
 
-// @Get /products
-productRoutes.get('/', productController.getProducts);
+// @Get /products/catalog
+productRoutes.get('/catalog', productController.getProducts);
 
 // @Get /products/apple/smartwatch
-productRoutes.get('/:brand/:category', productController.getProducts);
+productRoutes.get('/catalog/:brand/:category', productController.getProducts);
 
 // @GET /products/:id/detail
-productRoutes.get('/:brand/:category/:id/detail', productController.getProductDetail);
+productRoutes.get('/:id/detail', productController.getProductDetail);
 
 // @GET /products/create
 productRoutes.get('/create', productController.getCreateProduct);

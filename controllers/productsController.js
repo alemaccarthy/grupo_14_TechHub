@@ -4,9 +4,8 @@ const { validationResult } = require('express-validator');
 const productsController = {
     getProducts(req, res) {
 
-        const brand = req.params.brand; 
-        const category = req.params.category; 
-        console.log(brand, category);
+        const brand = req.params.brand || '';
+        const category = req.params.category || ''; 
 
         const products = productModel.findAll();
         res.render('products-list', { title: '| Productos', products, brand, category});
@@ -14,15 +13,15 @@ const productsController = {
 
     getProductDetail(req, res) {
 
-        const brand = req.params.brand;
-        const category = req.params.category;
+        // const brand = req.params.brand;
+        // const category = req.params.category;
         const id = Number(req.params.id);
         const product = productModel.findbyId(id);
 
         if (!product) {
             return res.render('product-not-found',{ title: '| Producto no disponible'});
         }
-        res.render('product-detail', { title: '| Detalle', brand, category, product});
+        res.render('product-detail', { title: '| Detalle',/* brand , category, */ product});
     },
 
     getCreateProduct(req, res) {
