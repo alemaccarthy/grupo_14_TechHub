@@ -4,8 +4,8 @@
 <head>
     <%- include('../partials/head') %>
 
-    <link rel="stylesheet" href="/css/styles-header.css">
-    <link rel="stylesheet" href="/css/styles-products.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
+        <link rel="stylesheet" href="/css/styles-products.css">
 </head>
 
 <body>
@@ -13,25 +13,27 @@
 
         <main>
             <section class="update-container">
-                <div  class="update-button">
+                <div class="update-button">
                     <button><a href="/products/<%= product.id %>/update">Editar producto</a></button>
                 </div>
             </section>
 
             <section class="product-detail-container">
                 <article class="img-container">
-                    <img class="main-img" src="<%= product.images[2] %>"
-                        alt="producto">
+                    <img class="main-img" src="<%= product.images[2] %>" alt="producto">
                     <article class="small-imgs-slider">
-                        <% product.images.forEach(el => {%>
+                        <% product.images.forEach(el=> {%>
                             <img src="<%= el %>" alt="">
                             <% }) %>
                     </article>
                 </article>
 
                 <section class="detail-container">
-                    <h1 class="title-selected-product"><%= product.title %></h1>
-                    <p class="selected-product-price">$<%= product.price %></p>
+                    <h1 class="title-selected-product">
+                        <%= product.title %>
+                    </h1>
+                    <p class="selected-product-price">$<%= product.price %>
+                    </p>
                     <h6 class="shipping-text">Envío gratis<i class="fa-solid fa-truck"></i></h6>
                     <section class="pick-color-smartphone pick-color-s23">
                         <span class="option-color-smartphone option-color-s23 color-s23-green"></span>
@@ -40,21 +42,23 @@
                         <span class="option-color-smartphone option-color-s23 color-s23-cream"></span>
                         <h1>Color</h1>
                     </section>
-                    <p class="product-info"><%= product.description %></p>
+                    <p class="product-info">
+                        <%= product.description %>
+                    </p>
                 </section>
                 <section class="more-info-button">
                     <button>Más información</button>
                 </section>
             </section>
             <section class="floating-buttons">
-                <a href="../user/complete-purchase" class="button-link">
-                  <button class="buy-button">Comprar ahora</button>
+                <a href="/user/complete-purchase" class="button-link">
+                    <button class="buy-button">Comprar ahora</button>
                 </a>
-                <a href="ruta-de-la-otra-vista" class="button-link">
-                  <button class="addToCart-button">Agregar al carrito</button>
+                <a href="" class="button-link">
+                    <button class="addToCart-button">Agregar al carrito</button>
                 </a>
-              </section>
-              
+            </section>
+
         </main>
-        <%- include('../partials/footer')  %>
+        <%- include('../partials/footer') %>
 </body>
