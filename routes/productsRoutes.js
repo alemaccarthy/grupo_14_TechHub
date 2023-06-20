@@ -51,7 +51,7 @@ const validations = [
 // @Get /products/catalog
 productRoutes.get('/catalog/:brand', productController.getProducts);
 
-// @Get /products/apple/smartwatch
+// @Get /products/catalog/apple/smartwatch
 productRoutes.get('/catalog/:brand/:category', productController.getProducts);
 
 // @GET /products/:id/detail

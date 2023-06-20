@@ -4,17 +4,36 @@
             <a href="/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
             <section class="left-list left-nav" id="left-nav">
                 <div class="tienda-nav nav-button"><button><a href="
-                    <% if (home === 'apple') { %>
+                    <% if (home === 'apple' || brand === 'apple') { %>
                      /products/catalog/apple
-                    <% }else{ %>
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
                      /products/catalog/samsung
                     <% } %>
                     ">Tienda</a></button></div>
                 <div class="smartphone-nav nav-button">
-                    <button><a href="">Smartphones</a></button>
+                    <button><a href="
+                        <% if (home === 'apple' || brand === 'apple') { %>
+                         /products/catalog/apple/smartphone
+                        <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                         /products/catalog/samsung/smartphone
+                        <% } %>
+                        ">Smartphones</a></button>
                 </div>
-                <div class="smartwatch-nav nav-button"><button><a href="">Smartwatch</a></button></div>
-                <div class="tablet-nav nav-button"><button><a href="">Tablets</a></button></div>
+                <div class="smartwatch-nav nav-button"><button><a 
+                    href="
+                    <% if (home === 'apple' || brand === 'apple') { %>
+                     /products/catalog/apple/smartwatch
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                     /products/catalog/samsung/smartwatch
+                    <% } %>
+                    ">Smartwatch</a></button></div>
+                <div class="tablet-nav nav-button"><button><a href="
+                    <% if (home === 'apple' || brand === 'apple') { %>
+                     /products/catalog/apple/tablet
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                     /products/catalog/samsung/tablet
+                    <% } %>
+                    ">Tablets</a></button></div>
                 <section class="main-drop-container">
                 </section>
                 <section class="drop-container drop-cont-smartphone">
@@ -38,7 +57,7 @@
                         </article>
                         <article class="dropdown dropdown-smartwatch">
                             <% products.forEach(el => { %>
-                                <% if (el.category === "smartwatch" && el.brand === brand) { %>
+                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === brand)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 
@@ -48,7 +67,7 @@
                         <article class="dropdown dropdown-tablet">
 
                             <% products.forEach(el => { %>
-                                <% if (el.category === "tablet" && el.brand === brand) { %>
+                                <% if (el.category === "tablet" && (el.brand === home || el.brand === brand)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 
