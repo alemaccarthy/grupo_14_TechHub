@@ -49,7 +49,7 @@ const validations = [
 ]
 
 // @Get /products/catalog
-productRoutes.get('/catalog', productController.getProducts);
+productRoutes.get('/catalog/:brand', productController.getProducts);
 
 // @Get /products/apple/smartwatch
 productRoutes.get('/catalog/:brand/:category', productController.getProducts);

@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     },
 
+    goBack = () => {
+        window.history.back();
+      },
+
         closeNav = () => {
             navbar.style.opacity = '0';
             if (deviceWidth < 768) {

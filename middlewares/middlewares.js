@@ -54,6 +54,13 @@ const middlewares = {
         const productModel = require('../models/product');
         
         res.locals.products = productModel.findAll();
+
+        res.locals.brand = (req.originalUrl).split('/')[3];
+        res.locals.category = (req.originalUrl).split('/')[4];
+        res.locals.home = (req.originalUrl).split('/')[1];
+
+
+        console.log(req.originalUrl);
         /* if (!req.session.products) {
         } */
 

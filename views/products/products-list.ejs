@@ -22,7 +22,7 @@
             </section>
 
             <section class="products-container">
-                <% if (brand && category) { %>
+                <% if (category) { %>
                     <%products.forEach(el=> {%>
                         <%if(el.deleted === false && el.brand === brand && el.category === category){%>
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
@@ -43,7 +43,7 @@
                             <% } } ) %>
                 <% }else{%>
                     <%products.forEach(el=> {%>
-                        <% if(el.deleted === false){%>
+                        <% if(el.deleted === false && el.brand === brand){%>
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
                                 <article>
                                     <div class="box-img-product">
