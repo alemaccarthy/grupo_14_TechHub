@@ -44,20 +44,16 @@
                 </section>
                         <article class="dropdown dropdown-smartphone">
                             <% products.forEach(el => { %>
-                                <% if (el.category === "smartphone" && (el.brand === home || el.brand === brand)) { %>
+                                <% if (el.category === "smartphone" && (el.brand === home || el.brand === brand || el.brand === currentBrand)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
                             
                                 
-                            <!--a href="">Galaxy S23</-a>
-                            <a href="">Galaxy Z</a>
-                            <a href="">Galaxy S</a>
-                            <a href="">Galaxy A34</a>
-                            <a-- href="">Galaxy A54</a-->
+                         
                         </article>
                         <article class="dropdown dropdown-smartwatch">
                             <% products.forEach(el => { %>
-                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === brand)) { %>
+                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === brand || el.brand === currentBrand)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 
@@ -67,7 +63,7 @@
                         <article class="dropdown dropdown-tablet">
 
                             <% products.forEach(el => { %>
-                                <% if (el.category === "tablet" && (el.brand === home || el.brand === brand)) { %>
+                                <% if (el.category === "tablet" && (el.brand === home || el.brand === brand || el.brand === currentBrand)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 

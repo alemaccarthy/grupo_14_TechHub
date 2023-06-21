@@ -19,7 +19,8 @@ const productsController = {
         if (!product) {
             return res.render('product-not-found',{ title: '| Producto no disponible'});
         }
-        res.render('product-detail', { title: '| Detalle', product});
+        res.locals.product = product;
+        res.render('product-detail', { title: '| Detalle', product, currentBrand: product.brand});
     },
 
     getCreateProduct(req, res) {
