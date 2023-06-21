@@ -32,12 +32,11 @@ h1 {
 .question {
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 10px;
     position: relative;
     border-bottom: 1px solid black;
     padding: 10px 0;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
 .question:first-child {
@@ -71,8 +70,6 @@ h1 {
     content: '';
     position: absolute;
     bottom: -2px;
-    left: 5%;
-    right: 5%;
     height: 1px;
     background-color: #000;
     animation: underlineAnimation 0.5s forwards;
