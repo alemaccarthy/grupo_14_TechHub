@@ -12,9 +12,27 @@
         <section class="cover">
             <img src="/imgs/profile-images/fondo-perfil.jpg" alt="">
             <section class="profile-picture-container">
+                <button onclick="openForm()"><i class="fa-solid fa-pen-to-square"></i></button>
                 <img src=" <%= user.profile? user.profile : '/imgs/profile-images/no-image-profile.jpg' %>" alt="profile-pic">
             </section>
         </section>
+
+<section class="form-popup" id="myForm">
+  <form action="/user/profile" class="form-container" method="post">
+    <h1>Login</h1>
+
+    <img class="editing-picture" src="<%= user.profile %>" alt="">
+
+    <label for="email">Editar</label>
+    <input type="file" placeholder="Enter Email" name="email">
+
+    <label for="psw">Password</label>
+    <input type="password" placeholder="Enter Password" name="psw">
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancelar</button>
+  </form>
+</section>
         <section class="user-info">
             <%- include('../partials/formRegister')  %>
         </section>
