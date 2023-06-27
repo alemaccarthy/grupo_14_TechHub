@@ -20,17 +20,14 @@
 <section class="form-popup" id="myForm">
   <form action="/user/profile" class="form-container" method="post">
     <h1>Login</h1>
-
+    <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
     <img class="editing-picture" src="<%= user.profile %>" alt="">
 
-    <label for="email">Editar</label>
-    <input type="file" placeholder="Enter Email" name="email">
+    <label for="profilePic">Editar</label>
+    <input type="file" placeholder="Enter Email" name="profilePic">
 
-    <label for="psw">Password</label>
-    <input type="password" placeholder="Enter Password" name="psw">
-
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Cancelar</button>
+    <button type="submit" class="btn">Actualizar</button>
+    <button type="button" class="btn cancel">Eliminar</button>
   </form>
 </section>
         <section class="user-info">
