@@ -74,7 +74,13 @@ usersRoutes.get('/login', middlewares.guestMiddleware, usersController.getLogin)
 usersRoutes.post('/login', usersController.loginUser);
 
 // @GET /user/profile
-usersRoutes.get('/profile'/* , middlewares.authMiddleware */, usersController.getProfile);
+usersRoutes.get('/profile', middlewares.authMiddleware, usersController.getProfile);
+
+// @POST /user/profile
+usersRoutes.post('/profile/update', [upload.single('profilePic')/* FALTA LA VALIDACION */], usersController.postPicture);
+
+// @DELETE /user/profile
+usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ usersController.deletePicture); //VA EL MIDDLEWARE?
 
 // @GET /user/sign-out
 usersRoutes.get('/sign-out', usersController.logOut);

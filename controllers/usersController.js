@@ -52,6 +52,16 @@ const usersController = {
         res.render('profile', { title: `| Nombre del usuario`, user})
     },
 
+    postPicture(req, res){
+        const profilePic = req.body.profilePic;
+
+        res.send('Respuesta provisoria'); //ARREGLAR
+    },
+
+    deletePicture(req, res){
+        res.send('Respuesta provisoria'); //ARREGLAR
+    },
+
     getLogin(req, res) {
         const error = req.query.error || '';
 
