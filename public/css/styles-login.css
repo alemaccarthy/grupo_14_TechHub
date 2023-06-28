@@ -62,6 +62,14 @@ main{
     margin: 0 auto;
 }
 
+.log-in-form h4{
+    color: red;
+}
+
+.log-in-form .fa-circle-xmark{
+    margin: 0 10px;
+}
+
 .log-in-form input {
     background: none;
     font-size: 17px;
