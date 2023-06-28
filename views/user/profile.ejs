@@ -18,17 +18,20 @@
         </section>
 
 <section class="form-popup" id="myForm">
-  <form action="/user/profile" class="form-container" method="post">
-    <h1>Login</h1>
-    <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
-    <img class="editing-picture" src="<%= user.profile %>" alt="">
-
-    <label for="profilePic">Editar</label>
-    <input type="file" placeholder="Enter Email" name="profilePic">
-
-    <button type="submit" class="btn">Actualizar</button>
-    <button type="button" class="btn cancel">Eliminar</button>
-  </form>
+    <section class="form-container" >
+        <form action="/user/profile?_method=put" method="post" enctype="multipart/form-data">
+            <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
+            <h1>Editar foto de perfil</h1>
+            <img class="editing-picture" src="<%= user.profile %>" alt="">
+            
+            <input type="file" placeholder="Enter Email" name="profilePic">
+            
+            <button type="submit" class="btn">Actualizar</button>
+        </form>
+        <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
+        <button type="input" class="btn delete">Eliminar</button>
+        </form>
+    </section>
 </section>
         <section class="user-info">
             <%- include('../partials/formRegister')  %>

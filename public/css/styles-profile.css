@@ -63,7 +63,6 @@ button:has(.fa-pen-to-square){
     bottom: 50%;
     right: 50%;
     transform: translate(50%, 50%);
-    border: 3px solid #f1f1f1;
     z-index: 9;
   }
   
@@ -71,23 +70,11 @@ button:has(.fa-pen-to-square){
   .form-container {
     max-width: 300px;
     padding: 10px;
-    background-color: white;
+    background-color: #cecece;
+    position: relative;
+    text-align: center;
   }
   
-  /* Full-width input fields */
-  .form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
   
   /* Set a style for the submit/login button */
   .form-container .btn {
@@ -102,7 +89,7 @@ button:has(.fa-pen-to-square){
   }
   
   /* Add a red background color to the cancel button */
-  .form-container .cancel {
+  .form-container .delete {
     background-color: red;
   }
   
@@ -115,6 +102,14 @@ button:has(.fa-pen-to-square){
     width: 80%;
     border-radius: 50%;
     margin: 20px auto;
+  }
+
+  .fa-xmark{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    right: 3%;
+    top: 2%;
   }
 
 @media(width >=768px) {
