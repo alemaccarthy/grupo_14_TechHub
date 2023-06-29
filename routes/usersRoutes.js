@@ -77,7 +77,7 @@ usersRoutes.post('/login', usersController.loginUser);
 usersRoutes.get('/profile', middlewares.authMiddleware, usersController.getProfile);
 
 // @POST /user/profile
-usersRoutes.post('/profile/update', [upload.single('profilePic')/* FALTA LA VALIDACION */], usersController.postPicture);
+usersRoutes.post('/profile', [upload.single('profilePic')/* FALTA LA VALIDACION */], usersController.postPicture);
 
 // @DELETE /user/profile
 usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ usersController.deletePicture); //VA EL MIDDLEWARE?
