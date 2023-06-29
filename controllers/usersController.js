@@ -53,12 +53,15 @@ const usersController = {
     },
 
     postPicture(req, res){
+
+        res.send('Respuesta provisoria'); //ARREGLAR
         res.redirect('/user/profile');
 
     },
 
     deletePicture(req, res){
-        res.redirect('/user/profile');
+         res.send('Respuesta provisoria'); //ARREGLAR
+       /* res.redirect('/user/profile'); */
     },
 
     getLogin(req, res) {

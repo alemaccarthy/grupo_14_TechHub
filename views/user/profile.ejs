@@ -24,12 +24,12 @@
             <h1>Editar foto de perfil</h1>
             <img class="editing-picture" src="<%= user.profile %>" alt="">
             
-            <input type="file" placeholder="Enter Email" name="profilePic">
+            <input type="file" name="profilePic">
             
-            <button type="submit" class="btn">Actualizar</button>
+            <input type="submit" class="btn" name="updatePic" value="Actualizar">
         </form>
         <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
-        <button type="input" class="btn delete">Eliminar</button>
+        <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
         </form>
     </section>
 </section>
