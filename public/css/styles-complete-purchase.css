@@ -332,7 +332,6 @@ input[type="telephone"] {
 
 .payment-method input[type="radio"] {
     margin-right: 1vw;
-    /* Separar el radio button de la imagen */
 }
 
 
@@ -408,7 +407,6 @@ input[type="telephone"] {
     position: relative;
     width: 100%;
     align-self: center;
-    /* Altura para hacer scroll */
 }
 
 .floating-buttons {
@@ -579,7 +577,6 @@ input[type="telephone"] {
     .title {
        
         max-width: 90%;
-        /*max-height: 18vw;*/
         border-radius: 7px;
     }
 

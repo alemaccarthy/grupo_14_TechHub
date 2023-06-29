@@ -41,7 +41,6 @@ header{
 
 .hamburguer-buttom {
     font-size: 25px;
-/*     padding: 1vw 2vw; */
     border: none;
     color: white;
     align-self: center;
@@ -105,13 +104,6 @@ header{
         font-size: 6vw;
     }
 }
-
-/* @media(min-width: 720px){
-    .slogan{
-        font-size: 350%;
-        bottom: 10%;
-    }
-} */
 
 @media(min-width: 1200px) {
     body {

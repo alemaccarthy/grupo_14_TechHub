@@ -56,7 +56,6 @@ button:has(.fa-pen-to-square){
     background: transparent;
 }
   
-  /* The popup form - hidden by default */
   .form-popup {
     display: none;
     position: absolute;
@@ -66,7 +65,6 @@ button:has(.fa-pen-to-square){
     z-index: 9;
   }
   
-  /* Add styles to the form container */
   .form-container {
     max-width: 300px;
     padding: 10px;
@@ -76,7 +74,6 @@ button:has(.fa-pen-to-square){
   }
   
   
-  /* Set a style for the submit/login button */
   .form-container .btn {
     background-color: #04AA6D;
     color: white;
@@ -88,12 +85,10 @@ button:has(.fa-pen-to-square){
     opacity: 0.8;
   }
   
-  /* Add a red background color to the cancel button */
   .form-container .delete {
     background-color: red;
   }
   
-  /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
