@@ -1,237 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const cartIcon = document.querySelector('.btn-cart');
-    const modal = document.querySelector('.modal');
-    const modalContainer = document.querySelector('.cart');
 
-    function openModal() {
-        modalContainer.style.height = '490px';
-    }
 
-    function closeModal() {
-        modalContainer.style.height = '0';
-    }
 
-    cartIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
-
-    modal.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeModal();
-    });
-
-});
+console.log("El archivo main.js se ha cargado correctamente");
 
 document.addEventListener('DOMContentLoaded', function () {
+    let selectedBrand = '';
+    const apple = document.getElementById('apple');
+    const samsung = document.getElementById('samsung');
+    console.log('El valor actual de selectedBrand es: ' + apple);
+    console.log('El valor actual de selectedBrand es: ' + samsung);
+    function handleClickApple() {
+        selectedBrand = "apple";
+        console.log('El valor actual de selectedBrand es: ' + selectedBrand);
+    }
 
-    const deviceWidth = window.innerWidth;
-    const navbar = document.getElementById('right-floating-nav');
-    const logInWindow = document.getElementById('log-in-window');
-    const searchBar = document.getElementById('searchbar-container');
-    const body = document.body;
-    // const todoMenosHeader = document.querySelectorAll('body');
+    function handleClickSamsung() {
+        selectedBrand = "samsung";
+        console.log('El valor actual de selectedBrand es: ' + selectedBrand);
+    }
 
-    openNav = () => {
-        navbar.style.opacity = '1';
-        if (deviceWidth < 768) {
-            navbar.style.width = '100%';
-        }
-        else if (deviceWidth >= 768) {
-            navbar.style.display = 'flex';
-            navbar.style.opacity = '1';
-        }
-    },
-
-    goBack = () => {
-        window.history.back();
-      },
-
-        closeNav = () => {
-            navbar.style.opacity = '0';
-            if (deviceWidth < 768) {
-                navbar.style.width = '0';
-            }
-            else if (deviceWidth >= 768) {
-                navbar.style.display = 'none';
-                navbar.style.opacity = '0';
-            }
-        },
-        openForm = () => {
-            document.getElementById("myForm").style.display = "block";
-          },
-          
-        closeForm = () => {
-            document.getElementById("myForm").style.display = "none";
-          }
-        /* 
-                openLogIn = () => {
-                    userData = document.querySelector('.user-data');
-                    logInWindow.style.display = 'flex';
-                    userData.style.filter = 'blur(5px)';
-                },
+    if (apple && samsung) {
         
-                closeLogIn = () => {
-                    userData = document.querySelector('.user-data');
-                    logInWindow.style.display = 'none';
-                    userData.style.filter = 'none';
-                }, */
-        openSearchBar = () => {
-            // const header = document.getElementById('header');
-            searchBar.style.height = '80px';
-            /*             todoMenosHeader.forEach(el => {
-                            if (el != header) {
-                                el.style.filter = 'blur(5px)';
-                            }
-                        }) */
-        },
-        closeSearchBar = () => {
-            searchBar.style.height = '0';
-        }
-
-    const dropContSmartphone = document.querySelector(".drop-cont-smartphone");
-    const dropContSmartwatch = document.querySelector(".drop-cont-smartwatch");
-    const dropContTablet = document.querySelector(".drop-cont-tablet");
-    const smartwatch = document.querySelector(".smartwatch-nav");
-    const smartphone = document.querySelector(".smartphone-nav");
-    const tablet = document.querySelector(".tablet-nav");
-    const dropdown = document.querySelector(".dropdown");
-    const smartphoneDropdown = document.querySelector(".dropdown-smartphone");
-    const smartwatchDropdown = document.querySelector(".dropdown-smartwatch");
-    const tabletDropdown = document.querySelector(".dropdown-tablet");
-
-
-    const hoverInSP = () => {
-        dropContSmartphone.style.height = "170px";
-        dropContSmartphone.style.opacity = "1";
-        smartphoneDropdown.style.height = "auto";
-        smartphoneDropdown.style.opacity = "1";
-        searchBar.style.height = "0";
+        apple.addEventListener("click", handleClickApple);
+        samsung.addEventListener("click", handleClickSamsung);
     }
-    const hoverOutSP = () => {
-        dropContSmartphone.style.height = "0";
-        dropContSmartphone.style.opacity = "0";
-        smartphoneDropdown.style.height = "0";
-        smartphoneDropdown.style.opacity = "0";
-    }
-
-    const hoverInSW = () => {
-        dropContSmartwatch.style.height = "170px";
-        dropContSmartwatch.style.opacity = "1";
-        smartwatchDropdown.style.height = "auto";
-        smartwatchDropdown.style.opacity = "1";
-        searchBar.style.height = "0";
-
-    }
-    const hoverOutSW = () => {
-        dropContSmartwatch.style.height = "0";
-        dropContSmartwatch.style.opacity = "0";
-        smartwatchDropdown.style.height = "0";
-        smartwatchDropdown.style.opacity = "0";
-    }
-
-    const hoverInT = () => {
-        dropContTablet.style.height = "170px";
-        dropContTablet.style.opacity = "1";
-        tabletDropdown.style.height = "auto";
-        tabletDropdown.style.opacity = "1";
-        searchBar.style.height = "0";
-
-    }
-    const hoverOutT = () => {
-        dropContTablet.style.height = "0";
-        dropContTablet.style.opacity = "0";
-        tabletDropdown.style.height = "0";
-        tabletDropdown.style.opacity = "0";
-    }
-
-    smartphone.addEventListener('mouseenter', hoverInSP)
-    dropContSmartphone.addEventListener('mouseenter', hoverInSP)
-    smartphoneDropdown.addEventListener('mouseenter', hoverInSP)
-    smartphone.addEventListener('mouseleave', hoverOutSP)
-    dropContSmartphone.addEventListener('mouseleave', hoverOutSP)
-    smartphoneDropdown.addEventListener('mouseleave', hoverOutSP)
-
-    smartwatch.addEventListener('mouseenter', hoverInSW)
-    dropContSmartwatch.addEventListener('mouseenter', hoverInSW)
-    smartwatchDropdown.addEventListener('mouseenter', hoverInSW)
-    smartwatch.addEventListener('mouseleave', hoverOutSW)
-    dropContSmartwatch.addEventListener('mouseleave', hoverOutSW)
-    smartwatchDropdown.addEventListener('mouseleave', hoverOutSW)
-
-    tablet.addEventListener('mouseenter', hoverInT)
-    dropContTablet.addEventListener('mouseenter', hoverInT)
-    tabletDropdown.addEventListener('mouseenter', hoverInT)
-    tablet.addEventListener('mouseleave', hoverOutT)
-    dropContTablet.addEventListener('mouseleave', hoverOutT)
-    tabletDropdown.addEventListener('mouseleave', hoverOutT)
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const colorsInput = document.getElementById('colors');
-    const colorContainer = document.getElementById('colorInputsContainer');
-
-    colorsInput.addEventListener('change', function () {
-        const numColors = parseInt(this.value);
-
-        if (numColors > 0) {
-            colorContainer.style.display = 'flex';
-            colorContainer.style.justifyContent = 'center';
-
-        } else {
-            colorContainer.style.display = 'none';
-        }
-
-        const colorInputs = colorContainer.getElementsByTagName('input');
-        for (let i = 0; i < colorInputs.length; i++) {
-            if (i < numColors) {
-                colorInputs[i].style.display = 'flex';
-            } else {
-                colorInputs[i].style.display = 'none';
-            }
-        }
-    });
 });
 
 
+        /*samsung.addEventListener("click", function () {
+            selectedBrand = "samsung";
+            console.log('La selectedBrand es ' + selectedBrand);
+        });*/
+    
+
+    // Mensaje adicional para verificar el valor actual de selectedBrand
+    
 
 
-/* document.addEventListener('DOMContentLoaded', function () {
-
-    document.querySelectorAll('body :not(#searchbar-container)').addEventListener('click', () => {
-        body
-    })
-})
- */
-
-document.addEventListener('DOMContentLoaded', function () {
-    const questions = document.querySelectorAll('.question');
-
-    questions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            const isOpen = question.classList.contains('active');
-
-            questions.forEach(q => {
-                q.nextElementSibling.classList.remove('show');
-                q.classList.remove('active');
-            });
-
-            if (!isOpen) {
-                answer.classList.add('show');
-                question.classList.add('active');
-            }
-        });
-
-        question.addEventListener('mouseenter', () => {
-            question.classList.add('underline');
-        });
-
-        question.addEventListener('mouseleave', () => {
-            question.classList.remove('underline');
-        });
-    });
-});
 
 
 

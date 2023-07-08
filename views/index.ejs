@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechHub</title>
-    <link rel="stylesheet" href="/css/styles-index.css">
-    <link rel="stylesheet" href="/css/styles-header.css">
-    <script src="https://kit.fontawesome.com/c4ac9449c7.js" crossorigin="anonymous"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechHub</title>
+        <link rel="stylesheet" href="/css/styles-index.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
+        <script src="https://kit.fontawesome.com/c4ac9449c7.js" crossorigin="anonymous"></script>
+    </head>
 
-<body>
-    <%- include('./partials/navbar.ejs') %>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
 
-    <div class="background">
-        <video autoplay loop muted plays-inline>
-            <source src="/videos/clip_index.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="navbar">
-        <a href=""><img src="/imgs/logo-iso/LogoTechHub_Principal.png" class="logo"></a>
-        <button href="" class="hamburguer-buttom"> <i onclick="openNav()" class="fa-solid fa-bars"></i> </button>
-    </div>
-    <div class="marcas">
-        <a href="/samsung"><img src="/imgs/marcas-logos/Samsung-logo-blanco.png" class="logo-samsung"></a>
-        <a href="/apple"><img src="/imgs/marcas-logos/Apple-logo-blanco.png" class="logo-apple"></a>
-    </div>
-    <h1 class="slogan">
-        coNectAte coN el futuRo
-    </h1>
+        <div class="background">
+            <video autoplay loop muted plays-inline>
+                <source src="/videos/clip_index.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="navbar">
+            <a href=""><img src="/imgs/logo-iso/LogoTechHub_Principal.png" class="logo"></a>
+            <button href="" class="hamburguer-buttom"> <i onclick="openNav()" class="fa-solid fa-bars"></i> </button>
+        </div>
+        <div class="marcas">
+            <a id="samsung" href="/samsung"><img src="/imgs/marcas-logos/Samsung-logo-blanco.png" class="logo-samsung"></a>
+            <a id="apple" href="/apple"><img src="/imgs/marcas-logos/Apple-logo-blanco.png" class="logo-apple"></a>
+        </div>
+        <h1 class="slogan">
+            coNectAte coN el futuRo
+        </h1>
 
-    <script src="/js/main.js"></script>
-</body>
+        <script src="/js/main.js"></script>
+        
+    </body>
 
-</html>
+    </html>
