@@ -234,30 +234,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-console.log("El archivo main.js se ha cargado correctamente");
 let selectedBrand = '';
-document.addEventListener('DOMContentLoaded', function () {
-    
+document.addEventListener('DOMContentLoaded', function () {   
     const apple = document.getElementById('apple-link');
     const samsung = document.getElementById('samsung-link');
-    console.log('El primer valor de selectedBrand es: ' + apple.id.split('-')[0]);
-    console.log('El primer valor de selectedBrand es: ' + samsung.id.split('-')[0]);
+
     function handleClickApple() {
         selectedBrand = 'apple';
-        console.log('El valor actual de selectedBrand es: ' + selectedBrand);
+        document.cookie = `selectedBrand=${selectedBrand}; path=/`;        
     }
 
     function handleClickSamsung() {
         selectedBrand = 'samsung'
-        console.log('El valor actual de selectedBrand es: ' + selectedBrand);
+        document.cookie = `selectedBrand=${selectedBrand}; path=/`;
     }
 
     if (apple && samsung) {
-        
-        apple.addEventListener("click", handleClickApple);
-        samsung.addEventListener("click", handleClickSamsung);
+        apple.addEventListener('click', handleClickApple);
+        samsung.addEventListener('click', handleClickSamsung);
     }
+
 });
 
 

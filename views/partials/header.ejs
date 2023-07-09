@@ -44,7 +44,7 @@
                 </section>
                         <article class="dropdown dropdown-smartphone">
                             <% products.forEach(el => { %>
-                                <% if (el.category === "smartphone" && (el.brand === home || el.brand === brand /*|| el.brand === product.brand*/)) { %>
+                                <% if (el.category === "smartphone" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
                             
@@ -53,7 +53,7 @@
                         </article>
                         <article class="dropdown dropdown-smartwatch">
                             <% products.forEach(el => { %>
-                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === brand /*|| el.brand === product.brand*/)) { %>
+                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 
@@ -63,7 +63,7 @@
                         <article class="dropdown dropdown-tablet">
 
                             <% products.forEach(el => { %>
-                                <% if (el.category === "tablet" && (el.brand === home || el.brand === brand /*|| el.brand === product.brand*/)) { %>
+                                <% if (el.category === "tablet" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
                                     <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
                                 <% }}) %>
 

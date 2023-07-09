@@ -6,11 +6,13 @@ const mainController = {
     },
 
     getHome1: (req, res) => {
-        res.render('apple', { title: 'TechHub'})
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('apple', { title: 'TechHub', selectedBrand})
     },
 
-    getHome2: (req, res) => {       
-        res.render('samsung', { title: 'TechHub'})
+    getHome2: (req, res) => {      
+        const selectedBrand = req.cookies.selectedBrand; 
+        res.render('samsung', { title: 'TechHub', selectedBrand})
     },
     getFaq: (req, res) => {
         res.render('faq', { title: 'Preguntas frecuentes'})
