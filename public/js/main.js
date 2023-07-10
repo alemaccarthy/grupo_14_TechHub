@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         openModal();
     });
 
-    modal.addEventListener('click', (e) => {
-        e.preventDefault();
+    modal.addEventListener('click', (e) => {  
         closeModal();
     });
 
