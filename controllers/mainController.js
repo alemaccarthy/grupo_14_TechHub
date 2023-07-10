@@ -15,7 +15,8 @@ const mainController = {
         res.render('samsung', { title: 'TechHub', selectedBrand})
     },
     getFaq: (req, res) => {
-        res.render('faq', { title: 'Preguntas frecuentes'})
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('faq', { title: 'Preguntas frecuentes', selectedBrand})
     }
 }
 

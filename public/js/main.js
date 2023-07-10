@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     },
 
-    goBack = () => {
-        window.history.back();
-      },
+        goBack = () => {
+            window.history.back();
+        },
 
         closeNav = () => {
             navbar.style.opacity = '0';
@@ -59,32 +59,32 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         openForm = () => {
             document.getElementById("myForm").style.display = "block";
-          },
-          
+        },
+
         closeForm = () => {
             document.getElementById("myForm").style.display = "none";
-          }
-        /* 
-                openLogIn = () => {
-                    userData = document.querySelector('.user-data');
-                    logInWindow.style.display = 'flex';
-                    userData.style.filter = 'blur(5px)';
-                },
-        
-                closeLogIn = () => {
-                    userData = document.querySelector('.user-data');
-                    logInWindow.style.display = 'none';
-                    userData.style.filter = 'none';
-                }, */
-        openSearchBar = () => {
-            // const header = document.getElementById('header');
-            searchBar.style.height = '80px';
-            /*             todoMenosHeader.forEach(el => {
-                            if (el != header) {
-                                el.style.filter = 'blur(5px)';
-                            }
-                        }) */
-        },
+        }
+    /* 
+            openLogIn = () => {
+                userData = document.querySelector('.user-data');
+                logInWindow.style.display = 'flex';
+                userData.style.filter = 'blur(5px)';
+            },
+    
+            closeLogIn = () => {
+                userData = document.querySelector('.user-data');
+                logInWindow.style.display = 'none';
+                userData.style.filter = 'none';
+            }, */
+    openSearchBar = () => {
+        // const header = document.getElementById('header');
+        searchBar.style.height = '80px';
+        /*             todoMenosHeader.forEach(el => {
+                        if (el != header) {
+                            el.style.filter = 'blur(5px)';
+                        }
+                    }) */
+    },
         closeSearchBar = () => {
             searchBar.style.height = '0';
         }
@@ -234,10 +234,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-let selectedBrand = '';
+/*let selectedBrand = '';
 document.addEventListener('DOMContentLoaded', function () {   
     const apple = document.getElementById('apple-link');
     const samsung = document.getElementById('samsung-link');
+
+    const appleIcon = document.getElementById('home-1');
+    const samsungIcon = document.getElementById('home-2');
 
     function handleClickApple() {
         selectedBrand = 'apple';
@@ -254,7 +257,46 @@ document.addEventListener('DOMContentLoaded', function () {
         samsung.addEventListener('click', handleClickSamsung);
     }
 
+    if (appleIcon && samsungIcon) {
+        appleIcon.addEventListener('click', handleClickApple);
+        samsungIcon.addEventListener('click', handleClickSamsung);
+    }
+
+});*////// REVISAR SI FUNCIONA COMO LO HICE ABAJO OK Y SI ES ASI BORRAR LA OPCION COMENTADA
+
+let selectedBrand = '';
+
+function handleClick(brand) {
+    selectedBrand = brand;
+    document.cookie = `selectedBrand=${selectedBrand}; path=/`;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const apple = document.getElementById('apple-link');
+    const samsung = document.getElementById('samsung-link');
+
+    const appleIcon = document.getElementById('home-1');
+    const samsungIcon = document.getElementById('home-2');
+
+    if (apple && samsung) {
+        apple.addEventListener('click', function () {
+            handleClick('apple');
+        });
+        samsung.addEventListener('click', function () {
+            handleClick('samsung');
+        });
+    }
+
+    if (appleIcon && samsungIcon) {
+        appleIcon.addEventListener('click', function () {
+            handleClick('apple');
+        });
+        samsungIcon.addEventListener('click', function () {
+            handleClick('samsung');
+        });
+    }
 });
+
 
 
 
