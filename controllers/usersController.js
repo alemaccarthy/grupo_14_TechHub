@@ -5,12 +5,10 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-        const selectedBrand = req.cookies.selectedBrand;
-        res.render('register', { title: '| Registrarse', selectedBrand });
+        res.render('register', { title: '| Registrarse'});
     },
     getPurchase(req, res) {
-        const selectedBrand = req.cookies.selectedBrand;
-        res.render('complete-purchase', { title: '| Finalizar compra', selectedBrand })
+        res.render('complete-purchase', { title: '| Finalizar compra'})
     },
 
     postRegister(req, res) {
@@ -53,8 +51,7 @@ const usersController = {
 
     getProfile(req, res) {
         const user = req.session.user;
-        const selectedBrand = req.cookies.selectedBrand;
-        res.render('profile', { title: `| Nombre del usuario`, user, selectedBrand })
+        res.render('profile', { title: `| Nombre del usuario`, user})
     },
 
     postPicture(req, res) {
@@ -71,9 +68,8 @@ const usersController = {
 
     getLogin(req, res) {
         const error = req.query.error || '';
-        const selectedBrand = req.cookies.selectedBrand;
 
-        res.render('login', { title: '| Ingresa', error, selectedBrand});
+        res.render('login', { title: '| Ingresa', error});
     },
 
     loginUser(req, res) {

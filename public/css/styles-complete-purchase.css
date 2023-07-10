@@ -612,15 +612,16 @@ input[type="telephone"] {
         padding: 0 16.5px;
     }
     .purchase-content .user-data {
-        grid-area: 1 / 2 / 2 / 3;
         padding: 0 16.5px;
         width: 417px;
         
     }
     .purchase-content .payment-method {
-        grid-area: 2 / 2 / 3 / 3;
         padding: 0 16.5px;
         margin: 0 auto;
     }    
+    .user-payment-container{
+        grid-area: 1 / 2 / 3 / 3;
+    }
 }
 

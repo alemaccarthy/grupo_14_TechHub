@@ -66,8 +66,14 @@ const middlewares = {
         } */
 
         next();
-    }
+    },
 
+    brandSelector(req, res, next){
+
+        res.locals.selectedBrand = req.cookies.selectedBrand
+
+        next();
+    }
 }
 
 module.exports = middlewares;
