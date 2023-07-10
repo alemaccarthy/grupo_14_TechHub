@@ -11,7 +11,7 @@
 
     <%- include('../partials/header') %>
 
-        <main>
+        <main class="modal">
             <section class="form-container-create">
                 <h1>Creá un nuevo producto</h1>
                 <form action="/products/create" method="post" enctype="multipart/form-data">
@@ -23,8 +23,9 @@
                 </form>
             </section>
         </main>
+        <%- include('../partials/footer') %>
 </body>
 
-<%- include('../partials/footer') %>
+
 
 </html>
