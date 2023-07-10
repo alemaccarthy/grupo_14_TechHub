@@ -5,26 +5,29 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-
-        res.render('register', { title: '| Registrarse'});
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('register', { title: '| Registrarse', selectedBrand });
     },
     getPurchase(req, res) {
-
-        res.render('complete-purchase', { title: '| Finalizar compra'})
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('complete-purchase', { title: '| Finalizar compra', selectedBrand })
     },
 
     postRegister(req, res) {
+        const selectedBrand = req.cookies.selectedBrand;
         const userValidation = validationResult(req);
         const user = req.body;
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
         userDataBase = userModel.findByEmail(req.body.email);
-
-        if(userDataBase){
-            return res.render('register', { title : '| Registrarse',
-            user,
+        
+        if (userDataBase) {
+            return res.render('register', {
+                title: '| Registrarse',
+                user,
+                selectedBrand,
                 errors: {
-                    email:{
+                    email: {
                         msg: 'El email ya está registrado'
                     }
                 }
@@ -34,6 +37,7 @@ const usersController = {
         if (userValidation.errors.length > 0) {
             return res.render('register', {
                 title: '| Registrarse',
+                selectedBrand,
                 errors: userValidation.mapped(),
                 oldData: user,
             });
@@ -48,26 +52,28 @@ const usersController = {
     // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
 
     getProfile(req, res) {
-        const user= req.session.user; 
-        res.render('profile', { title: `| Nombre del usuario`, user})
+        const user = req.session.user;
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('profile', { title: `| Nombre del usuario`, user, selectedBrand })
     },
 
-    postPicture(req, res){
+    postPicture(req, res) {
 
         res.send('Respuesta provisoria'); //ARREGLAR
         res.redirect('/user/profile');
 
     },
 
-    deletePicture(req, res){
-         res.send('Respuesta provisoria'); //ARREGLAR
-       /* res.redirect('/user/profile'); */
+    deletePicture(req, res) {
+        res.send('Respuesta provisoria'); //ARREGLAR
+        /* res.redirect('/user/profile'); */
     },
 
     getLogin(req, res) {
         const error = req.query.error || '';
+        const selectedBrand = req.cookies.selectedBrand;
 
-        res.render('login', { title: '| Ingresa', error});
+        res.render('login', { title: '| Ingresa', error, selectedBrand});
     },
 
     loginUser(req, res) {
@@ -85,8 +91,8 @@ const usersController = {
                 res.cookie('email', searchedUser.email, {
                     maxAge: 1000 * 60 * 60 * 24 * 365
                 });
-            }else{
-                res.cookie('email', searchedUser.email, {maxAge: 1000* 60* 60* 2});
+            } else {
+                res.cookie('email', searchedUser.email, { maxAge: 1000 * 60 * 60 * 2 });
             }
 
             delete searchedUser.password;
@@ -99,10 +105,10 @@ const usersController = {
             return res.redirect('/user/login?error=La contraseña es incorrecta');
         }
     },
-    logOut(req, res){
+    logOut(req, res) {
 
         req.session.destroy();
-        
+
         res.clearCookie('email');
 
         res.redirect('/user/login');
