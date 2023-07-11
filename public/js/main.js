@@ -2,25 +2,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartIcon = document.querySelector('.btn-cart');
     const modal = document.querySelector('.modal');
     const modalContainer = document.querySelector('.cart');
+    let cartOpened = false;
 
-    function openModal() {
+    openModal = () => {
         modalContainer.style.height = '490px';
-    }
+        cartOpened = true;
+    };
 
-    function closeModal() {
+    closeModal = () => {
         modalContainer.style.height = '0';
-    }
+        cartOpened = false;
+    };
 
     cartIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
+        if(cartOpened === false) {
+            e.preventDefault();
+            openModal();
+        }
+        else {
+            closeModal();
+        }
+        
     });
 
-    modal.addEventListener('click', (e) => {  
+    modal.addEventListener('click', (e) => {
         closeModal();
     });
 
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -40,29 +50,29 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.style.display = 'flex';
             navbar.style.opacity = '1';
         }
-    },
+    }
 
-        goBack = () => {
-            window.history.back();
-        },
+    goBack = () => {
+        window.history.back();
+    }
 
-        closeNav = () => {
-            navbar.style.opacity = '0';
-            if (deviceWidth < 768) {
-                navbar.style.width = '0';
-            }
-            else if (deviceWidth >= 768) {
-                navbar.style.display = 'none';
-                navbar.style.opacity = '0';
-            }
-        },
-        openForm = () => {
-            document.getElementById("myForm").style.display = "block";
-        },
-
-        closeForm = () => {
-            document.getElementById("myForm").style.display = "none";
+    closeNav = () => {
+        navbar.style.opacity = '0';
+        if (deviceWidth < 768) {
+            navbar.style.width = '0';
         }
+        else if (deviceWidth >= 768) {
+            navbar.style.display = 'none';
+            navbar.style.opacity = '0';
+        }
+    }
+    openForm = () => {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    closeForm = () => {
+        document.getElementById("myForm").style.display = "none";
+    }
     /* 
             openLogIn = () => {
                 userData = document.querySelector('.user-data');
@@ -75,7 +85,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 logInWindow.style.display = 'none';
                 userData.style.filter = 'none';
             }, */
+    const modal = document.querySelector('.modal'); /// REVISAR ESTO AL ORGANIZAR CODIGO YA QUE ESTE MISMO VALOR ES RECUPERADO EN LA FUNCION DEL CARRITO AL INICIO DEL MAIN.JS
+    const glass = document.getElementById('ma-glass');
+    let searchBarOpened = false;
+
     openSearchBar = () => {
+        searchBar.style.height = '80px';
+        searchBarOpened = true;
+        searchBar.addEventListener('click', (e) => {
+            closeSearchBar();
+        });
+    };
+
+    closeSearchBar = () => {
+        searchBar.style.height = '0';
+        searchBarOpened = false;
+    };
+
+    glass.addEventListener('click', (e) => {
+        if (searchBarOpened === false) {
+            openSearchBar();
+        } else {
+            closeSearchBar();
+        }
+    });
+
+    modal.addEventListener('click', (e) => {
+        closeSearchBar();
+    });
+
+
+
+    /*openSearchBar2 = () => {
         // const header = document.getElementById('header');
         searchBar.style.height = '80px';
         /*             todoMenosHeader.forEach(el => {
@@ -83,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
                             el.style.filter = 'blur(5px)';
                         }
                     }) */
-    },
-        closeSearchBar = () => {
-            searchBar.style.height = '0';
-        }
+
+    /*closeSearchBar2 = () => {
+        searchBar.style.height = '0';
+    }*/
 
     const dropContSmartphone = document.querySelector(".drop-cont-smartphone");
     const dropContSmartwatch = document.querySelector(".drop-cont-smartwatch");
