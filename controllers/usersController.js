@@ -51,9 +51,9 @@ const usersController = {
 
     getProfile(req, res) {
         const user = req.session.user;
-        res.render('profile', { title: `| Nombre del usuario`, user})
+        res.render('my-profile', { title: `| Nombre del usuario`, user})
     },
-
+    
     postPicture(req, res) {
 
         res.send('Respuesta provisoria'); //ARREGLAR

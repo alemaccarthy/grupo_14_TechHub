@@ -75,6 +75,7 @@ usersRoutes.post('/login', usersController.loginUser);
 
 // @GET /user/profile
 usersRoutes.get('/profile', middlewares.authMiddleware, usersController.getProfile);
+// usersRoutes.get('/my-profile', usersController.getMyProfile);
 
 // @POST /user/profile
 usersRoutes.post('/profile', [upload.single('profilePic')/* FALTA LA VALIDACION */], usersController.postPicture);

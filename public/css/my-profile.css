@@ -7,17 +7,6 @@ body {
     padding: 0;
   }
   
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
   main {
     max-width: 800px;
     margin: 0 auto;
@@ -86,5 +75,62 @@ body {
   
   .order-details p {
     margin: 5px 0;
+  }
+
+  button:has(.fa-pen-to-square){
+    font-size: 2vw;
+    border: none;
+    background: transparent;
+}
+  
+  .form-popup {
+    display: none;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    z-index: 9;
+  }
+  
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #cecece;
+    position: relative;
+    text-align: center;
+  }
+  
+  
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  .form-container .delete {
+    background-color: red;
+  }
+  
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .editing-picture{
+    width: 80%;
+    border-radius: 50%;
+    margin: 20px auto;
+  }
+
+  .fa-xmark{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    right: 3%;
+    top: 2%;
   }
   

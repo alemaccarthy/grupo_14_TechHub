@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/my-profile.css">
-  <title>Perfil del Usuario - E-commerce</title>
+    <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/my-profile.css">
+  <link rel="stylesheet" href="/css/styles-header.css">
+  
 </head>
 <body>
-  <header>
-    <h1>Perfil del Usuario</h1>
-  </header>
+    <%- include('../partials/header') %>
   <main>
+    <button onclick="openForm()"><i class="fa-solid fa-pen-to-square"></i></button>
     <div class="user-profile">
       <div class="avatar">
         <img src="foto.jpg" alt="Avatar del usuario">
@@ -52,6 +51,23 @@
         <!-- más elementos de historial de compras -->
       </ul>
     </div>
-  </main>
+    <section class="form-popup" id="myForm">
+        <section class="form-container" >
+            <form action="/user/profile?_method=put" method="post" enctype="multipart/form-data">
+                <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
+                <h1>Editar foto de perfil</h1>
+                <img class="editing-picture" src="<%= user.profile %>" alt="">
+                
+                <input type="file" name="profilePic">
+                
+                <input type="submit" class="btn" name="updatePic" value="Actualizar">
+            </form>
+            <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
+            <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
+            </form>
+        </section>
+    </section>
+</main> 
+<%- include('../partials/footer') %>
 </body>
 </html>
