@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     openSearchBar = () => {
         searchBar.style.height = '80px';
         searchBarOpened = true;
-        searchBar.addEventListener('click', (e) => {
+        modal.addEventListener('click', (e) => {
             closeSearchBar();
         });
     };
@@ -105,9 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     glass.addEventListener('click', (e) => {
         if (searchBarOpened === false) {
             openSearchBar();
-        } else {
-            closeSearchBar();
-        }
+        } 
     });
 
     modal.addEventListener('click', (e) => {
