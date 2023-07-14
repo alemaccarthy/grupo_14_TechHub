@@ -38,7 +38,6 @@ app.use(middlewares.rememberMiddleware);
 app.use(middlewares.header);
 app.use(middlewares.brandSelector);
 
-
 //  ROUTES
 app.use(mainRoutes);
 app.use('/products', productsRoutes);
