@@ -1,8 +1,45 @@
-module.exports = (sequelize, dataTypes) =>{
+module.exports = (sequelize, dataType) =>{
     const alias = 'Product';
     const cols = {
-        /// ACA VAN TODAS LAS COLUMNAS DE LA TABLA PRODUCT. CADA COLUMNA SEPARADA POR COMA Y PASADA COMO OBJETO {}. todas llevan un type: datatypes.INTEGER, etc)
-        /// Para el id ponemos primaryKey: true, autoIncrement: true
+        id:{
+            type: dataType.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        title:{
+            type: dataType.STRING,
+            allowNull: false
+        },
+        brand:{
+            type: dataType.STRING,
+            allowNull: false
+        },
+        price:{
+            type: dataType.INTEGER,
+            allowNull: false
+        },
+        description:{
+            type: dataType.STRING,
+            allowNull: false
+        },
+        currency:{
+            type: dataType.STRING
+        },
+        category:{
+            type: dataType.STRING,
+            allowNull: false
+        },
+        images:{
+            //que va aca????
+        },
+        colors:{
+            // y con los colores que hacemos?
+        },
+        deleted: {
+            type: dataType.INTEGER,
+            allowNull: false
+        }
+        
     }
     const config = {
         tableName: 'products',
