@@ -2,7 +2,7 @@ const { Product } = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const productControllers = {
-    create: async (req, res) => {
+    createProduct: async (req, res) => {
         const newProduct = {
             title: req.body.title,
             brand: req.body.brand,
@@ -22,6 +22,23 @@ const productControllers = {
         }
 
         res.render('products-list', { title: '| Productos'}) //?????????????
+    },
+
+    updateProduct: async (req, res) => {
+        const newValues = req.body;
+
+        try {
+            await Product.update(newValues, {
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            res.redirect('/catalog/:brand');
+        } catch (error) {
+            res.send("no se pudo actualizar");
+            console.log(error);
+        }
     }
 };
 
