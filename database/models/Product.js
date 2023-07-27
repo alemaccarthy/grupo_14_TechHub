@@ -40,7 +40,14 @@ module.exports = (sequelize, dataType) =>{
             type: dataType.INTEGER,
             allowNull: false
         }
+
+        /* brand_id: {
+        type: dataType.INTEGER,
+        }
         
+        category_id: {
+            type: dataType.INTEGER,
+        }*/
     }
     const config = {
         tableName: 'products',
@@ -49,6 +56,21 @@ module.exports = (sequelize, dataType) =>{
     }
     
     const Product = sequelize.define(alias, cols, config);
+
+    Product.associate = models => {
+        Product.belongsTo(models.Brand, {
+            as: 'brand',
+            foreignKey: 'brand_id'
+        });
+        Product.belongsTo(models.Category, {
+            as: 'category',
+            foreignKey: 'category_id'
+        });
+        Product.hasMany(models.OrderItem, {
+            as: 'orderItems',
+            foreignKey: 'product_id'
+        });
+    }
 
     return Product;
 }

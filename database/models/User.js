@@ -4,7 +4,8 @@ module.exports = (sequelize, dataType) => {
     const cols = {
         id:{
             primaryKey: true,
-            type: dataType.STIRNG,
+            type: dataType.INTEGER,
+            autoIncrement: true,
         },
         name: {
             type: dataType.STRING,
@@ -16,7 +17,7 @@ module.exports = (sequelize, dataType) => {
         },
         email: {
             type: dataType.STRING,
-            allownull: false
+            allowNull: false
         },
         password: {
             type: dataType.STRING,
@@ -54,17 +55,24 @@ module.exports = (sequelize, dataType) => {
             type: dataType.INTEGER
         },
         profilePicture: {
-            //Y ACA????????????????
+            type: dataType.STRING
         }
     };
 
     const config = {
-        tableName: 'clubes',
+        tableName: 'users',
         timestamps: false,
         paranoid: true
     };
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = models => {
+        User.hasMany(models.Order, {
+            as: 'orders',
+            foreignKey: 'user_id'
+        });
+    }
 
     return User;
 }
