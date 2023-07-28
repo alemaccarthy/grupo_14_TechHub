@@ -30,24 +30,21 @@ module.exports = (sequelize, dataType) =>{
             allowNull: false
         },
         images:{
-            type: dataType.STRING
-            //que más va aca????????????????????
-        },
-        colors:{
-            // y con los colores que hacemos??????????????????????
+            type: dataType.ARRAY(dataType.STRING),
+            allowNull: false
         },
         deleted: {
             type: dataType.INTEGER,
             allowNull: false
-        }
+        },
 
-        /* brand_id: {
+        brand_id: {
         type: dataType.INTEGER,
-        }
+        },
         
         category_id: {
             type: dataType.INTEGER,
-        }*/
+        }
     }
     const config = {
         tableName: 'products',
@@ -68,6 +65,10 @@ module.exports = (sequelize, dataType) =>{
         });
         Product.hasMany(models.OrderItem, {
             as: 'orderItems',
+            foreignKey: 'product_id'
+        });
+        Product.hasMany(models.Color, {
+            as: 'colors',
             foreignKey: 'product_id'
         });
     }
