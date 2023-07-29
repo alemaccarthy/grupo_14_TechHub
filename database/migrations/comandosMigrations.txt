@@ -1,4 +1,5 @@
-npx sequelize-cli migration:generate --name nombre-migracion   /// CREA MIGRACION
+npx sequelize-cli migration:generate --name nombre-migracion (ej create-products-table, o alter-products-table).
+Se crean asi todas las migraciones necesarias y luego se pasa al siguiente paso que es ejecutarlas
 npx sequelize-cli db:migrate   /// EJECUTA MIGRACIONES
 
 Primero debe crearse una db. Luego de tener la db creada, podria no contener tablas x cierto, se puede empezar a trabajar a traves de 
@@ -16,3 +17,4 @@ await queryinterface.createTable('nombre de la tabla', {
         default: 0,
     }
 })
+
