@@ -32,19 +32,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      brand_id: {
+      brand_id:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'brands',
-        }
-      },
-      category_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categories',
           key: 'id'
         }
-      },
+      }
     });
   },
   async down(queryInterface, Sequelize) {
