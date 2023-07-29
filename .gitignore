@@ -1,3 +1,6 @@
 node_modules/
 .env
 resources/
+database/config/
+database/migrations/
+database/seeders/
