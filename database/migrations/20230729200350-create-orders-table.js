@@ -1,3 +1,4 @@
+
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
@@ -6,15 +7,15 @@ module.exports = {
     await queryInterface.createTable('orders', {
       id: {
         primaryKey: true,
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
       },
       total_amount: {
-        type: dataType.DECIMAL,
+        type: Sequelize.DECIMAL,
         allowNull: false,
       },
       user_id: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       }
     });
@@ -24,3 +25,4 @@ module.exports = {
     await queryInterface.dropTable('orders');
   }
 };
+

@@ -6,23 +6,23 @@ module.exports = {
     await queryInterface.createTable('order_items', {
       id: {
         primaryKey: true,
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
       },
       order_id: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
       },
       product_id: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
       },
       category_id: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
       },
       quantity: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
       },
       price: {
-        type: dataType.DECIMAL,
+        type: Sequelize.DECIMAL,
       }
     });
   },

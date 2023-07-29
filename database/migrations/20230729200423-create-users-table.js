@@ -6,57 +6,57 @@ module.exports = {
     await queryInterface.createTable('users', {
       id: {
         primaryKey: true,
-        type: dataType.STRING,
+        type: Sequelize.STRING,
       },
       name: {
-        type: dataType.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       lastName: {
-        type: dataType.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       email: {
-        type: dataType.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       password: {
-        type: dataType.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       dni: {
-        type: dataType.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       street: {
-        type: dataType.STRING
+        type: Sequelize.STRING
       },
       number: {
-        type: dataType.INTEGER
+        type: Sequelize.INTEGER
       },
       floor: {
-        type: dataType.INTEGER
+        type: Sequelize.INTEGER
       },
       door: {
-        type: dataType.STRING
+        type: Sequelize.STRING
       },
       city: {
-        type: dataType.STRING
+        type: Sequelize.STRING
       },
       province: {
-        type: dataType.STRING
+        type: Sequelize.STRING
       },
       postal_code: {
-        type: dataType.INTEGER
+        type: Sequelize.INTEGER
       },
       telephone: {
-        type: dataType.INTEGER
+        type: Sequelize.INTEGER
       },
       deleted: {
-        type: dataType.INTEGER
+        type: Sequelize.INTEGER
       },
       profile_picture: {
-        type: dataType.STRING
+        type: Sequelize.STRING
       }
     });
   },
