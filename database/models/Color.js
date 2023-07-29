@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataType) => {
+/*module.exports = (sequelize, dataType) => {
     const alias = 'Color';
     const cols = {
         id: {
@@ -47,4 +47,4 @@ module.exports = (sequelize, dataType) => {
     };
 
     return Color;
-}
+}*/

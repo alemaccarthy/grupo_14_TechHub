@@ -60,10 +60,10 @@ module.exports = (sequelize, dataType) =>{
             as: 'orderItems',
             foreignKey: 'product_id'
         });
-        Product.hasMany(models.Color, {
+        /*Product.hasMany(models.Color, {
             as: 'colors',
             foreignKey: 'color_id'
-        });
+        });*/
     }
 
     return Product;
