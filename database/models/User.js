@@ -44,7 +44,7 @@ module.exports = (sequelize, dataType) => {
         province: {
             type: dataType.STRING
         },
-        postalCode: {
+        postal_code: {
             type: dataType.INTEGER
         },
         telephone: {
@@ -53,7 +53,7 @@ module.exports = (sequelize, dataType) => {
         deleted: {
             type: dataType.INTEGER
         },
-        profilePicture: {
+        profile_picture: {
             type: dataType.STRING
         }
     };

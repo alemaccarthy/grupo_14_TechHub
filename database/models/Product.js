@@ -10,10 +10,6 @@ module.exports = (sequelize, dataType) =>{
             type: dataType.STRING,
             allowNull: false
         },
-        brand:{
-            type: dataType.STRING,
-            allowNull: false
-        },
         price:{
             type: dataType.INTEGER,
             allowNull: false
@@ -24,10 +20,6 @@ module.exports = (sequelize, dataType) =>{
         },
         currency:{
             type: dataType.STRING
-        },
-        category:{
-            type: dataType.STRING,
-            allowNull: false
         },
         images:{
             type: dataType.ARRAY(dataType.STRING),
@@ -45,6 +37,7 @@ module.exports = (sequelize, dataType) =>{
         category_id: {
             type: dataType.INTEGER,
         }
+        
     }
     const config = {
         tableName: 'products',
@@ -69,7 +62,7 @@ module.exports = (sequelize, dataType) =>{
         });
         Product.hasMany(models.Color, {
             as: 'colors',
-            foreignKey: 'product_id'
+            foreignKey: 'color_id'
         });
     }
 
