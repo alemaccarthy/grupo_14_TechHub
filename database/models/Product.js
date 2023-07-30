@@ -33,7 +33,7 @@ module.exports = (sequelize, dataType) =>{
         brand_id: {
             type: dataType.INTEGER,
             references: {
-                model: 'Brand',
+                model: 'brands',
                 key: 'id'
             }
         },
@@ -41,7 +41,7 @@ module.exports = (sequelize, dataType) =>{
         category_id: {
             type: dataType.INTEGER,
             references: {
-                model: 'Category',
+                model: 'categories',
                 key: 'id'
             }
         }

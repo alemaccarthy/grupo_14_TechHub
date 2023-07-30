@@ -13,10 +13,10 @@ module.exports = (sequelize, dataType) => {
             allowNull: false,
         },
         user_id: {
-            type: dataType.INTEGER,
+            type: dataType.STRING,
             allowNull: false,
             references: {
-                model: 'User',
+                model: 'users',
                 key: 'id'
             }
         }

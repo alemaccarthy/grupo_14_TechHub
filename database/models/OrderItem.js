@@ -11,21 +11,21 @@ module.exports = (sequelize, dataType) => {
         order_id: {
             type: dataType.INTEGER,
             references: {
-                model: 'Order',
+                model: 'orders',
                 key: 'id'
             }
         },
         product_id: {
             type: dataType.INTEGER,
             references: {
-                model: 'Product',
+                model: 'products',
                 key: 'id'
             }
         },
         category_id: {
             type: dataType.INTEGER,
             references: {
-                model: 'Category',
+                model: 'categories',
                 key: 'id'
             }
         },
