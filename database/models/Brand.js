@@ -22,6 +22,7 @@ module.exports = (sequelize, dataType) => {
     Brand.associate = (models) => {
         Brand.HasMany(models.Product, {
             as: "products_brand",
+            timestamps: false,
             foreignKey: "brand_id",
         }); 
     };

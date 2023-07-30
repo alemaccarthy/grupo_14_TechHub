@@ -42,6 +42,7 @@
     Color.associate = models => {
         Color.belongsTo(models.Product, {
             as: 'product_colors',
+            timestamps: false,
             foreignKey: 'product_id'
         });
     };

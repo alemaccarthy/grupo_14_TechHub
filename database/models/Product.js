@@ -31,11 +31,19 @@ module.exports = (sequelize, dataType) =>{
         },
 
         brand_id: {
-        type: dataType.INTEGER,
+            type: dataType.INTEGER,
+            references: {
+                model: 'Brand',
+                key: 'id'
+            }
         },
         
         category_id: {
             type: dataType.INTEGER,
+            references: {
+                model: 'Category',
+                key: 'id'
+            }
         }
         
     }
@@ -50,18 +58,22 @@ module.exports = (sequelize, dataType) =>{
     Product.associate = models => {
         Product.belongsTo(models.Brand, {
             as: 'brand',
+            timestamps: false,
             foreignKey: 'brand_id'
         });
         Product.belongsTo(models.Category, {
             as: 'category',
+            timestamps: false,
             foreignKey: 'category_id'
         });
         Product.hasMany(models.OrderItem, {
             as: 'orderItems',
+            timestamps: false,
             foreignKey: 'product_id'
         });
         /*Product.hasMany(models.Color, {
             as: 'colors',
+            timestamps: false,
             foreignKey: 'color_id'
         });*/
     }

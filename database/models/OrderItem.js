@@ -10,12 +10,24 @@ module.exports = (sequelize, dataType) => {
         },
         order_id: {
             type: dataType.INTEGER,
+            references: {
+                model: 'Order',
+                key: 'id'
+            }
         },
         product_id: {
             type: dataType.INTEGER,
+            references: {
+                model: 'Product',
+                key: 'id'
+            }
         },
         category_id: {
             type: dataType.INTEGER,
+            references: {
+                model: 'Category',
+                key: 'id'
+            }
         },
         quantity: {
             type: dataType.INTEGER,
@@ -36,12 +48,14 @@ module.exports = (sequelize, dataType) => {
 
         orderItem.belongsTo(models.Product, {
             as: 'orderItems',
+            timestamps: false,
             foreignKey: 'product_id'
         });
 
         orderItem.associate = models => {
             OrderItem.belongsTo(models.Order, {
                 foreignKey: 'order_id',
+                timestamps: false,
                 as: 'orderData',
             });
         };
