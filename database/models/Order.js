@@ -31,7 +31,7 @@ module.exports = (sequelize, dataType) => {
 
     Order.associate = models => {
         Order.belongsTo(models.User, {
-            as: 'user',
+            as: 'user-order',
             timestamps: false,
             foreignKey: 'user_id',
         });

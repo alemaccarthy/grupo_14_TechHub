@@ -72,15 +72,15 @@ module.exports = (sequelize, dataType) =>{
             foreignKey: 'category_id'
         });
         Product.hasMany(models.OrderItem, {
-            as: 'orderItems',
+            as: 'items',
             timestamps: false,
             foreignKey: 'product_id'
         });
-        /*Product.hasMany(models.Color, {
+        Product.hasMany(models.Color, {
             as: 'colors',
             timestamps: false,
             foreignKey: 'color_id'
-        });*/
+        });
     }
 
     return Product;
