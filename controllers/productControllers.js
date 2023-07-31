@@ -2,6 +2,36 @@ const { Product, Color } = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const productControllers = {
+
+    getProducts: async (req, res) => {
+        try {
+            const products = await Product.findAll({
+                raw: true,
+                nest: true,
+                include: 'brand'
+            });
+            res.render('products-list', { title: '| Productos', products });
+        } catch (error) {
+            res.render('products-list', { title: '| Productos', products: [] });
+        }
+
+    },
+
+    getProductDetail: async (req, res) => {
+        try {
+            const id = await Product.findByPk(req.params.id);
+            const product = await Product.findByPk(id);
+            if (!product) {
+                return res.render('product-not-found', { title: '| Producto no disponible' });
+            }
+
+            res.render('product-detail', { title: '| Detalle', product });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+
     createProduct: async (req, res) => {
         const newProduct = {
             title: req.body.title,
@@ -11,7 +41,7 @@ const productControllers = {
             currency: req.body.currency,
             category: req.body.category,
             images: req.body.images,
-            color_quantiy: req.body.color_quantiy,
+            color_quantity: req.body.color_quantity,
         };
 
         try {

@@ -30,6 +30,11 @@ module.exports = (sequelize, dataType) =>{
             allowNull: false
         },
 
+        color_quantity: {
+            type: dataType.INTEGER,
+            allowNull: false
+        },
+
         brand_id: {
             type: dataType.INTEGER,
             references: {
@@ -46,11 +51,6 @@ module.exports = (sequelize, dataType) =>{
             }
         },
 
-        color_quantity: {
-            type: dataType.INTEGER,
-            allowNull: false
-        }
-        
     }
     const config = {
         tableName: 'products',
