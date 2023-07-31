@@ -1,33 +1,17 @@
-/*module.exports = (sequelize, dataType) => {
+module.exports = (sequelize, dataType) => {
     const alias = 'Color';
     const cols = {
         id: {
             primaryKey: true,
             type: dataType.INTEGER,
         },
-        quantity: {
-            type: dataType.INTEGER,
+        color: {
+            type: dataType.STRING,
             allowNull: false
         },
-        color_1: {
-            type: dataType.STRING,
-            allowNull: true
-        },
-        color_2: {
-            type: dataType.STRING,
-            allowNull: true
-        },
-        color_3: {
-            type: dataType.STRING,
-            allowNull: true
-        },
-        color_4: {
-            type: dataType.STRING,
-            allowNull: true
-        },
-
         product_id: {
             type: dataType.INTEGER,
+            allowNull: false
         }
     }
 
@@ -48,4 +32,4 @@
     };
 
     return Color;
-}*/
+}
