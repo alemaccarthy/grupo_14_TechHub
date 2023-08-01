@@ -19,7 +19,7 @@ const productControllers = {
 
     getProductDetail: async (req, res) => {
         try {
-            const id = await Product.findByPk(req.params.id);
+            // const id = await Product.findByPk(req.params.id); revisar esto
             const product = await Product.findByPk(id);
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
@@ -31,17 +31,26 @@ const productControllers = {
         }
     },
 
+    getCreateProduct: async (req, res) => {
+        try {
+            const product = req.body;
+            res.render('create-product', { title: '| Crear producto', product });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
 
     createProduct: async (req, res) => {
         const newProduct = {
             title: req.body.title,
-            brand: req.body.brand,
+            //brand_id: req.body.brand, Ver como vamos a obtener el brand_id
             price: req.body.price,
             description: req.body.description,
             currency: req.body.currency,
-            category: req.body.category,
+            // category_id: req.body.category, ver como obtener el category_id
             images: req.body.images,
-            color_quantity: req.body.color_quantity,
+            // color_quantity: req.body.color_quantity, ver como obtener el color_quantity
         };
 
         try {
