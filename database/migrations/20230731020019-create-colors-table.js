@@ -7,18 +7,11 @@ module.exports = {
       id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
+        autoIncrement: true,
     },
     color: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    product_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'products',
-          key: 'id'
-        }
     }
   });
 },
