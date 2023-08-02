@@ -157,21 +157,21 @@
 
 <div class="pick-colors">
     <h3>Agrega colores</h3>
-    <input type="checkbox" name="colors" value="black">
+    <input type="checkbox" name="colors[]" value="black" <% if (product && product.colors && product.colors.includes("black")) { %> checked <% } %>>
     <label for="colors">Black</label>
-    <input type="checkbox" name="colors" value="white">
+    <input type="checkbox" name="colors[]" value="white">
     <label for="colors">White</label>
-    <input type="checkbox" name="colors" value="red">
+    <input type="checkbox" name="colors[]" value="red">
     <label for="colors">Red</label>
-    <input type="checkbox" name="colors" value="gold">
+    <input type="checkbox" name="colors[]" value="gold">
     <label for="colors">Gold</label>
-    <input type="checkbox" name="colors" value="silver">
+    <input type="checkbox" name="colors[]" value="silver">
     <label for="colors">Silver</label>
-    <input type="checkbox" name="colors" value="purple">
+    <input type="checkbox" name="colors[]" value="purple">
     <label for="colors">Purple</label>
-    <input type="checkbox" name="colors" value="cream">
+    <input type="checkbox" name="colors[]" value="cream">
     <label for="colors">Cream</label>
-    <input type="checkbox" name="colors" value="green">
+    <input type="checkbox" name="colors[]" value="green">
     <label for="colors">Green</label>
 </div>
 

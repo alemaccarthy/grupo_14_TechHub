@@ -76,10 +76,11 @@ module.exports = (sequelize, dataType) =>{
             timestamps: false,
             foreignKey: 'product_id'
         });
-        Product.hasMany(models.Color, {
-            as: 'colors',
-            timestamps: false,
-            foreignKey: 'color_id'
+        Product.belongsToMany(models.Color, {
+            through: 'product_color',
+            foreignKey: 'product_id',
+            otherKey: 'color_id',
+            as: 'colors',     
         });
     }
 

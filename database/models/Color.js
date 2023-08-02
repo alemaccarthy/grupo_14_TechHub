@@ -4,15 +4,12 @@ module.exports = (sequelize, dataType) => {
         id: {
             primaryKey: true,
             type: dataType.INTEGER,
+            autoIncrement: true
         },
         color: {
             type: dataType.STRING,
             allowNull: false
         },
-        product_id: {
-            type: dataType.INTEGER,
-            allowNull: false
-        }
     }
 
     const config = {
@@ -24,10 +21,12 @@ module.exports = (sequelize, dataType) => {
     const Color = sequelize.define(alias, cols, config);
 
     Color.associate = models => {
-        Color.belongsTo(models.Product, {
-            as: 'product_colors',
-            timestamps: false,
-            foreignKey: 'product_id'
+        Color.belongsToMany(models.Product, {
+            through: 'product_color',
+            foreignKey: 'color_id',
+            otherKey: 'product_id',
+            as: 'products',
+            
         });
     };
 
