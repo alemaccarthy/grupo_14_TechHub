@@ -1,4 +1,4 @@
-const { Product, Color } = require('../database/models');
+const { Product, Color, Brand } = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const productControllers = {
@@ -7,8 +7,9 @@ const productControllers = {
         try {
             const products = await Product.findAll({
                 raw: true,
-                nest: true,
-                include: 'brand'
+                include: 'brand',
+                nest: true
+
             });
             res.render('products-list', { title: '| Productos', products });
         } catch (error) {
@@ -19,7 +20,7 @@ const productControllers = {
 
     getProductDetail: async (req, res) => {
         try {
-            // const id = await Product.findByPk(req.params.id); revisar esto
+            const id = Number(req.params.id); /// VER SI ESTA OK
             const product = await Product.findByPk(id);
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
@@ -33,8 +34,9 @@ const productControllers = {
 
     getCreateProduct: async (req, res) => {
         try {
+            const brands = await Brand.findAll({ attributes: ['id', 'name'] });
             const product = req.body;
-            res.render('create-product', { title: '| Crear producto', product });
+            res.render('create-product', { title: '| Crear producto', product, brands });
         } catch (error) {
             console.log(error);
         }
@@ -42,7 +44,7 @@ const productControllers = {
 
 
     createProduct: async (req, res) => {
-        const newProduct = {
+        /*const newProduct = {
             title: req.body.title,
             //brand_id: req.body.brand, Ver como vamos a obtener el brand_id
             price: req.body.price,
@@ -51,11 +53,21 @@ const productControllers = {
             // category_id: req.body.category, ver como obtener el category_id
             images: req.body.images,
             // color_quantity: req.body.color_quantity, ver como obtener el color_quantity
-        };
+        };*/
+        const { title, price, description, currency, images, color_quantity, brand_id, category_id } = req.body;
 
         try {
-            const datos = await Product.create(newProduct);
-
+            // const datos = await Product.create(newProduct); ESTO SE REEMPLAZa POR LO DE ABAJO
+            const newProduct = await Product.create({
+                title,
+                price,
+                description,
+                currency,
+                images,
+                color_quantity,
+                brand_id,
+                category_id,
+            });
             const colors = [];
             for (let i = 1; i <= req.body.color_quantity; i++) {
                 const colorField = `color${i}`;

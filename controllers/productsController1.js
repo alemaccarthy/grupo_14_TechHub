@@ -1,4 +1,4 @@
-const productModel = require('../models/product');
+/*const productModel = require('../models/product');
 const { validationResult } = require('express-validator');
 
 const productsController = {
@@ -83,3 +83,4 @@ const productsController = {
 }
 
 module.exports = productsController;
+*/
