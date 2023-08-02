@@ -7,6 +7,7 @@ module.exports = {
       id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
+        autoIncrement: true,
     },
     color: {
         type: Sequelize.STRING,
