@@ -1,0 +1,20 @@
+npx sequelize-cli migration:generate --name nombre-migracion (ej create-products-table, o alter-products-table).
+Se crean asi todas las migraciones necesarias y luego se pasa al siguiente paso que es ejecutarlas
+npx sequelize-cli db:migrate   /// EJECUTA MIGRACIONES
+
+Primero debe crearse una db. Luego de tener la db creada, podria no contener tablas x cierto, se puede empezar a trabajar a traves de 
+migraciones.
+Consiste en ejecutar los 2 comandos de arriba para crear la migracion, supongamos referida a la creacion de 1 tabla (si es mas de 1 tabla,
+se considera buena practica generar 1 migracion por cada tabla)
+Luego de ejecutada la migracion, se genera un archivo con un timestamp con 2 funciones async: up y down. 
+En la funcion up se debe hacer:
+await queryinterface.createTable('nombre de la tabla', {
+    nombre de la columna: {
+        type: Sequelize.INTEGER --- ESTO ES LO MISMO QUE EN EL MODELO PERO EN ESTE CASO ES MAS ESPECIFICO EN EL TIPO DE DATO y SOPORTA TINYINT por ejemplo...
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+        default: 0,
+    }
+})
+
