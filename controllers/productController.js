@@ -54,10 +54,24 @@ const productControllers = {
             images: req.body.images,
             // color_quantity: req.body.color_quantity, ver como obtener el color_quantity
         };*/
-        const { title, price, description, currency, images, color_quantity, brand_id, category_id } = req.body;
+        const product = { title, description, currency, images, color_quantity, brand_id, category_id } = req.body;
+        const price = Number(req.body.price);
+        const resultValidation = validationResult(req);
+
+       
 
         try {
-            // const datos = await Product.create(newProduct); ESTO SE REEMPLAZa POR LO DE ABAJO
+
+            if (resultValidation.errors.length > 0) {
+
+                return res.render('create-product', {
+                    title: '| Crear producto',
+                    errors: resultValidation.mapped(),
+                    product
+                });
+            }
+            product.images = req.files.map(el => '/imgs/products-images/' + el.filename);
+            // const datos = await Product.create(newProduct); ESTO SE REEMPLAZA POR LO DE ABAJO
             const newProduct = await Product.create({
                 title,
                 price,
@@ -69,6 +83,7 @@ const productControllers = {
                 category_id,
                 deleted: false
             });
+     
             const colors = [];
             for (let i = 1; i <= req.body.color_quantity; i++) {
                 const colorField = `color${i}`;
