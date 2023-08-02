@@ -109,7 +109,6 @@ select option:nth-child(2) {
     flex-grow: 1;
 }
 
-
 select#category{
     padding-left: 0;
     padding-right: 0;
@@ -155,15 +154,6 @@ select#category{
 .form-container-create form > div:nth-child(6) p:last-child{
     width: 40%;
     max-width: 170px;
-}
-
-/* input#images {
-    display: none;
-} */
-
-input#input-color {
-    padding: 5px;
-    margin: 0 15px;
 }
 
 .input-img-text {

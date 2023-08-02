@@ -138,28 +138,41 @@
     </div>
 </div> -->
 
-<div>
+<!-- <div>
     <h3>Agrega colores</h3>
     <label for="">¿En cuántos colores estará disponible el producto?</label>
-    <input type="number" name="color_quantity" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors"
-        min="1" max="4" value="<%= product ? product.colors : null %>">
-    <% if (locals.errors && errors.number) { %>
+    <input type="number" name="color_quantity" class="<#%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors"
+        min="1" max="4" value="<#%= product ? product.colors : null %>">
+    <#% if (locals.errors && errors.number) { %>
         <div class="text-danger">
-            <%= errors.number.msg %>
+            <#%= errors.number.msg %>
         </div>
-        <% } %>
+        <#% } %>
             <div class="colorContainer" id="colorInputsContainer" style="display: none;">
-                <% for (let i=1; i <=4; i++) { %>
-                    <input id='input-color' type="color" name="color<%= i %>" value="<%= product['color' + i] %>">
-                    <% } %>
+                <#% for (let i=1; i <=4; i++) { %>
+                    <input id='input-color' type="color" name="color<#%= i %>" value="<#%= product['color' + i] %>">
+                    <#% } %>
             </div>
-</div>
+</div> -->
 
-<script>
-    var color1Value = "<%= product.color1 %>";
-    var color2Value = "<%= product.color2 %>";
-    var color3Value = "<%= product.color3 %>";
-    var color4Value = "<%= product.color4 %>";
-</script>
+<div class="pick-colors">
+    <h3>Agrega colores</h3>
+    <input type="checkbox" name="colors" value="black">
+    <label for="colors">Black</label>
+    <input type="checkbox" name="colors" value="white">
+    <label for="colors">White</label>
+    <input type="checkbox" name="colors" value="red">
+    <label for="colors">Red</label>
+    <input type="checkbox" name="colors" value="gold">
+    <label for="colors">Gold</label>
+    <input type="checkbox" name="colors" value="silver">
+    <label for="colors">Silver</label>
+    <input type="checkbox" name="colors" value="purple">
+    <label for="colors">Purple</label>
+    <input type="checkbox" name="colors" value="cream">
+    <label for="colors">Cream</label>
+    <input type="checkbox" name="colors" value="green">
+    <label for="colors">Green</label>
+</div>
 
 <script src="./js/main.js"></script>
