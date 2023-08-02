@@ -72,7 +72,7 @@ const productControllers = {
             for (let i = 1; i <= req.body.color_quantity; i++) {
                 const colorField = `color${i}`;
                 const colorValue = req.body[colorField];
-                colors.push({ color: colorValue, product_id: Product.id });
+                colors.push({ color: colorValue, product_id: newProduct.id });
             }
             await Color.bulkCreate(colors);
 

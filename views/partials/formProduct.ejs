@@ -2,7 +2,7 @@
     <input type="text" class="<%= locals.errors && errors.title ? 'is-invalid' : null %>" name="title" id="name"
         placeholder="Nombre del producto" value="<%= product ? product.title : null %>">
 
-    <select name="brand" id="brand" class="<%= locals.errors && errors.brand ? 'is-invalid' : null%>">
+    <select name="brand_id" id="brand" class="<%= locals.errors && errors.brand ? 'is-invalid' : null%>">
         <option value="" disabled>Marca</option>
         <option value="">Marca</option>
         <option value="apple" <%if(product){%>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="form-grandson">
-        <select name="category" id="category" class="<%= locals.errors && errors.category ? 'is-invalid' : null%>">
+        <select name="category_id" id="category" class="<%= locals.errors && errors.category ? 'is-invalid' : null%>">
             <option value="" disabled>Categoría</option>
             <option value="">Categoría</option>
             <option value="smartphone" <%if(product){%>
@@ -141,7 +141,7 @@
 <div>
     <h3>Agrega colores</h3>
     <label for="">¿En cuántos colores estará disponible el producto?</label>
-    <input type="number" name="colors" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors"
+    <input type="number" name="color_quantity" class="<%= locals.errors && errors.number ? 'is-invalid' : null%>" id="colors"
         min="1" max="4" value="<%= product ? product.colors : null %>">
     <% if (locals.errors && errors.number) { %>
         <div class="text-danger">
