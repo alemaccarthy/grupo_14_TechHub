@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     cartIcon.addEventListener('click', (e) => {
-        if(cartOpened === false) {
+        if (cartOpened === false) {
             e.preventDefault();
             openModal();
         }
         else {
             closeModal();
         }
-        
+
     });
 
     modal.addEventListener('click', (e) => {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     glass.addEventListener('click', (e) => {
         if (searchBarOpened === false) {
             openSearchBar();
-        } 
+        }
     });
 
     modal.addEventListener('click', (e) => {
@@ -335,6 +335,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateColorQuantity);
+    });
+
+    function updateColorQuantity() {
+        // Obtener la cantidad de checkboxes seleccionados
+        const selectedColors = document.querySelectorAll('input[type="checkbox"]:checked');
+        const colorQuantityInput = document.getElementById('color_quantity');
+
+        // Actualizar el valor del input color_quantity con la cantidad de colores seleccionados
+        colorQuantityInput.value = selectedColors.length;
+    }
+
+
+});
 
 
 

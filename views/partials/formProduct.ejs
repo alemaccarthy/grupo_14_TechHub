@@ -159,20 +159,22 @@
     <h3>Agrega colores</h3>
     <input type="checkbox" name="colors[]" value="black" <% if (product && product.colors && product.colors.includes("black")) { %> checked <% } %>>
     <label for="colors">Black</label>
-    <input type="checkbox" name="colors[]" value="white">
+    <input type="checkbox" name="colors[]" value="white"<% if (product && product.colors && product.colors.includes("white")) { %> checked <% } %>>
     <label for="colors">White</label>
-    <input type="checkbox" name="colors[]" value="red">
+    <input type="checkbox" name="colors[]" value="red" <% if (product && product.colors && product.colors.includes("red")) { %> checked <% } %>>
     <label for="colors">Red</label>
-    <input type="checkbox" name="colors[]" value="gold">
+    <input type="checkbox" name="colors[]" value="gold" <% if (product && product.colors && product.colors.includes("gold")) { %> checked <% } %>>
     <label for="colors">Gold</label>
-    <input type="checkbox" name="colors[]" value="silver">
+    <input type="checkbox" name="colors[]" value="silver" <% if (product && product.colors && product.colors.includes("silver")) { %> checked <% } %>>
     <label for="colors">Silver</label>
-    <input type="checkbox" name="colors[]" value="purple">
+    <input type="checkbox" name="colors[]" value="purple" <% if (product && product.colors && product.colors.includes("purple")) { %> checked <% } %>>
     <label for="colors">Purple</label>
-    <input type="checkbox" name="colors[]" value="cream">
+    <input type="checkbox" name="colors[]" value="cream" <% if (product && product.colors && product.colors.includes("cream")) { %> checked <% } %>>
     <label for="colors">Cream</label>
-    <input type="checkbox" name="colors[]" value="green">
+    <input type="checkbox" name="colors[]" value="green" <% if (product && product.colors && product.colors.includes("green")) { %> checked <% } %>>
     <label for="colors">Green</label>
+
+    <input type="number" name="color_quantity" id="color_quantity" readonly>
 </div>
 
 <script src="./js/main.js"></script>

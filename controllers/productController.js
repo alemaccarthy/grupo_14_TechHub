@@ -67,6 +67,7 @@ const productControllers = {
                 color_quantity,
                 brand_id,
                 category_id,
+                deleted: false
             });
             const colors = [];
             for (let i = 1; i <= req.body.color_quantity; i++) {
