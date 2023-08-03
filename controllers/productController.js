@@ -1,4 +1,4 @@
-const { Product, Color, Brand } = require('../database/models');
+const { Product, Color, Brand, Image } = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const productControllers = {
@@ -49,32 +49,32 @@ const productControllers = {
         const price = Number(req.body.price);
         const brandName = req.body.brand_id;
         let brand_id;
-        if (brandName === 'Apple') {
+        if (brandName === 'apple') {
             brand_id = 1;
-        } else if (brandName === 'Samsung') {
+        } else if (brandName === 'samsung') {
             brand_id = 2;
         }
         const categoryName = req.body.category_id;
         let category_id;
-        if (categoryName === 'Smartphone') {
+        if (categoryName === 'smartphone') {
             category_id = 1;
-        } else if (categoryName === 'Smartwatch') {
+        } else if (categoryName === 'smartwatch') {
             category_id = 2;
-        } else if (categoryName === 'Tablet') {
+        } else if (categoryName === 'tablet') {
             category_id = 3;
         }
         const resultValidation = validationResult(req);
 
         try {
 
-            if (resultValidation.errors.length > 0) {
+            /*if (resultValidation.errors.length > 0) {
 
                 return res.render('create-product', {
                     title: '| Crear producto',
                     errors: resultValidation.mapped(),
                     product: req.body
                 });
-            }
+            }*/
             console.log(product);
             // const datos = await Product.create(newProduct); ESTO SE REEMPLAZA POR LO DE ABAJO
             const newProduct = await Product.create({
@@ -95,21 +95,13 @@ const productControllers = {
             const imagesArray = req.files.map(el => ({ image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             console.log(imagesArray);
-            await Color.bulkCreate(imagesArray);
+            await Image.bulkCreate(imagesArray);
 
-            const colors = [];
-            for (let i = 1; i <= req.body.color_quantity; i++) {
-                const colorField = `color${i}`;
-                const colorValue = req.body[colorField];
-                colors.push({ color: colorValue, product_id: newProduct.id });
-            }
-
-            console.log(datos);
         } catch (error) {
             console.log(error);
         }
 
-        res.render('products-list', { title: '| Productos' }) //?????????????
+        res.redirect(`/products/catalog/${brandName}`) //?????????????
     },
 
     getUpdateProduct: async (req, res) => {
