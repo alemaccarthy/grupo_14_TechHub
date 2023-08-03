@@ -66,11 +66,9 @@ const productControllers = {
                 price,
                 description,
                 currency,
-                images,
                 color_quantity,
                 brand_id,
                 category_id,
-                deleted: false
             });
             
             const imagesArray = req.files.map(el => ({image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES

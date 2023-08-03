@@ -2,7 +2,7 @@ module.exports = (sequelize, dataType) => {
     const alias = 'User';
 
     const cols = {
-        id:{
+        id: {
             primaryKey: true,
             type: dataType.STRING,
         },
@@ -51,6 +51,11 @@ module.exports = (sequelize, dataType) => {
             type: dataType.INTEGER
         },
         createdAt: {
+            type: dataType.DATE,
+            allowNull: false,
+            defaultValue: dataType.literal('CURRENT_TIMESTAMP')
+        },
+        updatedAt: {
             type: dataType.DATE,
             allowNull: false,
             defaultValue: dataType.literal('CURRENT_TIMESTAMP')
