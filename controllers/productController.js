@@ -127,13 +127,16 @@ const productControllers = {
 
     deleteProduct: async (req, res) => {
         try {
-            const product = await Product.findByPk(req.params.id);
+            const id = Number(req.params.id);
+            const product = await Product.findByPk(id);
             if (!product) {
                 return res.status(404).send('No se encontro el producto');
             }
             else {
-                await product.update({
-                    deleted: true
+                await product.destroy({
+                where: {
+                    id: id
+                }
                 });
                 res.redirect('/products');
             }
