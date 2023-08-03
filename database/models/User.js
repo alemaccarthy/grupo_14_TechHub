@@ -50,9 +50,6 @@ module.exports = (sequelize, dataType) => {
         telephone: {
             type: dataType.INTEGER
         },
-        deleted: {
-            type: dataType.INTEGER
-        },
         profile_picture: {
             type: dataType.STRING
         }
@@ -60,7 +57,6 @@ module.exports = (sequelize, dataType) => {
 
     const config = {
         tableName: 'users',
-        timestamps: false,
         paranoid: true
     };
 

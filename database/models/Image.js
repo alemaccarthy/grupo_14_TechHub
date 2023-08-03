@@ -10,6 +10,7 @@ module.exports = (sequelize, dataType) => {
         },
         path: {
             type: dataType.STRING,
+            allowNull: true,
         },
         product_id:{
             type: dataType.INTEGER
@@ -17,7 +18,7 @@ module.exports = (sequelize, dataType) => {
     };
 
     const config = {
-        tableName: 'images',
+        tableName: 'products_images',
         timestamps: false,
     };
 
