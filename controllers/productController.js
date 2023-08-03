@@ -45,8 +45,24 @@ const productControllers = {
 
     createProduct: async (req, res) => {
 
-        const product = { title, description, currency, images, color_quantity, brand_id, category_id } = req.body;
+        const product = { title, description, currency, images, color_quantity} = req.body;
         const price = Number(req.body.price);
+        const brandName = req.body.brand_id;
+        let brand_id;
+        if (brandName === 'Apple') {
+            brand_id = 1;
+        } else if (brandName === 'Samsung') {
+            brand_id = 2;
+        }
+        const category = req.body.category_id;
+        let category_id;
+        if (category === 'Smartphone') {
+            category_id = 1;
+        } else if (category === 'Smartwatch') {
+            category_id = 2;
+        } else if (category === 'Tablet') {
+            category_id = 3;
+        }
         const resultValidation = validationResult(req);
 
         try {
@@ -70,8 +86,8 @@ const productControllers = {
                 brand_id,
                 category_id,
             });
-            
-            const imagesArray = req.files.map(el => ({image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
+
+            const imagesArray = req.files.map(el => ({ image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             console.log(imagesArray);
             await Color.bulkCreate(imagesArray);
@@ -132,9 +148,9 @@ const productControllers = {
             }
             else {
                 await product.destroy({
-                where: {
-                    id: id
-                }
+                    where: {
+                        id: id
+                    }
                 });
                 res.redirect('/products');
             }
