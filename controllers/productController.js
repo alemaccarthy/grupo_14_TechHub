@@ -59,7 +59,7 @@ const productControllers = {
                     product
                 });
             }
-            product.images = req.files.map(el => '/imgs/products-images/' + el.filename);
+            console.log(product);
             // const datos = await Product.create(newProduct); ESTO SE REEMPLAZA POR LO DE ABAJO
             const newProduct = await Product.create({
                 title,
@@ -72,21 +72,25 @@ const productControllers = {
                 category_id,
                 deleted: false
             });
-     
+            
+            const imagesArray = req.files.map(el => ({image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
+
+            console.log(imagesArray);
+            await Color.bulkCreate(imagesArray);
+
             const colors = [];
             for (let i = 1; i <= req.body.color_quantity; i++) {
                 const colorField = `color${i}`;
                 const colorValue = req.body[colorField];
                 colors.push({ color: colorValue, product_id: newProduct.id });
             }
-            await Color.bulkCreate(colors);
 
             console.log(datos);
         } catch (error) {
             console.log(error);
         }
 
-        res.redirect('products-list', { title: '| Productos' }) //?????????????
+        res.render('products-list', { title: '| Productos' }) //?????????????
     },
 
     getUpdateProduct: async (req, res) => {

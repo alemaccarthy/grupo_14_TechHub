@@ -21,10 +21,7 @@ module.exports = (sequelize, dataType) =>{
         currency:{
             type: dataType.STRING
         },
-        images:{
-            type: dataType.ARRAY(dataType.STRING),
-            allowNull: false
-        },
+
         deleted: {
             type: dataType.INTEGER,
             allowNull: false

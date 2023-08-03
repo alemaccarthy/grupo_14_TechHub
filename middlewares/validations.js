@@ -1,4 +1,5 @@
 const { body } = require('express-validator');
+const path = require('path');
 
 const validations = {
     registerValidations: [
@@ -41,15 +42,15 @@ const validations = {
     ],
     productsValidations: [
         body('title').notEmpty().withMessage('El titulo no puede estar vacio'),
-        body('brand').notEmpty().withMessage('Selecciona una marca'),
+        body('brand_id').notEmpty().withMessage('Selecciona una marca'),
         body('description').notEmpty().withMessage('Debes darle una descripcion al producto'),
         body('currency').notEmpty().withMessage('Debes elegir una moneda para expresar el precio del producto'),
         body('price').notEmpty().withMessage('Debes asignar un precio al producto'),
-        body('category').notEmpty().withMessage('Debes seleccionar una categoria'),
+        body('category_id').notEmpty().withMessage('Debes seleccionar una categoria'),
         body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
         body('images').custom((value, { req }) => {
             let files = req.files;
-    
+    console.log(files);
             if (!files) {
                 throw new Error('Debes subir una imagen del producto');
             }
