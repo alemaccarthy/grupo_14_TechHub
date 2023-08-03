@@ -44,21 +44,10 @@ const productControllers = {
 
 
     createProduct: async (req, res) => {
-        /*const newProduct = {
-            title: req.body.title,
-            //brand_id: req.body.brand, Ver como vamos a obtener el brand_id
-            price: req.body.price,
-            description: req.body.description,
-            currency: req.body.currency,
-            // category_id: req.body.category, ver como obtener el category_id
-            images: req.body.images,
-            // color_quantity: req.body.color_quantity, ver como obtener el color_quantity
-        };*/
+
         const product = { title, description, currency, images, color_quantity, brand_id, category_id } = req.body;
         const price = Number(req.body.price);
         const resultValidation = validationResult(req);
-
-       
 
         try {
 
@@ -97,7 +86,7 @@ const productControllers = {
             console.log(error);
         }
 
-        res.render('products-list', { title: '| Productos' }) //?????????????
+        res.redirect('products-list', { title: '| Productos' }) //?????????????
     },
 
     getUpdateProduct: async (req, res) => {
