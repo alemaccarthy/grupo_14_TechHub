@@ -8,7 +8,7 @@ module.exports = (sequelize, dataType) => {
         },
         color: {
             type: dataType.STRING,
-            allowNull: false
+            allowNull: true
         },
     }
 

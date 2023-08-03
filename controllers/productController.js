@@ -45,7 +45,7 @@ const productControllers = {
 
     createProduct: async (req, res) => {
 
-        const product = { title, description, currency, images, color_quantity} = req.body;
+        const product = { title, description, currency, images, color_quantity } = req.body;
         const price = Number(req.body.price);
         const brandName = req.body.brand_id;
         let brand_id;
@@ -54,13 +54,13 @@ const productControllers = {
         } else if (brandName === 'Samsung') {
             brand_id = 2;
         }
-        const category = req.body.category_id;
+        const categoryName = req.body.category_id;
         let category_id;
-        if (category === 'Smartphone') {
+        if (categoryName === 'Smartphone') {
             category_id = 1;
-        } else if (category === 'Smartwatch') {
+        } else if (categoryName === 'Smartwatch') {
             category_id = 2;
-        } else if (category === 'Tablet') {
+        } else if (categoryName === 'Tablet') {
             category_id = 3;
         }
         const resultValidation = validationResult(req);
@@ -72,7 +72,7 @@ const productControllers = {
                 return res.render('create-product', {
                     title: '| Crear producto',
                     errors: resultValidation.mapped(),
-                    product
+                    product: req.body
                 });
             }
             console.log(product);
@@ -86,6 +86,11 @@ const productControllers = {
                 brand_id,
                 category_id,
             });
+
+            const selectedColors = req.body.colors || []; // req.body.colors estaria siendo array de los nombres de los colores seleccionados
+
+            // Guarda los nombres de los colores seleccionados 
+            await newProduct.update({ colors: selectedColors });
 
             const imagesArray = req.files.map(el => ({ image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 

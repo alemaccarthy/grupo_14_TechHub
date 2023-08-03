@@ -11,7 +11,7 @@ module.exports = {
     },
     color: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
   });
 },
