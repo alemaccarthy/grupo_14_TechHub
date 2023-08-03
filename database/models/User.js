@@ -50,6 +50,11 @@ module.exports = (sequelize, dataType) => {
         telephone: {
             type: dataType.INTEGER
         },
+        createdAt: {
+            type: dataType.DATE,
+            allowNull: false,
+            defaultValue: dataType.literal('CURRENT_TIMESTAMP')
+        },
         profile_picture: {
             type: dataType.STRING
         }

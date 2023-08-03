@@ -52,9 +52,11 @@ module.exports = {
       telephone: {
         type: Sequelize.INTEGER
       },
-      deleted: {
-        type: Sequelize.INTEGER
-      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    },
       profile_picture: {
         type: Sequelize.STRING
       }

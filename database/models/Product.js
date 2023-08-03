@@ -27,6 +27,12 @@ module.exports = (sequelize, dataType) =>{
             allowNull: false
         },
 
+        createdAt: {
+            type: dataType.DATE,
+            allowNull: false,
+            defaultValue: dataType.literal('CURRENT_TIMESTAMP')
+        },
+
         brand_id: {
             type: dataType.INTEGER,
             references: {
