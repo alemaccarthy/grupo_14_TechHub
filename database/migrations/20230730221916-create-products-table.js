@@ -26,9 +26,8 @@ module.exports = {
       },
       images: {
         type: Sequelize.TEXT,
-        allowNull: false
       },
-      deleted: {
+      color_quantity: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
