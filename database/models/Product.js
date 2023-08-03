@@ -22,11 +22,6 @@ module.exports = (sequelize, dataType) =>{
             type: dataType.STRING
         },
 
-        deleted: {
-            type: dataType.INTEGER,
-            allowNull: false
-        },
-
         color_quantity: {
             type: dataType.INTEGER,
             allowNull: false
