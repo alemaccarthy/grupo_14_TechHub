@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataType) => {
-    const alias = 'image';
+    const alias = 'Image';
 
     const cols = {
 
@@ -18,7 +18,7 @@ module.exports = (sequelize, dataType) => {
     };
 
     const config = {
-        tableName: 'products_images',
+        tableName: 'images',
         timestamps: false,
     };
 
