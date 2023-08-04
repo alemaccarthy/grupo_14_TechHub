@@ -24,9 +24,6 @@ module.exports = {
       currency: {
         type: Sequelize.STRING
       },
-      images: {
-        type: Sequelize.TEXT,
-      },
       color_quantity: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -39,12 +36,10 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: true,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       deletedAt: {
         type: Sequelize.DATE,
         allowNull: true,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       brand_id: {
         type: Sequelize.INTEGER,

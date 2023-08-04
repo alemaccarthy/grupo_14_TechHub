@@ -35,14 +35,12 @@ module.exports = (sequelize, dataType) =>{
 
         updatedAt: {
             type: dataType.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            allowNull: true,
         },
 
         deletedAt: {
             type: dataType.DATE,
             allowNull: true,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
 
         brand_id: {
