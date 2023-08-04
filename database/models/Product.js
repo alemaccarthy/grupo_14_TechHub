@@ -39,6 +39,12 @@ module.exports = (sequelize, dataType) =>{
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
 
+        deletedAt: {
+            type: dataType.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+        },
+
         brand_id: {
             type: dataType.INTEGER,
             references: {

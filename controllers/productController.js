@@ -1,21 +1,30 @@
 const { Product, Color, Brand, Image } = require('../database/models');
 const { validationResult } = require('express-validator');
-
+const { Op } = require('sequelize');
 const productControllers = {
 
     getProducts: async (req, res) => {
         try {
+            
             const products = await Product.findAll({
                 raw: true,
                 include: 'brand',
-                nest: true
+                nest: true,
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                    },
+                    
+                }
 
             });
+            console.log('ESTOS SON LOS PRODUCTS' + products);
             res.render('products-list', { title: '| Productos', products });
         } catch (error) {
+            console.log('HUBO UN ERROR y ES EL SIGUIENTE' + error);
             res.render('products-list', { title: '| Productos', products: [] });
         }
-
+        
     },
 
     getProductDetail: async (req, res) => {
@@ -101,7 +110,7 @@ const productControllers = {
             console.log(error);
         }
 
-        res.redirect(`/products/catalog/${brandName}`) //?????????????
+        res.redirect(`/products/catalog/${brandName}`)
     },
 
     getUpdateProduct: async (req, res) => {

@@ -19,8 +19,7 @@
                         <% } %>
                         ">Smartphones</a></button>
                 </div>
-                <div class="smartwatch-nav nav-button"><button><a 
-                    href="
+                <div class="smartwatch-nav nav-button"><button><a href="
                     <% if (home === 'apple' || brand === 'apple') { %>
                      /products/catalog/apple/smartwatch
                     <% }else if(home === 'samsung' || brand === 'samsung'){ %>
@@ -42,58 +41,66 @@
                 </section>
                 <section class="drop-container drop-cont-tablet">
                 </section>
-                        <article class="dropdown dropdown-smartphone">
-                            <% products.forEach(el => { %>
-                                <% if (el.category === "smartphone" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% }}) %>
-                            
-                                
-                         
-                        </article>
-                        <article class="dropdown dropdown-smartwatch">
-                            <% products.forEach(el => { %>
-                                <% if (el.category === "smartwatch" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% }}) %>
+                <article class="dropdown dropdown-smartphone">
+                    <% products.forEach(el=> { %>
+                        <% if (el.category_id==="smartphone" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                            el.brand===product.brand*/)) { %>
+                            <a href="/products/<%= el.id %>/detail">
+                                <%= el.title %>
+                            </a>
+                            <% }}) %>
 
-                            <!-- <a href="">Galaxy Watch5</a>
+
+
+                </article>
+                <article class="dropdown dropdown-smartwatch">
+                    <% products.forEach(el=> { %>
+                        <% if (el.category_id==="smartwatch" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                            el.brand===product.brand*/)) { %>
+                            <a href="/products/<%= el.id %>/detail">
+                                <%= el.title %>
+                            </a>
+                            <% }}) %>
+
+                                <!-- <a href="">Galaxy Watch5</a>
                             <a href="">Galaxy Watch5 Pro</a> -->
-                        </article>
-                        <article class="dropdown dropdown-tablet">
+                </article>
+                <article class="dropdown dropdown-tablet">
 
-                            <% products.forEach(el => { %>
-                                <% if (el.category === "tablet" && (el.brand === home || el.brand === selectedBrand /*|| el.brand === product.brand*/)) { %>
-                                    <a href="/products/<%= el.id %>/detail"><%= el.title %></a>
-                                <% }}) %>
+                    <% products.forEach(el=> { %>
+                        <% if (el.category_id==="tablet" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                            el.brand===product.brand*/)) { %>
+                            <a href="/products/<%= el.id %>/detail">
+                                <%= el.title %>
+                            </a>
+                            <% }}) %>
 
-                            <!-- <a href="">Galaxy Tab S8</a>
+                                <!-- <a href="">Galaxy Tab S8</a>
                             <a href="">Galaxy Tab S8 Ultra</a>
                             <a href="">Galaxy Tab A</a> -->
-                        </article>
+                </article>
             </section>
         </section>
         <%- include('./cart.ejs') %>
-        <section class="main-header-right">
-            <ul class="right-list">
-                
-                <li id="ma-glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-                <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
-                <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
-                <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
-                
-            </ul>
-        </section>        
-        <%- include('./navbar.ejs') %>
+            <section class="main-header-right">
+                <ul class="right-list">
+
+                    <li id="ma-glass"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
+                    <li id="cart"><button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button></li>
+                    <li id="user" onclick="openNav()"><button><i class="fa-solid fa-user"></i></button></li>
+                    <li id="bars" onclick="openNav()"><button><i class="fa-solid fa-bars"></i></button></li>
+
+                </ul>
+            </section>
+            <%- include('./navbar.ejs') %>
     </section>
     <%- include('./searchbar.ejs') %>
-    <nav class="brands">
-        <a id="home-1" href="/apple"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
-        <a id="home-2" href="/samsung"><img id="samsung"
-            src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png"
-            alt=""></a>
-    </nav>
-    
-    <script src="/js/main.js"></script>
-    
+        <nav class="brands">
+            <a id="home-1" href="/apple"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
+            <a id="home-2" href="/samsung"><img id="samsung" src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png"
+                    alt=""></a>
+        </nav>
+
+        <script src="/js/main.js"></script>
+
 </header>
