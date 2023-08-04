@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { Product, Color, Category, Brand, Image } = require('../database/models');
 
 const middlewares = {
     middleware404(req, res, next) {
@@ -51,17 +52,19 @@ const middlewares = {
     },
 
     header(req, res, next) {
-        const productModel = require('../models/product');
+        //const productModel = require('../database/models/Product');
         
-        res.locals.products = productModel.findAll();
+        res.locals.products = Product.findAll();
 
         res.locals.brand = (req.originalUrl).split('/')[3];
         res.locals.category = (req.originalUrl).split('/')[4];
         res.locals.home = (req.originalUrl).split('/')[1];
-        console.log((req.originalUrl).split('/'));
+        //console.log((req.originalUrl).split('/'));
+        console.log('ACA ESTA EL BRAND' + res.locals.brand)
+        console.log('ACA ESTA CATEGORY' + res.locals.category);
+        console.log('ACA ESTA HOME' + res.locals.home)
 
-
-        console.log(req.originalUrl);
+        //console.log(req.originalUrl);
         /* if (!req.session.products) {
         } */
 

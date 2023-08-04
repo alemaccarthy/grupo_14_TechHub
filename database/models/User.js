@@ -58,7 +58,7 @@ module.exports = (sequelize, dataType) => {
         updatedAt: {
             type: dataType.DATE,
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+
         },
         profile_picture: {
             type: dataType.STRING

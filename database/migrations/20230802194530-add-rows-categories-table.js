@@ -4,7 +4,7 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         queryInterface.bulkInsert('categories', [
-            { name: 'Smarthphone' },
+            { name: 'Smartphone' },
             { name: 'Smartwatch' },
             { name: 'Tablet' },
         ], {});

@@ -1,4 +1,4 @@
-const { Product, Color, Brand, Image } = require('../database/models');
+const { Product, Color, Category, Brand, Image } = require('../database/models');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const productControllers = {
@@ -8,7 +8,10 @@ const productControllers = {
             
             const products = await Product.findAll({
                 raw: true,
-                include: 'brand',
+                include: [
+                    { model: Brand, as: 'brand' },
+                    { model: Category, as: 'category' }
+                ],
                 nest: true,
                 where: {
                     deletedAt: {
@@ -18,7 +21,7 @@ const productControllers = {
                 }
 
             });
-            console.log('ESTOS SON LOS PRODUCTS' + products);
+            console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2));
             res.render('products-list', { title: '| Productos', products });
         } catch (error) {
             console.log('HUBO UN ERROR y ES EL SIGUIENTE' + error);

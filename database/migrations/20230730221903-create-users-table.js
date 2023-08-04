@@ -59,8 +59,11 @@ module.exports = {
       },
       updatedAt: {
         type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        allowNull: true,
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       profile_picture: {
         type: Sequelize.STRING
