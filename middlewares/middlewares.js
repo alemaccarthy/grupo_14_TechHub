@@ -51,27 +51,34 @@ const middlewares = {
         next();
     },
 
-    header(req, res, next) {
+    async header(req, res, next) {
         //const productModel = require('../database/models/Product');
+        try {
+            const products = await Product.findAll();
+
+            res.locals.products = products; 
+            res.locals.brand = (req.originalUrl).split('/')[3];
+            res.locals.category = (req.originalUrl).split('/')[4];
+            res.locals.home = (req.originalUrl).split('/')[1];
+            //console.log((req.originalUrl).split('/'));
+            console.log('ACA ESTA EL BRAND' + res.locals.brand)
+            console.log('ACA ESTA CATEGORY' + res.locals.category);
+            console.log('ACA ESTA HOME' + res.locals.home)
+
+            //console.log(req.originalUrl);
+            /* if (!req.session.products) {
+            } */
+
+            next();
+        } catch (error) {
+            console.log('HUBO UN ERROR y ES EL SIGUIENTE' + error);
+            res.locals.products = []; // array vacío en caso de error.
+            next();
+        }
         
-        res.locals.products = Product.findAll();
-
-        res.locals.brand = (req.originalUrl).split('/')[3];
-        res.locals.category = (req.originalUrl).split('/')[4];
-        res.locals.home = (req.originalUrl).split('/')[1];
-        //console.log((req.originalUrl).split('/'));
-        console.log('ACA ESTA EL BRAND' + res.locals.brand)
-        console.log('ACA ESTA CATEGORY' + res.locals.category);
-        console.log('ACA ESTA HOME' + res.locals.home)
-
-        //console.log(req.originalUrl);
-        /* if (!req.session.products) {
-        } */
-
-        next();
     },
 
-    brandSelector(req, res, next){
+    brandSelector(req, res, next) {
 
         res.locals.selectedBrand = req.cookies.selectedBrand
 

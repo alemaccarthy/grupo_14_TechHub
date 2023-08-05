@@ -43,7 +43,7 @@
                 </section>
                 <article class="dropdown dropdown-smartphone">
                     <% products.forEach(el=> { %>
-                        <% if (el.category_id==="smartphone" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                        <% if (el.category.name === "Smartphone" && (el.brand.name === home || el.brand.name === selectedBrand /*||
                             el.brand===product.brand*/)) { %>
                             <a href="/products/<%= el.id %>/detail">
                                 <%= el.title %>
@@ -55,7 +55,7 @@
                 </article>
                 <article class="dropdown dropdown-smartwatch">
                     <% products.forEach(el=> { %>
-                        <% if (el.category_id==="smartwatch" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                        <% if (el.category.name ==="Smartwatch" && (el.brand.name === home || el.brand.name === selectedBrand /*||
                             el.brand===product.brand*/)) { %>
                             <a href="/products/<%= el.id %>/detail">
                                 <%= el.title %>
@@ -68,7 +68,7 @@
                 <article class="dropdown dropdown-tablet">
 
                     <% products.forEach(el=> { %>
-                        <% if (el.category_id==="tablet" && (el.brand_id===home || el.brand_id===selectedBrand /*||
+                        <% if (el.category.name === "Tablet" && (el.brand.name === home || el.brand.name === selectedBrand /*||
                             el.brand===product.brand*/)) { %>
                             <a href="/products/<%= el.id %>/detail">
                                 <%= el.title %>
