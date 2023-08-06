@@ -27,10 +27,11 @@
                         <%if(el.deletedAt === null && el.brand.name === brand && el.category.name === category){%>
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
                                 <article>
+                                    
                                     <div class="box-img-product">
-                                        <img class="imagen-producto" src="<%= el.images[2] %>" alt="product">
+                                        <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
                                     </div>
-
+                                    
                                     <div>
                                         <h2 class="product-title">
                                             <%= el.title %>
@@ -47,9 +48,9 @@
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
                                 <article>
                                     <div class="box-img-product">
-                                        <img class="imagen-producto" src="<%= el.images[2] %>" alt="product">
+                                        <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
                                     </div>
-
+                                    
                                     <div>
                                         <h2 class="product-title">
                                             <%= el.title %>

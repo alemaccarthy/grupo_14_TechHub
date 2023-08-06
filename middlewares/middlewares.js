@@ -52,18 +52,25 @@ const middlewares = {
     },
 
     async header(req, res, next) {
-        //const productModel = require('../database/models/Product');
         try {
-            const products = await Product.findAll();
-
+            const products = await Product.findAll({
+                raw: true,
+                include: [
+                    { model: Brand, as: 'brand' },
+                    { model: Category, as: 'category' }
+                ],
+                nest: true,
+            });
             res.locals.products = products; 
+            console.log(req.originalUrl);
             res.locals.brand = (req.originalUrl).split('/')[3];
+            res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
             res.locals.category = (req.originalUrl).split('/')[4];
-            res.locals.home = (req.originalUrl).split('/')[1];
-            //console.log((req.originalUrl).split('/'));
-            console.log('ACA ESTA EL BRAND' + res.locals.brand)
-            console.log('ACA ESTA CATEGORY' + res.locals.category);
-            console.log('ACA ESTA HOME' + res.locals.home)
+            res.locals.home = req.cookies.selectedBrand;
+
+            console.log('ACA ESTA EL BRAND --- ' + res.locals.brand)
+            console.log('ACA ESTA CATEGORY --- ' + res.locals.category);
+            console.log('ACA ESTA HOME --- ' + res.locals.home)
 
             //console.log(req.originalUrl);
             /* if (!req.session.products) {
@@ -71,7 +78,6 @@ const middlewares = {
 
             next();
         } catch (error) {
-            console.log('HUBO UN ERROR y ES EL SIGUIENTE' + error);
             res.locals.products = []; // array vacío en caso de error.
             next();
         }

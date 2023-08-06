@@ -10,7 +10,9 @@ const productControllers = {
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
-                    { model: Category, as: 'category' }
+                    { model: Category, as: 'category' },
+                    { model: Image, as: 'images' },
+                    
                 ],
                 nest: true,
                 where: {
@@ -21,10 +23,11 @@ const productControllers = {
                 }
 
             });
-            console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2));
+
+            console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2)); //ASI LOS PODES MOSTRAR POR CONSOLA
             res.render('products-list', { title: '| Productos', products });
         } catch (error) {
-            console.log('HUBO UN ERROR y ES EL SIGUIENTE' + error);
+
             res.render('products-list', { title: '| Productos', products: [] });
         }
         
@@ -103,7 +106,7 @@ const productControllers = {
 
             // Guarda los nombres de los colores seleccionados 
             await newProduct.update({ colors: selectedColors });
-
+            console.log(newProduct.dataValues);
             const imagesArray = req.files.map(el => ({ image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             console.log(imagesArray);
