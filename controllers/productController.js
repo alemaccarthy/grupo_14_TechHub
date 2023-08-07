@@ -107,7 +107,7 @@ const productControllers = {
             // Guarda los nombres de los colores seleccionados 
             await newProduct.update({ colors: selectedColors });
             console.log(newProduct.dataValues);
-            const imagesArray = req.files.map(el => ({ image: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
+            const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             console.log(imagesArray);
             await Image.bulkCreate(imagesArray);

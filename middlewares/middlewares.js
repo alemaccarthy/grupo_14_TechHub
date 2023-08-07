@@ -57,16 +57,18 @@ const middlewares = {
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
-                    { model: Category, as: 'category' }
+                    { model: Category, as: 'category' },
+                    
                 ],
                 nest: true,
             });
             res.locals.products = products; 
             console.log(req.originalUrl);
+            res.locals.home = req.cookies.selectedBrand;
             res.locals.brand = (req.originalUrl).split('/')[3];
             res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
             res.locals.category = (req.originalUrl).split('/')[4];
-            res.locals.home = req.cookies.selectedBrand;
+            
 
             console.log('ACA ESTA EL BRAND --- ' + res.locals.brand)
             console.log('ACA ESTA CATEGORY --- ' + res.locals.category);
