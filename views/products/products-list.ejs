@@ -22,60 +22,47 @@
             </section>
 
             <section class="products-container">
-                <% const groupedProducts = {}; %>
-                <% products.forEach(el => { %>
-                    <% if (el.deletedAt === null && el.brand.name === brand) { %>
-                        <% if (!groupedProducts[el.id]) { %>
-                            <% groupedProducts[el.id] = el; %>
-                        <% } %>
-                    <% } %>
-                <% }); %>
-            
                 <% if (category) { %>
-                    <% Object.values(groupedProducts).forEach(el => { %>
-                        <% if (el.category.name === category) { %>
+                    <%products.forEach(el=> {%>
+                        <%if(el.deletedAt === null && el.brand.name === brand && el.category.name === category){%>
                             <a class="selected-products" href="/products/<%= el.id %>/detail">
                                 <article>
+                                    
                                     <div class="box-img-product">
-                                        <% if (el.images.length > 0 && el.images.path) { %>
-                                            <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
-                                        <% } %>
+                                        <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
                                     </div>
+                                    
                                     <div>
                                         <h2 class="product-title">
                                             <%= el.title %>
                                         </h2>
-                                        <p class="product-price">
-                                            $<%= el.price %>
+                                        <p class="product-price">$<%= el.price %>
                                         </p>
                                     </div>
                                 </article>
                             </a>
-                        <% } %>
-                    <% }); %>
-                <% } else { %>
-                    <% Object.values(groupedProducts).forEach(el => { %>
-                        <a class="selected-products" href="/products/<%= el.id %>/detail">
-                            <article>
-                                <div class="box-img-product">
-                                    <% if (el.images.length > 0 && el.images.path) { %>
+                            <% } } ) %>
+                <% }else{%>
+                    <%products.forEach(el=> {%>
+                        <% if(el.deletedAt === null && el.brand.name === brand){%>
+                            <a class="selected-products" href="/products/<%= el.id %>/detail">
+                                <article>
+                                    <div class="box-img-product">
                                         <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
-                                    <% } %>
-                                </div>
-                                <div>
-                                    <h2 class="product-title">
-                                        <%= el.title %>
-                                    </h2>
-                                    <p class="product-price">
-                                        $<%= el.price %>
-                                    </p>
-                                </div>
-                            </article>
-                        </a>
-                    <% }); %>
-                <% } %>
+                                    </div>
+                                    
+                                    <div>
+                                        <h2 class="product-title">
+                                            <%= el.title %>
+                                        </h2>
+                                        <p class="product-price">$<%= el.price %>
+                                        </p>
+                                    </div>
+                                </article>
+                            </a>
+                            <% } } ) }%>
             </section>
-            
+
             <section class="presentation-product-container">
                 <section class="presentation-product">
                     <h1 class="smartphone-title-list">Galaxy Z</h1>
