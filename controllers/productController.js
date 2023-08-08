@@ -8,10 +8,11 @@ const productControllers = {
             
             const products = await Product.findAll({
                 raw: true,
+                group: ['product_id'],
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-                    { model: Image, as: 'images' },
+                    { model: Image, as: 'images'},
                     
                 ],
                 nest: true,
@@ -36,7 +37,22 @@ const productControllers = {
     getProductDetail: async (req, res) => {
         try {
             const id = Number(req.params.id); /// VER SI ESTA OK
-            const product = await Product.findByPk(id);
+            const product = await Product.findByPk({id,
+                group: ['product_id'],
+                include: [
+                    { model: Brand, as: 'brand' },
+                    { model: Category, as: 'category' },
+                    { model: Image, as: 'images'},
+                    
+                ],
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                    },
+                    
+                }
+            });
+            console.log('ESTE ES UN PRODUCTO DETAIL' + JSON.stringify(product, null, 2));
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }
