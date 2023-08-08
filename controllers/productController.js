@@ -5,10 +5,12 @@ const productControllers = {
 
     getProducts: async (req, res) => {
         try {
-            
+            const uniqueProductIds = await Image.findAll({
+                attributes: ['product_id'],
+                group: ['product_id']
+            });
             const products = await Product.findAll({
                 raw: true,
-                group: ['product_id'],
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
@@ -17,6 +19,7 @@ const productControllers = {
                 ],
                 nest: true,
                 where: {
+                    id: uniqueProductIds.map(item => item.product_id),
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
