@@ -20,10 +20,10 @@
 
             <section class="product-detail-container">
                 <article class="img-container">
-                    <img class="main-img" src="<%= product.images.path %>" alt="producto">
+                    <img class="main-img" src="<%= product.images[0].path %>" alt="producto">
                     <article class="small-imgs-slider">
                         <% product.images.forEach(el=> {%>
-                            <img src="<%= el %>" alt="">
+                            <img src="<%= el.path %>" alt="">
                             <% }) %>
                     </article>
                 </article>

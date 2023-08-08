@@ -35,8 +35,7 @@ const productControllers = {
     getProductDetail: async (req, res) => {
         try {
             const id = Number(req.params.id); /// VER SI ESTA OK
-            const product = await Product.findByPk({id,
-                group: ['product_id'],
+            const product = await Product.findByPk(id, {
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
