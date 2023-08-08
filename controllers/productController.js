@@ -5,21 +5,15 @@ const productControllers = {
 
     getProducts: async (req, res) => {
         try {
-            const uniqueProductIds = await Image.findAll({
-                attributes: ['product_id'],
-                group: ['product_id']
-            });
             const products = await Product.findAll({
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-                    { model: Image, as: 'images'},
-                    
+                    { model: Image, as: 'images'},                   
                 ],
                 nest: true,
                 where: {
-                    id: uniqueProductIds.map(item => item.product_id),
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
@@ -27,6 +21,7 @@ const productControllers = {
                 }
 
             });
+            
 
             console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2)); //ASI LOS PODES MOSTRAR POR CONSOLA
             res.render('products-list', { title: '| Productos', products });

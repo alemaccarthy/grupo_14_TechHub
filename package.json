@@ -35,5 +35,15 @@
   "description": "",
   "devDependencies": {
     "nodemon": "^1.14.9"
+  },
+  "bin": "index.js",
+  "pkg": {
+    "scripts": [
+      "node_modules/tedious/lib/tedious.js",
+      "models/*.js"
+    ],
+    "assets": [
+      "config/log.json"
+    ]
   }
 }
