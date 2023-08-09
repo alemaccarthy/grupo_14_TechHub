@@ -42,37 +42,44 @@
                 <section class="drop-container drop-cont-tablet">
                 </section>
                 <article class="dropdown dropdown-smartphone">
-                    <% products.forEach(el=> { %>
-                        <% if (el.category.name === "Smartphone" && el.brand.name === selectedBrand ) { %>
-                            <a href="/products/<%= el.id %>/detail">
-                                <%= el.title %>
-                            </a>
-                            <% }}) %>
-
+                    <% const displayedProductIdsSmartphone=[]; %>
+                        <% products.forEach(el=> { %>
+                            <% if (el.category.name==="Smartphone" && el.brand.name===selectedBrand &&
+                                el.deletedAt===null) { %>
+                                <% if (!displayedProductIdsSmartphone.includes(el.id)) { %>
+                                    <% displayedProductIdsSmartphone.push(el.id); %>
+                                        <a href="/products/<%= el.id %>/detail">
+                                            <%= el.title %>
+                                        </a>
+                                        <% } %>
+                                            <% } %>
+                                                <% }) %>
                 </article>
                 <article class="dropdown dropdown-smartwatch">
-                    <% products.forEach(el=> { %>
-                        <% if (el.category.name ==="Smartwatch" && el.brand.name === selectedBrand) { %>
-                            <a href="/products/<%= el.id %>/detail">
-                                <%= el.title %>
-                            </a>
-                            <% }}) %>
-
-                                <!-- <a href="">Galaxy Watch5</a>
-                            <a href="">Galaxy Watch5 Pro</a> -->
+                    <% const displayedProductIdsSmartwatch=[]; %>
+                        <% products.forEach(el=> { %>
+                            <% if (el.category.name==="Smartwatch" && el.brand.name===selectedBrand) { %>
+                                <% if (!displayedProductIdsSmartwatch.includes(el.id)) { %>
+                                    <% displayedProductIdsSmartwatch.push(el.id); %>
+                                        <a href="/products/<%= el.id %>/detail">
+                                            <%= el.title %>
+                                        </a>
+                                        <% } %>
+                                            <% } %>
+                                                <% }) %>
                 </article>
                 <article class="dropdown dropdown-tablet">
-
-                    <% products.forEach(el=> { %>
-                        <% if (el.category.name === "Tablet" && el.brand.name === selectedBrand) { %>
-                            <a href="/products/<%= el.id %>/detail">
-                                <%= el.title %>
-                            </a>
-                            <% }}) %>
-
-                                <!-- <a href="">Galaxy Tab S8</a>
-                            <a href="">Galaxy Tab S8 Ultra</a>
-                            <a href="">Galaxy Tab A</a> -->
+                    <% const displayedProductIdsTablet=[]; %>
+                        <% products.forEach(el=> { %>
+                            <% if (el.category.name==="Tablet" && el.brand.name===selectedBrand) { %>
+                                <% if (!displayedProductIdsTablet.includes(el.id)) { %>
+                                    <% displayedProductIdsTablet.push(el.id); %>
+                                        <a href="/products/<%= el.id %>/detail">
+                                            <%= el.title %>
+                                        </a>
+                                        <% } %>
+                                            <% } %>
+                                                <% }) %>
                 </article>
             </section>
         </section>

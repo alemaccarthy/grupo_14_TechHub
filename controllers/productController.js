@@ -5,48 +5,51 @@ const productControllers = {
 
     getProducts: async (req, res) => {
         try {
+            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const products = await Product.findAll({
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-                    { model: Image, as: 'images'},                   
+                    { model: Image, as: 'images' },
                 ],
                 nest: true,
                 where: {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-                    
+
                 }
 
             });
-            
 
             console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2)); //ASI LOS PODES MOSTRAR POR CONSOLA
-            res.render('products-list', { title: '| Productos', products });
+            res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
 
             res.render('products-list', { title: '| Productos', products: [] });
         }
-        
+
     },
 
     getProductDetail: async (req, res) => {
         try {
+            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const id = Number(req.params.id); /// VER SI ESTA OK
             const product = await Product.findByPk(id, {
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-                    { model: Image, as: 'images'},
-                    
+                    { model: Image, as: 'images' },
+
                 ],
                 where: {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-                    
+
                 }
             });
             console.log('ESTE ES UN PRODUCTO DETAIL' + JSON.stringify(product, null, 2));
@@ -54,7 +57,7 @@ const productControllers = {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }
 
-            res.render('product-detail', { title: '| Detalle', product });
+            res.render('product-detail', { title: '| Detalle', product, selectedBrand });
         } catch (error) {
             console.log(error);
         }
@@ -62,9 +65,11 @@ const productControllers = {
 
     getCreateProduct: async (req, res) => {
         try {
+            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const brands = await Brand.findAll({ attributes: ['id', 'name'] });
             const product = req.body;
-            res.render('create-product', { title: '| Crear producto', product, brands });
+            res.render('create-product', { title: '| Crear producto', product, brands, selectedBrand });
         } catch (error) {
             console.log(error);
         }
@@ -72,7 +77,6 @@ const productControllers = {
 
 
     createProduct: async (req, res) => {
-
         const product = { title, description, currency, images, color_quantity } = req.body;
         const price = Number(req.body.price);
         const brandName = req.body.brand_id;
@@ -134,19 +138,21 @@ const productControllers = {
 
     getUpdateProduct: async (req, res) => {
         try {
+            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const id = Number(req.params.id);
             const updatedProduct = await Product.findByPk(id, {
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-                    { model: Image, as: 'images'},
-                    
+                    { model: Image, as: 'images' },
+
                 ],
                 where: {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-                    
+
                 }
             });
             console.log('ESTE ES EL PRODUCTO A EDITAR' + JSON.stringify(updatedProduct, null, 2));
@@ -159,7 +165,7 @@ const productControllers = {
                 category_id: updatedProduct.category.name
             };
 
-            res.render('update-product', { title: 'Editar producto', product: transformedProduct})
+            res.render('update-product', { title: 'Editar producto', product: transformedProduct, selectedBrand })
         } catch (error) {
             console.log(error);
         }
