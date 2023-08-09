@@ -134,14 +134,32 @@ const productControllers = {
 
     getUpdateProduct: async (req, res) => {
         try {
-            const updatedProduct = await Product.findByPk(req.params.id);
+            const id = Number(req.params.id);
+            const updatedProduct = await Product.findByPk(id, {
+                include: [
+                    { model: Brand, as: 'brand' },
+                    { model: Category, as: 'category' },
+                    { model: Image, as: 'images'},
+                    
+                ],
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                    },
+                    
+                }
+            });
+            console.log('ESTE ES EL PRODUCTO A EDITAR' + JSON.stringify(updatedProduct, null, 2));
             if (!updatedProduct) {
-                // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
-                // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
                 return res.render('product-not-found');
             }
+            const transformedProduct = {
+                ...updatedProduct.toJSON(),
+                brand_id: updatedProduct.brand.id,
+                category_id: updatedProduct.category.name
+            };
 
-            res.render('update-product', { updatedProduct })
+            res.render('update-product', { title: 'Editar producto', product: transformedProduct})
         } catch (error) {
             console.log(error);
         }
@@ -178,6 +196,7 @@ const productControllers = {
                     }
                 });
                 res.redirect('/products');
+                return;
             }
         }
         catch (error) {
