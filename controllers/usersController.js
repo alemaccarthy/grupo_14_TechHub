@@ -18,9 +18,9 @@ const usersController = {
         delete user.confirmPassword;
 
         try {
-            let userDataBase = User.findOne({
+            let userDataBase = await User.findOne({
                 where: {
-                    email: user.email
+                    email: user.email,
                 }
             })
 
@@ -69,44 +69,6 @@ const usersController = {
 
         res.redirect(`/user/profile`);
     },
-
-    postRegister(req, res) {
-        /* const selectedBrand = req.cookies.selectedBrand;
-        const userValidation = validationResult(req);
-        const user = req.body;
-        user.password = bcrypt.hashSync(user.password, 12);
-        delete user.confirmPassword;
-        userDataBase = userModel.findByEmail(req.body.email); */
-
-        if (userDataBase) {
-            return res.render('register', {
-                title: '| Registrarse',
-                user,
-                selectedBrand,
-                errors: {
-                    email: {
-                        msg: 'El email ya está registrado'
-                    }
-                }
-            })
-        }
-
-        if (userValidation.errors.length > 0) {
-            return res.render('register', {
-                title: '| Registrarse',
-                selectedBrand,
-                errors: userValidation.mapped(),
-                oldData: user,
-            });
-        }
-        userModel.createUser(user, req);
-
-        res.redirect('/user/profile');
-
-    },
-
-    // userModel.createUser(newUser);
-    // res.redirect('/products' + newuser.id); //VER ESTO. Deberia redirigir a una vista que seria la del perfil del usuario 
 
     getProfile(req, res) {
         const user = req.session.user;
