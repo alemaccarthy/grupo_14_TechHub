@@ -6,12 +6,12 @@ const middlewares = {
         res.status(404).render('error404');
     },
 
-    /* guestMiddleware(req, res, next) {
+    guestMiddleware(req, res, next) {
         if (req.session.user) {
             return res.redirect('/user/profile');
         }
         next();
-    }, */
+    },
 
     authMiddleware(req, res, next) {
         if (!req.session.user) {
