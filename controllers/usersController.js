@@ -75,7 +75,7 @@ const usersController = {
             console.log(error);
         }
 
-        
+
     },
 
     getProfile(req, res) {
@@ -101,35 +101,47 @@ const usersController = {
         res.render('login', { title: '| Ingresa', error });
     },
 
-    loginUser(req, res) {
-        const searchedUser = userModel.findByEmail(req.body.email);
+    loginUser : async (req, res) => {
+        try {
+            const searchedUser = await User.findOne({
+                where: {
+                    email: req.body.email
+                }
+            });
 
-        if (!searchedUser) {
-            return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
-        }
-        const { password: hashedPW } = searchedUser;
-
-        const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
-
-        if (comparePW) {
-            if (req.body.remember) {
-                res.cookie('email', searchedUser.email, {
-                    maxAge: 1000 * 60 * 60 * 24 * 365
-                });
-            } else {
-                res.cookie('email', searchedUser.email, { maxAge: 1000 * 60 * 60 * 2 });
+            if (!searchedUser) {
+                return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
             }
 
-            delete searchedUser.password;
-            delete searchedUser.id;
+            const { password: hashedPW } = searchedUser;
 
-            req.session.user = searchedUser;
+            const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
 
-            return res.redirect('/');
-        } else {
-            return res.redirect('/user/login?error=La contraseña es incorrecta');
+            if (comparePW) {
+                if (req.body.remember) {
+                    res.cookie('email', searchedUser.email, {
+                        maxAge: 1000 * 60 * 60 * 24 * 365
+                    });
+                } else {
+                    res.cookie('email', searchedUser.email, { maxAge: 1000 * 60 * 60 * 2 });
+                }
+
+                delete searchedUser.password;
+                delete searchedUser.id;
+
+                req.session.user = searchedUser;
+
+                return res.redirect('/');
+            } else {
+                return res.redirect('/user/login?error=La contraseña es incorrecta');
+            }
+        } catch (error) {
+            // Manejar errores aquí
+            console.error(error);
+            return res.status(500).send('Error en el servidor');
         }
     },
+
     logOut(req, res) {
 
         req.session.destroy();
