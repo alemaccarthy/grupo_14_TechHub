@@ -1,24 +1,83 @@
-const userModel = require('../models/user');
+const { User } = require('../database/models');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
 const usersController = {
     getRegister(req, res) {
-        res.render('register', { title: '| Registrarse'});
+        res.render('register', { title: '| Registrarse' });
     },
     getPurchase(req, res) {
-        res.render('complete-purchase', { title: '| Finalizar compra'})
+        res.render('complete-purchase', { title: '| Finalizar compra' })
+    },
+
+    createUser: async (req, res) => {
+        const selectedBrand = req.cookies.selectedBrand;
+        const user = { name, lastName, email, dni, password, street, number, city, floor, door, postalCode, province, telephone } = req.body;
+        user.password = bcrypt.hashSync(user.password, 12);
+        delete user.confirmPassword;
+
+        try {
+            let userDataBase = User.findOne({
+                where: {
+                    email: user.email
+                }
+            })
+
+            if (userDataBase) {
+                return res.render('register', {
+                    title: '| Registrarse',
+                    user,
+                    selectedBrand,
+                    errors: {
+                        email: {
+                            msg: 'El email ya está registrado'
+                        }
+                    }
+                })
+            }
+
+            /* if (userValidation.errors.length > 0) {
+                return res.render('register', {
+                    title: '| Registrarse',
+                    selectedBrand,
+                    errors: userValidation.mapped(),
+                    oldData: user,
+                });
+            } */
+
+            const newUser = await User.create({
+                name,
+                lastName,
+                email,
+                password,
+                dni,
+                street,
+                number,
+                floor,
+                door,
+                postalCode,
+                province,
+                city,
+                telephone
+            });
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        res.redirect(`/user/profile`);
     },
 
     postRegister(req, res) {
-        const selectedBrand = req.cookies.selectedBrand;
+        /* const selectedBrand = req.cookies.selectedBrand;
         const userValidation = validationResult(req);
         const user = req.body;
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
-        userDataBase = userModel.findByEmail(req.body.email);
-        
+        userDataBase = userModel.findByEmail(req.body.email); */
+
         if (userDataBase) {
             return res.render('register', {
                 title: '| Registrarse',
@@ -51,9 +110,9 @@ const usersController = {
 
     getProfile(req, res) {
         const user = req.session.user;
-        res.render('my-profile', { title: `| Nombre del usuario`, user})
+        res.render('my-profile', { title: `| Nombre del usuario`, user })
     },
-    
+
     postPicture(req, res) {
 
         res.send('Respuesta provisoria'); //ARREGLAR
@@ -69,7 +128,7 @@ const usersController = {
     getLogin(req, res) {
         const error = req.query.error || '';
 
-        res.render('login', { title: '| Ingresa', error});
+        res.render('login', { title: '| Ingresa', error });
     },
 
     loginUser(req, res) {

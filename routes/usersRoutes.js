@@ -25,7 +25,7 @@ usersRoutes.get('/complete-purchase', usersController.getPurchase);
 usersRoutes.get('/register', middlewares.guestMiddleware, usersController.getRegister);
 
 // @POST /register
-usersRoutes.post('/register', validations.registerValidations, usersController.postRegister);
+usersRoutes.post('/register', validations.registerValidations, usersController.createUser);
 //falta agregar upload.single('nombre del cmampo')
 
 // @GET /login
