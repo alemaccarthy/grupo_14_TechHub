@@ -136,7 +136,7 @@ const usersController = {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
         } catch (error) {
-            // Manejar errores aquí
+            
             console.error(error);
             return res.status(500).send('Error en el servidor');
         }
