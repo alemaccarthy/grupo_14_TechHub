@@ -34,6 +34,7 @@
   },
   "description": "",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "nodemon": "^1.14.9"
   },
   "bin": "index.js",

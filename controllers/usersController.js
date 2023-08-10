@@ -1,6 +1,7 @@
 const { User } = require('../database/models');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
+const { v4: uuidv4 } = require('uuid');
 const { validationResult } = require('express-validator');
 
 const usersController = {
@@ -13,7 +14,7 @@ const usersController = {
 
     createUser: async (req, res) => {
         const selectedBrand = req.cookies.selectedBrand;
-        const user = { name, lastName, email, dni, password, street, number, city, floor, door, postalCode, province, telephone } = req.body;
+        const user = { name, lastName, email, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
         user.password = bcrypt.hashSync(user.password, 12);
         delete user.confirmPassword;
 
@@ -47,6 +48,7 @@ const usersController = {
             } */
 
             const newUser = await User.create({
+                id: uuidv4(),
                 name,
                 lastName,
                 email,
@@ -62,12 +64,12 @@ const usersController = {
                 telephone
             });
 
-
+            res.redirect('/user/profile');
         } catch (error) {
             console.log(error);
         }
 
-        res.redirect(`/user/profile`);
+        
     },
 
     getProfile(req, res) {
