@@ -64,6 +64,12 @@ const usersController = {
                 telephone
             });
 
+            req.session.user = {
+                id: newUser.id,
+                name: newUser.name,
+                email: newUser.email
+            };
+
             res.redirect('/user/profile');
         } catch (error) {
             console.log(error);

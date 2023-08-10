@@ -30,11 +30,6 @@ const middlewares = {
         next();
     },
 
-    logMiddleware(req, res, next) {
-        fs.appendFileSync('../resources/log.txt', 'El usuario ha ingresado en la ruta ' + req.url);
-        next();
-    },
-
     rememberMiddleware(req, res, next) {
 
         if (req.cookies.email) {
