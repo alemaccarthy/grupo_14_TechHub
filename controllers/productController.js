@@ -191,9 +191,17 @@ const productControllers = {
     deleteProduct: async (req, res) => {
         try {
             const id = Number(req.params.id);
-            const product = await Product.findByPk(id);
-            const brandName = req.body.brand_id;
-
+            const product = await Product.findByPk(id, {
+                include: [
+                    { model: Brand, as: 'brand' },
+                ],
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                    },
+                } 
+            });
+            const brandName = product.brand.name.toLowerCase();
             if (!product) {
                 return res.status(404).send('No se encontro el producto');
             }
