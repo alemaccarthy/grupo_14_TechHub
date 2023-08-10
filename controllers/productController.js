@@ -192,6 +192,8 @@ const productControllers = {
         try {
             const id = Number(req.params.id);
             const product = await Product.findByPk(id);
+            const brandName = req.body.brand_id;
+
             if (!product) {
                 return res.status(404).send('No se encontro el producto');
             }
@@ -201,7 +203,7 @@ const productControllers = {
                         id: id
                     }
                 });
-                res.redirect('/products');
+                res.redirect(`/products/catalog/${brandName}`);
                 return;
             }
         }
