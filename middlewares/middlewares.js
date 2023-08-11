@@ -66,20 +66,11 @@ const middlewares = {
                 nest: true,
             });
             res.locals.products = products;
-            console.log(req.originalUrl);
             res.locals.home = req.cookies.selectedBrand;
             res.locals.brand = (req.originalUrl).split('/')[3];
             res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
             res.locals.category = (req.originalUrl).split('/')[4];
             res.locals.category = res.locals.category.charAt(0).toUpperCase() + res.locals.category.slice(1);
-           
-            console.log('ACA ESTA EL BRAND --- ' + res.locals.brand)
-            console.log('ACA ESTA CATEGORY --- ' + res.locals.category);
-            console.log('ACA ESTA HOME --- ' + res.locals.home)
-
-            //console.log(req.originalUrl);
-            /* if (!req.session.products) {
-            } */
 
             next();
         } catch (error) {

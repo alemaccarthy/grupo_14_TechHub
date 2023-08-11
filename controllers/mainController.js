@@ -22,7 +22,7 @@ const mainController = {
                     deletedAt: null // Si deseas filtrar productos eliminados
                 }
             });
-            console.log('ESTOS SON LOS PRODUCTOS EN HOME APPLE ' + JSON.stringify(products, null, 2)); //ASI LOS PODES MOSTRAR POR CONSOLA
+
             res.render('apple', { title: 'TechHub', selectedBrand, products });
         } catch (error) {
             res.render('apple', { title: 'TechHub', category: null });

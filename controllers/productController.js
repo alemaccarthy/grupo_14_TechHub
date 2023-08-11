@@ -24,7 +24,6 @@ const productControllers = {
 
             });
 
-            console.log('ESTOS SON LOS PRODUCTS' + JSON.stringify(products, null, 2)); //ASI LOS PODES MOSTRAR POR CONSOLA
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
 
@@ -52,7 +51,7 @@ const productControllers = {
 
                 }
             });
-            console.log('ESTE ES UN PRODUCTO DETAIL' + JSON.stringify(product, null, 2));
+
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }
@@ -123,10 +122,8 @@ const productControllers = {
 
             // Guarda los nombres de los colores seleccionados 
             await newProduct.update({ colors: selectedColors });
-            console.log(newProduct.dataValues);
             const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
-            console.log(imagesArray);
             await Image.bulkCreate(imagesArray);
 
         } catch (error) {
@@ -155,7 +152,7 @@ const productControllers = {
 
                 }
             });
-            console.log('ESTE ES EL PRODUCTO A EDITAR' + JSON.stringify(updatedProduct, null, 2));
+
             if (!updatedProduct) {
                 return res.render('product-not-found');
             }

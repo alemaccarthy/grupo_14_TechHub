@@ -50,7 +50,6 @@ const validations = {
         body('colors').notEmpty().withMessage('Debes seleccionar la cantidad de colores disponibles'),
         body('images').custom((value, { req }) => {
             let files = req.files;
-    console.log(files);
             if (!files) {
                 throw new Error('Debes subir una imagen del producto');
             }

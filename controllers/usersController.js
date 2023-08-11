@@ -20,7 +20,6 @@ const usersController = {
             // Hashear la contraseña de manera asíncrona
             user.password = await bcrypt.hash(user.password, 12);
             delete user.confirmPassword;
-            console.log('ESTE ES EL PASSWORD HASHEADO' + user.password);
             let userDataBase = await User.findOne({
                 where: {
                     email: user.email,
@@ -89,7 +88,6 @@ const usersController = {
                     email: req.body.email
                 }
             });
-            console.log('ESTE ES EL USUARIO RECUPERADO POR MAIL' + JSON.stringify(searchedUser, null, 2))
 
             if (!searchedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
