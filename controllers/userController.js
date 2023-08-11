@@ -83,33 +83,35 @@ const userController = {
 
     loginUser : async (req, res) => {
         try {
-            const searchedUser = await User.findOne({
+            const loggedUser = await User.findOne({
                 where: {
                     email: req.body.email
                 }
             });
 
-            if (!searchedUser) {
+            if (!loggedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
             }
 
-            const { password: hashedPW } = searchedUser;
+            const { password: hashedPW } = loggedUser;
 
             const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
 
             if (comparePW) {
                 if (req.body.remember) {
                     req.session.user = {
-                        id: searchedUser.id,
-                        name: searchedUser.name,
-                        email: searchedUser.email
+                        id: loggedUser.id,
+                        name: loggedUser.name,
+                        email: loggedUser.email
                     };
                 } 
 
-                delete searchedUser.password;
-                delete searchedUser.id;
+                delete loggedUser.password;
+                delete loggedUser.id;
 
-                res.redirect('/user/profile');
+                console.log('ESTE ES UN USUARIO LOGUEADO' + JSON.stringify(loggedUser, null, 2));
+
+                return res.render('my-profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
