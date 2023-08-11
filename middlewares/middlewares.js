@@ -25,25 +25,24 @@ const middlewares = {
         if (req.session && req.session.user) {
             res.locals.isLogged = true;
             res.locals.user = req.session.user;
-        };
-
+        }
         next();
     },
 
     rememberMiddleware: async (req, res, next) => {
-        if (req.cookies.email) {
+        if (req.session.email) {
             try {
-                const userFromCookies = await User.findOne({
+                const sessionUser = await User.findOne({
                     where: {
-                        email: req.cookies.email
+                        email: req.session.user.email
                     }
                 });
     
-                if (userFromCookies) {
-                    delete userFromCookies.id;
-                    delete userFromCookies.password;
+                if (sessionUser) {
+                    delete sessionUser.id;
+                    delete sessionUser.password;
     
-                    req.session.user = userFromCookies;
+                    req.session.user = sessionUser;
                 }
             } catch (error) {
                 console.error(error);

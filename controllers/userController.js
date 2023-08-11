@@ -99,17 +99,15 @@ const userController = {
 
             if (comparePW) {
                 if (req.body.remember) {
-                    res.cookie('email', searchedUser.email, {
-                        maxAge: 1000 * 60 * 60 * 24 * 365
-                    });
-                } else {
-                    res.cookie('email', searchedUser.email, { maxAge: 1000 * 60 * 60 * 2 });
-                }
+                    req.session.user = {
+                        id: searchedUser.id,
+                        name: searchedUser.name,
+                        email: searchedUser.email
+                    };
+                } 
 
                 delete searchedUser.password;
                 delete searchedUser.id;
-
-                req.session.user = searchedUser;
 
                 res.redirect('/user/profile');
             } else {
