@@ -1,6 +1,7 @@
 const { Product, Color, Category, Brand, Image } = require('../database/models');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
+
 const productControllers = {
 
     getProducts: async (req, res) => {
