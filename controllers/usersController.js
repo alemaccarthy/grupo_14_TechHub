@@ -46,11 +46,11 @@ const usersController = {
                 password: user.password,
             });
     
-            req.session.user = {
+            /*req.session.user = {
                 id: newUser.id,
                 name: newUser.name,
                 email: newUser.email
-            };
+            };*/
     
             res.redirect('/user/profile');
         } catch (error) {
@@ -113,7 +113,7 @@ const usersController = {
 
                 req.session.user = searchedUser;
 
-                return res.redirect('/');
+                res.redirect('/user/profile');
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
