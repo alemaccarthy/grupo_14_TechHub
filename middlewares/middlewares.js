@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Product, Color, Category, Brand, Image } = require('../database/models');
+const { Product, Color, Category, Brand, Image, User } = require('../database/models');
 
 const middlewares = {
     middleware404(req, res, next) {
@@ -30,21 +30,29 @@ const middlewares = {
         next();
     },
 
-    rememberMiddleware(req, res, next) {
-
+    rememberMiddleware: async (req, res, next) => {
         if (req.cookies.email) {
-            const userModel = require('../models/user');
-
-            const userFromCookies = userModel.findByEmail(req.cookies.email);
-
-            delete userFromCookies.id;
-            delete userFromCookies.password;
-
-            req.session.user = userFromCookies;
+            try {
+                const userFromCookies = await User.findOne({
+                    where: {
+                        email: req.cookies.email
+                    }
+                });
+    
+                if (userFromCookies) {
+                    delete userFromCookies.id;
+                    delete userFromCookies.password;
+    
+                    req.session.user = userFromCookies;
+                }
+            } catch (error) {
+                console.error(error);
+            }
         }
-
+    
         next();
     },
+    
 
     async header(req, res, next) {
         try {

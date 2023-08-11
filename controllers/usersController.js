@@ -15,16 +15,18 @@ const usersController = {
     createUser: async (req, res) => {
         const selectedBrand = req.cookies.selectedBrand;
         const user = { name, lastName, email, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
-        user.password = bcrypt.hashSync(user.password, 12);
-        delete user.confirmPassword;
-
+    
         try {
+            // Hashear la contraseña de manera asíncrona
+            user.password = await bcrypt.hash(user.password, 12);
+            delete user.confirmPassword;
+            console.log('ESTE ES EL PASSWORD HASHEADO' + user.password);
             let userDataBase = await User.findOne({
                 where: {
                     email: user.email,
                 }
-            })
-
+            });
+    
             if (userDataBase) {
                 return res.render('register', {
                     title: '| Registrarse',
@@ -35,48 +37,27 @@ const usersController = {
                             msg: 'El email ya está registrado'
                         }
                     }
-                })
-            }
-
-            /* if (userValidation.errors.length > 0) {
-                return res.render('register', {
-                    title: '| Registrarse',
-                    selectedBrand,
-                    errors: userValidation.mapped(),
-                    oldData: user,
                 });
-            } */
-
+            }
+    
             const newUser = await User.create({
                 id: uuidv4(),
-                name,
-                lastName,
-                email,
-                password,
-                dni,
-                street,
-                number,
-                floor,
-                door,
-                postalCode,
-                province,
-                city,
-                telephone
+                ...user,
+                password: user.password,
             });
-
+    
             req.session.user = {
                 id: newUser.id,
                 name: newUser.name,
                 email: newUser.email
             };
-
+    
             res.redirect('/user/profile');
         } catch (error) {
             console.log(error);
         }
-
-
     },
+    
 
     getProfile(req, res) {
         const user = req.session.user;
@@ -108,6 +89,7 @@ const usersController = {
                     email: req.body.email
                 }
             });
+            console.log('ESTE ES EL USUARIO RECUPERADO POR MAIL' + JSON.stringify(searchedUser, null, 2))
 
             if (!searchedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
