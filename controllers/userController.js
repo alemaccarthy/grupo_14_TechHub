@@ -59,8 +59,8 @@ const userController = {
     
 
     getProfile(req, res) {
-        const user = req.session.user;
-        res.render('my-profile', { title: `| Nombre del usuario`, user })
+        const loggedUser = req.session.user;
+        res.render('profile', { title: `| Nombre del usuario`, loggedUser })
     },
 
     postPicture(req, res) {
@@ -111,7 +111,7 @@ const userController = {
 
                 console.log('ESTE ES UN USUARIO LOGUEADO' + JSON.stringify(loggedUser, null, 2));
 
-                return res.render('my-profile', { title: '| Perfil del Usuario', loggedUser });
+                return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }

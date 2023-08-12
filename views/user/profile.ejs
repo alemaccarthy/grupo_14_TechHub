@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/my-profile.css">
+  <link rel="stylesheet" href="/css/styles-profile.css">
   <link rel="stylesheet" href="/css/styles-header.css">
   
 </head>
@@ -51,7 +51,7 @@
     </div>
     <section class="form-popup" id="myForm">
         <section class="form-container" >
-            <form action="/user/my-profile?_method=put" method="post" enctype="multipart/form-data">
+            <form action="/user/profile?_method=put" method="post" enctype="multipart/form-data">
                 <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
                 <h1>Editar foto de perfil</h1>
                 <img class="editing-picture" src="<%= loggedUser.profile_picture %>" alt="">
@@ -60,7 +60,7 @@
                 
                 <input type="submit" class="btn" name="updatePic" value="Actualizar">
             </form>
-            <form action="/user/my-profile?_method=delete" method="post" enctype="multipart/form-data">
+            <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
             <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
             </form>
         </section>
