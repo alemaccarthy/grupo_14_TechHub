@@ -24,7 +24,7 @@ const productControllers = {
                 }
 
             });
-
+            console.log('ACA ESTAN LOS PRODUCTOS', JSON.stringify(products, null, 2))
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
 
