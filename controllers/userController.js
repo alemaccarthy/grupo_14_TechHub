@@ -15,7 +15,7 @@ const userController = {
     createUser: async (req, res) => {
         const selectedBrand = req.cookies.selectedBrand;
         const user = { name, lastName, email, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
-    
+        console.log('ESTE ES EL USUARIO QUE SE CREA ' + JSON.stringify(user, null, 2));
         try {
             // Hashear la contraseña de manera asíncrona
             user.password = await bcrypt.hash(user.password, 12);
