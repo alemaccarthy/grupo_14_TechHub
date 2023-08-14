@@ -1,4 +1,4 @@
-const { Product, Color, Category, Brand, Image } = require('../database/models');
+const { Product, Color, Category, Brand, Image, ProductColor} = require('../database/models');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 
@@ -118,11 +118,30 @@ const productControllers = {
                 brand_id,
                 category_id,
             });
+            const selectedColors = req.body.colors || [];
+            // Buscar los modelos de colores correspondientes a los nombres seleccionados
+            const colorModels = await Color.findAll({
+                where: {
+                    color: {
+                        [Op.in]: selectedColors,
+                    },
+                },
+            });
+            console.log('ESTOS SON LOS COLORES SELECCIONADOS ' + JSON.stringify(colorModels, null, 2));
 
-            const selectedColors = req.body.colors || []; // req.body.colors estaria siendo array de los nombres de los colores seleccionados
+            // Obtener los IDs de los colores
+            const colorIds = colorModels.map(color => color.id);
+            console.log('ESTOS SON LOS ID DE COLORES SELECCIONADOS ' + colorIds);
 
-            // Guarda los nombres de los colores seleccionados 
-            await newProduct.update({ colors: selectedColors });
+            await Promise.all(colorIds.map(colorId => {
+                return ProductColor.create({
+                    product_id: newProduct.id,
+                    color_id: colorId,
+                });
+            }));
+
+            // Agregar los colores a la tabla relacional
+            //await newProduct.setColors(colorIds);
             const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             await Image.bulkCreate(imagesArray);
@@ -197,7 +216,7 @@ const productControllers = {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-                } 
+                }
             });
             const brandName = product.brand.name.toLowerCase();
             if (!product) {

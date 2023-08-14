@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
                     model: 'products',
                     key: 'id',
                 },
+                primaryKey: true,
             },
             color_id: {
                 type: DataTypes.INTEGER,
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
                     model: 'colors',
                     key: 'id',
                 },
+                primaryKey: true,
             },
         },
         {
