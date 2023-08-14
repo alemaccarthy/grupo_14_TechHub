@@ -296,6 +296,71 @@ footer.footer {
     background-color: #ebebeb;
 }
 
+.pick-colors {
+    margin-bottom: 20px;
+}
+
+.color-checkboxes {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los círculos con el contenido */
+    gap: 10px;
+    ;
+}
+
+.color-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-bottom: 5px; /* Espacio entre los círculos */
+    cursor: pointer;
+    transition: border-color 0.3s; /* Agrega una transición al cambio de color del borde */
+}
+
+.color-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.color-circle-black {
+    background-color: black;
+}
+
+.color-circle-white {
+    background-color: white;
+}
+
+.color-circle-gold {
+    background-color: gold;
+}
+
+.color-circle-silver {
+    background-color: grey;
+}
+
+.color-circle-red {
+    background-color: red;
+}
+
+.color-circle-green {
+    background-color: green;
+}
+
+.color-circle-purple {
+    background-color: purple;
+}
+
+.color-circle-cream {
+    background-color: khaki;
+}
+
+.color-name {
+    margin-left: 5px;
+}
+
 @media (width >=576px) {
     .products-container {
         grid-template-columns: repeat(4, 1fr);
