@@ -43,6 +43,11 @@ const productControllers = {
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
                     { model: Image, as: 'images' },
+                    {
+                        model: Color, // No es necesario incluir 'as: colors' aquí
+                        through: { attributes: [] }, // Para excluir las columnas de la tabla intermedia
+                        as: 'colors'
+                    }
 
                 ],
                 where: {
@@ -52,6 +57,7 @@ const productControllers = {
 
                 }
             });
+            console.log('ESTE ES EL PRODUCTO DETAIL', JSON.stringify(product, null, 2));
 
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
