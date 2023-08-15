@@ -129,7 +129,24 @@ const userController = {
         res.clearCookie('email');
 
         res.redirect('/user/login');
+    },
+
+    deleteProfile: async (req, res) => {
+        if (req.body.deleteProfile === 'true') {
+            try {
+                await User.destroy({
+                    where: {
+                        id: req.session.user.id
+                    }
+                });
+                return res.redirect('/');
+            } catch (error) {
+                console.error(error);
+                return res.status(500).send('Error al eliminar el perfil');
+            }
+        }
     }
+    
 }
 
 

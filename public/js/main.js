@@ -354,6 +354,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function confirmDeleteProfile() {
+    if (confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.')) {
+        document.getElementById('deleteProfileForm').submit();
+    }
+}
+
+
 
 
 

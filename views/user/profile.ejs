@@ -63,9 +63,17 @@
             <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
             <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
             </form>
+            <a href="/user/update-profile" class="btn edit">Modifica tu Perfil</a>
+            <form action="/user/profile?_method=delete" method="post" id="deleteProfileForm">
+              <input type="hidden" name="deleteProfile" value="true">
+              <button type="button" class="btn delete" onclick="confirmDeleteProfile()">Eliminar Perfil</button>
+          </form>
+          
+          
         </section>
     </section>
 </main> 
 <%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
 </body>
 </html>

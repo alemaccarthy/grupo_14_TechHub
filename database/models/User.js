@@ -67,7 +67,6 @@ module.exports = (sequelize, dataType) => {
 
     const config = {
         tableName: 'users',
-        paranoid: true
     };
 
     const User = sequelize.define(alias, cols, config);
