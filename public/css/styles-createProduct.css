@@ -122,7 +122,7 @@ select#category{
     align-items: center;
 }
 
-.form-container-create div:nth-last-of-type(2) label {
+.form-container-create > form > div:nth-last-of-type(2) label {
     width: 100%;
     padding: 60px 0;
     border: dashed 1px #888;

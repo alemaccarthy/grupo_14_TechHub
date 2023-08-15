@@ -230,6 +230,7 @@ body {
     width: 7vw;
     height: 7vw;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .color-s23-green {
