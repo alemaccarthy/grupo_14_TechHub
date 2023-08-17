@@ -134,7 +134,7 @@ const userController = {
     deleteProfile: async (req, res) => {
         console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));  
             try {
-                const userId = req.session.user.id;
+                const userId = loggedUser.id;
                  
                 await User.destroy({
                     where: {
