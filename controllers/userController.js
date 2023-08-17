@@ -132,12 +132,13 @@ const userController = {
     },
 
     deleteProfile: async (req, res) => {
-        if (req.body.deleteProfile === 'true') {
+        console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));  
             try {
-                console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));   
+                const userId = req.session.user.id;
+                 
                 await User.destroy({
                     where: {
-                        id: req.session.user.id
+                        id: userId
                     }
                 });
                 return res.redirect('/');
@@ -145,7 +146,7 @@ const userController = {
                 console.error(error);
                 return res.status(500).send('Error al eliminar el perfil');
             }
-        }
+        
     }
     
 }

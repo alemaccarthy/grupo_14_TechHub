@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function confirmDeleteProfile() {
+/*function confirmDeleteProfile() {
     if (confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.')) {
         const deleteForm = document.getElementById('deleteProfileForm');
         const deleteProfile = document.getElementById('deleteProfile');
@@ -363,7 +363,7 @@ function confirmDeleteProfile() {
         deleteForm.method = 'post';
         deleteForm.submit();
     }
-}
+}*/
 
 
 

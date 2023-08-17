@@ -34,6 +34,9 @@ usersRoutes.get('/login', middlewares.guestMiddleware, userController.getLogin);
 // @POST /login
 usersRoutes.post('/login', validations.loginValidations, userController.loginUser);
 
+// @GET /user/sign-out
+usersRoutes.get('/sign-out', userController.logOut);
+
 // @GET /user/profile
 usersRoutes.get('/profile', middlewares.authMiddleware, userController.getProfile);
 // usersRoutes.get('/profile', usersController.getMyProfile);
@@ -42,10 +45,11 @@ usersRoutes.get('/profile', middlewares.authMiddleware, userController.getProfil
 usersRoutes.post('/profile', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
 
 // @DELETE /user/profile
-usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ userController.deletePicture); //VA EL MIDDLEWARE?
+// usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ userController.deletePicture); //VA EL MIDDLEWARE?
 
-// @GET /user/sign-out
-usersRoutes.get('/sign-out', userController.logOut);
+// @DELETE /user/profile
+usersRoutes.delete('/profile/delete', userController.deleteProfile);
+
 
 module.exports = usersRoutes;
 
