@@ -60,7 +60,7 @@
       <form action="/user/profile?_method=delete" method="post" id="deleteProfileForm">
         <input type="hidden" name="deleteProfile" id="deleteProfile" value="true">
         <input type="hidden" name="userId" value="<%= loggedUser.id %>">
-        <button type="button" class="btn delete" onclick="confirmDeleteProfile()">Eliminar Perfil</button>
+        <button type="button" class="btn delete">Eliminar Perfil</button>
       </form>
       <section class="form-popup" id="myForm">
         <section class="form-container">
@@ -71,9 +71,6 @@
             <input type="file" name="profilePic">
 
             <input type="submit" class="btn" name="updatePic" value="Actualizar">
-          </form>
-          <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
-            <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
           </form>
         </section>
       </section>

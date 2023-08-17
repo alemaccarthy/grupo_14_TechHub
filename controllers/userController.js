@@ -108,10 +108,10 @@ const userController = {
 
                 delete loggedUser.password;
                 delete loggedUser.id;
-
+                req.session.loggedUser = loggedUser;
                 console.log('ESTE ES UN USUARIO LOGUEADO' + JSON.stringify(loggedUser, null, 2));
-
-                return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
+                return res.redirect('/user/profile');
+                //return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
