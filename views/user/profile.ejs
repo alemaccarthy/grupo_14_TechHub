@@ -55,9 +55,9 @@
         </ul>
       </div>
       <div class="update-button">
-        <button><a href="/user/update-profile">Edita tu perfil</a></button>
+        <button><a href="/user/update-profile/<%= loggedUser.id %>">Edita tu perfil</a></button>
       </div>
-      <form action="/user/profile/:nombre/:id/delete?_method=delete" method="post" id="deleteProfileForm">
+      <form action="/user/profile/:id/delete?_method=delete" method="post" id="deleteProfileForm">
         <input type="hidden" name="deleteProfile" id="deleteProfile" value="true">
         <input type="hidden" name="userId" value="<%= loggedUser.id %>">
         <button type="submit" class="btn delete">Eliminar Perfil</button>

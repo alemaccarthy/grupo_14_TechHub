@@ -156,9 +156,31 @@ const userController = {
             return res.status(500).send('Error al eliminar el perfil');
         }
 
-    }
+    },
 
-}
+    getUpdateProfile(req, res) {
+        const loggedUser = req.session.user;
+        res.render('update-profile', { title: `| Nombre del usuario`, loggedUser })
+    },
+
+    updateProfile: async (req, res) => {
+        const newValues = req.body;
+
+        try {
+            await User.update(newValues, {
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            res.redirect(`/user/update-profile/${newValues.name}${newValues.lastName}/${newValues.id}`);
+        } catch (error) {
+            res.send("no se pudo actualizar");
+            console.log(error);
+        };
+    },
+
+};
 
 
 module.exports = userController;
