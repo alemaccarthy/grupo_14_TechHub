@@ -44,6 +44,13 @@ usersRoutes.get('/profile', middlewares.authMiddleware, userController.getProfil
 // @POST /user/profile
 usersRoutes.post('/profile', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
 
+// @GET /user/:id/update
+productRoutes.get('/update', userController.getUpdateProduct);
+
+// @PUT /products/:id/update
+productRoutes.put('/:id/update', [upload.any('images'), validations.productsValidations], productController.updateProduct);
+
+
 // @DELETE /user/profile
 // usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ userController.deletePicture); //VA EL MIDDLEWARE?
 
