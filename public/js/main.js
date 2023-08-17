@@ -356,9 +356,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function confirmDeleteProfile() {
     if (confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.')) {
-        document.getElementById('deleteProfileForm').submit();
+        const deleteForm = document.getElementById('deleteProfileForm');
+        const deleteProfile = document.getElementById('deleteProfile');
+        deleteProfile.value = 'true';
+        deleteForm.action = '/user/profile?_method=delete';
+        deleteForm.method = 'post';
+        deleteForm.submit();
     }
 }
+
 
 
 

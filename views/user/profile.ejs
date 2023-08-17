@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/styles-profile.css">
-  <link rel="stylesheet" href="/css/styles-header.css">
-  
+  <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/styles-profile.css">
+    <link rel="stylesheet" href="/css/styles-header.css">
+
 </head>
+
 <body>
-    <%- include('../partials/header') %>
-  <main>
-    <button onclick="openForm()"><i class="fa-solid fa-pen-to-square"></i></button>
-    <div class="user-profile">
-      <div class="avatar">
-        <img src="foto.jpg" alt="Avatar del usuario">
+  <%- include('../partials/header') %>
+    <main>
+      <button onclick="openForm()"><i class="fa-solid fa-pen-to-square"></i></button>
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="foto.jpg" alt="Avatar del usuario">
+        </div>
+        <div class="user-details">
+          <h2>
+            <%= loggedUser.name %>
+          </h2>
+          <p>Email: <%= loggedUser.email %>
+          </p>
+        </div>
       </div>
-      <div class="user-details">
-        <h2><%= loggedUser.name %></h2>
-        <p>Email: <%= loggedUser.email %></p>
+      <div class="order-history">
+        <h2>Historial de Compras</h2>
+        <ul>
+          <li>
+            <div class="order-item">
+              <div class="order-image">
+                <img src="bla.jpg" alt="Producto 1">
+              </div>
+              <div class="order-details">
+                <p>Producto: Nombre del Producto 1</p>
+                <p>Fecha de Compra: 01/07/2023</p>
+                <p>Precio: $99.99</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="order-item">
+              <div class="order-image">
+                <img src="bla2.jpg" alt="Producto 2">
+              </div>
+              <div class="order-details">
+                <p>Producto: Nombre del Producto 2</p>
+                <p>Fecha de Compra: 15/06/2023</p>
+                <p>Precio: $49.99</p>
+              </div>
+            </div>
+          </li>
+          <!-- más elementos de historial de compras -->
+        </ul>
       </div>
-    </div>
-    <div class="order-history">
-      <h2>Historial de Compras</h2>
-      <ul>
-        <li>
-          <div class="order-item">
-            <div class="order-image">
-              <img src="bla.jpg" alt="Producto 1">
-            </div>
-            <div class="order-details">
-              <p>Producto: Nombre del Producto 1</p>
-              <p>Fecha de Compra: 01/07/2023</p>
-              <p>Precio: $99.99</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="order-item">
-            <div class="order-image">
-              <img src="bla2.jpg" alt="Producto 2">
-            </div>
-            <div class="order-details">
-              <p>Producto: Nombre del Producto 2</p>
-              <p>Fecha de Compra: 15/06/2023</p>
-              <p>Precio: $49.99</p>
-            </div>
-          </div>
-        </li>
-        <!-- más elementos de historial de compras -->
-      </ul>
-    </div>
-    <section class="form-popup" id="myForm">
-        <section class="form-container" >
-            <form action="/user/profile?_method=put" method="post" enctype="multipart/form-data">
-                <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
-                <h1>Editar foto de perfil</h1>
-                <img class="editing-picture" src="<%= loggedUser.profile_picture %>" alt="">
-                
-                <input type="file" name="profilePic">
-                
-                <input type="submit" class="btn" name="updatePic" value="Actualizar">
-            </form>
-            <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
-            <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
-            </form>
-            <a href="/user/update-profile" class="btn edit">Modifica tu Perfil</a>
-            <form action="/user/profile?_method=delete" method="post" id="deleteProfileForm">
-              <input type="hidden" name="deleteProfile" value="true">
-              <button type="button" class="btn delete" onclick="confirmDeleteProfile()">Eliminar Perfil</button>
+      <div class="update-button">
+        <button><a href="/user/update-profile">Edita tu perfil</a></button>
+      </div>
+      <form action="/user/profile?_method=delete" method="post" id="deleteProfileForm">
+        <input type="hidden" name="deleteProfile" id="deleteProfile" value="true">
+        <input type="hidden" name="userId" value="<%= loggedUser.id %>">
+        <button type="button" class="btn delete" onclick="confirmDeleteProfile()">Eliminar Perfil</button>
+      </form>
+      <section class="form-popup" id="myForm">
+        <section class="form-container">
+          <form action="/user/profile?_method=put" method="post" enctype="multipart/form-data">
+            <i class="fa-solid fa-xmark" onclick="closeForm()"></i>
+            <h1>Editar foto de perfil</h1>
+            <img class="editing-picture" src="<%= loggedUser.profile_picture %>" alt="">
+            <input type="file" name="profilePic">
+
+            <input type="submit" class="btn" name="updatePic" value="Actualizar">
           </form>
-          
-          
+          <form action="/user/profile?_method=delete" method="post" enctype="multipart/form-data">
+            <input type="submit" class="btn delete" name="deletePic" value="Eliminar">
+          </form>
         </section>
-    </section>
-</main> 
-<%- include('../partials/footer') %>
-<script src="/js/main.js"></script>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+      <script src="/js/main.js"></script>
 </body>
+
 </html>
