@@ -2,7 +2,7 @@
     <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
 
     <% if (locals.isLogged) { %>
-        <li><a href="/user/profile">Perfil <img class="nav-profile-pic" src="<%= locals.user.profile %>" alt=""></a></li>
+        <li><a href="/user/profile/<%= locals.user.name %>/<%= locals.user.id %>">Perfil <img class="nav-profile-pic" src="<%= locals.user.profile %>" alt=""></a></li>
         <li><form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form></li>
 
         <% }else{ %>

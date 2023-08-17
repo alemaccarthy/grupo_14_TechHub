@@ -25,7 +25,7 @@ const userController = {
                     email: user.email,
                 }
             });
-    
+
             if (userDataBase) {
                 return res.render('register', {
                     title: '| Registrarse',
@@ -38,25 +38,25 @@ const userController = {
                     }
                 });
             }
-    
+
             const newUser = await User.create({
                 id: uuidv4(),
                 ...user,
                 password: user.password,
             });
-    
+
             req.session.user = {
                 id: newUser.id,
                 name: newUser.name,
                 email: newUser.email
             };
-    
-            res.redirect('/user/profile');
+
+            res.redirect(`/user/profile/${newUser.name}/${newUser.id}`);
         } catch (error) {
             console.log(error);
         }
     },
-    
+
 
     getProfile(req, res) {
         const loggedUser = req.session.user;
@@ -81,7 +81,7 @@ const userController = {
         res.render('login', { title: '| Ingresa', error });
     },
 
-    loginUser : async (req, res) => {
+    loginUser: async (req, res) => {
         try {
             const loggedUser = await User.findOne({
                 where: {
@@ -104,19 +104,19 @@ const userController = {
                         name: loggedUser.name,
                         email: loggedUser.email
                     };
-                } 
+                }
 
                 delete loggedUser.password;
                 delete loggedUser.id;
                 req.session.loggedUser = loggedUser;
                 console.log('ESTE ES UN USUARIO LOGUEADO' + JSON.stringify(loggedUser, null, 2));
-                return res.redirect('/user/profile');
+                return res.redirect(`/user/profile/${loggedUser.name}${loggedUser.lastName}/${loggedUser.id}`);
                 //return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
         } catch (error) {
-            
+
             console.error(error);
             return res.status(500).send('Error en el servidor');
         }
@@ -132,23 +132,32 @@ const userController = {
     },
 
     deleteProfile: async (req, res) => {
-        console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));  
-            try {
-                const userId = loggedUser.id;
-                 
-                await User.destroy({
-                    where: {
-                        id: userId
-                    }
-                });
-                return res.redirect('/');
-            } catch (error) {
-                console.error(error);
-                return res.status(500).send('Error al eliminar el perfil');
-            }
-        
+        console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));
+        try {
+            const loggedUser = await User.findOne({
+                where: {
+                    email: req.session.user.email
+                }
+            });
+
+            await User.destroy({
+                where: {
+                    id: loggedUser.id
+                }
+            });
+            req.session.destroy();
+
+            return res.redirect('/');
+
+        } catch (error) {
+
+            console.error(error);
+
+            return res.status(500).send('Error al eliminar el perfil');
+        }
+
     }
-    
+
 }
 
 

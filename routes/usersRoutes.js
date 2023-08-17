@@ -38,24 +38,24 @@ usersRoutes.post('/login', validations.loginValidations, userController.loginUse
 usersRoutes.get('/sign-out', userController.logOut);
 
 // @GET /user/profile
-usersRoutes.get('/profile', middlewares.authMiddleware, userController.getProfile);
+usersRoutes.get('/profile/:nombre/:id', middlewares.authMiddleware, userController.getProfile);
 // usersRoutes.get('/profile', usersController.getMyProfile);
 
 // @POST /user/profile
-usersRoutes.post('/profile', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
+usersRoutes.post('/profile/:nombre/:id', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
 
 // @GET /user/:id/update
-productRoutes.get('/update', userController.getUpdateProduct);
+// usersRoutes.get('/update', userController.getUpdateProduct);
 
 // @PUT /products/:id/update
-productRoutes.put('/:id/update', [upload.any('images'), validations.productsValidations], productController.updateProduct);
+// usersRoutes.put('/:id/update', [upload.any('images'), validations.productsValidations], productController.updateProduct);
 
 
 // @DELETE /user/profile
 // usersRoutes.delete('/profile', /*[upload.single('profilePic') FALTA LA VALIDACION ],*/ userController.deletePicture); //VA EL MIDDLEWARE?
 
 // @DELETE /user/profile
-usersRoutes.delete('/profile/delete', userController.deleteProfile);
+usersRoutes.delete('/profile/:nombre/:id/delete', userController.deleteProfile);
 
 
 module.exports = usersRoutes;
