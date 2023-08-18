@@ -1,4 +1,4 @@
-const userModel = require('../models/user');
+/*const userModel = require('../models/user');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
@@ -63,7 +63,7 @@ const usersController = {
 
     deletePicture(req, res) {
         res.send('Respuesta provisoria'); //ARREGLAR
-        /* res.redirect('/user/profile'); */
+        res.redirect('/user/profile');
     },
 
     getLogin(req, res) {
@@ -113,3 +113,5 @@ const usersController = {
 
 
 module.exports = usersController;
+
+*/

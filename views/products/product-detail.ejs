@@ -44,12 +44,15 @@
                     </section>
  -->
                     <section class="pick-color-smartphone pick-color-s23">
-                        <% product.colors.forEach(color => { %>
-                            <span class="option-color-smartphone option-color-s23 <%= 'color-circle-' + color.color %>"></span>
-                            <h1><%= color.color %></h1>
+                        <% product.colors.forEach(color=> { %>
+                            <span
+                                class="option-color-smartphone option-color-s23 <%= 'color-circle-' + color.color %>"></span>
+                            <h1>
+                                <%= color.color %>
+                            </h1>
                             <% }); %>
                     </section>
-                    
+
                     <p class="product-info">
                         <%= product.description %>
                     </p>
@@ -59,9 +62,10 @@
                 <a href="/user/complete-purchase" class="button-link">
                     <button class="buy-button">Comprar ahora</button>
                 </a>
-                <a href="" class="button-link">
-                    <button class="addToCart-button">Agregar al carrito</button>
-                </a>
+                <form id="addToCartForm" action="/user/add-to-cart/<%= product.id %>" method="POST">
+                    <button type="submit" class="addToCart-button" data-product-id="<%= product.id %>">Agregar al carrito</button>
+                </form>
+                
             </section>
 
         </main>

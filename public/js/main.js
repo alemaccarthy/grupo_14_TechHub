@@ -354,6 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+/// VER COMO IMPLEMENTARLO PARA QUE EL DELETEPROFILE SE EJECUTE LUEGO DE ESTO
 /*function confirmDeleteProfile() {
     if (confirm('¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.')) {
         const deleteForm = document.getElementById('deleteProfileForm');
@@ -364,6 +365,121 @@ document.addEventListener('DOMContentLoaded', function () {
         deleteForm.submit();
     }
 }*/
+
+
+/*document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButton = document.querySelector('.addToCart-button');
+
+    addToCartButton.addEventListener('click', async function () {
+        const productId = addToCartButton.getAttribute('data-product-id');
+        console.log('ESTE ES EL ID DEL PRODUCTO AL CARRITO' + productId);
+        try {
+            const response = await fetch(`/user/add-to-cart/${productId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al agregar al carrito');
+            }
+
+            const data = await response.json();
+            updateCartModal(data.cartItemCount);
+
+            // Obtener los detalles del producto agregado
+            const product = data.addedProduct;
+            addProductToCartView(product);
+        } catch (error) {
+            console.error('Error al agregar al carrito:', error);
+        }
+    });
+
+    function updateCartModal(itemCount) {
+        const cartItemCountElement = document.querySelector('.cart-item-count');
+        if (cartItemCountElement) {
+            cartItemCountElement.textContent = itemCount;
+        }
+    }
+
+    function addProductToCartView(product) {
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const itemHTML = `
+            <article class="item">
+                <img src="${product.images[0].path}" alt="">
+                <div class="item-details">
+                    <span class="item-title">${product.description}</span>
+                    <div class="select-quantity">
+                        <!-- Agregar los botones de cantidad aquí -->
+                        <span class="item-price">$ ${product.price}<button class="no-border"><i class="fa-regular fa-trash-can remove-item"></i></button></span>
+                    </div>
+                </div>
+            </article>
+        `;
+        cartItemsContainer.innerHTML += itemHTML;
+    }*/
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButton = document.querySelector('.addToCart-button');
+
+        addToCartButton.addEventListener('click', async function () {
+            
+            const productId = addToCartButton.dataset.productId;
+            console.log('ESTE ES EL ID DEL PRODUCTO AL CARRITO: ' + productId);
+
+            try {
+                const response = await fetch(`/user/add-to-cart/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al agregar al carrito');
+                }
+
+                const data = await response.json();
+                updateCartModal(data.cartItemCount);
+
+                // Obtener los detalles del producto agregado
+                const product = data.addedProduct;
+                addProductToCartView(product);
+            } catch (error) {
+                console.error('Error al agregar al carrito:', error);
+            }
+        });
+
+        /*function updateCartModal(itemCount) {
+            const cartItemCountElement = document.querySelector('.cart-item-count');
+            if (cartItemCountElement) {
+                cartItemCountElement.textContent = itemCount;
+            }
+        }
+    
+        function addProductToCartView(product) {
+            // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
+        }*/
+    });
+
+
+    /*function updateCartModal(itemCount) {
+        const cartItemCountElement = document.querySelector('.cart-item-count');
+        if (cartItemCountElement) {
+            cartItemCountElement.textContent = itemCount;
+        }
+    }
+ 
+    function addProductToCartView(product) {
+        // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
+    }*/
+
+
+
+
+
 
 
 
