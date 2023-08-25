@@ -476,7 +476,28 @@ document.addEventListener('DOMContentLoaded', function () {
         // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
     }*/
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    const imageInput = document.getElementById("profile-image");
+    const previewImage = document.getElementById("preview-image");
+  
+    imageInput.addEventListener("change", function () {
+      const selectedFile = imageInput.files[0];
+  
+      if (selectedFile) {
+        previewImage.style.display = "block";
+        previewImage.src = URL.createObjectURL(selectedFile);
+      } else {
+        previewImage.style.display = "none";
+        previewImage.src = "#";
+      }
+    });
+  
+    const profileForm = document.getElementById("profile-form");
+    profileForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      // Aquí puedes agregar la lógica para enviar el formulario si es necesario
+    });
+  });
 
 
 

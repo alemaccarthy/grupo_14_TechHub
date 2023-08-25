@@ -37,6 +37,12 @@ body {
 
 }
 
+.register-container h3 {
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+}
+
 .register-container .register-button {
     font-family: "roboto";
     background-color: #164194;
@@ -72,7 +78,24 @@ body {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////      USER DATA     //////////////////////////////////////////////////////// */
 
+#preview-container {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url('/imgs/profile-images/no-image-profile.jpg');
+    background-size: contain;
+}
 
+input#profile-image{
+    display: none;
+}
+
+#preview-container img{
+    height: 100%;
+    cursor: pointer;
+  }
 
 .user-data {
     width: 100%;
@@ -215,7 +238,9 @@ input[type="email"] {
 }
 
 @media screen and (min-width: 481px) {
-
+    .avatar img{
+        width: 140px;
+    }
 
     section.sub-title {
         padding: 27px 11px 0;
