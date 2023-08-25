@@ -1,8 +1,8 @@
 <div>
-    <input type="text" class="<%= locals.errors && errors.title ? 'is-invalid' : null %>" name="title" id="name"
+    <input id="title" type="text" class="<%= locals.errors && errors.title ? 'is-invalid' : null %>" name="title" id="name"
         placeholder="Nombre del producto" value="<%= product ? product.title : null %>">
 
-    <select name="brand_id" id="brand" class="<%= locals.errors && errors.brand_id ? 'is-invalid' : null%>">
+    <select id= "brand" name="brand_id" id="brand" class="<%= locals.errors && errors.brand_id ? 'is-invalid' : null%>">
         <option value="" disabled>Marca</option>
         <option value="">Marca</option>
         <option value="apple" <% if (product && product.brand_id===1) { %> selected <% } %>>Apple</option>
@@ -23,7 +23,7 @@
                 <% } %>
 </div>
 <div>
-    <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' : null%>"
+    <textarea id = "description" name ="description" class="<%= locals.errors && errors.description ? 'is-invalid' : null%>"
         id="description" cols="30" rows="10" placeholder="Descripción del producto"><%if(product){%>
 <%= product.description %>
 <% } %>
@@ -36,7 +36,7 @@
 </div>
 <div>
     <div class="form-grandson">
-        <select name="currency" id="currency" class="<%= locals.errors && errors.currency ? 'is-invalid' : null%>">
+        <select id = "currency" name="currency" id="currency" class="<%= locals.errors && errors.currency ? 'is-invalid' : null%>">
             <option value="ARS">ARS</option>
         </select>
         <% if (locals.errors && errors.currency) { %>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="form-grandson">
-        <select name="category_id" id="category"
+        <select id = "category" name="category_id" id="category"
             class="<%= locals.errors && errors.category_id ? 'is-invalid' : null%>">
             <option value="" disabled>Categoría</option>
             <option value="">Categoría</option>
@@ -97,7 +97,7 @@
             <p>Arrástralo hasta aquí</p>
         </div>
     </label>
-    <input type="file" name="images" id="images" accept="image/*" multiple>
+    <input id ="images" type="file" name="images" id="images" accept="image/*" multiple>
     <% if (locals.errors && errors.images) { %>
         <div class="text-danger">
             <%= errors.images.msg %>
