@@ -421,49 +421,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }*/
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const addToCartButton = document.querySelector('.addToCart-button');
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButton = document.querySelector('.addToCart-button');
 
-        addToCartButton.addEventListener('click', async function () {
-            
-            const productId = addToCartButton.dataset.productId;
-            console.log('ESTE ES EL ID DEL PRODUCTO AL CARRITO: ' + productId);
+    addToCartButton.addEventListener('click', async function () {
 
-            try {
-                const response = await fetch(`/user/add-to-cart/${productId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
+        const productId = addToCartButton.dataset.productId;
+        console.log('ESTE ES EL ID DEL PRODUCTO AL CARRITO: ' + productId);
 
-                if (!response.ok) {
-                    throw new Error('Error al agregar al carrito');
+        try {
+            const response = await fetch(`/user/add-to-cart/${productId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 }
+            });
 
-                const data = await response.json();
-                updateCartModal(data.cartItemCount);
-
-                // Obtener los detalles del producto agregado
-                const product = data.addedProduct;
-                addProductToCartView(product);
-            } catch (error) {
-                console.error('Error al agregar al carrito:', error);
+            if (!response.ok) {
+                throw new Error('Error al agregar al carrito');
             }
-        });
 
-        /*function updateCartModal(itemCount) {
-            const cartItemCountElement = document.querySelector('.cart-item-count');
-            if (cartItemCountElement) {
-                cartItemCountElement.textContent = itemCount;
-            }
+            const data = await response.json();
+            updateCartModal(data.cartItemCount);
+
+            // Obtener los detalles del producto agregado
+            const product = data.addedProduct;
+            addProductToCartView(product);
+        } catch (error) {
+            console.error('Error al agregar al carrito:', error);
         }
-    
-        function addProductToCartView(product) {
-            // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
-        }*/
     });
-
 
     /*function updateCartModal(itemCount) {
         const cartItemCountElement = document.querySelector('.cart-item-count');
@@ -475,31 +462,44 @@ document.addEventListener('DOMContentLoaded', function () {
     function addProductToCartView(product) {
         // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
     }*/
+});
+
+
+/*function updateCartModal(itemCount) {
+    const cartItemCountElement = document.querySelector('.cart-item-count');
+    if (cartItemCountElement) {
+        cartItemCountElement.textContent = itemCount;
+    }
+}
+ 
+function addProductToCartView(product) {
+    // Aquí puedes agregar el código para mostrar el producto en la ventana modal del carrito
+}*/
 
 document.addEventListener("DOMContentLoaded", function () {
     const imageInput = document.getElementById("profile-image");
     const previewImage = document.getElementById("preview-image");
-  
+
     imageInput.addEventListener("change", function () {
-      const selectedFile = imageInput.files[0];
-  
-      if (selectedFile) {
-        previewImage.style.display = "block";
-        previewImage.src = URL.createObjectURL(selectedFile);
-      } else {
-        previewImage.style.display = "none";
-        previewImage.src = "#";
-      }
+        const selectedFile = imageInput.files[0];
+
+        if (selectedFile) {
+            previewImage.style.display = "block";
+            previewImage.src = URL.createObjectURL(selectedFile);
+        } else {
+            previewImage.style.display = "none";
+            previewImage.src = "#";
+        }
     });
-  
+
     const profileForm = document.getElementById("profile-form");
     profileForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      // Aquí puedes agregar la lógica para enviar el formulario si es necesario
+        event.preventDefault();
+        // Aquí puedes agregar la lógica para enviar el formulario si es necesario
     });
-  });
+});
 
-  window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', function () {
     const title = document.querySelector('#title');
     const brand = document.querySelector('#brand');
     const description = document.querySelector('#description');
@@ -509,15 +509,76 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelector('#images');
     const colors = document.getElementsByClassName('color-label');
 
-    let errors = [];
 
     title.onchange = (e) => {
-        length = e.target.value.length;
+        const length = e.target.value.length;
         if (length === 0) {
-            errors.push({field:'title', msg: 'El titulo debe tener al menos 5 caracteres'});
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar un titulo al producto';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
         }
     }
 
+    brand.onchange = (e) => {
+        let brandValue = e.target.value;
+        if (brandValue === 'apple' || brandValue === 'samsung') {
+            e.target.nextElementSibling.innerHTML = '';
+        } else {
+            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una marca';
+        }
+    }
+
+    description.onchange = (e) => {
+        const length = e.target.value.length;
+        if (length === 0) {
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar una descripción al producto';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+        }
+    }
+
+    currency.onchange = (e) => {
+        let currencyValue = e.target.value;
+        if (currencyValue === 'ARS') {
+            e.target.nextElementSibling.innerHTML = '';
+        } else {
+            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una moneda';
+        }
+    }
+
+    price.onchange = (e) => {
+        let priceValue = e.target.value;
+        if (priceValue < 0) {
+            e.target.nextElementSibling.innerHTML = 'El precio debe ser mayor a 0';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+        }
+    }
+
+    category.onchange = (e) => {
+        let categoryValue = e.target.value;
+        if (categoryValue === 'smartphone' || categoryValue === 'smartwatch' || categoryValue === 'tablet') {
+            e.target.nextElementSibling.innerHTML = '';
+        } else {
+            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una categoria';
+        }
+    }
+
+    images.onchange = (e) => {
+        if (e.target.files.length === 0) {
+            e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
+        }
+    }
+
+    for (let i = 0; i < colors.length; i++) {
+        colors[i].onchange = (e) => {
+            if (e.target.checked) {
+                e.target.nextElementSibling.innerHTML = '';
+            } else {
+                e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos un color';
+            }
+        }
+    }
 })
 
 

@@ -37,16 +37,16 @@
     transition: 0.5s;
 }
 
-div:first-of-type{
+div:first-of-type {
     display: flex;
     justify-content: space-between;
 }
 
-input#name{
+input#name {
     width: 60%;
 }
 
-div:first-of-type select{
+div:first-of-type select {
     width: 35%;
 }
 
@@ -81,48 +81,48 @@ select option:nth-child(2) {
 
 .form-container-create input:hover,
 .form-container-create textarea:hover,
-.form-container-create select:hover{
+.form-container-create select:hover {
     border: 1px solid #164194;
 }
 
-.form-container-create form > div:nth-child(4){
+.form-container-create form>div:nth-child(4) {
     display: grid;
     grid-template: 1fr / 1.3fr 1fr;
     justify-content: space-between;
     margin: 0 auto;
 }
 
-.form-grandson:first-child{
+.form-grandson:first-child {
     display: flex;
     max-width: 245px;
 }
 
-.form-grandson:first-child select{
+.form-grandson:first-child select {
     padding: 0;
 }
 
-.form-grandson:first-child input{
+.form-grandson:first-child input {
     margin: 0 10px 0 5px;
 }
 
-.form-grandson:first-child input{
+.form-grandson:first-child input {
     flex-grow: 1;
 }
 
-select#category{
+select#category {
     padding-left: 0;
     padding-right: 0;
     width: 100%;
 }
 
-.form-container-create form > div:nth-child(6) {
+.form-container-create form>div:nth-child(6) {
     display: flex;
     justify-content: space-between;
     flex-flow: column wrap;
     align-items: center;
 }
 
-.form-container-create > form > div:nth-last-of-type(2) label {
+.form-container-create>form>div:nth-last-of-type(2) label {
     width: 100%;
     padding: 60px 0;
     border: dashed 1px #888;
@@ -131,27 +131,27 @@ select#category{
     transition: 0.5s;
 }
 
-.form-container-create div:nth-last-of-type(2) label:hover{
+.form-container-create div:nth-last-of-type(2) label:hover {
     border: dashed 1.5px #164194;
 
 }
 
-.form-container-create form > div > h3{
+.form-container-create form>div>h3 {
     font-weight: 400;
     font-size: 16px;
     margin: 10px 0;
 }
 
-.form-container-create div:last-of-type label{
+.form-container-create div:last-of-type label {
     font-size: 14px;
 }
 
-.form-container-create form > div:nth-child(6) p{
+.form-container-create form>div:nth-child(6) p {
     font-size: 13px;
 }
 
-.form-container-create form > div:nth-child(6) p:first-child,
-.form-container-create form > div:nth-child(6) p:last-child{
+.form-container-create form>div:nth-child(6) p:first-child,
+.form-container-create form>div:nth-child(6) p:last-child {
     width: 40%;
     max-width: 170px;
 }
@@ -178,7 +178,7 @@ select#category{
     color: #164194;
 }
 
-.form-container-create form > div:last-of-type div{
+.form-container-create form>div:last-of-type div {
     width: 90%;
     max-width: 320px;
     margin: 30px auto;
@@ -193,7 +193,8 @@ select#category{
 
 .color-checkboxes {
     display: flex;
-    align-items: center; /* Alinea verticalmente los círculos con el contenido */
+    align-items: center;
+    /* Alinea verticalmente los círculos con el contenido */
     gap: 10px;
     ;
 }
@@ -204,9 +205,11 @@ select#category{
     height: 30px;
     border-radius: 50%;
     border: 1px solid #ccc;
-    margin-bottom: 5px; /* Espacio entre los círculos */
+    margin-bottom: 5px;
+    /* Espacio entre los círculos */
     cursor: pointer;
-    transition: border-color 0.3s; /* Agrega una transición al cambio de color del borde */
+    transition: border-color 0.3s;
+    /* Agrega una transición al cambio de color del borde */
 }
 
 .color-label {
@@ -267,17 +270,18 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 
 input[type="color"]::-webkit-color-swatch {
     border: none;
-    border-radius: 50%; /* Para hacerlo redondo */
-  }
+    border-radius: 50%;
+    /* Para hacerlo redondo */
+}
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
 
 .buttons input,
-.form-delete input{
+.form-delete input {
     background-color: #666;
     color: #fff;
     padding: 7px;
@@ -286,27 +290,27 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .buttons input:hover,
-.form-delete input:hover{
+.form-delete input:hover {
     background-color: #164194;
 }
 
-.buttons input[value="Crear producto"]{
+.buttons input[value="Crear producto"] {
     margin-right: 15px;
 }
 
-form.form-delete{
+form.form-delete {
     margin: 0 auto 20px;
     display: flex;
     justify-content: flex-end;
 }
 
-.text-danger-container{
+.text-danger-container {
     display: flex;
     justify-content: space-around;
     margin: 0 !important;
 }
 
-.text-danger{
+.text-danger {
     color: red;
     margin: 0 !important;
 }
@@ -315,27 +319,40 @@ form.form-delete{
     border: 1px solid red !important;
 }
 
-footer{
+footer {
     background-color: #ebebeb;
 }
 
-  @media(width >= 481px){
-    .form-container-create form > div > h3{
+@media(width >=481px) {
+    .form-container-create form>div>h3 {
         font-size: 18px;
     }
-    .form-container-create form > div:nth-child(6) p{
+
+    .form-container-create form>div:nth-child(6) p {
         font-size: 15px;
     }
-    .form-container-create div:last-of-type label{
+
+    .form-container-create div:last-of-type label {
         font-size: 16px;
     }
+
     .form-container-create h1 {
         font-size: 24px;
     }
+
     .buttons input,
-    .form-delete input{
+    .form-delete input {
         font-size: 15px;
         padding: 5px 7px;
         min-width: 148px;
     }
-  }
+}
+
+#error {
+    color: red;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
