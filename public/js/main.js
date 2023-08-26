@@ -499,7 +499,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  window.addEventListener('DOMContentLoaded', function () {
+    const title = document.querySelector('#title');
+    const brand = document.querySelector('#brand');
+    const description = document.querySelector('#description');
+    const currency = document.querySelector('#currency');
+    const price = document.querySelector('#price');
+    const category = document.querySelector('#category');
+    const images = document.querySelector('#images');
+    const colors = document.getElementsByClassName('color-label');
 
+    let errors = [];
+
+    title.onchange = (e) => {
+        length = e.target.value.length;
+        if (length === 0) {
+            errors.push({field:'title', msg: 'El titulo debe tener al menos 5 caracteres'});
+        }
+    }
+
+})
 
 
 
