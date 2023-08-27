@@ -20,11 +20,9 @@ const productControllers = {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-
-                }
-
+                }            
             });
-            console.log('ACA ESTAN LOS PRODUCTOS', JSON.stringify(products, null, 2))
+    
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
 
@@ -44,11 +42,10 @@ const productControllers = {
                     { model: Category, as: 'category' },
                     { model: Image, as: 'images' },
                     {
-                        model: Color, // No es necesario incluir 'as: colors' aquí
+                        model: Color,
                         through: { attributes: [] }, // Para excluir las columnas de la tabla intermedia
                         as: 'colors'
                     }
-
                 ],
                 where: {
                     deletedAt: {
@@ -57,8 +54,7 @@ const productControllers = {
 
                 }
             });
-            console.log('ESTE ES EL PRODUCTO DETAIL', JSON.stringify(product, null, 2));
-
+    
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }
@@ -80,7 +76,6 @@ const productControllers = {
             console.log(error);
         }
     },
-
 
     createProduct: async (req, res) => {
         const product = { title, description, currency, images, color_quantity } = req.body;

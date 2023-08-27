@@ -26,12 +26,8 @@
 </div>
 <div>
     <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' : null%>"
-        id="description" cols="30" rows="10"
-        <% if (product && product.description) { %>
-            value="<%= product.description %>"
-        <% } %>
-        placeholder="Descripción del producto">
-    </textarea>
+        id="description" cols="30" rows="10" placeholder="Descripción del producto"><%= product ? product.description : '' %></textarea>
+    
     
     <p id="error"></p>
     <% if (locals.errors && errors.description) { %>
@@ -118,86 +114,26 @@
 
 </div>
 
-<div class="pick-colors <%= locals.errors && errors.colors ? 'is-invalid' : null%>">
+<div class="pick-colors <%= locals.errors && errors.colors ? 'is-invalid' : null %>">
     <h3>Agrega colores</h3>
     <div class="color-checkboxes">
         <div class="colors-box">
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="black" <% if (product && product.colors &&
-                    product.colors.includes("black")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle black"></label>
-                    <span class="color-name">Black</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="white" <% if (product && product.colors &&
-                    product.colors.includes("white")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle white"></label>
-                    <span class="color-name">White</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="red" <% if (product && product.colors &&
-                    product.colors.includes("red")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle red"></label>
-                    <span class="color-name">Red</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="gold" <% if (product && product.colors &&
-                    product.colors.includes("gold")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle gold"></label>
-                    <span class="color-name">Gold</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="silver" <% if (product && product.colors &&
-                    product.colors.includes("silver")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle silver"></label>
-                    <span class="color-name">Silver</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="purple" <% if (product && product.colors &&
-                    product.colors.includes("purple")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle purple"></label>
-                    <span class="color-name">Purple</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="cream" <% if (product && product.colors &&
-                    product.colors.includes("cream")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle cream"></label>
-                    <span class="color-name">Cream</span>
-            </div>
-            <div class="color-label">
-                <input type="checkbox" name="colors[]" value="green" <% if (product && product.colors &&
-                    product.colors.includes("green")) { %>
-                checked
-                <% } %>
-                    >
-                    <label for="colors" class="color-circle green"></label>
-                    <span class="color-name">Green</span>
-            </div>
+            <% const productColors = (product && product.colors) ? product.colors.map(colorObj => colorObj.color.toLowerCase()) : []; %>
+            <% const colorOptions = ["black", "white", "red", "gold", "silver", "purple", "cream", "green"]; %>
+            <% for (const color of colorOptions) { %>
+                <div class="color-label">
+                    <input type="checkbox" name="colors[]" value="<%= color %>" <% if (productColors.includes(color.toLowerCase())) { %>checked<% } %>>
+                    <label for="colors" class="color-circle <%= color %>"></label>
+                    <span class="color-name"><%= color.charAt(0).toUpperCase() + color.slice(1) %></span>
+                </div>
+            <% } %>
         </div>
     </div>
     <input type="number" name="color_quantity" id="color_quantity" readonly>
     <p id="error"></p>
 </div>
+
+
+
 
 <script src="./js/main.js"></script>

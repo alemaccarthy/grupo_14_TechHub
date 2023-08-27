@@ -495,10 +495,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileForm = document.getElementById("profile-form");
     profileForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario si es necesario
     });
 });
 
+// validaciones del formulario de creacion de productos
 window.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('#product-form');
     const title = document.querySelector('#title');
