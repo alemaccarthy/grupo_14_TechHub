@@ -86,15 +86,16 @@ body {
     overflow: hidden;
     background-image: url('/imgs/profile-images/no-image-profile.jpg');
     background-size: contain;
+    cursor: pointer;
 }
 
 input#profile-image{
     display: none;
+    cursor: pointer;
 }
 
 #preview-container img{
     height: 100%;
-    cursor: pointer;
   }
 
 .user-data {
