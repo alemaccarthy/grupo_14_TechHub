@@ -37,6 +37,13 @@
     transition: 0.5s;
 }
 
+#image-format-info {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+
 div:first-of-type {
     display: flex;
     justify-content: space-between;

@@ -14,7 +14,7 @@
         <main class="modal">
             <section class="form-container-create">
                 <h1>Creá un nuevo producto</h1>
-                <form action="/products/create" method="post" enctype="multipart/form-data">
+                <form id= "product-form" action="/products/create" method="post" enctype="multipart/form-data">
                     <%- include('../partials/formProduct') %>
                     <section class="buttons">
                         <input type="submit" value="Crear producto">
@@ -26,6 +26,6 @@
         <%- include('../partials/footer') %>
 </body>
 
-
+<script src="./js/main.js"></script>
 
 </html>

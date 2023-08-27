@@ -500,17 +500,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('#product-form');
     const title = document.querySelector('#title');
     const brand = document.querySelector('#brand');
     const description = document.querySelector('#description');
-    const currency = document.querySelector('#currency');
     const price = document.querySelector('#price');
     const category = document.querySelector('#category');
     const images = document.querySelector('#images');
     const colors = document.getElementsByClassName('color-label');
+    const colorCheckboxes = document.querySelectorAll('.color-label input[type="checkbox"]');
+
+    const error = document.querySelector('#error');
 
 
-    title.onchange = (e) => {
+    title.onblur = (e) => {
         const length = e.target.value.length;
         if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'Debes ingresar un titulo al producto';
@@ -519,66 +522,82 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    brand.onchange = (e) => {
-        let brandValue = e.target.value;
-        if (brandValue === 'apple' || brandValue === 'samsung') {
-            e.target.nextElementSibling.innerHTML = '';
-        } else {
-            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una marca';
+    form.addEventListener('submit', function (e) {
+        if (brand.value === '') {
+            e.preventDefault();
+            error.textContent = 'Debes seleccionar una marca para el producto';
+            
+            // Realizar un desplazamiento suave hacia arriba
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else if (category.value === '') {
+            e.preventDefault();
+            category.nextElementSibling.textContent = 'Debes seleccionar una categoría';
+            
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        // Verificar selección de colores
+        const selectedColors = Array.from(colorCheckboxes).filter(checkbox => checkbox.checked);
+        if (selectedColors.length === 0) {
+            e.preventDefault();
+            const colorError = document.querySelector('.pick-colors #error');
+            colorError.textContent = 'Debes seleccionar al menos un color';
+        }
+    });
+    
+
+
+    description.onblur = function (e) {
+        if (e.target.value.trim() === '') {
+            e.target.nextElementSibling.textContent = 'Debes agregar una descripción al producto';
+        }
+    };
+
+
+    price.onblur = (e) => {
+        let priceValue = parseFloat(e.target.value);
+        if (priceValue <= 0) {
+            e.target.nextElementSibling.textContent = 'El precio debe ser mayor a 0';
+        } else if (isNaN(priceValue)) {
+            e.target.nextElementSibling.textContent = 'Debes ingresar un precio válido';
+        }
+
+        else {
+            e.target.nextElementSibling.textContent = '';
         }
     }
 
-    description.onchange = (e) => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'Debes ingresar una descripción al producto';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-        }
-    }
 
-    currency.onchange = (e) => {
-        let currencyValue = e.target.value;
-        if (currencyValue === 'ARS') {
-            e.target.nextElementSibling.innerHTML = '';
-        } else {
-            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una moneda';
-        }
-    }
-
-    price.onchange = (e) => {
-        let priceValue = e.target.value;
-        if (priceValue < 0) {
-            e.target.nextElementSibling.innerHTML = 'El precio debe ser mayor a 0';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-        }
-    }
-
-    category.onchange = (e) => {
-        let categoryValue = e.target.value;
-        if (categoryValue === 'smartphone' || categoryValue === 'smartwatch' || categoryValue === 'tablet') {
-            e.target.nextElementSibling.innerHTML = '';
-        } else {
-            e.target.nextElementSibling.innerHTML = 'Debes seleccionar una categoria';
-        }
-    }
 
     images.onchange = (e) => {
-        if (e.target.files.length === 0) {
-            e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
-        }
-    }
+        const files = e.target.files;
 
-    for (let i = 0; i < colors.length; i++) {
-        colors[i].onchange = (e) => {
-            if (e.target.checked) {
-                e.target.nextElementSibling.innerHTML = '';
+        if (files.length === 0) {
+            e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
+        } else {
+            // Verificar si cada archivo es una imagen (puedes validar la extensión)
+            const allowedExtensions = ['jpg', 'jpeg', 'png'];
+            const invalidFiles = Array.from(files).filter(file => {
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+                return !allowedExtensions.includes(fileExtension);
+            });
+
+            if (invalidFiles.length > 0) {
+                e.target.nextElementSibling.innerHTML = 'Debes seleccionar solo archivos de imagen válidos (jpg, jpeg, png)';
             } else {
-                e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos un color';
+                e.target.nextElementSibling.innerHTML = '';
             }
         }
     }
+
+
+
 })
 
 
