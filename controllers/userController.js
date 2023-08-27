@@ -46,9 +46,7 @@ const userController = {
             });
 
 
-            /* const images = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
-
-            await Image.bulkCreate(imagesArray); */
+            const images = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id }));
 
 
             req.session.user = {
