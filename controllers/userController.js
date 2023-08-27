@@ -14,7 +14,7 @@ const userController = {
 
     createUser: async (req, res) => {
         const selectedBrand = req.cookies.selectedBrand;
-        const user = { name, lastName, email, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
+        const user = { name, lastName, email, profile_picture, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
         console.log('ESTE ES EL USUARIO QUE SE CREA ' + JSON.stringify(user, null, 2));
         try {
             // Hashear la contraseña de manera asíncrona
@@ -45,6 +45,12 @@ const userController = {
                 password: user.password,
             });
 
+
+            /* const images = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
+
+            await Image.bulkCreate(imagesArray); */
+
+
             req.session.user = {
                 id: newUser.id,
                 name: newUser.name,
@@ -61,18 +67,6 @@ const userController = {
     getProfile(req, res) {
         const loggedUser = req.session.user;
         res.render('profile', { title: `| Nombre del usuario`, loggedUser })
-    },
-
-    postPicture(req, res) {
-
-        res.send('Respuesta provisoria'); //ARREGLAR
-        res.redirect('/user/profile');
-
-    },
-
-    deletePicture(req, res) {
-        res.send('Respuesta provisoria'); //ARREGLAR
-        /* res.redirect('/user/profile'); */
     },
 
     getLogin(req, res) {

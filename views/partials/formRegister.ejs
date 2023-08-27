@@ -1,17 +1,16 @@
 <section class="user-data">
     <div class="form-userdata">
-        <form id="profile-form" enctype="multipart/form-data">
-            <input type="file" id="profile-image" accept="image/*">
+
+        <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+        <form class="form" action="/user/register" method="post" enctype="multipart/form-data" id="profile-form">
+
+            <input type="file" id="profile-image" accept="image/*" name="profile_picture">
             <label for="profile-image">
                 <div id="preview-container">
                     <img id="preview-image" src="#" alt="Imagen de perfil">
                 </div>
             </label>
-        </form>
 
-
-        <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
-        <form class="form" action="/user/register" method="post">
             <div class="form-group name-lastname">
                 <input type="text" id="nombres" name="name" placeholder="Nombres"
                     class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"

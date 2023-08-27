@@ -25,7 +25,7 @@ usersRoutes.get('/complete-purchase', userController.getPurchase);
 usersRoutes.get('/register', middlewares.guestMiddleware, userController.getRegister);
 
 // @POST /register
-usersRoutes.post('/register', validations.registerValidations, userController.createUser);
+usersRoutes.post('/register', [upload.single('profile_picture'), validations.registerValidations], userController.createUser);
 //falta agregar upload.single('nombre del cmampo')
 
 // @GET /login
@@ -42,7 +42,7 @@ usersRoutes.get('/profile/:nombre/:id', middlewares.authMiddleware, userControll
 // usersRoutes.get('/profile', usersController.getMyProfile);
 
 // @POST /user/profile
-usersRoutes.post('/profile/:nombre/:id', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
+// usersRoutes.post('/profile/:nombre/:id', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
 
 // @GET /user/:id/update
 usersRoutes.get('/update-profile/:id', userController.getUpdateProfile);
