@@ -5,11 +5,10 @@
             <label for="profile-image">
                 <div id="preview-container">
                     <img id="preview-image" src="#" alt="Imagen de perfil">
-                  </div>
+                </div>
             </label>
-            <!-- <button type="submit">Guardar Perfil</button> -->
-          </form>
-        
+        </form>
+
 
         <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
         <form class="form" action="/user/register" method="post">
@@ -17,9 +16,11 @@
                 <input type="text" id="nombres" name="name" placeholder="Nombres"
                     class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"
                     value="<%= locals.user ? user.name : null %>">
+                <p id="error"></p>
                 <input type="text" id="apellido" name="lastName" placeholder="Apellido"
                     class="<%= locals.errors && errors.lastName ? 'is-invalid' : null%>"
                     value="<%= locals.user ? user.lastName : null %>">
+                <p id="error"></p>
             </div>
             <div class="text-danger-container">
                 <% if (locals.errors && errors.name) { %>
@@ -36,10 +37,10 @@
             </div>
             <div class="form-group email">
 
-                <input type="email" id="correo" name="email" placeholder="Email" 
+                <input type="email" id="correo" name="email" placeholder="Email"
                     class="<%= locals.errors && errors.email ? 'is-invalid' : null%>"
                     value="<%= locals.user ? user.email : null %>">
-
+                <p id="error"></p>
                 <% if (locals.errors && errors.email) { %>
                     <span class="text-danger">
                         <%= errors.email.msg %>
@@ -51,9 +52,9 @@
 
                 <input type="password" id="password" name="password" placeholder="Contraseña"
                     class="<%= locals.errors && errors.password ? 'is-invalid' : null%>">
-
+                <p id="error"></p>
                 <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmar contraseña">
-
+                <p id="error"></p>
             </div>
             <div>
 
@@ -73,6 +74,7 @@
                 <input type="dni" id="dni" name="dni" placeholder="DNI"
                     class="<%= locals.errors && errors.dni ? 'is-invalid' : null%>"
                     value="<%= locals.user ? user.dni : null %>">
+                <p id="error"></p>
                 <% if (locals.errors && errors.dni) { %>
                     <span class="text-danger">
                         <%= errors.dni.msg %>
@@ -88,29 +90,36 @@
 
         <div class="form-group street-number">
             <input type="street" id="street" name="street" placeholder="Calle"
-            value="<%= locals.user ? user.street : null %>">
+                value="<%= locals.user ? user.street : null %>">
+            <p id="error"></p>
             <input type="number" id="number" name="number" placeholder="Altura"
-            value="<%= locals.user ? user.number : null %>">
+                value="<%= locals.user ? user.number : null %>">
+            <p id="error"></p>
         </div>
         <div class="form-group floor-door">
             <input type="floor" id="floor" name="floor" placeholder="Piso"
-            value="<%= locals.user ? user.floor : null %>">
+                value="<%= locals.user ? user.floor : null %>">
+            <p id="error"></p>
             <input type="door" id="door" name="door" placeholder="Departamento"
-            value="<%= locals.user ? user.door : null %>">
+                value="<%= locals.user ? user.door : null %>">
+            <p id="error"></p>
         </div>
         <div class="form-group city">
-            <input type="city" id="city" name="city" placeholder="Ciudad"
-            value="<%= locals.user ? user.city : null %>">
+            <input type="city" id="city" name="city" placeholder="Ciudad" value="<%= locals.user ? user.city : null %>">
+            <p id="error"></p>
         </div>
         <div class="form-group province-postalcode">
             <input type="province" id="province" name="province" placeholder="Provincia"
-            value="<%= locals.user ? user.province : null %>">
+                value="<%= locals.user ? user.province : null %>">
+            <p id="error"></p>
             <input type="postalcode" id="postalcode" name="postal_code" placeholder="Código Postal"
-            value="<%= locals.user ? user.postalCode : null %>">
+                value="<%= locals.user ? user.postalCode : null %>">
+            <p id="error"></p>
         </div>
         <div class="form-group telephone">
             <input type="telephone" id="telephone" name="telephone" placeholder="Teléfono"
-            value="<%= locals.user ? user.telephone : null %>">
+                value="<%= locals.user ? user.telephone : null %>">
+            <p id="error"></p>
         </div>
 
         <button type="submit" class="register-button">Registrarte</button>
@@ -125,4 +134,4 @@
 
     <p>Ya tengo cuenta! <a href="/user/login" class="open-login-button">Ingresar</a></p>
 </section>
-</section>
+<script src="./js/main.js"></script>
