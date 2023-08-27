@@ -165,6 +165,7 @@ input#profile-image{
     padding: 1vw 0vw;
 }
 
+
 .form-group {
 
     margin-bottom: 8px;
@@ -226,9 +227,19 @@ input[type="email"] {
 }
 
 .is-invalid {
-    border: 1px solid red !important;
+    border:
+    1px solid red !important;
 }
 
+#error {
+    color: red;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: none;
+}
 
 @media(min-height: 1000px) {
     footer {
