@@ -46,7 +46,7 @@ const userController = {
             });
 
 
-            const images = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id }));
+            const profilePicture = '/imgs/profile-images/' + req.file.filename;
 
 
             req.session.user = {
