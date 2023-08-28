@@ -801,13 +801,193 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    
 
 }); */
 
+window.addEventListener('DOMContentLoaded', function () {
 
+    const nombres = document.querySelector('#nombres');
+    const apellido = document.querySelector('#apellido');
+    const correo = document.querySelector('#correo');
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$*&])[A-Za-z\d#$*&]{6,}$/;
+    const password = document.querySelector('#password');
+    const confirmPassword = document.querySelector('#confirm-password');
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const dni = document.querySelector('#dni');
+    const street = document.querySelector('#street');
+    const number = document.querySelector('#number');
+    const floor = document.querySelector('#floor');
+    const door = document.querySelector('#door');
+    const city = document.querySelector('#city');
+    const province = document.querySelector('#province');
+    const postalCode = document.querySelector('#postalcode');
+    const telephone = document.querySelector('#telephone');
+    const telephoneRegex = /^\d+$/;
 
+    // Función para agregar validación en tiempo real
+    const addRealTimeValidation = (element, validationFunction) => {
+        element.addEventListener('input', () => {
+            validationFunction(element);
+        });
+        element.addEventListener('blur', () => {
+            validationFunction(element);
+        });
+    }
 
+    // Agregar validación en tiempo real a cada campo
+    addRealTimeValidation(nombres, validateNames);
+    addRealTimeValidation(apellido, validateLastName);
+    addRealTimeValidation(correo, validateMail);
+    addRealTimeValidation(password, validatePassword);
+    addRealTimeValidation(confirmPassword, validateConfirmPassword);
+    addRealTimeValidation(dni, validateDni);
+    addRealTimeValidation(street, validateStreet);
+    addRealTimeValidation(number, validateNumber);
+    addRealTimeValidation(floor, validateFloor);
+    addRealTimeValidation(door, validateDoor);
+    addRealTimeValidation(city, validateCity);
+    addRealTimeValidation(province, validateProvince);
+    addRealTimeValidation(postalCode, validatePostalCode);
+    addRealTimeValidation(telephone, validateTelephone);
 
+    // Función para mostrar mensajes de error
+    const showError = (element, message) => {
+        const errorElement = element.nextElementSibling;
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
 
+    // Función para ocultar mensajes de error
+    const hideError = (element) => {
+        const errorElement = element.nextElementSibling;
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+    }
 
+    function validateNames(element) {
+        const length = element.value.length;
+        if (length < 2) {
+            showError(element, 'Debes ingresar al menos 2 caracteres');
+        } else {
+            hideError(element);
+        }
+    }
 
+    function validateLastName(element) {
+        const length = element.value.length;
+        if (length < 2) {
+            showError(element, 'Debes ingresar al menos 2 caracteres');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateMail(element) {
+        if (!emailRegex.test(element.value)) {
+            showError(element, 'Ingresa un correo electrónico válido');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validatePassword(element) {
+        if (!passwordRegex.test(element.value)) {
+            showError(element, 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateConfirmPassword(element) {
+        if (password.value !== element.value) {
+            showError(element, 'Las contraseñas no coinciden');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateDni(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar tu DNI');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateStreet(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar una calle válida');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateNumber(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar una altura');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateFloor(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar un piso');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateDoor(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar un departamento');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateCity(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar tu ciudad');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateProvince(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar tu provincia');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validatePostalCode(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar tu código postal');
+        } else {
+            hideError(element);
+        }
+    }
+
+    function validateTelephone(element) {
+        const length = element.value.length;
+        if (length === 0) {
+            showError(element, 'Debes ingresar tu número de teléfono');
+        } else if (!telephoneRegex.test(element.value)) {
+            showError(element, 'Ingresa solo números en tu número de teléfono');
+        } else {
+            hideError(element);
+        }
+    }
+
+});
