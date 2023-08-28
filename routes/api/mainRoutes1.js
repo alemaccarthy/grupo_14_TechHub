@@ -1,6 +1,6 @@
 const express = require('express');
 const mainRoutes = express.Router();
-const mainController = require('../controllers/mainController');
+const mainController = require('../../controllers/api/mainController1');
 
 
 // @GET /main

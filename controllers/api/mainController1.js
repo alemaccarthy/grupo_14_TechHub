@@ -1,5 +1,5 @@
 const path = require('path');
-const { Product, Color, Category, Brand, Image } = require('../database/models');
+const { Product, Color, Category, Brand, Image } = require('../../database/models');
 
 const mainController = {
     getIndex: (req, res) => {
