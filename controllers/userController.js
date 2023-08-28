@@ -38,8 +38,10 @@ const userController = {
                     }
                 });
             }
-            
-            const profilePicture = '/imgs/profile-images/' + req.file.filename;
+
+            let profilePicture = '/imgs/profile-images/no-image-profile.jpg';
+
+            if(req.file) {profilePicture = '/imgs/profile-images/' + req.file.filename;}
 
             const newUser = await User.create({
                 id: uuidv4(),
@@ -48,13 +50,11 @@ const userController = {
                 profile_picture: profilePicture
             });
 
-
-
-
             req.session.user = {
                 id: newUser.id,
                 name: newUser.name,
-                email: newUser.email
+                email: newUser.email,
+                profile_picture: newUser.profile_picture
             };
 
             res.redirect(`/user/profile/${newUser.name}/${newUser.id}`);
