@@ -49,7 +49,7 @@ usersRoutes.get('/profile/:nombre/:id', middlewares.authMiddleware, userControll
 usersRoutes.get('/update-profile/:id', userController.getUpdateProfile);
 
 // @PUT /products/:id/update
-usersRoutes.put('/update-profile/:id', [upload.any('images'), validations.productsValidations], userController.updateProfile);
+usersRoutes.put('/update-profile/:id', [upload.single('profile_picture'), validations.productsValidations], userController.updateProfile);
 
 
 // @DELETE /user/profile

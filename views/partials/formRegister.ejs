@@ -7,7 +7,7 @@
             <input type="file" id="profile-image" accept="image/*" name="profile_picture">
             <label for="profile-image">
                 <div id="preview-container">
-                    <img id="preview-image" src="#" alt="Imagen de perfil">
+                    <img id="preview-image" src="<%= locals.user ? user.profile_picture : null %>" alt="Imagen de perfil">
                 </div>
             </label>
 
