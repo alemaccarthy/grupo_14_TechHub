@@ -9,6 +9,10 @@ const middlewares = require('./middlewares/middlewares');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const apiProductsRoutes = require('./routes/api/productsRoutes1');
+const apiUsersRoutes = require('./routes/api/usersRoutes1');
+
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -42,6 +46,9 @@ app.use(middlewares.brandSelector);
 app.use(mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
+
+app.use('/api/products', apiProductsRoutes);
+app.use('/api/user', apiUsersRoutes);
 
 app.use(middlewares.middleware404);
 
