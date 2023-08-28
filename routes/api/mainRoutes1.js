@@ -3,16 +3,16 @@ const mainRoutes = express.Router();
 const mainController = require('../../controllers/api/mainController1');
 
 
-// @GET /main
+// @GET /api/main
 mainRoutes.get('/', mainController.getIndex);
 
-// @GET /main/apple
+// @GET /api/main/apple
 mainRoutes.get('/apple', mainController.getHome1);
 
-// @GET /main/samsung
+// @GET /api/main/samsung
 mainRoutes.get('/samsung', mainController.getHome2);
 
-//@GET /faq
+//@GET /api/main/faq
 mainRoutes.get('/faq', mainController.getFaq);
 
 

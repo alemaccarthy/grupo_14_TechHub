@@ -19,29 +19,29 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// @Get /products/catalog
+// @Get /api/products/catalog
 productRoutes.get('/catalog/:brand', productController.getProducts);
 
-// @Get /products/catalog/apple/smartwatch
+// @Get /api/products/catalog/apple/smartwatch
 productRoutes.get('/catalog/:brand/:category', productController.getProducts);
 
-// @GET /products/:id/detail
+// @GET /api/products/:id/detail
 productRoutes.get('/:id/detail', productController.getProductDetail);
 
-// @GET /products/create
+// @GET /api/products/create
 productRoutes.get('/create', productController.getCreateProduct);
 
-// @POST /products/create
+// @POST /api/products/create
 productRoutes.post('/create', [upload.any('images'), validations.productsValidations], productController.createProduct);
 
-// @DELETE /products/:id/delete
+// @DELETE /api/products/:id/delete
 
 productRoutes.delete('/:id/delete', productController.deleteProduct);
 
-// @GET /products/:id/update
+// @GET /api/products/:id/update
 productRoutes.get('/:id/update', productController.getUpdateProduct);
 
-// @PUT /products/:id/update
+// @PUT /api/products/:id/update
 productRoutes.put('/:id/update', [upload.any('images'), validations.productsValidations], productController.updateProduct);
 
 module.exports = productRoutes;
