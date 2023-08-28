@@ -491,7 +491,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });*/
 });
 
-// validaciones del formulario de creacion de productos
 window.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('#product-form');
     const title = document.querySelector('#title');
@@ -500,11 +499,30 @@ window.addEventListener('DOMContentLoaded', function () {
     const price = document.querySelector('#price');
     const category = document.querySelector('#category');
     const images = document.querySelector('#images');
-    const colors = document.getElementsByClassName('color-label');
     const colorCheckboxes = document.querySelectorAll('.color-label input[type="checkbox"]');
-
+    const colorQuantity = document.querySelector('#color_quantity');
     const error = document.querySelector('#error');
+    let formValid = false;
 
+    // Función para comprobar la validez del formulario
+    const checkFormValidity = () => {
+        const requiredFields = [title, brand, description, price, category];
+        const selectedColors = Array.from(colorCheckboxes).filter(checkbox => checkbox.checked).length;
+        const imageCount = images.files.length;
+
+        // Comprobamos si todos los campos requeridos están completos
+        const allFieldsCompleted = requiredFields.every(field => field.value.trim() !== '');
+
+        // Comprobamos si al menos una imagen está seleccionada
+        const atLeastOneImage = imageCount > 0;
+
+        // Comprobamos si al menos un color está seleccionado
+        const atLeastOneColor = selectedColors > 0;
+
+        // La validación será exitosa si todos los campos requeridos están completos
+        // y al menos una imagen y un color están seleccionados
+        formValid = allFieldsCompleted && atLeastOneImage && atLeastOneColor;
+    };
 
     title.onblur = (e) => {
         const length = e.target.value.length;
@@ -513,295 +531,90 @@ window.addEventListener('DOMContentLoaded', function () {
         } else {
             e.target.nextElementSibling.innerHTML = '';
         }
+        checkFormValidity();
     }
+
+    brand.onblur = () => {
+        if (brand.value === '') {
+            brand.nextElementSibling.textContent = 'Debes seleccionar una marca para el producto';
+        } else {
+            brand.nextElementSibling.textContent = '';
+        }
+        checkFormValidity();
+    };
+
+    category.onblur = () => {
+        if (category.value === '') {
+            category.nextElementSibling.textContent = 'Debes seleccionar una marca para el producto';
+        } else {
+            category.nextElementSibling.textContent = '';
+        }
+        checkFormValidity();
+    };
+
+    description.onblur = () => {
+        if (description.value === '') {
+            description.nextElementSibling.textContent = 'Debes agregar una descripcion para el producto';
+        } else {
+            description.nextElementSibling.textContent = '';
+        }
+        checkFormValidity();
+    };
+
+    price.onblur = () => {
+        if (price.value === '') {
+            price.nextElementSibling.textContent = 'Debes elegir un precio para el producto';
+        } else {
+            price.nextElementSibling.textContent = '';
+        }
+        checkFormValidity();
+    };
+
+    
 
     form.addEventListener('submit', function (e) {
-
-        if (brand.value === '') {
+        if (!formValid) {
             e.preventDefault();
-            error.textContent = 'Debes seleccionar una marca para el producto';
-            
-            // Realizar un desplazamiento suave hacia arriba
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        } else if (category.value === '') {
-            e.preventDefault();
-            category.nextElementSibling.textContent = 'Debes seleccionar una categoría';
+            alert('Por favor, completa todos los campos requeridos y selecciona al menos una imagen y un color.') ;
             
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
-    
-        // Verificar selección de colores
-        const selectedColors = Array.from(colorCheckboxes).filter(checkbox => checkbox.checked);
-        if (selectedColors.length === 0) {
-            e.preventDefault();
-            const colorError = document.querySelector('.pick-colors #error');
-            colorError.textContent = 'Debes seleccionar al menos un color';
         }
     });
-    
-    description.onblur = function (e) {
-        if (e.target.value.trim() === '') {
-            e.target.nextElementSibling.textContent = 'Debes agregar una descripción al producto';
-        }
-    };
 
-    price.onblur = (e) => {
-        let priceValue = parseFloat(e.target.value);
-        if (priceValue <= 0) {
-            e.target.nextElementSibling.textContent = 'El precio debe ser mayor a 0';
-        } else if (isNaN(priceValue)) {
-            e.target.nextElementSibling.textContent = 'Debes ingresar un precio válido';
-        }
-
-        else {
-            e.target.nextElementSibling.textContent = '';
-        }
-    }
-
-    images.onchange = (e) => {
-        const files = e.target.files;
-
-        if (files.length === 0) {
-            e.target.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
+    // Agrega el evento de cambio de imágenes para realizar validaciones en tiempo real
+    images.addEventListener('change', () => {
+        const imageCount = images.files.length;
+        if (imageCount === 0) {
+            images.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
         } else {
-            // Verificar si cada archivo es una imagen
-            const allowedExtensions = ['jpg', 'jpeg', 'png'];
-            const invalidFiles = Array.from(files).filter(file => {
-                const fileExtension = file.name.split('.').pop().toLowerCase();
-                return !allowedExtensions.includes(fileExtension);
-            });
-
-            if (invalidFiles.length > 0) {
-                e.target.nextElementSibling.innerHTML = 'Debes seleccionar solo archivos de imagen válidos (jpg, jpeg, png)';
-            } else {
-                e.target.nextElementSibling.innerHTML = '';
-            }
+            // Realizar más validaciones si es necesario
+            images.nextElementSibling.innerHTML = '';
         }
-    }
-})
+        checkFormValidity();
+    });
+
+    // Agrega el evento de cambio de colores para realizar validaciones en tiempo real
+    colorQuantity.addEventListener('change', () => {
+        const selectedColors = Array.from(colorCheckboxes).filter(checkbox => checkbox.checked).length;
+        if (selectedColors === 0) {
+            colorQuantity.nextElementSibling.textContent = 'Debes seleccionar al menos un color';
+        } else {
+            colorQuantity.nextElementSibling.textContent = '';
+        }
+        checkFormValidity();
+    });
+});
+
 
 // Validaciones de registro de usuarios
-/* window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', function () {
 
-    const nombres = document.querySelector('#nombres');
-    const apellido = document.querySelector('#apellido');
-    const correo = document.querySelector('#correo');
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$*&])[A-Za-z\d#$*&]{6,}$/; // Expresión regular que permite al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)
-    const password = document.querySelector('#password');
-    const confirmPassword = document.querySelector('#confirm-password');
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const dni = document.querySelector('#dni');
-    const street = document.querySelector('#street');
-    const number = document.querySelector('#number');
-    const floor = document.querySelector('#floor');
-    const door = document.querySelector('#door');
-    const city = document.querySelector('#city');
-    const province = document.querySelector('#province');
-    const postalCode = document.querySelector('#postalcode');
-    const telephone = document.querySelector('#telephone');
-    const telephoneRegex = /^\d+$/; // Expresión regular que permite solo números
-
-    nombres.onblur = (e) => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu nombre o nombres';
-            errorElement.style.display = 'block';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-
-    apellido.onblur = (e) => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu apellido';
-            errorElement.style.display = 'block';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    correo.onblur = (e) => {
-        
-        if (!emailRegex.test(correo.value)) {
-            e.preventDefault();
-            correo.nextElementSibling.textContent = 'Ingresa un correo electrónico válido';
-            errorElement.style.display = 'block';
-        } else {
-            correo.nextElementSibling.textContent = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    const validatePassword = () => {
-        const errorElement = password.nextElementSibling;
-        if (!passwordRegex.test(password.value)) {
-            errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
-            errorElement.style.display = 'block';
-            return false;
-        } else {
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
-            return true;
-        }
-    };
-    
-    const validateConfirmPassword = () => {
-        const errorElement = confirmPassword.nextElementSibling;
-        if (password.value !== confirmPassword.value) {
-            errorElement.textContent = 'Las contraseñas no coinciden';
-            errorElement.style.display = 'block';
-            return false;
-        } else {
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
-            return true;
-        }
-    };
-    
-    password.addEventListener('blur', validatePassword);
-    confirmPassword.addEventListener('blur', validateConfirmPassword);
-    
-    password.addEventListener('input', () => {
-        if (passwordRegex.test(password.value)) {
-            password.nextElementSibling.textContent = '';
-            password.nextElementSibling.style.display = 'none';
-        }
-    });
-    
-    confirmPassword.addEventListener('input', () => {
-        if (password.value === confirmPassword.value) {
-            confirmPassword.nextElementSibling.textContent = '';
-            confirmPassword.nextElementSibling.style.display = 'none';
-        }
-    });
-    
-    dni.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar tu DNI';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-
-    street.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar una calle valida';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    number.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar una altura';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    floor.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar un piso';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    door.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar un departamento';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    city.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar tu ciudad';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    province.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar tu provincia';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    postalCode.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar tu codigo postal';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-    
-    telephone.onblur = (e) => {
-        const length = e.target.value.length;
-        const errorElement = e.target.nextElementSibling;
-        if (length === 0) {
-            errorElement.innerHTML = 'Debes ingresar tu número de teléfono';
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.innerHTML = '';
-            errorElement.style.display = 'none';
-        }
-    }
-
-    
-
-}); */
-
-/* window.addEventListener('DOMContentLoaded', function () {
-
-    const nombres = document.querySelector('#nombres');
-    const apellido = document.querySelector('#apellido');
-    const correo = document.querySelector('#correo');
+    const name = document.querySelector('#nombres');
+    const lastName = document.querySelector('#apellido');
+    const email = document.querySelector('#correo');
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$*&])[A-Za-z\d#$*&]{6,}$/;
     const password = document.querySelector('#password');
     const confirmPassword = document.querySelector('#confirm-password');
@@ -815,172 +628,216 @@ window.addEventListener('DOMContentLoaded', function () {
     const province = document.querySelector('#province');
     const postalCode = document.querySelector('#postalcode');
     const telephone = document.querySelector('#telephone');
-    const telephoneRegex = /^\d+$/;
+    const telephoneRegex = /^\+549\d+$/;
+    let formValid = false;
+    let fieldsValidated = 0;
+    const totalFields = 14;
 
-    // Función para agregar validación en tiempo real
-    const addRealTimeValidation = (element, validationFunction) => {
-        element.addEventListener('input', () => {
-            validationFunction(element);
-        });
-        element.addEventListener('blur', () => {
-            validationFunction(element);
-        });
-    }
-
-    // Agregar validación en tiempo real a cada campo
-    addRealTimeValidation(nombres, validateNames);
-    addRealTimeValidation(apellido, validateLastName);
-    addRealTimeValidation(correo, validateMail);
-    addRealTimeValidation(password, validatePassword);
-    addRealTimeValidation(confirmPassword, validateConfirmPassword);
-    addRealTimeValidation(dni, validateDni);
-    addRealTimeValidation(street, validateStreet);
-    addRealTimeValidation(number, validateNumber);
-    addRealTimeValidation(floor, validateFloor);
-    addRealTimeValidation(door, validateDoor);
-    addRealTimeValidation(city, validateCity);
-    addRealTimeValidation(province, validateProvince);
-    addRealTimeValidation(postalCode, validatePostalCode);
-    addRealTimeValidation(telephone, validateTelephone);
-
-    // Función para mostrar mensajes de error
-    const showError = (element, message) => {
-        const errorElement = element.nextElementSibling;
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-    }
-
-    // Función para ocultar mensajes de error
-    const hideError = (element) => {
-        const errorElement = element.nextElementSibling;
-        errorElement.textContent = '';
-        errorElement.style.display = 'none';
-    }
-
-    function validateNames(element) {
-        const length = element.value.length;
-        if (length < 2) {
-            showError(element, 'Debes ingresar al menos 2 caracteres');
+    const checkFormValidity = () => {
+        if (fieldsValidated === totalFields) {
+            formValid = true;
         } else {
-            hideError(element);
+            formValid = false;
         }
-    }
+    };
 
-    function validateLastName(element) {
-        const length = element.value.length;
-        if (length < 2) {
-            showError(element, 'Debes ingresar al menos 2 caracteres');
-        } else {
-            hideError(element);
-        }
-    }
-
-    function validateMail(element) {
-        if (!emailRegex.test(element.value)) {
-            showError(element, 'Ingresa un correo electrónico válido');
-        } else {
-            hideError(element);
-        }
-    }
-
-    function validatePassword(element) {
-        if (!passwordRegex.test(element.value)) {
-            showError(element, 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)');
-        } else {
-            hideError(element);
-        }
-    }
-
-    function validateConfirmPassword(element) {
-        if (password.value !== element.value) {
-            showError(element, 'Las contraseñas no coinciden');
-        } else {
-            hideError(element);
-        }
-    }
-
-    function validateDni(element) {
-        const length = element.value.length;
+    name.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar tu DNI');
+            e.target.nextElementSibling.textContent = 'Debes ingresar tu nombre o nombres';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.textContent = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
         }
+        checkFormValidity();
     }
 
-    function validateStreet(element) {
-        const length = element.value.length;
+    lastName.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar una calle válida');
+            e.target.nextElementSibling.textContent = 'Debes ingresar tu apellido';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
         }
+        checkFormValidity();
     }
 
-    function validateNumber(element) {
-        const length = element.value.length;
+    email.onblur = (e) => {
+        if (!emailRegex.test(email.value)) {
+            e.preventDefault();
+            email.nextElementSibling.textContent = 'Ingresa un correo electrónico válido';
+            e.target.nextElementSibling.style.display = 'block';
+        } else {
+            email.nextElementSibling.textContent = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+        }
+        checkFormValidity();
+    }
+
+    const validatePassword = () => {
+        const errorElement = password.nextElementSibling;
+        if (!passwordRegex.test(password.value)) {
+            errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
+            errorElement.style.display = 'block';
+            return false;
+        } else {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
+            return true;
+        }
+    };
+
+    const validateConfirmPassword = () => {
+        const errorElement = confirmPassword.nextElementSibling;
+        if (password.value !== confirmPassword.value) {
+            errorElement.textContent = 'Las contraseñas no coinciden';
+            errorElement.style.display = 'block';
+            return false;
+        } else {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
+            return true;
+        }
+    };
+
+    password.addEventListener('blur', validatePassword);
+    confirmPassword.addEventListener('blur', validateConfirmPassword);
+
+    dni.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar una altura');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu DNI';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validateFloor(element) {
-        const length = element.value.length;
+    street.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar un piso');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar una calle válida';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validateDoor(element) {
-        const length = element.value.length;
+    number.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar un departamento');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar una altura';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validateCity(element) {
-        const length = element.value.length;
+    floor.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar tu ciudad');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar un piso';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validateProvince(element) {
-        const length = element.value.length;
+    door.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar tu provincia');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar un departamento';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validatePostalCode(element) {
-        const length = element.value.length;
+    city.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar tu código postal');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu ciudad';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
-    function validateTelephone(element) {
-        const length = element.value.length;
+    province.onblur = (e) => {
+        const length = e.target.value.length;
         if (length === 0) {
-            showError(element, 'Debes ingresar tu número de teléfono');
-        } else if (!telephoneRegex.test(element.value)) {
-            showError(element, 'Ingresa solo números en tu número de teléfono');
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu provincia';
+            e.target.nextElementSibling.style.display = 'block';
         } else {
-            hideError(element);
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
         }
     }
 
+    postalCode.onblur = (e) => {
+        const length = e.target.value.length;
+        if (length === 0) {
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu código postal';
+            e.target.nextElementSibling.style.display = 'block';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
+        }
+    }
+
+    telephone.onblur = (e) => {
+        const value = e.target.value.trim(); // Eliminamos espacios en blanco al inicio y al final
+        if (value === '') {
+            e.target.nextElementSibling.innerHTML = 'Debes ingresar tu número de teléfono';
+            e.target.nextElementSibling.style.display = 'block';
+        } else if (!telephoneRegex.test(value)) {
+            e.target.nextElementSibling.innerHTML = 'El número de teléfono debe comenzar con +549 y contener solo números';
+            e.target.nextElementSibling.style.display = 'block';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+            e.target.nextElementSibling.style.display = 'none';
+            fieldsValidated++;
+            checkFormValidity();
+        }
+    }
+
+    const form = document.querySelector('#profile-form');
+    form.addEventListener('submit', function (e) {
+        if (!formValid) {
+            e.preventDefault(); // Evita que el formulario se envíe si no es válido
+            alert('Hay errores en el formulario. Por favor, verifica los datos ingresados.');
+        }
+    });
 });
- */
