@@ -38,15 +38,17 @@ const userController = {
                     }
                 });
             }
+            
+            const profilePicture = '/imgs/profile-images/' + req.file.filename;
 
             const newUser = await User.create({
                 id: uuidv4(),
                 ...user,
                 password: user.password,
+                profile_picture: profilePicture
             });
 
 
-            const profilePicture = '/imgs/profile-images/' + req.file.filename;
 
 
             req.session.user = {
