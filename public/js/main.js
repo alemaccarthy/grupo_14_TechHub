@@ -66,13 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.style.opacity = '0';
         }
     }
-    openForm = () => {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    closeForm = () => {
-        document.getElementById("myForm").style.display = "none";
-    }
     /* 
             openLogIn = () => {
                 userData = document.querySelector('.user-data');
