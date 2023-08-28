@@ -15,6 +15,31 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
+  #profile-image-label{
+    position: relative;
+  }
+
+#profile-image-label:hover img#preview-image{
+  opacity: 0.3;
+}
+
+#profile-image-label h3{
+  text-align: center;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#profile-image-label:hover h3{
+  display: block;
+}
+
+#preview-container {
+  background: none !important;
+}
   
   .user-profile {
     display: flex;

@@ -46,10 +46,10 @@ usersRoutes.get('/profile/:nombre/:id', middlewares.authMiddleware, userControll
 // usersRoutes.post('/profile/:nombre/:id', [upload.single('profilePic')/* FALTA LA VALIDACION */], userController.postPicture);
 
 // @GET /user/:id/update
-usersRoutes.get('/update-profile/:id', userController.getUpdateProfile);
+usersRoutes.get('/:id/update-profile', userController.getUpdateProfile);
 
-// @PUT /products/:id/update
-usersRoutes.put('/update-profile/:id', [upload.single('profile_picture'), validations.productsValidations], userController.updateProfile);
+// @PUT /user/:id/update
+usersRoutes.put('/:id/update-profile', [upload.single('profile_picture'), validations.productsValidations], userController.updateProfile);
 
 
 // @DELETE /user/profile

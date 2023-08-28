@@ -17,7 +17,28 @@
 
                 <h1>Registro</h1>
 
+                <section class="user-data">
+                    <div class="form-userdata">
+                
+                        <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+                        <form class="form" action="/user/register" method="post" enctype="multipart/form-data" id="profile-form">
+                
+
                 <%- include('../partials/formRegister') %>
+
+                <button type="submit" class="register-button">Registrarte</button>
+            </form>
+    
+        </div>
+    
+    </section>
+    
+    <section class="register-button-container">
+    
+    
+        <p>Ya tengo cuenta! <a href="/user/login" class="open-login-button">Ingresar</a></p>
+    </section>
+    <script src="./js/main.js"></script>
 
                     <%- include('../partials/footer') %>
         </main>

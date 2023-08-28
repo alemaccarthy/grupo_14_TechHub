@@ -89,6 +89,10 @@ body {
     cursor: pointer;
 }
 
+#preview-container h3{
+    display: none;
+}
+
 input#profile-image{
     display: none;
     cursor: pointer;

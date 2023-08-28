@@ -41,7 +41,7 @@ const userController = {
 
             let profilePicture = '/imgs/profile-images/no-image-profile.jpg';
 
-            if(req.file) {profilePicture = '/imgs/profile-images/' + req.file.filename;}
+            if (req.file) { profilePicture = '/imgs/profile-images/' + req.file.filename; }
 
             const newUser = await User.create({
                 id: uuidv4(),
@@ -160,6 +160,12 @@ const userController = {
     updateProfile: async (req, res) => {
         const newValues = req.body;
 
+        console.log('ESTOS SON LOS NUEVOS VALORES ' + newValues);
+
+        let profilePicture = '/imgs/profile-images/no-image-profile.jpg';
+
+        if (req.file) { profilePicture = '/imgs/profile-images/' + req.file.filename; }
+
         try {
             await User.update(newValues, {
                 where: {
@@ -167,10 +173,21 @@ const userController = {
                 }
             });
 
-            res.redirect(`/user/update-profile/${newValues.name}${newValues.lastName}/${newValues.id}`);
+            console.log(req.session.user);
+
+            req.session.user = {
+                id: req.session.user.id,
+                name: newValues.name,
+                email: newValues.email,
+                profile_picture: profilePicture
+            };
+
+            loggedUser = req.session.user;
+
+            res.redirect(`/user/profile/:nombre/:id`);
         } catch (error) {
-            res.send("no se pudo actualizar");
             console.log(error);
+            res.send("no se pudo actualizar");
         };
     },
 

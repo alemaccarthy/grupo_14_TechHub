@@ -804,7 +804,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 }); */
 
-window.addEventListener('DOMContentLoaded', function () {
+/* window.addEventListener('DOMContentLoaded', function () {
 
     const nombres = document.querySelector('#nombres');
     const apellido = document.querySelector('#apellido');
@@ -990,3 +990,4 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+ */

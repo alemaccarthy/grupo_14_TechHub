@@ -11,8 +11,28 @@
 <body>
     <%- include('../partials/header') %>
 
-        <%- include('../partials/formRegister') %>
+    <section class="user-data">
+        <div class="form-userdata">
+    
+            <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
+            <form class="form" action="/user/<%= loggedUser.id %>/update-profile?_method=put" method="post" enctype="multipart/form-data" id="profile-form">
+    
 
+    <%- include('../partials/formRegister') %>
+
+    <button type="submit" class="register-button">Guardar cambios</button>
+</form>
+
+</div>
+
+</section>
+
+<section class="register-button-container">
+
+
+<p>Ya tengo cuenta! <a href="/user/login" class="open-login-button">Ingresar</a></p>
+</section>
+<script src="./js/main.js"></script>
 
             <%- include('../partials/footer') %>
 </body>
