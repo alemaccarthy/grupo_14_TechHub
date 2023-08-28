@@ -492,10 +492,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const profileForm = document.getElementById("profile-form");
+    /*const profileForm = document.getElementById("profile-form");
     profileForm.addEventListener("submit", function (event) {
         event.preventDefault();
-    });
+    });*/
 });
 
 // validaciones del formulario de creacion de productos
