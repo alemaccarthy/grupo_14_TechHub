@@ -677,7 +677,6 @@ window.addEventListener('DOMContentLoaded', function () {
     password.addEventListener('blur', validatePassword);
     confirmPassword.addEventListener('blur', validateConfirmPassword);
     
-    // Agregar un evento para limpiar los mensajes de error cuando el usuario modifica el campo
     password.addEventListener('input', () => {
         if (passwordRegex.test(password.value)) {
             password.nextElementSibling.textContent = '';
