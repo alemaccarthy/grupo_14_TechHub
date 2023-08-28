@@ -6,7 +6,8 @@ const { validationResult } = require('express-validator');
 
 const userController = {
     getRegister(req, res) {
-        res.render('register', { title: '| Registrarse' });
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('register', { title: '| Registrarse', selectedBrand });
     },
     getPurchase(req, res) {
         res.render('complete-purchase', { title: '| Finalizar compra' })
@@ -15,7 +16,7 @@ const userController = {
     createUser: async (req, res) => {
         const selectedBrand = req.cookies.selectedBrand;
         const user = { name, lastName, email, profile_picture, dni, password, confirmPassword, street, number, city, floor, door, postalCode, province, telephone } = req.body;
-        console.log('ESTE ES EL USUARIO QUE SE CREA ' + JSON.stringify(user, null, 2));
+
         try {
             // Hashear la contraseña de manera asíncrona
             user.password = await bcrypt.hash(user.password, 12);
@@ -66,13 +67,14 @@ const userController = {
 
     getProfile(req, res) {
         const loggedUser = req.session.user;
-        res.render('profile', { title: `| Nombre del usuario`, loggedUser })
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand })
     },
 
     getLogin(req, res) {
         const error = req.query.error || '';
-
-        res.render('login', { title: '| Ingresa', error });
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('login', { title: '| Ingresa', error, selectedBrand });
     },
 
     loginUser: async (req, res) => {
@@ -103,7 +105,7 @@ const userController = {
                 delete loggedUser.password;
                 delete loggedUser.id;
                 req.session.loggedUser = loggedUser;
-                console.log('ESTE ES UN USUARIO LOGUEADO' + JSON.stringify(loggedUser, null, 2));
+
                 return res.redirect(`/user/profile/${loggedUser.name}${loggedUser.lastName}/${loggedUser.id}`);
                 //return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
@@ -126,7 +128,7 @@ const userController = {
     },
 
     deleteProfile: async (req, res) => {
-        console.log('ESTE ES EL USUARIO QUE SE VA A ELIMINAR ' + JSON.stringify(req.session.user, null, 2));
+
         try {
             const loggedUser = await User.findOne({
                 where: {
@@ -154,16 +156,13 @@ const userController = {
 
     getUpdateProfile(req, res) {
         const loggedUser = req.session.user;
-        res.render('update-profile', { title: `| Nombre del usuario`, loggedUser })
+        const selectedBrand = req.cookies.selectedBrand;
+        res.render('update-profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand })
     },
 
     updateProfile: async (req, res) => {
         const newValues = req.body;
-
-        console.log('ESTOS SON LOS NUEVOS VALORES ' + newValues);
-
         let profilePicture = '/imgs/profile-images/no-image-profile.jpg';
-
         if (req.file) { profilePicture = '/imgs/profile-images/' + req.file.filename; }
 
         try {
@@ -173,7 +172,6 @@ const userController = {
                 }
             });
 
-            console.log(req.session.user);
 
             req.session.user = {
                 id: req.session.user.id,
@@ -192,6 +190,5 @@ const userController = {
     },
 
 };
-
 
 module.exports = userController;
