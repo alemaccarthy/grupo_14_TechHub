@@ -48,7 +48,7 @@ app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
 app.use('/api/products', apiProductsRoutes);
-app.use('/api/user', apiUsersRoutes);
+app.use('/api/users', apiUsersRoutes);
 
 app.use(middlewares.middleware404);
 
