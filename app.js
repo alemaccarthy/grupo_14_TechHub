@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const apiProductsRoutes = require('./routes/api/productRoutes');
-const apiUsersRoutes = require('./routes/api/usersRoutes1');
+const apiUsersRoutes = require('./routes/api/usersRoutes');
 
 
 const app = express();
@@ -48,7 +48,7 @@ app.use('/products', productsRoutes);
 app.use('/user', usersRoutes);
 
 app.use('/api/products', apiProductsRoutes);
-app.use('/api/user', apiUsersRoutes);
+app.use('/api/users', apiUsersRoutes);
 
 app.use(middlewares.middleware404);
 
