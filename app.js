@@ -9,7 +9,7 @@ const middlewares = require('./middlewares/middlewares');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-const apiProductsRoutes = require('./routes/api/productsRoutes1');
+const apiProductsRoutes = require('./routes/api/apiProductRoutes');
 const apiUsersRoutes = require('./routes/api/usersRoutes1');
 
 
