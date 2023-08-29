@@ -35,7 +35,7 @@ const productControllers = {
         try {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
-            const id = Number(req.params.id); /// VER SI ESTA OK
+            const id = Number(req.params.id);
             const product = await Product.findByPk(id, {
                 include: [
                     { model: Brand, as: 'brand' },
@@ -108,7 +108,7 @@ const productControllers = {
                     product: req.body
                 });
             }*/
-            console.log(product);
+
             // const datos = await Product.create(newProduct); ESTO SE REEMPLAZA POR LO DE ABAJO
             const newProduct = await Product.create({
                 title,
@@ -128,7 +128,6 @@ const productControllers = {
                     },
                 },
             });
-            console.log('ESTOS SON LOS COLORES SELECCIONADOS ' + JSON.stringify(colorModels, null, 2));
 
             // Obtener los IDs de los colores
             const colorIds = colorModels.map(color => color.id);
@@ -146,6 +145,7 @@ const productControllers = {
             const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             await Image.bulkCreate(imagesArray);
+            newProduct.images = imagesArray;
 
         } catch (error) {
             console.log(error);

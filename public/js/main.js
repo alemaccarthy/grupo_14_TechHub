@@ -524,6 +524,18 @@ window.addEventListener('DOMContentLoaded', function () {
         formValid = allFieldsCompleted && atLeastOneImage && atLeastOneColor;
     };
 
+    /*form.addEventListener('submit', function (e) {
+        if (!formValid) {
+            e.preventDefault();
+            alert('Por favor, completa todos los campos requeridos y selecciona al menos una imagen y un color.') ;
+            
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });*/
+
     title.onblur = (e) => {
         const length = e.target.value.length;
         if (length === 0) {
@@ -545,7 +557,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     category.onblur = () => {
         if (category.value === '') {
-            category.nextElementSibling.textContent = 'Debes seleccionar una marca para el producto';
+            category.nextElementSibling.textContent = 'Debes seleccionar una categoria para el producto';
         } else {
             category.nextElementSibling.textContent = '';
         }
@@ -570,28 +582,13 @@ window.addEventListener('DOMContentLoaded', function () {
         checkFormValidity();
     };
 
-    
-
-    form.addEventListener('submit', function (e) {
-        if (!formValid) {
-            e.preventDefault();
-            alert('Por favor, completa todos los campos requeridos y selecciona al menos una imagen y un color.') ;
-            
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    });
-
     // Agrega el evento de cambio de imágenes para realizar validaciones en tiempo real
     images.addEventListener('change', () => {
         const imageCount = images.files.length;
         if (imageCount === 0) {
-            images.nextElementSibling.innerHTML = 'Debes seleccionar al menos una imagen';
+            images.nextElementSibling.textContent = 'Debes seleccionar al menos una imagen';
         } else {
-            // Realizar más validaciones si es necesario
-            images.nextElementSibling.innerHTML = '';
+            images.nextElementSibling.textContent = '';
         }
         checkFormValidity();
     });
