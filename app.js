@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const apiProductsRoutes = require('./routes/api/productRoutes');
-const apiUsersRoutes = require('./routes/api/usersRoutes1');
+const apiUsersRoutes = require('./routes/api/usersRoutes');
 
 
 const app = express();

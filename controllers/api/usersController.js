@@ -15,7 +15,7 @@ const userController = {
 
     getProfile(req, res) {
         const loggedUser = req.session.user;
-        res.render('profile', { title: `| Nombre del usuario`, loggedUser })
+        res.render('profile', { title: `| Nombre del usuario`, loggedUser });
     },
 
 };
