@@ -1,8 +1,6 @@
 const { User } = require('../../database/models');
-const fs = require('fs');
-const bcrypt = require('bcrypt');
-const { v4: uuidv4 } = require('uuid');
-const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
+
 
 const userController = {
 
