@@ -10,4 +10,4 @@ apiUsersRoutes.get('/:id', apiController.getProfile);
 
 
 
-module.exports = apiProductsRoutes;
+module.exports = apiUsersRoutes;
