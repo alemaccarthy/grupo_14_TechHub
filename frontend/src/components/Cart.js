@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+// importar aca el css que tengamos de cart
 
 function Cart() {
     return (
@@ -7,9 +8,18 @@ function Cart() {
             <section className="cart">
                 <div className="cart-items">
                     
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                <CartItem
+                    title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto ipsam a optio libero consequuntur"
+                    price="25.000" 
+                />
+                <CartItem
+                    title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto ipsam a optio libero consequuntur"
+                    price="50.000" 
+                />
+                <CartItem 
+                    title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto ipsam a optio libero consequuntur"
+                    price="100.000"
+                />
                 </div>
                 <div className="order">
                     <div className="subtotal">

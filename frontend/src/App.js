@@ -21,6 +21,9 @@ function App() {
       </header>
     </div>*/
 
+    //// SE PUEDE ESCRIBIR JS DENTRO DE HTML USANDO { } //// NO SE PUEDE MOSTRAR UN OBJETO ENTERO SINO ACCEDIENDO A UN CAMPO
+    /// TAMBIEN SE PUEDE JS ANTES DEL RETURN ////
+
     <>
     <Cart />
     </>
