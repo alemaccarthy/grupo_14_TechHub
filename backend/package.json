@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/alemaccarthy/grupo_14_TechHub#readme",
   "dependencies": {
+    "axios": "^1.5.0",
     "bcrypt": "^5.1.0",
     "brcypt": "^1.0.1",
     "cookie-parser": "^1.4.6",
