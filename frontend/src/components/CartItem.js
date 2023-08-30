@@ -23,7 +23,7 @@ function CartItem(props) { // PASARIAMOS props como parametro cuando sea dinamic
         </article>*/
 
         <article className="item">
-            <img src={"props.images.path[0]"} alt="" />  {/*REVISAR COMO SERIA EL PATH DE LA IMAGEN*/}
+            <img src={"props.images.path[0]"} alt="" />  {/*REVISAR COMO SERIA EL PATH DE LA IMAGEN -- SI HAY QUE ITERAR Y DEVOLVER VARIOS ELEMENTOS SE USA MAP y SE COLOCA UNA KEY y un INDICE. NO USARLO NO IMPIDE QUE RENDERIZE PERO HABRA ERROR EN LA CONSOLA DEL NAVEGADOR*/}
             <div className="item-details">
                 <span className="item-title">{props.title}</span>
                 <div className="select-quantity">
@@ -40,6 +40,9 @@ function CartItem(props) { // PASARIAMOS props como parametro cuando sea dinamic
 
     )
 }
+
+/// SE PUEDE USAR propTypes PARA ESPECIFICAR TIPO DE DATO DE CADA PROP, lo cual es una buena practica para restringir// se debe instalar el componente e importarlo en el componente que querramos
+/// CON DefaultProps se pueden colocar valores por defecto para determinadas props
 
 
 export default CartItem;

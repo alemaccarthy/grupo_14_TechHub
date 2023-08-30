@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+import '../Cart.css';
 // importar aca el css que tengamos de cart
 
 function Cart() {
