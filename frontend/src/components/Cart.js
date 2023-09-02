@@ -3,6 +3,9 @@ import CartItem from './CartItem';
 import '../Cart.css';
 // importar aca el css que tengamos de cart
 
+// Si queremos pasar props, aparte de pasarlo como paraametro, en caso de necesitar un id tomado del params, aqui seri:
+// const prodictId props.match.params.id
+
 function Cart() {
     return (
         <>
