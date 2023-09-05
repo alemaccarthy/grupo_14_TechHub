@@ -297,13 +297,13 @@ footer.footer {
     background-color: #ebebeb;
 }
 
-.pick-colors {
+/* .pick-colors {
     margin-bottom: 20px;
 }
 
 .color-checkboxes {
     display: flex;
-    align-items: center; /* Alinea verticalmente los círculos con el contenido */
+    align-items: center;  Alinea verticalmente los círculos con el contenido 
     gap: 10px;
     ;
 }
@@ -314,9 +314,9 @@ footer.footer {
     height: 30px;
     border-radius: 50%;
     border: 1px solid #ccc;
-    margin-bottom: 5px; /* Espacio entre los círculos */
+    margin-bottom: 5px;  Espacio entre los círculos 
     cursor: pointer;
-    transition: border-color 0.3s; /* Agrega una transición al cambio de color del borde */
+    transition: border-color 0.3s;  Agrega una transición al cambio de color del borde 
 }
 
 .color-label {
@@ -360,7 +360,7 @@ footer.footer {
 
 .color-name {
     margin-left: 5px;
-}
+} */
 
 @media (width >=576px) {
     .products-container {
