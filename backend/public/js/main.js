@@ -838,3 +838,36 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// PARA MOSTRAR MENSAJE EN CASO DE AGREGAR PRODUCTO AL CARRITO SIN LOGUEARSE
+
+window.addEventListener('DOMContentLoaded', function () {
+
+    const loginAlert = document.querySelector("#login-alert");
+    const addToCartButton = document.querySelector(".addToCart-button");
+    
+    // Función para mostrar el mensaje
+    function showMsg() {
+        loginAlert.style.display = "block";
+    }
+    
+    // Función para cerrar el mensaje
+    function hideMsg() {
+        loginAlert.style.display = "none";
+    }
+    
+    // Agregar un evento de clic al botón "Agregar al carrito"
+    addToCartButton.addEventListener("click", function (event) {
+        const isLogged = window.isUserLogged;
+        // Verificar si el usuario está autenticado (usando tu lógica específica)
+        if (!isLogged) {
+            // Si el usuario no está autenticado, mostrar el modal
+            showMsg();
+            event.preventDefault(); // Evitar que el formulario se envíe
+        }
+    });
+    
+    // Agregar un evento de clic al botón "Cerrar" en el modal
+    const closeBtn = document.querySelector(".close");
+    closeBtn.addEventListener("click", hideMsg);
+});

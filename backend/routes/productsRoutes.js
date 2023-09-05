@@ -4,6 +4,7 @@ const productController = require('../controllers/productController');
 const multer = require('multer');
 const path = require('path');
 const validations = require('../middlewares/validations');
+const userLoggedMiddleware = require('../middlewares/middlewares').userLoggedMiddleware;
 
 
 const storage = multer.diskStorage({
