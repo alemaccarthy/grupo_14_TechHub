@@ -98,6 +98,11 @@ input#profile-image{
     cursor: pointer;
 }
 
+#profile-image-label h3 {
+    text-align: center;
+}
+
+
 #preview-container img{
     height: 100%;
   }
