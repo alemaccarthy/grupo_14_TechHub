@@ -293,8 +293,9 @@ input[type="color"]::-webkit-color-swatch {
 
 .buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
+    align-items: center;
 }
 
 .buttons input,
