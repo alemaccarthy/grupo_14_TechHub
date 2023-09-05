@@ -274,7 +274,7 @@ body {
     margin: 0.5vw 0;
 }
 
-.floating-buttons .button-link button {
+.floating-buttons button {
     color: #fff;
     width: 100%;
     font-size: 5vw;
