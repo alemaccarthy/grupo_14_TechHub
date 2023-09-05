@@ -62,10 +62,13 @@
                 <a href="/user/complete-purchase" class="button-link">
                     <button class="buy-button">Comprar ahora</button>
                 </a>
-                <form id="addToCartForm" action="/user/add-to-cart/<%= product.id %>" method="POST">
+                <a class="button-link">
                     <button type="submit" class="addToCart-button" data-product-id="<%= product.id %>">Agregar al carrito</button>
-                </form>
-                
+                </a>
+
+                <!-- <form id="addToCartForm" action="/user/add-to-cart/<%= product.id %>" method="POST">
+                    <button type="submit" class="addToCart-button" data-product-id="<%= product.id %>">Agregar al carrito</button>
+                </form> -->
             </section>
 
         </main>
