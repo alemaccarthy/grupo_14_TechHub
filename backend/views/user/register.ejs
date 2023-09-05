@@ -22,8 +22,7 @@
                 
                         <div class="login"><button class="log-in-btn">¿Ya estás registrado?</button></div>
                         <form class="form" action="/user/register" method="post" enctype="multipart/form-data" id="profile-form">
-                
-
+                          
                 <%- include('../partials/formRegister') %>
 
                 <button type="submit" class="register-button">Registrarte</button>
@@ -34,9 +33,8 @@
     </section>
     
     <section class="register-button-container">
-    
-    
         <p>Ya tengo cuenta! <a href="/user/login" class="open-login-button">Ingresar</a></p>
+        <input type="button" value="Volver Atrás" onclick="history.back()">
     </section>
     <script src="./js/main.js"></script>
 
