@@ -22,7 +22,6 @@ const productControllers = {
                     },
                 }            
             });
-    
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
 
@@ -36,6 +35,7 @@ const productControllers = {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const id = Number(req.params.id);
+            const products = res.locals.products;
             const product = await Product.findByPk(id, {
                 include: [
                     { model: Brand, as: 'brand' },
@@ -59,7 +59,7 @@ const productControllers = {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }
 
-            res.render('product-detail', { title: '| Detalle', product, selectedBrand });
+            res.render('product-detail', { title: '| Detalle', product, selectedBrand, products });
         } catch (error) {
             console.log(error);
         }

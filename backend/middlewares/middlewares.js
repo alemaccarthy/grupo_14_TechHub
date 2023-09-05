@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { Product, Color, Category, Brand, Image, User } = require('../database/models');
+const { Op } = require('sequelize');
 
 const middlewares = {
     middleware404(req, res, next) {
@@ -37,21 +38,20 @@ const middlewares = {
                         email: req.session.user.email
                     }
                 });
-    
+
                 if (sessionUser) {
                     delete sessionUser.id;
                     delete sessionUser.password;
-    
+
                     req.session.user = sessionUser;
                 }
             } catch (error) {
                 console.error(error);
             }
         }
-    
+
         next();
     },
-    
 
     async header(req, res, next) {
         try {
@@ -60,24 +60,36 @@ const middlewares = {
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
-
+                    { model: Image, as: 'images' },
                 ],
                 nest: true,
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                    },
+                }           
             });
+    
             res.locals.products = products;
             res.locals.home = req.cookies.selectedBrand;
-            res.locals.brand = (req.originalUrl).split('/')[3];
-            res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
-            res.locals.category = (req.originalUrl).split('/')[4];
-            res.locals.category = res.locals.category.charAt(0).toUpperCase() + res.locals.category.slice(1);
-
+            
+            // Verificar si existen segmentos de ruta antes de acceder a ellos
+            if (req.originalUrl) {
+                const segments = req.originalUrl.split('/');
+                if (segments.length >= 4) {
+                    res.locals.brand = segments[3].charAt(0).toUpperCase() + segments[3].slice(1);
+                }
+                if (segments.length >= 5) {
+                    res.locals.category = segments[4].charAt(0).toUpperCase() + segments[4].slice(1);
+                }
+            }
             next();
         } catch (error) {
             res.locals.products = []; // array vacío en caso de error.
             next();
         }
-
     },
+    
 
     brandSelector(req, res, next) {
 
