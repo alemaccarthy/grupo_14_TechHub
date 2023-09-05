@@ -3,34 +3,31 @@
 
 <head>
     <%- include('../partials/head') %>
-        <link rel="stylesheet" href="/css/styles-header.css">
-        <link rel="stylesheet" href="/css/styles-createProduct.css">
+    <link rel="stylesheet" href="/css/styles-header.css">
+    <link rel="stylesheet" href="/css/styles-createProduct.css">
 </head>
 
 <body>
-
     <%- include('../partials/header.ejs') %>
-
-        <main class="modal">
-            <section class="form-container-create">
-
-                <h1>Editá el producto</h1>
-                
-                <form action="/products/<%= product.id %>/update?_method=put" method="post" enctype="multipart/form-data">
-                    <%- include('../partials/formProduct') %>
-                    <section class="buttons">
-                        <input type="submit" value="Editar producto">
-                    </section>
-                </form>
-
-                <form class="form-delete" action="/products/<%= product.id %>/delete?_method=delete" method="post">
-                    <input type="submit" value="Eliminar producto">
-                </form>
-                
-            </section>
-        </main>
+    <main class="modal">
+        <section class="form-container-create">
+            <h1>Editá el producto</h1>
+            
+            <!-- Botones dentro de un formulario común -->
+            <form class="product-form" action="#" method="post" enctype="multipart/form-data">
+                <%- include('../partials/formProduct') %>
+                <section class="buttons">
+                    <input type="submit" value="Editar producto" onclick="setAction('update', '<%= product.id %>')">
+                    <input type="submit" value="Eliminar producto" onclick="setAction('delete', '<%= product.id %>')">
+                    <input type="button" value="Volver Atrás" onclick="history.back()">
+                </section>
+            </form>
+        </section>
+    </main>
 </body>
 
 <%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
 
 </html>

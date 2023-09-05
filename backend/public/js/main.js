@@ -871,3 +871,20 @@ window.addEventListener('DOMContentLoaded', function () {
     const closeBtn = document.querySelector(".close");
     closeBtn.addEventListener("click", hideMsg);
 });
+
+
+/// AGREGO FUNCION OPARA MANEJAR ACTION DEL FORMULARIO DE EDICION DE PRODUCTOS PARA ASI PODER AGRUPAR LOS BOTONES
+
+document.addEventListener('DOMContentLoaded', function () {
+    const setAction = (actionType, productId) => {
+        const formUpdate = document.querySelector('.form-update');
+        const formDelete = document.querySelector('.form-delete');
+
+        if (actionType === 'update') {
+            formUpdate.action = `/products/${productId}/update?_method=put`;
+            formUpdate.enctype = 'multipart/form-data';
+        } else if (actionType === 'delete') {
+            formDelete.action = `/products/${productId}/delete?_method=delete`;
+        }
+    }
+});

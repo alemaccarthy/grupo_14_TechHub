@@ -352,6 +352,7 @@ footer {
         font-size: 15px;
         padding: 5px 7px;
         min-width: 148px;
+        cursor: pointer;
     }
 }
 
