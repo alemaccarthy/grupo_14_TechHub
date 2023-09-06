@@ -1,42 +1,103 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
-import Cart from './components/Cart';
+import React from "react";
+import "./App.css";
+import Sidebar from "../src/components/Sidebar";
+import Topbar from "../src/components/Topbar";
+import Section from "../src/components/Section";
+import GenreCard from "../src/components/GenreCard";
+import Footer from "../src/components/Footer";
+import LastMovie from "../src/components/LastMovie";
 
 function App() {
   return (
-    /*<div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
+    <>
+      <div id="wrapper">
+        <Sidebar />
+        <div id="content-wrapper" className="d-flex flex-column">
+          <div id="content">
+            <Topbar />
+            {/* Contenedor principal para las secciones */}
+            <div className="container-fluid">
+              <div className="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+              </div>
 
-    //// SE PUEDE ESCRIBIR JS DENTRO DE HTML USANDO { } //// NO SE PUEDE MOSTRAR UN OBJETO ENTERO SINO ACCEDIENDO A UN CAMPO
-    /// TAMBIEN SE PUEDE JS ANTES DEL RETURN ////
-    /// SI QUEREMOS USAR UNA <a></a> SE USA EN SU LUGAR <Link to='RUTA>xxx </Link> //// ESTO EVITA RECARGAR LA PAGINA 
-    <Switch>
-      {/* <Route path='/' exact={true} component={Cart} /> */} {/* EN LA RUTA XXXX VAMOS A RENDERIZAR TAL COMPONENTE. EL EXACT SIRVE PARA QUE RENDERIZE OK */}
-      {/* SI QUEREMOS PASAR PROPS AL COMPONENTE DESDE ACA, USAR ETIQUETA DE CIERRE PARA <Route/> */}
-      {/* LO QUE QUEREMOS QUE ESTE EN TODAS LAS VISTAS, SE PASA POR ARRIBA O POR DEBAJO DEL SWITCH (POR FUERA)*/}
-      {/* <Route path='*' exact={true}>
-        ACA SE RENDERIZARIA EL ERROR 404
-      </Route> /> */}
+              {/* Contenedor para las secciones */}
+              <div className="row">
+                {/* Sección 1 */}
+                <Section title="Movies in Data Base">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                    21
+                  </div>
+                </Section>
 
-      {/* <Route path='/products/:id:/detail' exact={true} component={xxxx} /> */}
-    </Switch>
+                {/* Sección 2 */}
+                <Section title="Total awards">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                    79
+                  </div>
+                </Section>
 
+                {/* Sección 3 */}
+                <Section title="Actors quantity">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                    49
+                  </div>
+                </Section>
+              </div>
+
+              {/* Contenido de LastMovie */}
+              <div className="row">
+                <LastMovie />
+                
+                <div className="col-lg-6 mb-4">
+                  <div className="card">
+                    <div className="card-header py-3">
+                      <h5 className="m-0 font-weight-bold text-gray-800">
+                        Genres in Data Base
+                      </h5>
+                    </div>
+                    <div className="card-body">
+                      <div className="row">
+                        {/* Tarjeta de género 1 */}
+                        <GenreCard name="Acción" />
+
+                        {/* Tarjeta de género 2 */}
+                        <GenreCard name="Animación" />
+
+                        {/* Tarjeta de género 3 */}
+                        <GenreCard name="Aventura" />
+
+                        {/* Tarjeta de género 4 */}
+                        <GenreCard name="Ciencia Ficción" />
+
+                        {/* Tarjeta de género 5 */}
+                        <GenreCard name="Comedia" />
+
+                        {/* Tarjeta de género 6 */}
+                        <GenreCard name="Documental" />
+
+                        {/* Tarjeta de género 7 */}
+                        <GenreCard name="Drama" />
+
+                        {/* Tarjeta de género 8 */}
+                        <GenreCard name="Fantasía" />
+
+                        {/* Tarjeta de género 9 */}
+                        <GenreCard name="Infantiles" />
+
+                        {/* Tarjeta de género 10 */}
+                        <GenreCard name="Musical" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 
