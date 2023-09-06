@@ -22,9 +22,9 @@
                 <article class="img-container">
                     <img class="main-img" src="<%= product.images[0].path %>" alt="producto">
                     <article class="small-imgs-slider">
-                        <% product.images.forEach(el=> {%>
-                            <img src="<%= el.path %>" alt="">
-                            <% }) %>
+                        <% product.images.forEach((el, index) => { %>
+                            <img src="<%= el.path %>" alt="" onclick="changeImage('<%= el.path %>')">
+                        <% }) %>
                     </article>
                 </article>
 
@@ -76,3 +76,6 @@
         </main>
         <%- include('../partials/footer') %>
 </body>
+<script src="/js/main.js"></script>
+
+</html>

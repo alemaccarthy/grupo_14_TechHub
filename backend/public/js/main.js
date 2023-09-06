@@ -873,7 +873,7 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-/// AGREGO FUNCION OPARA MANEJAR ACTION DEL FORMULARIO DE EDICION DE PRODUCTOS PARA ASI PODER AGRUPAR LOS BOTONES
+/// AGREGO FUNCION PARA MANEJAR ACTION DEL FORMULARIO DE EDICION DE PRODUCTOS PARA ASI PODER AGRUPAR LOS BOTONES
 
 document.addEventListener('DOMContentLoaded', function () {
     const setAction = (actionType, productId) => {
@@ -888,3 +888,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+/// AGREGO FUNCION PARA MANEJAR IMAGENES DE DETALLE DE PRODUCTO
+
+    const changeImage = (newSrc) => {
+        const mainImg = document.querySelector('.main-img');
+        mainImg.src = newSrc;
+    
+        const slider = document.querySelector('.small-imgs-slider');
+        
+        slider.removeChild(clickedImg);
+        slider.insertBefore(clickedImg, slider.firstChild);
+    }

@@ -167,6 +167,13 @@ body {
     justify-content: center;
     overflow-x: scroll;
     width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.small-imgs-slider img {
+    margin: 0 !important;
 }
 
 .small-imgs-slider>div {
@@ -174,13 +181,12 @@ body {
     width: 70px;
     background-color: #f5f5f7;
     overflow-x: scroll;
-    margin: 0 10px;
 }
 
 .small-imgs-slider>img {
     width: 21vw;
     margin: 0 auto;
-    margin: 2vw;
+    
 }
 
 .img-container .fa-chevron-right {
@@ -466,6 +472,10 @@ footer.footer {
 
     .imagen-producto {
         padding: 11.5px;
+    }
+
+    .main-img, .small-imgs-slider:hover {
+        cursor: pointer
     }
 
     .product-price {
