@@ -231,6 +231,16 @@ a{
 
 /* DROPDOWN NAVBAR */
 
+.dropdown.dropdown-smartphone a,
+.dropdown.dropdown-smartwatch a,
+.dropdown.dropdown-tablet a {
+    font-family: "Montserrat"; 
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+
+
 .drop-container{
     width: 100%;
     height: 0;

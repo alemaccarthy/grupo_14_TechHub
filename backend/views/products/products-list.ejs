@@ -22,7 +22,7 @@
             </section>
 
             <section class="products-container">
-                <% if (category) { %>
+                <% if (typeof category !== 'undefined' && category) { %>
                     <% const displayedProductIds = []; %>
                     <% products.forEach(el => { %>
                         <% if (el.deletedAt === null && el.brand.name === brand && el.category.name === category) { %>
@@ -33,11 +33,13 @@
                                     
                                         <div class="box-img-product">
                                             <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
+                                            
                                         </div>
                                         
                                         <div>
                                             <h2 class="product-title">
                                                 <%= el.title %>
+                                                
                                             </h2>
                                             <p class="product-price">$<%= el.price %>
                                             </p>
@@ -63,7 +65,7 @@
                                             <h2 class="product-title">
                                                 <%= el.title %>
                                             </h2>
-                                            <p class="product-price">$<%= el.price %>
+                                            <p class="product-price">$<%= el.price %>      
                                             </p>
                                         </div>
                                     </article>

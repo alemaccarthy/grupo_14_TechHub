@@ -37,6 +37,8 @@ body {
 
 .box-img-product {
     background: #fff;
+    width: 185px;
+    max-height: 185px;
 }
 
 .selected-products {
@@ -54,14 +56,14 @@ body {
 }
 
 .imagen-producto {
-    width: 100%;
+    width: 185px;
+    height: 185px;
     padding: 1.5vw;
 }
 
 .product-title,
 .product-price {
-    /* text-wrap: balance; */
-    font-size: 3.3vw;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -459,7 +461,7 @@ footer.footer {
 
     .product-title,
     .product-price {
-        font-size: 18px;
+        font-size: 12px;
     }
 
     .imagen-producto {
