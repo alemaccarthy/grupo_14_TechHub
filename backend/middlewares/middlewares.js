@@ -14,7 +14,7 @@ const middlewares = {
         next();
     },
 
-    adminMiddleware(req, res, next){
+    adminMiddleware(req, res, next) {
         if (req.session && !req.session.user.email.endsWith('@techhub.com')) {
             return res.redirect(`/`);
         }
@@ -60,6 +60,28 @@ const middlewares = {
         next();
     },
 
+    sessionTimeoutMiddleware: (req, res, next) => {
+        if (req.session.user) {
+            // Obtén la hora actual
+            const now = Date.now();
+            const sessionTime = req.session.cookie.maxAge;
+
+            // Verifica si ha pasado más tiempo del permitido
+            if (now - req.session.lastActivity > sessionTime) {
+                // Si ha pasado demasiado tiempo, destruye la sesión
+                req.session.destroy(err => {
+                    if (err) {
+                        console.error('Error al destruir la sesión:', err);
+                    }
+                });
+            } else {
+                // Actualiza la hora de la última actividad
+                req.session.lastActivity = now;
+            }
+        }
+        next();
+    },
+
     async header(req, res, next) {
         try {
             const products = await Product.findAll({
@@ -98,12 +120,9 @@ const middlewares = {
             next();
         }
     },
-    
 
     brandSelector(req, res, next) {
-
         res.locals.selectedBrand = req.cookies.selectedBrand
-
         next();
     }
 }
