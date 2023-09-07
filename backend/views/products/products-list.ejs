@@ -13,79 +13,116 @@
 
         <main class="modal">
             <section class="banner-list">
-                <img src="/imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
+                <% if(brand=="Samsung" ) {%>
+
+                    <img src="/imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
+
+                    <% }else if(brand=="Apple" ){ %>
+
+                        <video autoplay loop muted>
+                            <source src="/videos/Videooo.mp4">
+                        </video>
+
+                        <% } %>
             </section>
             <section class="update-container">
-                <% if(isLogged == true && user.email.endsWith('@techhub.com')){ %>
-                <div class="update-button">
-                    <button><a href="/products/create">Crear producto +</a></button>
-                </div>
-                <% } %>
+                <% if(isLogged==true && user.email.endsWith('@techhub.com')){ %>
+                    <div class="update-button">
+                        <button><a href="/products/create">Crear producto +</a></button>
+                    </div>
+                    <% } %>
             </section>
 
             <section class="products-container">
-                <% if (typeof category !== 'undefined' && category) { %>
-                    <% const displayedProductIds = []; %>
-                    <% products.forEach(el => { %>
-                        <% if (el.deletedAt === null && el.brand.name === brand && el.category.name === category) { %>
-                            <% if (!displayedProductIds.includes(el.id)) { %>
-                                <% displayedProductIds.push(el.id); %>
-                                <a class="selected-products" href="/products/<%= el.id %>/detail">
-                                    <article>
-                                    
-                                        <div class="box-img-product">
-                                            <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
-                                            
-                                        </div>
-                                        
-                                        <div>
-                                            <h2 class="product-title">
-                                                <%= el.title %>
-                                                
-                                            </h2>
-                                            <p class="product-price">$<%= el.price %>
-                                            </p>
-                                        </div>
-                                    </article>
-                                </a>
-                            <% } %>
-                        <% } %>
-                    <% }); %>
-                <% } else { %>
-                    <% const displayedProductIds = []; %>
-                    <% products.forEach(el => { %>
-                        <% if (el.deletedAt === null && el.brand.name === brand) { %>
-                            <% if (!displayedProductIds.includes(el.id)) { %>
-                                <% displayedProductIds.push(el.id); %>
-                                <a class="selected-products" href="/products/<%= el.id %>/detail">
-                                    <article>
-                                        <div class="box-img-product">
-                                            <img class="imagen-producto" src="<%= el.images.path %>" alt="product">
-                                        </div>
-                                        
-                                        <div>
-                                            <h2 class="product-title">
-                                                <%= el.title %>
-                                            </h2>
-                                            <p class="product-price">$<%= el.price %>      
-                                            </p>
-                                        </div>
-                                    </article>
-                                </a>
-                            <% } %>
-                        <% } %>
-                    <% }); %>
-                <% } %>
-            </section>
-            
+                <% if (typeof category !=='undefined' && category) { %>
+                    <% const displayedProductIds=[]; %>
+                        <% products.forEach(el=> { %>
+                            <% if (el.deletedAt===null && el.brand.name===brand && el.category.name===category) { %>
+                                <% if (!displayedProductIds.includes(el.id)) { %>
+                                    <% displayedProductIds.push(el.id); %>
+                                        <a class="selected-products" href="/products/<%= el.id %>/detail">
+                                            <article>
 
-            <section class="presentation-product-container">
-                <section class="presentation-product">
-                    <h1 class="smartphone-title-list">Galaxy Z</h1>
-                    <video autoplay loop muted plays-inline="">
-                        <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
-                    </video>
-                </section>
+                                                <div class="box-img-product">
+                                                    <img class="imagen-producto" src="<%= el.images.path %>"
+                                                        alt="product">
+
+                                                </div>
+
+                                                <div>
+                                                    <h2 class="product-title">
+                                                        <%= el.title %>
+
+                                                    </h2>
+                                                    <p class="product-price">$<%= el.price %>
+                                                    </p>
+                                                </div>
+                                            </article>
+                                        </a>
+                                        <% } %>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } else { %>
+                                                        <% const displayedProductIds=[]; %>
+                                                            <% products.forEach(el=> { %>
+                                                                <% if (el.deletedAt===null && el.brand.name===brand) {
+                                                                    %>
+                                                                    <% if (!displayedProductIds.includes(el.id)) { %>
+                                                                        <% displayedProductIds.push(el.id); %>
+                                                                            <a class="selected-products"
+                                                                                href="/products/<%= el.id %>/detail">
+                                                                                <article>
+                                                                                    <div class="box-img-product">
+                                                                                        <img class="imagen-producto"
+                                                                                            src="<%= el.images.path %>"
+                                                                                            alt="product">
+                                                                                    </div>
+
+                                                                                    <div>
+                                                                                        <h2 class="product-title">
+                                                                                            <%= el.title %>
+                                                                                        </h2>
+                                                                                        <p class="product-price">$<%=
+                                                                                                el.price %>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </article>
+                                                                            </a>
+                                                                            <% } %>
+                                                                                <% } %>
+                                                                                    <% }); %>
+                                                                                        <% } %>
+            </section>
+
+
+            <section class="presentation-product-container<% if(brand == "Samsung"){%>
+
+                 presentation-product-container-samsung
+
+                <% }else if(brand == "Apple"){%>
+
+                     presentation-product-container-apple
+
+                    <% } %>">
+
+                        <section class="presentation-product">
+
+                            <% if(brand=="Samsung" ) {%>
+
+                                <h1 class="smartphone-title-list">Galaxy Z</h1>
+
+                                <video autoplay loop muted plays-inline="">
+                                    <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
+                                </video>
+
+                                <% }else if(brand=="Apple" ){ %>
+                                    <h1 class="smartphone-title-list">Iphone 14</h1>
+
+                                    <img src="/imgs/apple/home/banner-apple/iphone__ky2k6x5u6vue_og.png" alt="">
+
+                                    <% } %>
+
+                        </section>
             </section>
         </main>
         <%- include('../partials/footer') %>
