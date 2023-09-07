@@ -9,7 +9,14 @@ const middlewares = {
 
     guestMiddleware(req, res, next) {
         if (req.session.user) {
-            return res.redirect('/user/profile');
+            return res.redirect(`/user/profile/${req.session.user.name}/${req.session.user.id}`);
+        }
+        next();
+    },
+
+    adminMiddleware(req, res, next){
+        if (req.session && !req.session.user.email.endsWith('@techhub.com')) {
+            return res.redirect(`/`);
         }
         next();
     },
