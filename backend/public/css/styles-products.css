@@ -30,6 +30,11 @@ body {
     margin-left: -10%;
 }
 
+.banner-list video {
+    width: 220%;
+    margin-top: -55%;
+}
+
 .products-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -85,6 +90,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: 20px;
 }
 
 .presentation-product-container video {
@@ -92,17 +98,30 @@ body {
     margin-left: -50%;
 }
 
+.presentation-product-container img {
+    width: 100%;
+}
+
 .presentation-product {
     position: relative;
     max-width: 1300px;
 }
 
-.smartphone-title-list {
+.smartphone-title-list{
     font-size: 7vw;
     position: absolute;
     top: 3%;
     left: 4%;
     z-index: 10;
+}
+
+.smartphone-title-list-apple{
+    font-size: 7vw;
+    position: absolute;
+    top: -6%;
+    left: 4%;
+    z-index: 100;
+    overflow: auto;
 }
 
 /* --------------------product-detail------------------------- */

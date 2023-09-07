@@ -306,8 +306,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const apple = document.getElementById('apple-link');
     const samsung = document.getElementById('samsung-link');
 
-    const appleIcon = document.getElementById('home-1');
-    const samsungIcon = document.getElementById('home-2');
+    const appleIcon = document.querySelector('.apple');
+    const samsungIcon = document.querySelector('.samsung');
 
     if (apple && samsung) {
         apple.addEventListener('click', function () {
