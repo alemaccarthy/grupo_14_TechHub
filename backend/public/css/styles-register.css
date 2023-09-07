@@ -15,7 +15,6 @@ body {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////  CONTAINER CSS ////////////////////////////////////////////////////// */
 
-
 .register-container {
     background-color: #fff;
     padding: 45px 10px;
@@ -54,6 +53,16 @@ body {
     font-size: 17px;
     color: #ffffff;
     border-radius: 10px;
+}
+
+button[type = "button"] {
+    background-color: #164194;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    border: none;
+    margin-top: 7px;
+    cursor: pointer;
 }
 
 .register-button-container .open-login-button {
