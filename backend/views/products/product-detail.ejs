@@ -13,9 +13,11 @@
 
         <main class="modal">
             <section class="update-container">
+                <% if(user.email.endsWith('@techhub.com')){ %>
                 <div class="update-button">
                     <button><a href="/products/<%= product.id %>/update">Editar producto</a></button>
                 </div>
+                <% } %>
             </section>
 
             <section class="product-detail-container">

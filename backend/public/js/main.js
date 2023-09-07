@@ -677,7 +677,7 @@ window.addEventListener('DOMContentLoaded', function () {
         checkFormValidity();
     }
 
-    const validatePassword = () => {
+    /* const validatePassword = () => {
         const errorElement = password.nextElementSibling;
         if (!passwordRegex.test(password.value)) {
             errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
@@ -705,7 +705,7 @@ window.addEventListener('DOMContentLoaded', function () {
             checkFormValidity();
             return true;
         }
-    };
+    }; */
 
     password.addEventListener('blur', validatePassword);
     confirmPassword.addEventListener('blur', validateConfirmPassword);

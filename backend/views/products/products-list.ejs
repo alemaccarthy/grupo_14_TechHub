@@ -16,9 +16,11 @@
                 <img src="/imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
             </section>
             <section class="update-container">
+                <% if(user.email.endsWith('@techhub.com')){ %>
                 <div class="update-button">
                     <button><a href="/products/create">Crear producto +</a></button>
                 </div>
+                <% } %>
             </section>
 
             <section class="products-container">
