@@ -116,7 +116,6 @@
 <p id="image-format-info" class="text-muted">Formatos de imagen permitidos: JPG, JPEG, PNG</p>
 
 <div class="pick-colors <%= locals.errors && errors.colors ? 'is-invalid' : null %>">
-    <h3>Agrega colores</h3>
     <div class="colors-box">
         <% const productColors=(product && product.colors) ? product.colors.map(colorObj=> colorObj.color.toLowerCase())
             : []; %>
@@ -132,7 +131,7 @@
                     </div>
                     <% } %>
     </div>
-    <input type="number" name="color_quantity" id="color_quantity" readonly>
+    <input type="number" name="color_quantity" id="color_quantity" readonly hidden>
     <p id="error"></p>
 </div>
 

@@ -284,11 +284,6 @@ select#category {
     margin-top: 5px;
 }
 
-.color-name {
-    margin-left: 5px;
-    margin-top: 7px;
-}
-
 .form-container-create input[type="color"] {
     width: 40px;
     height: 40px;
