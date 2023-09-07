@@ -37,10 +37,15 @@
     transition: 0.5s;
 }
 
+#images{
+    display: none;
+}
+
 #image-format-info {
     font-size: 14px;
     color: #888;
     margin-top: 5px;
+    width: 100% !important;
 }
 
 
@@ -129,6 +134,10 @@ select#category {
     align-items: center;
 }
 
+.form-container-create>form>div:nth-last-of-type(2){
+    margin: 0;
+}
+
 .form-container-create>form>div:nth-last-of-type(2) label {
     width: 100%;
     padding: 60px 0;
@@ -193,6 +202,14 @@ select#category {
     justify-content: space-between;
 }
 
+.colors-box {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.color-label{
+    flex-basis: 25%;
+}
 
 .pick-colors {
     margin-bottom: 20px;
