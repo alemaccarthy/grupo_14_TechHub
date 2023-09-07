@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../src/components/Sidebar";
 import Topbar from "../src/components/Topbar";
@@ -7,7 +7,24 @@ import GenreCard from "../src/components/GenreCard";
 import Footer from "../src/components/Footer";
 import LastMovie from "../src/components/LastMovie";
 
+import { getAllProducts } from "./utils/api";
+
 function App() {
+  const [products, setProducts] = useState([]); // Estado para almacenar los productos
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllProducts(); // Espera la respuesta de getAllProducts
+        setProducts(data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData(); // Llama a la función asincrónica fetchData
+  }, []);
+  console.log('ESTOS SON LOS PRODUCTS EN REACT ' + products);
   return (
     <>
       <div id="wrapper">
@@ -48,7 +65,7 @@ function App() {
               {/* Contenido de LastMovie */}
               <div className="row">
                 <LastMovie />
-                
+
                 <div className="col-lg-6 mb-4">
                   <div className="card">
                     <div className="card-header py-3">
@@ -58,35 +75,9 @@ function App() {
                     </div>
                     <div className="card-body">
                       <div className="row">
-                        {/* Tarjeta de género 1 */}
-                        <GenreCard name="Acción" />
-
-                        {/* Tarjeta de género 2 */}
-                        <GenreCard name="Animación" />
-
-                        {/* Tarjeta de género 3 */}
-                        <GenreCard name="Aventura" />
-
-                        {/* Tarjeta de género 4 */}
-                        <GenreCard name="Ciencia Ficción" />
-
-                        {/* Tarjeta de género 5 */}
-                        <GenreCard name="Comedia" />
-
-                        {/* Tarjeta de género 6 */}
-                        <GenreCard name="Documental" />
-
-                        {/* Tarjeta de género 7 */}
-                        <GenreCard name="Drama" />
-
-                        {/* Tarjeta de género 8 */}
-                        <GenreCard name="Fantasía" />
-
-                        {/* Tarjeta de género 9 */}
-                        <GenreCard name="Infantiles" />
-
-                        {/* Tarjeta de género 10 */}
-                        <GenreCard name="Musical" />
+                        {products.map((product) => (
+                          <GenreCard key={product.id} name={product.category.name} />
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -96,6 +87,7 @@ function App() {
           </div>
         </div>
       </div>
+   
       <Footer />
     </>
   );

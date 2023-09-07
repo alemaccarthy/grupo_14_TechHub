@@ -9,5 +9,4 @@ apiProductsRoutes.get('/', apiController.getAll)
 apiProductsRoutes.get('/:id/detail', apiController.getProductDetail);
 
 
-
 module.exports = apiProductsRoutes;
