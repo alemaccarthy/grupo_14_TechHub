@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path'); 
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
@@ -36,6 +37,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(cors());
 
 app.use(middlewares.userLoggedMiddleware);
 app.use(middlewares.rememberMiddleware);
