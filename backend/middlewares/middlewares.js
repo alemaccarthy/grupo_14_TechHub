@@ -72,9 +72,11 @@ const middlewares = {
     
             res.locals.products = products;
             res.locals.home = req.cookies.selectedBrand;
+            res.locals.brand = (req.originalUrl).split('/')[3];
+            res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
             
             // Verificar si existen segmentos de ruta antes de acceder a ellos
-            if (req.originalUrl) {
+            /* if (req.originalUrl) {
                 const segments = req.originalUrl.split('/');
                 if (segments.length >= 4) {
                     res.locals.brand = segments[3].charAt(0).toUpperCase() + segments[3].slice(1);
@@ -82,7 +84,7 @@ const middlewares = {
                 if (segments.length >= 5) {
                     res.locals.category = segments[4].charAt(0).toUpperCase() + segments[4].slice(1);
                 }
-            }
+            } */
             next();
         } catch (error) {
             res.locals.products = []; // array vacío en caso de error.

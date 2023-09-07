@@ -167,7 +167,6 @@ body {
     justify-content: center;
     overflow-x: scroll;
     width: 100%;
-    border: 1px solid grey;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -220,18 +219,11 @@ body {
 .pick-color-smartphone {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0 auto;
     width: 70%;
     padding: 10vw 0 5vw;
     max-width: 300px;
-}
-
-.pick-color-smartphone h1 {
-    width: 100%;
-    text-align: center;
-    padding-top: 3vw;
-    font-size: 5vw;
 }
 
 .option-color-smartphone {
@@ -239,6 +231,7 @@ body {
     height: 7vw;
     border-radius: 50%;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .color-s23-green {
@@ -426,11 +419,6 @@ footer.footer {
     .option-color-smartphone {
         width: 33.66px;
         height: 33.66px;
-    }
-
-    .pick-color-smartphone h1 {
-        font-size: 24px;
-        padding-top: 14.5px;
     }
 
     .product-info {
