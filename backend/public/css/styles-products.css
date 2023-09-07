@@ -11,16 +11,28 @@ body {
     background-color: #fff;
 }
 
-.banner-list,
-.presentation-product-container {
+.banner-list{
     overflow: hidden;
     background-color: #f4f4f4;
+}
 
+.presentation-product-container-samsung {
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+.presentation-product-container-apple {
+    overflow: hidden;
+    background-color: #fff;
 }
 
 .banner-list img {
     width: 210%;
     margin-left: -10%;
+}
+
+.banner-list video {
+    width: 220%;
+    margin-top: -55%;
 }
 
 .products-container {
@@ -78,6 +90,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: 20px;
 }
 
 .presentation-product-container video {
@@ -85,17 +98,30 @@ body {
     margin-left: -50%;
 }
 
+.presentation-product-container img {
+    width: 100%;
+}
+
 .presentation-product {
     position: relative;
     max-width: 1300px;
 }
 
-.smartphone-title-list {
+.smartphone-title-list{
     font-size: 7vw;
     position: absolute;
     top: 3%;
     left: 4%;
     z-index: 10;
+}
+
+.smartphone-title-list-apple{
+    font-size: 7vw;
+    position: absolute;
+    top: -6%;
+    left: 4%;
+    z-index: 100;
+    overflow: auto;
 }
 
 /* --------------------product-detail------------------------- */
@@ -167,7 +193,6 @@ body {
     justify-content: center;
     overflow-x: scroll;
     width: 100%;
-    border: 1px solid grey;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -220,18 +245,11 @@ body {
 .pick-color-smartphone {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0 auto;
     width: 70%;
     padding: 10vw 0 5vw;
     max-width: 300px;
-}
-
-.pick-color-smartphone h1 {
-    width: 100%;
-    text-align: center;
-    padding-top: 3vw;
-    font-size: 5vw;
 }
 
 .option-color-smartphone {
@@ -239,6 +257,7 @@ body {
     height: 7vw;
     border-radius: 50%;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .color-s23-green {
@@ -384,11 +403,24 @@ footer.footer {
         width: 100%;
         margin-left: 0;
     }
+    
+    .banner-list video {
+        width: 100%;
+        margin-left: 0;
+        margin-top: -25%;
+    }
+
+    .presentation-product-container-samsung{
+        background-color: #f4f4f4;
+    }
+
+    .presentation-product-container-apple{
+        background-color: #fff;
+    }
 
     .presentation-product-container video {
         width: 100%;
         margin-left: 0;
-        background-color: #f4f4f4;
     }
 
     /* ----------------------product-detail-------------------------------- */
@@ -428,11 +460,6 @@ footer.footer {
         height: 33.66px;
     }
 
-    .pick-color-smartphone h1 {
-        font-size: 24px;
-        padding-top: 14.5px;
-    }
-
     .product-info {
         font-size: 16px;
         padding: 24px 0;
@@ -459,6 +486,7 @@ footer.footer {
 @media(width >=768px) {
     .products-container {
         max-width: 850px;
+        margin: 100px auto;
     }
 
     .selected-products {

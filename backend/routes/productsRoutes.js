@@ -4,7 +4,7 @@ const productController = require('../controllers/productController');
 const multer = require('multer');
 const path = require('path');
 const validations = require('../middlewares/validations');
-const userLoggedMiddleware = require('../middlewares/middlewares').userLoggedMiddleware;
+const middlewares = require('../middlewares/middlewares');
 
 
 const storage = multer.diskStorage({
@@ -30,7 +30,7 @@ productRoutes.get('/catalog/:brand/:category', productController.getProducts);
 productRoutes.get('/:id/detail', productController.getProductDetail);
 
 // @GET /products/create
-productRoutes.get('/create', productController.getCreateProduct);
+productRoutes.get('/create', middlewares.adminMiddleware, productController.getCreateProduct);
 
 // @POST /products/create
 productRoutes.post('/create', [upload.any('images'), validations.productsValidations], productController.createProduct);
@@ -40,9 +40,9 @@ productRoutes.post('/create', [upload.any('images'), validations.productsValidat
 productRoutes.delete('/:id/delete', productController.deleteProduct);
 
 // @GET /products/:id/update
-productRoutes.get('/:id/update', productController.getUpdateProduct);
+productRoutes.get('/:id/update',  productController.getUpdateProduct);
 
 // @PUT /products/:id/update
-productRoutes.put('/:id/update', [upload.any('images'), validations.productsValidations], productController.updateProduct);
+productRoutes.put('/:id/update', [upload.any('images'), middlewares.adminMiddleware, validations.productsValidations], productController.updateProduct);
 
 module.exports = productRoutes;

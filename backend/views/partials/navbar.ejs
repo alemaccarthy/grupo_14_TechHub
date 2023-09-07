@@ -10,9 +10,15 @@
             <li><a href="/user/register">Registrate</a></li>
             <% } %>
 
-                <li><a href="/apple">Apple</a></li>
-                <li><a href="/samsung">Samsung</a></li>
-                <li><button>Tienda</button></li>
+                <li><a class="apple" href="/apple">Apple</a></li>
+                <li><a class="samsung" href="/samsung">Samsung</a></li>
+                <li><button><a href="
+                    <% if (home === 'apple' || brand == 'apple') { %>
+                     /products/catalog/apple
+                    <% }else if(home === 'samsung' || brand == 'samsung'){ %>
+                     /products/catalog/samsung
+                    <% } %>
+                    ">Tienda</a></button></li>
                 <li><button>Smartphones</button></li>
                 <li><button>Smartwatch</button></li>
                 <li><button>Tablets</button></li>
