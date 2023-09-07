@@ -19,9 +19,27 @@
                      /products/catalog/samsung
                     <% } %>
                     ">Tienda</a></button></li>
-                <li><button>Smartphones</button></li>
-                <li><button>Smartwatch</button></li>
-                <li><button>Tablets</button></li>
+                <li><button><a href="
+                    <% if (home === 'apple' || brand === 'apple') { %>
+                     /products/catalog/apple/smartphone
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                     /products/catalog/samsung/smartphone
+                    <% } %>
+                    ">Smartphones</a></button></li>
+                <li><button><a href="
+                    <% if (home === 'apple' || brand === 'apple') { %>
+                     /products/catalog/apple/smartwatch
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                     /products/catalog/samsung/smartwatch
+                    <% } %>
+                    ">Smartwatch</a></button></li>
+                <li><button><a href="
+                    <% if (home === 'apple' || brand === 'apple') { %>
+                     /products/catalog/apple/tablet
+                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                     /products/catalog/samsung/tablet
+                    <% } %>
+                    ">Tablets</a></button></li>
 </ul>
 
 <!-- <img class="nav-profile-pic" src="<%#= locals.user && locals.user.profile? locals.user.profile : '/imgs/profile-images/no-image-profile.jpg' %>" alt=""> -->
