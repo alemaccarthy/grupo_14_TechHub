@@ -608,11 +608,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // Validaciones de registro de usuarios
 window.addEventListener('DOMContentLoaded', function () {
-
     const name = document.querySelector('#nombres');
     const lastName = document.querySelector('#apellido');
     const email = document.querySelector('#correo');
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$*&])[A-Za-z\d#$*&]{6,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[#\$&*]).{6,}$/;
     const password = document.querySelector('#password');
     const confirmPassword = document.querySelector('#confirm-password');
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -647,8 +646,8 @@ window.addEventListener('DOMContentLoaded', function () {
             e.target.nextElementSibling.textContent = '';
             e.target.nextElementSibling.style.display = 'none';
             fieldsValidated++;
+            checkFormValidity();
         }
-        checkFormValidity();
     }
 
     lastName.onblur = (e) => {
@@ -660,8 +659,8 @@ window.addEventListener('DOMContentLoaded', function () {
             e.target.nextElementSibling.innerHTML = '';
             e.target.nextElementSibling.style.display = 'none';
             fieldsValidated++;
+            checkFormValidity();
         }
-        checkFormValidity();
     }
 
     email.onblur = (e) => {
@@ -673,74 +672,52 @@ window.addEventListener('DOMContentLoaded', function () {
             email.nextElementSibling.textContent = '';
             e.target.nextElementSibling.style.display = 'none';
             fieldsValidated++;
+            checkFormValidity();
         }
-        checkFormValidity();
     }
 
     password.onblur = (e) => {
         const errorElement = password.nextElementSibling;
-        if (password.value.length < 5) {
-        // if (!passwordRegex.test(password.value)) {
+        const confirmPasswordValue = confirmPassword.value;
+        const passwordValue = password.value;
+    
+        if (passwordValue.length < 6) {
             e.preventDefault();
-            errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
+            errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres';
             errorElement.style.display = 'block';
-            return false;
+        } else if (!passwordRegex.test(passwordValue)) {
+            e.preventDefault();
+            errorElement.textContent = 'La contraseña debe contener al menos 1 minúscula, 1 mayúscula y 1 símbolo (#, $, *, &)';
+            errorElement.style.display = 'block';
+        } else if (confirmPasswordValue !== '' && confirmPasswordValue !== passwordValue) {
+            const confirmErrorElement = confirmPassword.nextElementSibling;
+            confirmErrorElement.textContent = 'Las contraseñas no coinciden';
+            confirmErrorElement.style.display = 'block';
         } else {
             errorElement.textContent = '';
             errorElement.style.display = 'none';
             fieldsValidated++;
             checkFormValidity();
-            return true;
         }
     };
-
+    
     confirmPassword.onblur = (e) => {
         const errorElement = confirmPassword.nextElementSibling;
-        if (password.value !== confirmPassword.value) {
+        const confirmPasswordValue = confirmPassword.value;
+        const passwordValue = password.value;
+    
+        if (passwordValue !== confirmPasswordValue) {
+            e.preventDefault();
             errorElement.textContent = 'Las contraseñas no coinciden';
             errorElement.style.display = 'block';
-            return false;
         } else {
             errorElement.textContent = '';
             errorElement.style.display = 'none';
             fieldsValidated++;
             checkFormValidity();
-            return true;
         }
     };
-
-    // const validatePassword = () => {
-    //     const errorElement = password.nextElementSibling;
-    //     if (!passwordRegex.test(password.value)) {
-    //         errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
-    //         errorElement.style.display = 'block';
-    //         return false;
-    //     } else {
-    //         errorElement.textContent = '';
-    //         errorElement.style.display = 'none';
-    //         fieldsValidated++;
-    //         checkFormValidity();
-    //         return true;
-    //     }
-    // };
-
-    // const validateConfirmPassword = () => {
-    //     const errorElement = confirmPassword.nextElementSibling;
-    //     if (password.value !== confirmPassword.value) {
-    //         errorElement.textContent = 'Las contraseñas no coinciden';
-    //         errorElement.style.display = 'block';
-    //         return false;
-    //     } else {
-    //         errorElement.textContent = '';
-    //         errorElement.style.display = 'none';
-    //         fieldsValidated++;
-    //         checkFormValidity();
-    //         return true;
-    //     }
-    // };
-
-    // password.addEventListener('blur', validatePassword);
-    // confirmPassword.addEventListener('blur', validateConfirmPassword);
+    
 
     dni.onblur = (e) => {
         const length = e.target.value.length;
@@ -864,12 +841,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const form = document.querySelector('#profile-form');
     form.addEventListener('submit', function (e) {
-        if (!formValid) {
+        if (formValid) {
             e.preventDefault(); // Evita que el formulario se envíe si no es válido
             alert('Hay errores en el formulario. Por favor, verifica los datos ingresados.');
         }
     });
 });
+
 
 // PARA MOSTRAR MENSAJE EN CASO DE AGREGAR PRODUCTO AL CARRITO SIN LOGUEARSE
 
@@ -932,3 +910,39 @@ const changeImage = (newSrc) => {
     slider.removeChild(clickedImg);
     slider.insertBefore(clickedImg, slider.firstChild);
 }
+
+
+
+
+// const validatePassword = () => {
+    //     const errorElement = password.nextElementSibling;
+    //     if (!passwordRegex.test(password.value)) {
+    //         errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
+    //         errorElement.style.display = 'block';
+    //         return false;
+    //     } else {
+    //         errorElement.textContent = '';
+    //         errorElement.style.display = 'none';
+    //         fieldsValidated++;
+    //         checkFormValidity();
+    //         return true;
+    //     }
+    // };
+
+    // const validateConfirmPassword = () => {
+    //     const errorElement = confirmPassword.nextElementSibling;
+    //     if (password.value !== confirmPassword.value) {
+    //         errorElement.textContent = 'Las contraseñas no coinciden';
+    //         errorElement.style.display = 'block';
+    //         return false;
+    //     } else {
+    //         errorElement.textContent = '';
+    //         errorElement.style.display = 'none';
+    //         fieldsValidated++;
+    //         checkFormValidity();
+    //         return true;
+    //     }
+    // };
+
+    // password.addEventListener('blur', validatePassword);
+    // confirmPassword.addEventListener('blur', validateConfirmPassword);
