@@ -677,9 +677,11 @@ window.addEventListener('DOMContentLoaded', function () {
         checkFormValidity();
     }
 
-    /* const validatePassword = () => {
+    password.onblur = (e) => {
         const errorElement = password.nextElementSibling;
-        if (!passwordRegex.test(password.value)) {
+        if (password.value.length < 5) {
+        // if (!passwordRegex.test(password.value)) {
+            e.preventDefault();
             errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
             errorElement.style.display = 'block';
             return false;
@@ -692,7 +694,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    const validateConfirmPassword = () => {
+    confirmPassword.onblur = (e) => {
         const errorElement = confirmPassword.nextElementSibling;
         if (password.value !== confirmPassword.value) {
             errorElement.textContent = 'Las contraseñas no coinciden';
@@ -705,10 +707,40 @@ window.addEventListener('DOMContentLoaded', function () {
             checkFormValidity();
             return true;
         }
-    }; */
+    };
 
-    password.addEventListener('blur', validatePassword);
-    confirmPassword.addEventListener('blur', validateConfirmPassword);
+    // const validatePassword = () => {
+    //     const errorElement = password.nextElementSibling;
+    //     if (!passwordRegex.test(password.value)) {
+    //         errorElement.textContent = 'La contraseña debe tener al menos 6 caracteres, una mayúscula y un símbolo (#, $, *, &)';
+    //         errorElement.style.display = 'block';
+    //         return false;
+    //     } else {
+    //         errorElement.textContent = '';
+    //         errorElement.style.display = 'none';
+    //         fieldsValidated++;
+    //         checkFormValidity();
+    //         return true;
+    //     }
+    // };
+
+    // const validateConfirmPassword = () => {
+    //     const errorElement = confirmPassword.nextElementSibling;
+    //     if (password.value !== confirmPassword.value) {
+    //         errorElement.textContent = 'Las contraseñas no coinciden';
+    //         errorElement.style.display = 'block';
+    //         return false;
+    //     } else {
+    //         errorElement.textContent = '';
+    //         errorElement.style.display = 'none';
+    //         fieldsValidated++;
+    //         checkFormValidity();
+    //         return true;
+    //     }
+    // };
+
+    // password.addEventListener('blur', validatePassword);
+    // confirmPassword.addEventListener('blur', validateConfirmPassword);
 
     dni.onblur = (e) => {
         const length = e.target.value.length;
@@ -845,17 +877,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const loginAlert = document.querySelector("#login-alert");
     const addToCartButton = document.querySelector(".addToCart-button");
-    
+
     // Función para mostrar el mensaje
     function showMsg() {
         loginAlert.style.display = "block";
     }
-    
+
     // Función para cerrar el mensaje
     function hideMsg() {
         loginAlert.style.display = "none";
     }
-    
+
     // Agregar un evento de clic al botón "Agregar al carrito"
     addToCartButton.addEventListener("click", function (event) {
         const isLogged = window.isUserLogged;
@@ -866,7 +898,7 @@ window.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); // Evitar que el formulario se envíe
         }
     });
-    
+
     // Agregar un evento de clic al botón "Cerrar" en el modal
     const closeBtn = document.querySelector(".close");
     closeBtn.addEventListener("click", hideMsg);
@@ -891,12 +923,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /// AGREGO FUNCION PARA MANEJAR IMAGENES DE DETALLE DE PRODUCTO
 
-    const changeImage = (newSrc) => {
-        const mainImg = document.querySelector('.main-img');
-        mainImg.src = newSrc;
-    
-        const slider = document.querySelector('.small-imgs-slider');
-        
-        slider.removeChild(clickedImg);
-        slider.insertBefore(clickedImg, slider.firstChild);
-    }
+const changeImage = (newSrc) => {
+    const mainImg = document.querySelector('.main-img');
+    mainImg.src = newSrc;
+
+    const slider = document.querySelector('.small-imgs-slider');
+
+    slider.removeChild(clickedImg);
+    slider.insertBefore(clickedImg, slider.firstChild);
+}
