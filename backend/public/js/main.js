@@ -297,9 +297,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let selectedBrand = '';
 
-function handleClick(brand) {
-    selectedBrand = brand;
+function handleClick(selectedBrand) {
+    brand = selectedBrand;
     document.cookie = `selectedBrand=${selectedBrand}; path=/`;
+    document.cookie = `brand=${brand}; path=/`;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -310,21 +311,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const samsungIcon = document.querySelector('.samsung');
 
     if (apple && samsung) {
-        apple.addEventListener('click', function () {
+        apple.onclick = function () {
             handleClick('apple');
-        });
-        samsung.addEventListener('click', function () {
+        };
+        samsung.onclick = function () {
             handleClick('samsung');
-        });
+        };
     }
 
     if (appleIcon && samsungIcon) {
-        appleIcon.addEventListener('click', function () {
+        appleIcon.onclick = function () {
             handleClick('apple');
-        });
-        samsungIcon.addEventListener('click', function () {
+        }
+        samsungIcon.onclick = function () {
             handleClick('samsung');
-        });
+        }
     }
 });
 

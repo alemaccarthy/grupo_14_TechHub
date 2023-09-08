@@ -101,7 +101,6 @@ const middlewares = {
     
             res.locals.products = products;
             res.locals.home = req.cookies.selectedBrand;
-            console.log('ESTE ES EL HOME EN EL MIDDLEWARE ' + res.locals.home );
             res.locals.brand = (req.originalUrl).split('/')[3];
             res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
     

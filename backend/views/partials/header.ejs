@@ -4,32 +4,32 @@
             <a href="/"><img id="logo" src="/imgs/logo-iso/LogoTechHub_Principal.png" alt="logo"></a>
             <section class="left-list left-nav" id="left-nav">
                 <div class="tienda-nav nav-button"><button><a href="
-                    <% if (home === 'apple' || brand === 'apple') { %>
+                    <% if (home === 'apple' || brand === 'Apple') { %>
                      /products/catalog/apple
-                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                    <% }else if( home === 'samsung' || brand === 'Samsung'){ %>
                      /products/catalog/samsung
                     <% } %>
                     ">Tienda</a></button></div>
                 <div class="smartphone-nav nav-button">
                     <button><a href="
-                        <% if (home === 'apple' || brand === 'apple') { %>
+                        <% if (home === 'apple' || brand === 'Apple') { %>
                          /products/catalog/apple/smartphone
-                        <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                        <% }else if(home === 'samsung' || brand === 'Samsung'){ %>
                          /products/catalog/samsung/smartphone
                         <% } %>
                         ">Smartphones</a></button>
                 </div>
                 <div class="smartwatch-nav nav-button"><button><a href="
-                    <% if (home === 'apple' || brand === 'apple') { %>
+                    <% if (home === 'apple' || brand === 'Apple') { %>
                      /products/catalog/apple/smartwatch
-                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                    <% }else if(home === 'samsung' || brand === 'Samsung'){ %>
                      /products/catalog/samsung/smartwatch
                     <% } %>
                     ">Smartwatch</a></button></div>
                 <div class="tablet-nav nav-button"><button><a href="
-                    <% if (home === 'apple' || brand === 'apple') { %>
+                    <% if (home === 'apple' || brand === 'Apple') { %>
                      /products/catalog/apple/tablet
-                    <% }else if(home === 'samsung' || brand === 'samsung'){ %>
+                    <% }else if(home === 'samsung' || brand === 'Samsung'){ %>
                      /products/catalog/samsung/tablet
                     <% } %>
                     ">Tablets</a></button></div>
@@ -98,10 +98,14 @@
     </section>
     <%- include('./searchbar.ejs') %>
         <nav class="brands">
-            <a class="apple" href="/apple"><img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt=""></a>
-            <a class="samsung" href="/samsung"><img id="samsung" src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png"
-                    alt=""></a>
+            <a class="apple" href="/apple" onclick="handleClick('apple')">
+                <img id="apple" src="/imgs/marcas-logos/Apple-logo-blanco.png" alt="">
+            </a>
+            <a class="samsung" href="/samsung" onclick="handleClick('samsung')">
+                <img id="samsung" src="/imgs/marcas-logos/logo-samsung-nav-s-blanca.png" alt="">
+            </a>
         </nav>
+
 
         <script src="/js/main.js"></script>
 
