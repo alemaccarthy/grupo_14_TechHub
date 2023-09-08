@@ -9,7 +9,7 @@ const productControllers = {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
-            const products = await Product.findAll({
+            let products = await Product.findAll({
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
@@ -24,6 +24,30 @@ const productControllers = {
                 },
             });
             res.locals.category = category;
+            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
+            console.log('ESTOS SON LOS PRODUCTOS ANTES DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
+            // Creo un mapa (estructura de clave y valor) para almacenar productos con sus imágenes
+            const productMap = new Map();
+
+            products.forEach(product => {
+                const productId = product.id;
+
+                // Si el producto aún no está en el mapa, se agrega
+                if (!productMap.has(productId)) {
+                    productMap.set(productId, {
+                        ...product,
+                        images: [], // Inicializa un array vacío para las imágenes
+                    });
+                }
+
+                // recupero cada producto del mapa y le agrego cada imagen dentro del array de imagenes del producto
+                const productInMap = productMap.get(productId);
+                productInMap.images.push(product.images);
+            });
+
+            products = Array.from(productMap.values());
+            console.log('ESTOS SON LOS PRODUCTOS DESPUESSSSSS DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
+
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
             res.render('products-list', { title: '| Productos', products: [] });

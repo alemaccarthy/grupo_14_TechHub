@@ -14,7 +14,7 @@ module.exports = {
                     }
                 }
             });
-    
+
             // Consulta para obtener la cantidad de productos por categoría
             const productsByCategory = await Category.findAll({
                 attributes: ['name', [Sequelize.fn('COUNT', Sequelize.col('products_category.id')), 'productCount']],
@@ -30,7 +30,7 @@ module.exports = {
                 }],
                 group: ['Category.id', 'Category.name'],
             });
-    
+
             // Consulta para obtener la lista de productos
             const products = await Product.findAll({
                 raw: true,
@@ -46,33 +46,47 @@ module.exports = {
                     }
                 },
             });
-    
-            // Agrego la información adicional a cada producto
-            products.forEach(product => {
-                product.productDetail = {
-                    url: `http://localhost:3000/api/products/${product.id}/detail`
-                }
-            });
-    
+
             // Creo un objeto para almacenar la información final
             const response = {
                 totalProducts: totalProducts,
                 productsByCategory: {},
-                products: products,
+                products: [],
             };
 
             productsByCategory.forEach(category => {
                 response.productsByCategory[category.name] = category.get('productCount');
             });
-    
+
+            // Creo un mapa (estructura de clave y valor) para almacenar productos con sus imágenes
+            const productMap = new Map();
+
+            products.forEach(product => {
+                const productId = product.id;
+
+                // Si el producto aún no está en el mapa, se agrega
+                if (!productMap.has(productId)) {
+                    productMap.set(productId, {
+                        ...product,
+                        images: [], // Inicializa un array vacío para las imágenes
+                    });
+                }
+
+                // recupero cada producto del mapa y le agrego cada imagen dentro del array de imagenes del producto
+                const productInMap = productMap.get(productId);
+                productInMap.images.push(product.images);
+            });
+
+            // convierto el mapa de productos de nuevo a un array
+            response.products = Array.from(productMap.values());
+
             res.json(response);
+
         } catch (error) {
             console.error(error);
-            res.status(500).json({ error: 'Error al obtener los productos.' });
+            res.status(500).json({ error: 'No se pudo obtener los productos de nuestra base de datos' });
         }
     },
-    
-    
 
     getProductDetail: async (req, res) => {
         const id = Number(req.params.id);
