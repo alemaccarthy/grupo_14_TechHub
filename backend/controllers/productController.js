@@ -1,4 +1,4 @@
-const { Product, Color, Category, Brand, Image, ProductColor} = require('../database/models');
+const { Product, Color, Category, Brand, Image, ProductColor } = require('../database/models');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 
@@ -8,7 +8,11 @@ const productControllers = {
         try {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
-            const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+            let category = req.params.category || null; // si no hay categoria en la url le asigno un null
+            if (category) {
+                category = category.charAt(0).toUpperCase() + category.slice(1);
+            }
+            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
             let products = await Product.findAll({
                 raw: true,
                 include: [
@@ -23,8 +27,6 @@ const productControllers = {
                     },
                 },
             });
-            res.locals.category = category;
-            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
             console.log('ESTOS SON LOS PRODUCTOS ANTES DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
             // Creo un mapa (estructura de clave y valor) para almacenar productos con sus imágenes
             const productMap = new Map();
@@ -48,12 +50,12 @@ const productControllers = {
             products = Array.from(productMap.values());
             console.log('ESTOS SON LOS PRODUCTOS DESPUESSSSSS DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
 
-            res.render('products-list', { title: '| Productos', products, selectedBrand });
+            res.render('products-list', { title: '| Productos', products, category, selectedBrand });
         } catch (error) {
             res.render('products-list', { title: '| Productos', products: [] });
         }
     },
-    
+
 
     getProductDetail: async (req, res) => {
         try {
@@ -79,7 +81,7 @@ const productControllers = {
 
                 }
             });
-    
+
             if (!product) {
                 return res.render('product-not-found', { title: '| Producto no disponible' });
             }

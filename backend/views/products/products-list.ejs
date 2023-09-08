@@ -22,7 +22,7 @@
         </section>
 
         <section class="products-container">
-            <% if (category && category != undefined) { %>
+            <% if (typeof category !== 'undefined' && category !== null) { %>
                 <% products.forEach(el => { %>
                     <% if (el.deletedAt === null && el.brand.name === brand && el.category.name === category) { %>
                         <a class="selected-products" href="/products/<%= el.id %>/detail">
