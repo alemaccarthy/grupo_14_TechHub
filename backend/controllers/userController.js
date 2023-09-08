@@ -84,39 +84,47 @@ const userController = {
                     email: req.body.email
                 }
             });
-
+    
             if (!loggedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
             }
-
+    
             const { password: hashedPW } = loggedUser;
-
+    
             const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
-
+    
             if (comparePW) {
-                if (req.body.remember) {
-                    req.session.user = {
-                        id: loggedUser.id,
-                        name: loggedUser.name,
-                        email: loggedUser.email
-                    };
+                // Configuración de las variables de sesión
+                req.session.user = {
+                    id: loggedUser.id,
+                    name: loggedUser.name,
+                    email: loggedUser.email
+                };
+    
+                if (!req.body.remember) {
+                    // Si la casilla "Mantener sesión abierta" está marcada,
+                    // crea una cookie adicional para mantener la sesión abierta.
+                    res.cookie('remember', 'true', {
+                        maxAge: 30 * 60 * 1000,
+                        httpOnly: true, // la cookie no es accesible desde el frontend
+                        sameSite: 'Lax' // Ajusta esta configuración según tus necesidades de seguridad
+                    });
                 }
-
+    
                 delete loggedUser.password;
                 delete loggedUser.id;
                 req.session.loggedUser = loggedUser;
-
+    
                 return res.redirect(`/user/profile/${loggedUser.name}${loggedUser.lastName}/${loggedUser.id}`);
-                //return res.render('profile', { title: '| Perfil del Usuario', loggedUser });
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
             }
         } catch (error) {
-
             console.error(error);
             return res.status(500).send('Error en el servidor');
         }
     },
+    
 
     logOut(req, res) {
 

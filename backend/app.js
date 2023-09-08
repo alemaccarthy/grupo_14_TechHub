@@ -35,7 +35,12 @@ app.use(cookieParser());
 app.use(session({
     secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1 * 60 * 1000,
+        httpOnly: true,
+        sameSite: 'lax',
+    },
 }));
 
 app.use(cors());
