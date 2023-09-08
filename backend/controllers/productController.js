@@ -8,6 +8,7 @@ const productControllers = {
         try {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
+            const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
             const products = await Product.findAll({
                 raw: true,
                 include: [
@@ -18,17 +19,17 @@ const productControllers = {
                 nest: true,
                 where: {
                     deletedAt: {
-                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                        [Op.eq]: null // Filtra productos que no se les aplicó soft Delete
                     },
-                }            
+                },
             });
+            res.locals.category = category;
             res.render('products-list', { title: '| Productos', products, selectedBrand });
         } catch (error) {
-
             res.render('products-list', { title: '| Productos', products: [] });
         }
-
     },
+    
 
     getProductDetail: async (req, res) => {
         try {
