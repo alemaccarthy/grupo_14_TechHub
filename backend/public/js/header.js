@@ -1,3 +1,36 @@
+//// FUNCION PARA MANEJAR MENU HAMBURGUESA //// 
+const deviceWidth = window.innerWidth;
+const navbar = document.getElementById('right-floating-nav');
+const logInWindow = document.getElementById('log-in-window');
+const searchBar = document.getElementById('searchbar-container');
+const body = document.body;
+// const todoMenosHeader = document.querySelectorAll('body');
+
+openNav = () => {
+    navbar.style.opacity = '1';
+    if (deviceWidth < 768) {
+        navbar.style.width = '100%';
+    }
+    else if (deviceWidth >= 768) {
+        navbar.style.display = 'flex';
+        navbar.style.opacity = '1';
+    }
+}
+
+goBack = () => {
+    window.history.back();
+}
+
+closeNav = () => {
+    navbar.style.opacity = '0';
+    if (deviceWidth < 768) {
+        navbar.style.width = '0';
+    }
+    else if (deviceWidth >= 768) {
+        navbar.style.display = 'none';
+        navbar.style.opacity = '0';
+    }
+}
 document.addEventListener('DOMContentLoaded', function () {
 
    // FUNCION PARA MOSTRAR U OCULTAR EL CARRITO DE COMPRAS
@@ -31,40 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         closeModal();
     });
 
-    /////////////////////////////
-    //// FUNCION PARA MANEJAR MENU HAMBURGUESA //// 
-    const deviceWidth = window.innerWidth;
-    const navbar = document.getElementById('right-floating-nav');
-    const logInWindow = document.getElementById('log-in-window');
-    const searchBar = document.getElementById('searchbar-container');
-    const body = document.body;
-    // const todoMenosHeader = document.querySelectorAll('body');
-
-    openNav = () => {
-        navbar.style.opacity = '1';
-        if (deviceWidth < 768) {
-            navbar.style.width = '100%';
-        }
-        else if (deviceWidth >= 768) {
-            navbar.style.display = 'flex';
-            navbar.style.opacity = '1';
-        }
-    }
-
-    goBack = () => {
-        window.history.back();
-    }
-
-    closeNav = () => {
-        navbar.style.opacity = '0';
-        if (deviceWidth < 768) {
-            navbar.style.width = '0';
-        }
-        else if (deviceWidth >= 768) {
-            navbar.style.display = 'none';
-            navbar.style.opacity = '0';
-        }
-    }
 
     /////////////////////////////
     /// FUNCION PARA ABRIR Y CERRAR EL SEACHBAR ///
