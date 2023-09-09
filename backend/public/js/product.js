@@ -1,3 +1,13 @@
+/// FUNCION PARA PERMITIR QUE AL CLICKEAR SOBRE IMAGEN DEL SLIDER DE DETALLE DE PRODUCTO PASE A SER PRINCIPAL
+const changeImage = (newSrc) => {
+    const mainImg = document.querySelector('.main-img');
+    mainImg.src = newSrc;
+
+    const slider = document.querySelector('.small-imgs-slider');
+
+    slider.removeChild(clickedImg);
+    slider.insertBefore(clickedImg, slider.firstChild);
+}
 document.addEventListener('DOMContentLoaded', function () {
 
     /// FUNCION PARA DETERMINAR CANTIDAD DE COLORES SELECCIONADOS EN UN INPUT OCULTO DEL FORMULARIO
@@ -143,17 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /////////////////////////////////////////////////// 
-    /// FUNCION PARA PERMITIR QUE AL CLICKEAR SOBRE IMAGEN DEL SLIDER DE DETALLE DE PRODUCTO PASE A SER PRINCIPAL
-    const changeImage = (newSrc) => {
-        const mainImg = document.querySelector('.main-img');
-        mainImg.src = newSrc;
-    
-        const slider = document.querySelector('.small-imgs-slider');
-    
-        slider.removeChild(clickedImg);
-        slider.insertBefore(clickedImg, slider.firstChild);
-    }
 
 
 });
