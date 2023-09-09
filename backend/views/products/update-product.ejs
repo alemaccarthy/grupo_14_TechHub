@@ -12,8 +12,6 @@
     <main class="modal">
         <section class="form-container-create">
             <h1>Editá el producto</h1>
-            
-            <!-- Botones dentro de un formulario común -->
             <form class="product-form" action="/products/:id/update?_method=put" method="post" enctype="multipart/form-data">
                 <%- include('../partials/formProduct') %>
                 <section class="buttons">
@@ -32,5 +30,6 @@
 <%- include('../partials/footer') %>
 
 <script src="/js/main.js"></script>
+
 
 </html>
