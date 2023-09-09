@@ -1,3 +1,4 @@
+
 /// FUNCION PARA PERMITIR QUE AL CLICKEAR SOBRE IMAGEN DEL SLIDER DE DETALLE DE PRODUCTO PASE A SER PRINCIPAL
 const changeImage = (newSrc) => {
     const mainImg = document.querySelector('.main-img');
