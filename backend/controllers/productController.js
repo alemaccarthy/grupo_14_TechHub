@@ -218,6 +218,25 @@ const productControllers = {
 
     updateProduct: async (req, res) => {
         const newValues = req.body;
+        const brandName = req.body.brand_id;
+        let brandParam;
+        if (brandName === 'apple') {
+            newValues.brand_id = 1;
+            brandParam = 'apple';
+        } else if (brandName === 'samsung') {
+            newValues.brand_id = 2;
+            brandParam = 'samsung';
+        }
+        const categoryName = req.body.category_id;
+
+        if (categoryName === 'smartphone') {
+            newValues.category_id = 1;
+        } else if (categoryName === 'smartwatch') {
+            newValues.category_id = 2;
+        } else if (categoryName === 'tablet') {
+            newValues.category_id = 3;
+        }
+        const resultValidation = validationResult(req);
 
         try {
             await Product.update(newValues, {
@@ -226,10 +245,11 @@ const productControllers = {
                 }
             });
 
-            res.redirect('/catalog/:brand');
+            res.redirect(`/products/catalog/${brandParam}`);
+
         } catch (error) {
             res.send("no se pudo actualizar");
-            console.log(error);
+            console.log('ESTE ES EL MOTIVO DE ERROR AL HACER UPDATE ' + error);
         }
     },
 
