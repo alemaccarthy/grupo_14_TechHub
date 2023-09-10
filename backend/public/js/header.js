@@ -1,36 +1,60 @@
-//// FUNCION PARA MANEJAR MENU HAMBURGUESA //// 
+//// FUNCION PARA MANEJAR MENU HAMBURGUESA ////
+// Variables globales (puedes mantener estas definiciones)
 const deviceWidth = window.innerWidth;
 const navbar = document.getElementById('right-floating-nav');
 const logInWindow = document.getElementById('log-in-window');
 const searchBar = document.getElementById('searchbar-container');
 const body = document.body;
-// const todoMenosHeader = document.querySelectorAll('body');
+const modal = document.querySelector('.modal');
 
-openNav = () => {
+// Función para abrir la navegación
+function openNav() {
     navbar.style.opacity = '1';
     if (deviceWidth < 768) {
         navbar.style.width = '100%';
-    }
-    else if (deviceWidth >= 768) {
+    } else if (deviceWidth >= 768) {
         navbar.style.display = 'flex';
         navbar.style.opacity = '1';
     }
 }
 
-goBack = () => {
+// Función para ir atrás
+function goBack() {
     window.history.back();
 }
 
-closeNav = () => {
+// Función para cerrar la navegación
+function closeNav() {
     navbar.style.opacity = '0';
     if (deviceWidth < 768) {
         navbar.style.width = '0';
-    }
-    else if (deviceWidth >= 768) {
+    } else if (deviceWidth >= 768) {
         navbar.style.display = 'none';
         navbar.style.opacity = '0';
     }
 }
+
+// Función para abrir o cerrar la navegación (modificada)
+function toggleNav() {
+    if (navbar.style.opacity === '1') {
+        closeNav();
+    } else {
+        openNav();
+    }
+}
+
+// Agregar un "event listener" para abrir/cerrar la navegación al hacer clic en cualquier lugar
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('fa-bars')) {
+        toggleNav();
+    } else if (event.target.classList.contains('fa-user')) {
+        toggleNav(); // También se abre/cierra al hacer clic en el botón de usuario
+    } else if (!event.target.closest('.navbar')) {
+        closeNav();
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
    // FUNCION PARA MOSTRAR U OCULTAR EL CARRITO DE COMPRAS
@@ -64,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
         closeModal();
     });
 
+    modal.addEventListener('click', (e) => {
+        closeNav();
+    });
 
     /////////////////////////////
     /// FUNCION PARA ABRIR Y CERRAR EL SEACHBAR ///

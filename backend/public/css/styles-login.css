@@ -109,6 +109,10 @@ button[type = "button"] {
     cursor: pointer;
 }
 
+button[type = "submit"] {
+    cursor: pointer;
+}
+
 .log-in-form .group>label {
     color: #49454567;
     font-size: 15px;
