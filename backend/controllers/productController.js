@@ -200,6 +200,7 @@ const productControllers = {
 
                 }
             });
+            console.log('ESTE ES EL PRODUCTO A EDITAR VERSION SIN TRANSF ' + JSON.stringify(updatedProduct, null, 2));
 
             if (!updatedProduct) {
                 return res.render('product-not-found');
@@ -209,6 +210,8 @@ const productControllers = {
                 brand_id: updatedProduct.brand.id,
                 category_id: updatedProduct.category.name
             };
+
+            console.log('ESTE ES EL PRODUCTO A EDITAR TRANSFORMADO ' + JSON.stringify(transformedProduct, null, 2));
 
             res.render('update-product', { title: 'Editar producto', product: transformedProduct, selectedBrand })
         } catch (error) {
