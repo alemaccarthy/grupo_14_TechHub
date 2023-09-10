@@ -167,8 +167,7 @@ const productControllers = {
                 });
             }));
 
-            // Agregar los colores a la tabla relacional
-            //await newProduct.setColors(colorIds);
+            
             const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             await Image.bulkCreate(imagesArray);
@@ -187,19 +186,39 @@ const productControllers = {
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const id = Number(req.params.id);
             const updatedProduct = await Product.findByPk(id, {
+                attributes: [
+                    'id',
+                    'title',
+                    'price',
+                    'description',
+                    'currency',
+                    'color_quantity',
+                    'createdAt',
+                    'updatedAt',
+                    'deletedAt',
+                    'brand_id',
+                    'category_id',
+                ],
                 include: [
                     { model: Brand, as: 'brand' },
                     { model: Category, as: 'category' },
                     { model: Image, as: 'images' },
-
+                    {
+                        model: Color,
+                        as: 'colors',
+                        attributes: ['id', 'color'], // Selecciona solo las columnas necesarias de la tabla Color
+                        through: {
+                            attributes: [] // No seleccionar ninguna columna de la tabla de unión product_color
+                        }
+                    },
                 ],
                 where: {
                     deletedAt: {
-                        [Op.eq]: null // Filtra productos que no se les aplico soft Delete
+                        [Op.eq]: null // Filtra productos que no se les aplicó soft Delete
                     },
-
                 }
             });
+            
             console.log('ESTE ES EL PRODUCTO A EDITAR VERSION SIN TRANSF ' + JSON.stringify(updatedProduct, null, 2));
 
             if (!updatedProduct) {
