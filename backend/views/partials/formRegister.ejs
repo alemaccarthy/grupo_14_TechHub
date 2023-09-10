@@ -1,120 +1,109 @@
-
-            <input type="file" id="profile-image" accept="image/*" name="profile_picture">
-            <label for="profile-image" id="profile-image-label">
-                <div id="preview-container">
-                    <img id="preview-image" src="<%= user ? user.profile_picture : null %>" alt="Imagen de perfil">
-                </div>
-                <h3>Editar imagen</h3>
-            </label>
-
-            <div class="form-group name-lastname">
-                <input type="text" id="nombres" name="name" placeholder="Nombres"
-                    class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"
-                    value="<%= user ? user.name : null %>">
-                <p id="error"></p>
-                <input type="text" id="apellido" name="lastName" placeholder="Apellido"
-                    class="<%= locals.errors && errors.lastName ? 'is-invalid' : null%>"
-                    value="<%= user ? user.lastName : null %>">
-                <p id="error"></p>
-            </div>
-            <div class="text-danger-container">
-                <% if (locals.errors && errors.name) { %>
-                    <span class="text-danger">
-                        <%= errors.name.msg %>
-                    </span>
-                    <% } %>
-
-                        <% if (locals.errors && errors.lastName) { %>
-                            <span class="text-danger">
-                                <%= errors.lastName.msg %>
-                            </span>
-                            <% } %>
-            </div>
-            <div class="form-group email">
-
-                <input type="email" id="correo" name="email" placeholder="Email"
-                    class="<%= locals.errors && errors.email ? 'is-invalid' : null%>"
-                    value="<%= user ? user.email : null %>">
-                <p id="error"></p>
-                <% if (locals.errors && errors.email) { %>
-                    <span class="text-danger">
-                        <%= errors.email.msg %>
-                    </span>
-                    <% } %>
-
-            </div>
-            <div class="form-group password">
-
-                <input type="password" id="password" name="password" placeholder="Contraseña"
-                    class="<%= locals.errors && errors.password ? 'is-invalid' : null%>">
-                <p id="error"></p>
-                <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmar contraseña">
-                <p id="error"></p>
-            </div>
-            <div>
-
-                <% if (locals.errors && errors.password) { %>
-                    <span class="text-danger">
-                        <%= errors.password.msg %>
-                    </span>
-                    <% } %>
-                        <% if (locals.errors && errors.confirmPassword) { %>
-                            <span class="text-danger">
-                                <%= errors.confirmPassword.msg %>
-                            </span>
-                            <% } %>
-
-            </div>
-            <div class="form-group dni">
-                <input type="dni" id="dni" name="dni" placeholder="DNI"
-                    class="<%= locals.errors && errors.dni ? 'is-invalid' : null%>"
-                    value="<%= user ? user.dni : null %>">
-                <p id="error"></p>
-                <% if (locals.errors && errors.dni) { %>
-                    <span class="text-danger">
-                        <%= errors.dni.msg %>
-                    </span>
-                    <% } %>
-            </div>
-
-            <h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true"> Coloca tu dirección</a></h5>
-
+<input type="file" id="profile-image" accept="image/*" name="profile_picture">
+<label for="profile-image" id="profile-image-label">
+    <div id="preview-container">
+        <img id="preview-image" src="<%= user && user.profile_picture ? user.profile_picture : null %>" alt="Imagen de perfil">
     </div>
+    <h3>Imagen de perfil</h3>
+</label>
 
-    <div class="form-adress">
+<div class="form-group name-lastname">
+    <input type="text" id="nombres" name="name" placeholder="Nombres"
+        class="<%= locals.errors && errors.name ? 'is-invalid' : null%>"
+        value="<%= user && user.name ? user.name : null %>">
+    <p id="error"></p>
+    <input type="text" id="apellido" name="lastName" placeholder="Apellido"
+        class="<%= locals.errors && errors.lastName ? 'is-invalid' : null%>"
+        value="<%= user && user.lastName ? user.lastName : null %>">
+    <p id="error"></p>
+</div>
+<div class="text-danger-container">
+    <% if (locals.errors && errors.name) { %>
+        <span class="text-danger">
+            <%= errors.name.msg %>
+        </span>
+    <% } %>
 
-        <div class="form-group street-number">
-            <input type="street" id="street" name="street" placeholder="Calle"
-                value="<%= user ? user.street : null %>">
-            <p id="error"></p>
-            <input type="number" id="number" name="number" placeholder="Altura"
-                value="<%= user ? user.number : null %>">
-            <p id="error"></p>
-        </div>
-        <div class="form-group floor-door">
-            <input type="floor" id="floor" name="floor" placeholder="Piso"
-                value="<%= user ? user.floor : null %>">
-            <p id="error"></p>
-            <input type="door" id="door" name="door" placeholder="Departamento"
-                value="<%= user ? user.door : null %>">
-            <p id="error"></p>
-        </div>
-        <div class="form-group city">
-            <input type="city" id="city" name="city" placeholder="Ciudad" value="<%= user ? user.city : null %>">
-            <p id="error"></p>
-        </div>
-        <div class="form-group province-postalcode">
-            <input type="province" id="province" name="province" placeholder="Provincia"
-                value="<%= user ? user.province : null %>">
-            <p id="error"></p>
-            <input type="postalcode" id="postalcode" name="postal_code" placeholder="Código Postal"
-                value="<%= user ? user.postal_code : null %>">
-            <p id="error"></p>
-        </div>
-        <div class="form-group telephone">
-            <input type="telephone" id="telephone" name="telephone" placeholder="Teléfono"
-                value="<%= user ? user.telephone : null %>">
-            <p id="error"></p>
-        </div>
-
-        
+    <% if (locals.errors && errors.lastName) { %>
+        <span class="text-danger">
+            <%= errors.lastName.msg %>
+        </span>
+    <% } %>
+</div>
+<div class="form-group email">
+    <input type="email" id="correo" name="email" placeholder="Email"
+        class="<%= locals.errors && errors.email ? 'is-invalid' : null%>"
+        value="<%= user && user.email ? user.email : null %>">
+    <p id="error"></p>
+    <% if (locals.errors && errors.email) { %>
+        <span class="text-danger">
+            <%= errors.email.msg %>
+        </span>
+    <% } %>
+</div>
+<div class="form-group password">
+    <input type="password" id="password" name="password" placeholder="Contraseña"
+        class="<%= locals.errors && errors.password ? 'is-invalid' : null%>">
+    <p id="error"></p>
+    <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmar contraseña">
+    <p id="error"></p>
+</div>
+<div>
+    <% if (locals.errors && errors.password) { %>
+        <span class="text-danger">
+            <%= errors.password.msg %>
+        </span>
+    <% } %>
+    <% if (locals.errors && errors.confirmPassword) { %>
+        <span class="text-danger">
+            <%= errors.confirmPassword.msg %>
+        </span>
+    <% } %>
+</div>
+<div class="form-group dni">
+    <input type="dni" id="dni" name="dni" placeholder="DNI"
+        class="<%= locals.errors && errors.dni ? 'is-invalid' : null%>"
+        value="<%= user && user.dni ? user.dni : null %>">
+    <p id="error"></p>
+    <% if (locals.errors && errors.dni) { %>
+        <span class="text-danger">
+            <%= errors.dni.msg %>
+        </span>
+    <% } %>
+</div>
+<h5 class="shipping-details"> <a data-toggle="collapse" aria-expanded="true"> Coloca tu dirección</a></h5>
+<div class="form-adress">
+    <div class="form-group street-number">
+        <input type="street" id="street" name="street" placeholder="Calle"
+            value="<%= user && user.street ? user.street : null %>">
+        <p id="error"></p>
+        <input type="number" id="number" name="number" placeholder="Altura"
+            value="<%= user && user.number ? user.number : null %>">
+        <p id="error"></p>
+    </div>
+    <div class="form-group floor-door">
+        <input type="floor" id="floor" name="floor" placeholder="Piso"
+            value="<%= user && user.floor ? user.floor : null %>">
+        <p id="error"></p>
+        <input type="door" id="door" name="door" placeholder="Departamento"
+            value="<%= user && user.door ? user.door : null %>">
+        <p id="error"></p>
+    </div>
+    <div class="form-group city">
+        <input type="city" id="city" name="city" placeholder="Ciudad"
+            value="<%= user && user.city ? user.city : null %>">
+        <p id="error"></p>
+    </div>
+    <div class="form-group province-postalcode">
+        <input type="province" id="province" name="province" placeholder="Provincia"
+            value="<%= user && user.province ? user.province : null %>">
+        <p id="error"></p>
+        <input type="postalcode" id="postalcode" name="postal_code" placeholder="Código Postal"
+            value="<%= user && user.postal_code ? user.postal_code : null %>">
+        <p id="error"></p>
+    </div>
+    <div class="form-group telephone">
+        <input type="telephone" id="telephone" name="telephone" placeholder="Teléfono"
+            value="<%= user && user.telephone ? user.telephone : null %>">
+        <p id="error"></p>
+    </div>
+</div>

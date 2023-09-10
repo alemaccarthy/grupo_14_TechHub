@@ -7,7 +7,8 @@ const { validationResult } = require('express-validator');
 const userController = {
     getRegister(req, res) {
         const selectedBrand = req.cookies.selectedBrand;
-        res.render('register', { title: '| Registrarse', selectedBrand });
+        const user = {};
+        res.render('register', { title: '| Registrarse', selectedBrand, user });
     },
     getPurchase(req, res) {
         res.render('complete-purchase', { title: '| Finalizar compra' })
