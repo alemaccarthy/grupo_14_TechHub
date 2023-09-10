@@ -1,5 +1,4 @@
-//// FUNCION PARA MANEJAR MENU HAMBURGUESA ////
-// Variables globales (puedes mantener estas definiciones)
+//// FUNCION PARA MANEJAR MENU HAMBURGUESA y el MENU DE LOGIN/REGISTER DEL HEADER //// 
 const deviceWidth = window.innerWidth;
 const navbar = document.getElementById('right-floating-nav');
 const logInWindow = document.getElementById('log-in-window');
@@ -43,7 +42,7 @@ function toggleNav() {
     }
 }
 
-// Agregar un "event listener" para abrir/cerrar la navegación al hacer clic en cualquier lugar
+// Agrego un "event listener" para abrir/cerrar la navegación al hacer clic en cualquier lugar
 document.addEventListener('click', function (event) {
     if (event.target.classList.contains('fa-bars')) {
         toggleNav();
