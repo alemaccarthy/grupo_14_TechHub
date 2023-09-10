@@ -84,15 +84,15 @@ const userController = {
                     email: req.body.email
                 }
             });
-    
+
             if (!loggedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
             }
-    
+
             const { password: hashedPW } = loggedUser;
-    
+
             const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
-    
+
             if (comparePW) {
                 // Configuración de las variables de sesión
                 req.session.user = {
@@ -100,7 +100,7 @@ const userController = {
                     name: loggedUser.name,
                     email: loggedUser.email
                 };
-    
+
                 if (!req.body.remember) {
                     // Si la casilla "Mantener sesión abierta" está marcada,
                     // crea una cookie adicional para mantener la sesión abierta.
@@ -110,11 +110,11 @@ const userController = {
                         sameSite: 'Lax' // Ajusta esta configuración según tus necesidades de seguridad
                     });
                 }
-    
+
                 delete loggedUser.password;
                 delete loggedUser.id;
                 req.session.loggedUser = loggedUser;
-    
+
                 return res.redirect(`/user/profile/${loggedUser.name}${loggedUser.lastName}/${loggedUser.id}`);
             } else {
                 return res.redirect('/user/login?error=La contraseña es incorrecta');
@@ -124,7 +124,7 @@ const userController = {
             return res.status(500).send('Error en el servidor');
         }
     },
-    
+
 
     logOut(req, res) {
 
@@ -162,12 +162,24 @@ const userController = {
 
     },
 
-    getUpdateProfile(req, res) {
-        const loggedUser = req.session.user;
-        const selectedBrand = req.cookies.selectedBrand;
-        res.render('update-profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand })
+    async getUpdateProfile(req, res) {
+        try {
+            const loggedUser = req.session.user;
+    
+            if (loggedUser) {
+                const user = await User.findByPk(loggedUser.id);
+                const selectedBrand = req.cookies.selectedBrand;
+                console.log('ESTE ES EL USER QUE TRAE LA BASE DE DATOS ' + JSON.stringify(user, null, 2));
+                return res.render('update-profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand, user });
+            }
+    
+            return res.render('update-profile', { title: `| Nombre del usuario`, loggedUser });
+        } catch (error) {
+            console.error(error);
+            res.send("Error al recuperar el perfil del usuario");
+        }
     },
-
+    
     updateProfile: async (req, res) => {
         const newValues = req.body;
         let profilePicture = '/imgs/profile-images/no-image-profile.jpg';
