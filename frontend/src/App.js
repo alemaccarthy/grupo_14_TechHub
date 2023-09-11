@@ -52,26 +52,21 @@ function App() {
                   </div>
                 </Section>
 
-                {/* Sección 2 */}
                 <Section title="Smartwatches in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     {productsByCategory.Smartwatch}
 
-                    {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
 
-                {/* Sección 3 */}
                 <Section title="Tablets in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     {productsByCategory.Tablet}
 
-                    {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
               </div>
 
-              {/* Contenido de LastMovie */}
               <div className="row">
                 <LastProduct />
 
@@ -91,7 +86,7 @@ function App() {
                               <GenreCard key={product.id} name={product.title} />
                             );
                           }
-                          return null; // Opcional: Si no es un producto de Samsung, retorna null
+                          return null;
                         })}
                       </div>
                     </div>
