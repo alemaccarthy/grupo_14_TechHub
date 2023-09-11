@@ -13,7 +13,13 @@
 
     <main class="modal">
         <section class="banner-list">
-            <img src="/imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
+            <% if(brand=="Samsung" ) {%>
+                <img src="/imgs/samsung/banner-samsung/galaxy-s23-accessories-chargers-kv.avif" alt="">
+                <% }else if(brand=="Apple" ){ %>
+                    <video autoplay loop muted>
+                        <source src="/videos/Videooo.mp4">
+                    </video>
+                    <% } %>
         </section>
         <section class="update-container">
             <% if(typeof user != 'undefined' && user != null && user.email.endsWith('@techhub.com')){ %>
@@ -63,14 +69,25 @@
             <% } %>
         </section>
 
-        <section class="presentation-product-container">
-            <section class="presentation-product">
-                <h1 class="smartphone-title-list">Galaxy Z</h1>
-                <video autoplay loop muted plays-inline="">
-                    <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
-                </video>
-            </section>
-        </section>
+        <section class="presentation-product-container<% if(brand == "Samsung"){%>
+            presentation-product-container-samsung
+           <% }else if(brand == "Apple"){%>
+                presentation-product-container-apple
+               <% } %>">
+
+                   <section class="presentation-product">
+
+                       <% if(brand=="Samsung") {%>
+                           <h1 class="smartphone-title-list smartphone-title-list-samsung">Galaxy Z</h1>
+                           <video autoplay loop muted plays-inline="">
+                               <source src="/videos/galaxy-z4-fold-and-flip.mp4" type="video/mp4">
+                           </video>
+                           <% }else if(brand=="Apple"){ %>
+                               <h1 class="smartphone-title-list smartphone-title-list-apple">Iphone 14</h1>
+                               <img src="/imgs/apple/home/banner-apple/iphone__ky2k6x5u6vue_og.png" alt="">
+                               <% } %>
+
+                   </section>
     </main>
     <%- include('../partials/footer') %>
 </body>
