@@ -15,8 +15,8 @@
             <form class="product-form" action="/products/<%= product.id %>/update?_method=put" method="post" enctype="multipart/form-data">
                 <%- include('../partials/formProduct') %>
                 <section class="buttons">
-                    <input type="submit" value="Editar producto">
                     <input type="button" value="Volver Atrás" onclick="history.back()">
+                    <input type="submit" value="Guardar cambios">
                 </section>
             </form>
             

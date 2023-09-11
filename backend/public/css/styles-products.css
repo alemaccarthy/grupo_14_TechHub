@@ -257,6 +257,7 @@ body {
     width: 7vw;
     height: 7vw;
     border-radius: 50%;
+    border: #444 1px solid;
     cursor: pointer;
     margin: 0 15px;
 }
