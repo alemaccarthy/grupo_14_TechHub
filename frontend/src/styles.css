@@ -38,3 +38,11 @@ h1.h3 {
     border-radius: 10px;
     color: white;
 }
+
+div.text-xs{
+    color: #164194 !important;
+}
+
+div.border-left-primary{
+    border-left: .25rem solid #164194 !important;
+}
