@@ -1,5 +1,5 @@
 import React from 'react';
-import logoDH from '../assets/images/logo-DH.png';
+import logoTechHub from '../assets/images/LogoTechHub_Negativo.png';
 
 function Sidebar() {
     return (
@@ -7,7 +7,7 @@ function Sidebar() {
             {/* Sidebar - Brand */}
             <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div className="sidebar-brand-icon">
-                    <img className="w-100" src={logoDH} alt="Digital House" />
+                    <img className="w-100" src={logoTechHub} alt="TechHub" />
                 </div>
             </a>
 

@@ -1,0 +1,8 @@
+.navbar-nav {
+    background-color: #164194 !important;
+}
+
+div.h5 {
+    display: flex;
+    justify-content: space-between;
+}

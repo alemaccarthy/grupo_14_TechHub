@@ -1,4 +1,5 @@
 import React from 'react';
+import "https://kit.fontawesome.com/c4ac9449c7.js";
 
 function Section(props) {
     return (
@@ -11,7 +12,7 @@ function Section(props) {
                             {props.children}
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-film fa-2x text-gray-300"></i>
+                        {props.icon}
                         </div>
                     </div>
                 </div>
