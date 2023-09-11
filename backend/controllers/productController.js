@@ -167,7 +167,7 @@ const productControllers = {
                 });
             }));
 
-            
+
             const imagesArray = req.files.map(el => ({ path: '/imgs/products-images/' + el.filename, product_id: newProduct.dataValues.id })); //CHEQUEAR DATAVALUES
 
             await Image.bulkCreate(imagesArray);
@@ -218,7 +218,7 @@ const productControllers = {
                     },
                 }
             });
-            
+
             console.log('ESTE ES EL PRODUCTO A EDITAR VERSION SIN TRANSF ' + JSON.stringify(updatedProduct, null, 2));
 
             if (!updatedProduct) {
@@ -237,6 +237,7 @@ const productControllers = {
             console.log(error);
         }
     },
+
 
     updateProduct: async (req, res) => {
         const newValues = req.body;
@@ -267,13 +268,43 @@ const productControllers = {
                 }
             });
 
+            await ProductColor.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+
+            const selectedColors = req.body.colors || [];
+            await Promise.all(selectedColors.map(async (color) => {
+                const colorModel = await Color.findOne({ where: { color } });
+                if (colorModel) {
+                    await ProductColor.create({
+                        product_id: req.params.id,
+                        color_id: colorModel.id
+                    });
+                }
+            }));
+
+            await Image.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+
+            const imagesArray = req.files.map((el) => ({
+                path: '/imgs/products-images/' + el.filename,
+                product_id: req.params.id
+            }));
+            await Image.bulkCreate(imagesArray);
+
             res.redirect(`/products/catalog/${brandParam}`);
 
         } catch (error) {
-            res.send("no se pudo actualizar");
-            console.log('ESTE ES EL MOTIVO DE ERROR AL HACER UPDATE ' + error);
+            res.send("No se pudo actualizar");
+            console.log('Este es el motivo de error al hacer la actualización: ' + error);
         }
     },
+
 
     deleteProduct: async (req, res) => {
         try {
