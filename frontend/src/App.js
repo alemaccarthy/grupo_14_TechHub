@@ -33,11 +33,11 @@ function App() {
             {/* Contenedor principal para las secciones */}
             <div className="container-fluid">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+                <h1 className="h3 mb-0 text-gray-800">Total de productos: </h1>
               </div>
 
               {/* Contenedor para las secciones */}
-              <div className="row">
+              <div className="row first-row">
                 {/* Sección 1 */}
                 <Section title="Cellphones in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">

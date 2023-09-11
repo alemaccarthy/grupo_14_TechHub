@@ -11,3 +11,30 @@ div.h5 {
     background-color: #164194;
     background-image: none !important;
 }
+
+a.btn-danger{
+    background-color: #164194;
+    border: #164194 1px solid;
+}
+
+a.btn-danger:hover{
+    background-color: #666;
+    border: #666 1px solid;
+}
+
+h1.h3 {
+    margin-top: 20px;
+}
+
+.productsInDB{
+    background-color: #164194;
+    border-radius: 10px;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.productsInDB:hover{
+    background-color: #666;
+    border-radius: 10px;
+    color: white;
+}

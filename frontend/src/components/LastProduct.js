@@ -24,7 +24,7 @@ function LastProduct() {
                         aperiam voluptatum?
                     </p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">
-                        View movie detail
+                        View product detail
                     </a>
                 </div>
             </div>
