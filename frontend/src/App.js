@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../src/components/Sidebar";
-import Topbar from "../src/components/Topbar";
 import Section from "../src/components/Section";
-import GenreCard from "../src/components/GenreCard";
+import GenreCard from "./components/GenreCard";
 import Footer from "../src/components/Footer";
-import LastMovie from "../src/components/LastMovie";
+import LastProduct from "./components/LastProduct";
 
 import { getAllProducts } from "./utils/api";
 
 function App() {
   const [products, setProducts] = useState([]); // Estado para almacenar los productos
   const [totalProducts, setTotalProducts] = useState(0); // Estado para almacenar el total de productos
+  const [productsByCategory, setProductsByCategory] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllProducts();
+        const data = await getAllProducts(); // Espera la respuesta de getAllProducts
+        setTotalProducts(data.totalProducts); // Establece el total de productos en el estado
         setProducts(data.products);
         setProductsByCategory(data.productsByCategory);
       } catch (error) {
@@ -26,58 +27,75 @@ function App() {
 
     fetchData();
   }, []);
-  console.log('ESTOS SON LOS PRODUCTS EN REACT ' + products);
+
   return (
     <>
       <div id="wrapper">
         <Sidebar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
-            <Topbar />
             <div className="container-fluid">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+                <h1 className="h3 mb-0 text-gray-800">Total de productos: {totalProducts}</h1>
+              </div>
+
+              <div className="row first-row">
+
+                <Section title="Cellphones in DataBase">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  {productsByCategory.Smartphone}
+                  </div>
+                </Section>
+
+                <Section title="Smartwatches in DataBase">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  {productsByCategory.Smartwatch}
+
+                  </div>
+                </Section>
+
+                <Section title="Tablets in DataBase">
+                  <div className="h5 mb-0 font-weight-bold text-gray-800">
+                  {productsByCategory.Tablet}
+
+                  </div>
+                </Section>
               </div>
 
               <div className="row">
-
-                <Section title="Movies in Data Base">
-                  <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    21
-
-                  </div>
-                </Section>
-
-                <Section title="Total awards">
-                  <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    79
-                    {/* Tu SVG y otros detalles */}
-                  </div>
-                </Section>
-
-                <Section title="Actors quantity">
-                  <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    49
-                    {/* Tu SVG y otros detalles */}
-                  </div>
-                </Section>
-              </div>
-
-              <div className="row">
-                <LastMovie />
+                <LastProduct />
 
                 <div className="col-lg-6 mb-4">
                   <div className="card">
                     <div className="card-header py-3">
-                      <h5 className="m-0 font-weight-bold text-gray-800">
-                        Genres in Data Base
-                      </h5>
+                      <h4 className="m-0 font-weight-bold text-gray-800">
+                        Products in DataBase
+                      </h4>
                     </div>
                     <div className="card-body">
+                      <h5>Samsung</h5>
                       <div className="row">
-                        {products.map((product) => (
-                          <GenreCard key={product.id} name={product.category.name} />
-                        ))}
+                        {products.map((product) => {
+                          if (product.brand.name === 'Samsung') {
+                            return (
+                              <GenreCard key={product.id} name={product.title} />
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h5>Apple</h5>
+                      <div className="row">
+                        {products.map((product) => {
+                          if (product.brand.name === 'Apple') {
+                            return (
+                              <GenreCard key={product.id} name={product.title} />
+                            );
+                          }
+                          return null; 
+                        })}
                       </div>
                     </div>
                   </div>
@@ -87,6 +105,18 @@ function App() {
                         Users in DataBase
                       </h4>
                     </div>
+                    <div className="card-body">
+                      <div className="row">
+                        {products.map((product) => {
+                          if (product.brand.name === 'Samsung') {
+                            return (
+                              <GenreCard key={product.id} name={product.title} />
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -94,7 +124,7 @@ function App() {
           </div>
         </div>
       </div>
-   
+
       <Footer />
     </>
   );
