@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../src/components/Sidebar";
+import Topbar from "../src/components/Topbar";
 import Section from "../src/components/Section";
-import GenreCard from "./components/GenreCard";
+import GenreCard from "../src/components/GenreCard";
 import Footer from "../src/components/Footer";
-import LastProduct from "./components/LastProduct";
+import LastMovie from "../src/components/LastMovie";
 
 import { getAllProducts } from "./utils/api";
 
 function App() {
-  const [products, setProducts] = useState([]); // Estado para almacenar los productos
-  const [totalProducts, setTotalProducts] = useState(0); // Estado para almacenar el total de productos
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllProducts(); // Espera la respuesta de getAllProducts
-        setTotalProducts(data.totalProducts); // Establece el total de productos en el estado
+        const data = await getAllProducts();
         setProducts(data.products);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -25,79 +24,55 @@ function App() {
 
     fetchData();
   }, []);
-
+  console.log('ESTOS SON LOS PRODUCTS EN REACT ' + products);
   return (
     <>
       <div id="wrapper">
         <Sidebar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
+            <Topbar />
             <div className="container-fluid">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">Total de productos: {totalProducts}</h1>
+                <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
               </div>
 
-              <div className="row first-row">
+              <div className="row">
 
-                <Section title="Cellphones in DataBase">
+                <Section title="Movies in Data Base">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     21
-
                   </div>
                 </Section>
 
-                {/* Sección 2 */}
-                <Section title="Smartwatches in DataBase">
+                <Section title="Total awards">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     79
-                    {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
 
-                {/* Sección 3 */}
-                <Section title="Tablets in DataBase">
+                <Section title="Actors quantity">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     49
-                    {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
               </div>
 
-              {/* Contenido de LastMovie */}
               <div className="row">
-                <LastProduct />
+                <LastMovie />
 
                 <div className="col-lg-6 mb-4">
                   <div className="card">
                     <div className="card-header py-3">
-                      <h4 className="m-0 font-weight-bold text-gray-800">
-                        Products in DataBase
-                      </h4>
+                      <h5 className="m-0 font-weight-bold text-gray-800">
+                        Genres in Data Base
+                      </h5>
                     </div>
                     <div className="card-body">
-                      <h5>Samsung</h5>
                       <div className="row">
-                        {products.map((product) => {
-                          if (product.brand.name === 'Samsung') {
-                            return (
-                              <GenreCard key={product.id} name={product.title} />
-                            );
-                          }
-                          return null; // Opcional: Si no es un producto de Samsung, retorna null
-                        })}
-                      </div>
-                    </div>
-                    <div className="card-body">
-                      <h5>Apple</h5>
-                      <div className="row">
-                        {products.map((product) => {
-                          if (product.brand.name === 'Apple') {
-                            return (
-                              <GenreCard key={product.id} name={product.title} />
-                            );
-                          }
-                          return null; 
-                        })}
+                        {products.map((product) => (
+                          <GenreCard key={product.id} name={product.category.name} />
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -107,7 +82,7 @@ function App() {
           </div>
         </div>
       </div>
-
+   
       <Footer />
     </>
   );
