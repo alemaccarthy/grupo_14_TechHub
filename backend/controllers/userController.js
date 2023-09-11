@@ -68,6 +68,7 @@ const userController = {
 
     getProfile(req, res) {
         const loggedUser = req.session.user;
+        console.log('ESTE ES EL LOGGEDUSER DEL GETPROFILE' + JSON.stringify(loggedUser, null, 2));
         const selectedBrand = req.cookies.selectedBrand;
         res.render('profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand })
     },
@@ -85,6 +86,7 @@ const userController = {
                     email: req.body.email
                 }
             });
+            console.log('ESTE ES EL USUARIO QUE SE LOGUEA ' + JSON.stringify(loggedUser, null, 2));
 
             if (!loggedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
@@ -99,7 +101,8 @@ const userController = {
                 req.session.user = {
                     id: loggedUser.id,
                     name: loggedUser.name,
-                    email: loggedUser.email
+                    email: loggedUser.email,
+                    profile_picture: loggedUser.profile_picture
                 };
 
                 if (!req.body.remember) {
@@ -115,6 +118,7 @@ const userController = {
                 delete loggedUser.password;
                 delete loggedUser.id;
                 req.session.loggedUser = loggedUser;
+                res.locals.loggedUser = loggedUser;
 
                 return res.redirect(`/user/profile/${loggedUser.name}${loggedUser.lastName}/${loggedUser.id}`);
             } else {

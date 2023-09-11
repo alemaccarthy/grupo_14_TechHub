@@ -17,14 +17,14 @@
         </div>
         <div class="user-details">
           <h2>
-            <%= loggedUser.name %>
+            <p>Bienvenido <%= loggedUser.name %> a TechHub</p>
           </h2>
           <p>Email: <%= loggedUser.email %>
           </p>
         </div>
       </div>
       <div class="order-history">
-        <h2>Historial de Compras</h2>
+        <h2>Ultimos pedidos</h2>
         <ul>
           <li>
             <div class="order-item">
@@ -76,6 +76,7 @@
     </main>
     <%- include('../partials/footer') %>
       <script src="/js/main.js"></script>
+      <script src="/js/header.js"></script>
 </body>
 
 </html>
