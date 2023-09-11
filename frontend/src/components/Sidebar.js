@@ -1,5 +1,5 @@
 import React from 'react';
-import logoTechHub from '../assets/images/LogoTechHub_Negativo.png';
+import logoTechHub from '../assets/images/LogoTechHub_Blanca.png';
 
 function Sidebar() {
     return (
@@ -18,7 +18,7 @@ function Sidebar() {
             <li className="nav-item active">
                 <a className="nav-link" href="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard - DH movies</span>
+                    <span>Dashboard - TechHub</span>
                 </a>
             </li>
 

@@ -6,3 +6,8 @@ div.h5 {
     display: flex;
     justify-content: space-between;
 }
+
+.bg-gradient-secondary {
+    background-color: #164194;
+    background-image: none !important;
+}
