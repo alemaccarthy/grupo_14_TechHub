@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalFields = 14;
 
     const checkFormValidity = () => {
-        if (fieldsValidated === totalFields) {
+        if (fieldsValidated === (totalFields - 1)) {
             formValid = true;
         } else {
             formValid = false;

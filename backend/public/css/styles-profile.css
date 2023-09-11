@@ -65,6 +65,11 @@ main {
   margin: 5px 0;
 }
 
+strong {
+  font-weight: bold;
+}
+
+
 .order-history {
   background-color: #f9f9f9;
   padding: 20px;

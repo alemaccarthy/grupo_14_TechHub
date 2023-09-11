@@ -19,8 +19,16 @@
           <h2>
             <p>Bienvenido <%= loggedUser.name %> a TechHub</p>
           </h2>
-          <p>Email: <%= loggedUser.email %>
+          <p><strong>Email:</strong> <%= loggedUser.email %></p>
+          <p>
+            <strong>Eres</strong>
+            <% if (loggedUser.email.endsWith('@techhub.com')) { %>
+              <strong>administrador.</strong> Puedes crear, editar y eliminar productos.
+            <% } else { %>
+              <strong>invitado.</strong> Puedes navegar libremente por todo el sitio de TechHub.
+            <% } %>
           </p>
+          
         </div>
       </div>
       <div class="order-history">
