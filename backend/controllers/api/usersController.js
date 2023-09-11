@@ -9,13 +9,14 @@ const userController = {
             nest: true,
         });
 
-        const usersJSON = users.map(el => ({
-            id: el.id,
-            name: el.name,
-            lastName: el.lastName,
-            email: el.email,
-            detail: `http://localhost:3000/api/users/${el.id}`
+        const usersJSON = users.map(user => ({
+            id: user.id,
+            name: user.name,
+            lastName: user.lastName,
+            email: user.email,
+            detail: `http://localhost:3000/api/users/${user.id}`
         }));
+        console.log('ESTOS SON LOS USERS DE LA API ' + JSON.stringify(usersJSON, null, 2));
     
         res.json(usersJSON);
 
