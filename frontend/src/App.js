@@ -111,15 +111,15 @@ function App() {
                       </h4>
                     </div>
                     <div className="card-body">
-                      <div className="row">
-                        {users !== undefined ? (
-                          users.map((user) => (
-                            <GenreCard key={user.id} name={user.name} />
-                          ))
-                        ) : (
-                          <p>No hay usuarios en nuestra base de datos.</p>
-                        )}
-                      </div>
+                       <div className="row">
+    {users !== undefined ? (
+      users.map((user) => (
+        <GenreCard key={user.id} name={user.name} />
+      ))
+    ) : (
+      <p>No hay usuarios en nuestra base de datos.</p>
+    )}
+  </div>
                     </div>
                   </div>
                 </div>
