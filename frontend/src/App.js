@@ -11,6 +11,7 @@ import { getAllProducts } from "./utils/api";
 function App() {
   const [products, setProducts] = useState([]); // Estado para almacenar los productos
   const [totalProducts, setTotalProducts] = useState(0); // Estado para almacenar el total de productos
+  const [productsByCategory, setProductsByCategory] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +19,7 @@ function App() {
         const data = await getAllProducts(); // Espera la respuesta de getAllProducts
         setTotalProducts(data.totalProducts); // Establece el total de productos en el estado
         setProducts(data.products);
+        setProductsByCategory(data.productsByCategory);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -41,15 +43,15 @@ function App() {
 
                 <Section title="Cellphones in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    21
-
+                  {productsByCategory.Smartphone}
                   </div>
                 </Section>
 
                 {/* Sección 2 */}
                 <Section title="Smartwatches in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    79
+                  {productsByCategory.Smartwatch}
+
                     {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
@@ -57,7 +59,8 @@ function App() {
                 {/* Sección 3 */}
                 <Section title="Tablets in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    49
+                  {productsByCategory.Tablet}
+
                     {/* Tu SVG y otros detalles */}
                   </div>
                 </Section>
@@ -99,6 +102,13 @@ function App() {
                           return null; 
                         })}
                       </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-header py-3">
+                      <h4 className="m-0 font-weight-bold text-gray-800">
+                        Users in DataBase
+                      </h4>
                     </div>
                   </div>
                 </div>
