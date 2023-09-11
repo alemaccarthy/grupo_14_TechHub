@@ -87,7 +87,10 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+}
+
+.presentation-product-container {
+    padding-top: 50px
 }
 
 .presentation-product-container video {
@@ -97,6 +100,7 @@ body {
 
 .presentation-product-container img {
     width: 100%;
+    max-width: 900px;
 }
 
 .presentation-product {
@@ -317,7 +321,6 @@ body {
 
 
 footer.footer {
-    margin-top: 30px;
     background-color: #ebebeb;
 }
 
@@ -542,6 +545,12 @@ footer.footer {
         width: 48%;
         margin-right: 0;
         margin-left: 10px;
+    }
+
+    
+    .smartphone-title-list-apple{
+        position: relative;
+        top: -10px;
     }
 }
 
