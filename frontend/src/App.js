@@ -7,19 +7,24 @@ import Footer from "../src/components/Footer";
 import LastProduct from "./components/LastProduct";
 
 import { getAllProducts } from "./utils/api";
+import { getAllUsers } from "./utils/users";
 
 function App() {
   const [products, setProducts] = useState([]); // Estado para almacenar los productos
+  const [users, setUsers] = useState([]); // Estado para almacenar los productos
   const [totalProducts, setTotalProducts] = useState(0); // Estado para almacenar el total de productos
   const [productsByCategory, setProductsByCategory] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllProducts(); // Espera la respuesta de getAllProducts
-        setTotalProducts(data.totalProducts); // Establece el total de productos en el estado
-        setProducts(data.products);
-        setProductsByCategory(data.productsByCategory);
+        const dataProducts = await getAllProducts(); // Espera la respuesta de getAllProducts
+        const dataUsers = await getAllUsers(); // Espera la respuesta de getAllProducts
+        setTotalProducts(dataProducts.totalProducts); // Establece el total de productos en el estado
+        setProducts(dataProducts.products);
+        setProductsByCategory(dataProducts.productsByCategory);
+        setProductsByCategory(dataProducts.productsByCategory);
+        setUsers(dataUsers.users);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -43,14 +48,14 @@ function App() {
 
                 <Section title="Cellphones in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {productsByCategory.Smartphone}
+                    {productsByCategory.Smartphone}
                   </div>
                 </Section>
 
                 {/* Sección 2 */}
                 <Section title="Smartwatches in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {productsByCategory.Smartwatch}
+                    {productsByCategory.Smartwatch}
 
                     {/* Tu SVG y otros detalles */}
                   </div>
@@ -59,7 +64,7 @@ function App() {
                 {/* Sección 3 */}
                 <Section title="Tablets in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
-                  {productsByCategory.Tablet}
+                    {productsByCategory.Tablet}
 
                     {/* Tu SVG y otros detalles */}
                   </div>
@@ -99,7 +104,7 @@ function App() {
                               <GenreCard key={product.id} name={product.title} />
                             );
                           }
-                          return null; 
+                          return null;
                         })}
                       </div>
                     </div>
@@ -109,6 +114,15 @@ function App() {
                       <h4 className="m-0 font-weight-bold text-gray-800">
                         Users in DataBase
                       </h4>
+                    </div>
+                    <div className="card-body">
+                      <div className="row">
+                        {users.map((user) => {
+                            return (
+
+                          <GenreCard key={user.id} name={user.name} />
+                        )})};
+                      </div>
                     </div>
                   </div>
                 </div>
