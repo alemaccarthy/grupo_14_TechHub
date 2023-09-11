@@ -86,17 +86,27 @@ function App() {
                     <div className="card-body">
                       <h5>Samsung</h5>
                       <div className="row">
-                        {products.map((product) => (
-                          <GenreCard key={product.id} name={product.category.name} />
-                        ))}
+                        {products.map((product) => {
+                          if (product.brand.name === 'Samsung') {
+                            return (
+                              <GenreCard key={product.id} name={product.title} />
+                            );
+                          }
+                          return null; // Opcional: Si no es un producto de Samsung, retorna null
+                        })}
                       </div>
                     </div>
                     <div className="card-body">
                       <h5>Apple</h5>
                       <div className="row">
-                        {products.map((product) => (
-                          <GenreCard key={product.id} name={product.category.name} />
-                        ))}
+                        {products.map((product) => {
+                          if (product.brand.name === 'Apple') {
+                            return (
+                              <GenreCard key={product.id} name={product.title} />
+                            );
+                          }
+                          return null; // Opcional: Si no es un producto de Samsung, retorna null
+                        })}
                       </div>
                     </div>
                   </div>
