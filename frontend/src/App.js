@@ -18,18 +18,21 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const dataProducts = await getAllProducts(); // Espera la respuesta de getAllProducts
-        const dataUsers = await getAllUsers(); // Espera la respuesta de getAllProducts
-        setTotalProducts(dataProducts.totalProducts); // Establece el total de productos en el estado
-        setProducts(dataProducts.products);
-        setProductsByCategory(dataProducts.productsByCategory);
+        const dataProducts = await getAllProducts();
+        const dataUsers = await getAllUsers();
+        // Ordena los productos por fecha de creación de forma descendente
+        const sortedProducts = dataProducts.products.sort((a, b) =>
+          new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setTotalProducts(dataProducts.totalProducts);
+        setProducts(sortedProducts);
         setProductsByCategory(dataProducts.productsByCategory);
         setUsers(dataUsers.users);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-
+  
     fetchData();
   }, []);
 
@@ -68,7 +71,7 @@ function App() {
               </div>
 
               <div className="row">
-                <LastProduct />
+              <LastProduct products={products} />
 
                 <div className="col-lg-6 mb-4">
                   <div className="card">
