@@ -20,7 +20,6 @@ function App() {
       try {
         const dataProducts = await getAllProducts();
         const dataUsers = await getAllUsers();
-        // Ordena los productos por fecha de creación de forma descendente
         const sortedProducts = dataProducts.products.sort((a, b) =>
           new Date(b.createdAt) - new Date(a.createdAt)
         );
