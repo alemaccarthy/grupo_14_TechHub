@@ -10,7 +10,7 @@ const changeImage = (newSrc) => {
     slider.insertBefore(clickedImg, slider.firstChild);
 }
 document.addEventListener('DOMContentLoaded', function () {
-
+    updateColorQuantity();
     /// FUNCION PARA DETERMINAR CANTIDAD DE COLORES SELECCIONADOS EN UN INPUT OCULTO DEL FORMULARIO
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {

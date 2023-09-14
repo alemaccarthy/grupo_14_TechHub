@@ -272,12 +272,12 @@ const productControllers = {
                 }
             });
     
-            // busco en la base de datos todos los colores tenga el producto utilizando su id. Y mediante map los guardo en un array de id de colores
+            // Busca en la base de datos todos los colores que tenga el producto utilizando su ID y guárdalos en un array de IDs de colores
             const existingColorIds = (await ProductColor.findAll({ where: { product_id: productId } })).map(color => color.color_id);
     
-            // recupero los colores del req.body
+            // Recupera los colores del req.body
             const colorNames = req.body.colors || [];
-            // como req.body no me trae los id (que es lo que luego necesito), busco en la base de datos los registros de colores que matcheen con los nombres de colores que me trajo el req.body
+            // Como req.body no trae los IDs (que es lo que luego necesitas), busca en la base de datos los registros de colores que coincidan con los nombres de colores que trae el req.body
             const colorModels = await Color.findAll({
                 where: {
                     color: {
@@ -285,17 +285,17 @@ const productControllers = {
                     }
                 }
             });
-            // guardo en selectedColors un array con los id de los colores que me traje de la base de datos recien
+            // Guarda en selectedColors un array con los IDs de los colores que trajo de la base de datos recién
             const selectedColors = colorModels.map(color => color.id);
     
-            // Verifico dentro de selectedColors (que ahora es un array con los id de colores que vienen en el form) cuales no estaban previamente asociados al producto que se esta editando y esos los guardo en colorsToAdd
+            // Verifica dentro de selectedColors (que ahora es un array con los IDs de colores que vienen en el formulario) cuáles no estaban previamente asociados al producto que se está editando y guárdalos en colorsToAdd
             const colorsToAdd = selectedColors
                 .filter(color => !existingColorIds.includes(color));
-            // Aca verifico la inversa: que id de colores que estaban asociados al producto que se esta editando no estan en el array de id de colores que me traje del form. Esos los guardo en colorsToRemove
+            // Aquí verifica lo contrario: qué IDs de colores que estaban asociados al producto que se está editando no están en el array de IDs de colores que trajo del formulario. Estos se guardan en colorsToRemove
             const colorsToRemove = existingColorIds
                 .filter(id => !selectedColors.includes(id));
     
-            // Agrego los colores que no estaban asociados al producto y utilizo un Promise.all para que se ejecuten todas las promesas al mismo tiempo
+            // Agrega los colores que no estaban asociados al producto y utiliza Promise.all para que se ejecuten todas las promesas al mismo tiempo
             await Promise.all(colorsToAdd.map(colorId => {
                 return ProductColor.create({
                     product_id: productId,
@@ -303,7 +303,7 @@ const productControllers = {
                 });
             }));
     
-            // Y aca elimino los colores que estaban asociados al producto y que no estan en el array de colores que me traje del form
+            // Y aquí elimina los colores que estaban asociados al producto y que no están en el array de colores que trajo del formulario
             await ProductColor.destroy({
                 where: {
                     product_id: productId,
@@ -311,17 +311,39 @@ const productControllers = {
                 }
             });
     
-            await Image.destroy({
+            // Parecido al enfoque hecho en los colores. Aca buscamos todas las imagenes asociadas al producto por product_id en la base de datos
+            const existingImages = await Image.findAll({
                 where: {
-                    product_id: productId
-                }
+                    product_id: productId,
+                },
             });
     
-            const imagesArray = req.files.map((el) => ({
-                path: '/imgs/products-images/' + el.filename,
-                product_id: productId
-            }));
-            await Image.bulkCreate(imagesArray);
+            // Aca mapeo las rutas de las imagenes que nos trajimos recien de la base de datos
+            const existingPaths = existingImages.map(image => image.path);
+    
+            // Aca guardo en un array las rutas de imagenes enviadas en el form para editar y que recuperamos de req.files
+            const newPaths = req.files.map(file => '/imgs/products-images/' + file.filename);
+    
+            // ahora guardo en un array las rutas que se tendran que agregar porque estan en el req.files al recibir el form y no estaban en el array de rutas de imagenes recuperado de la base de datos
+            const pathsToAdd = newPaths.filter(path => !existingPaths.includes(path));
+            
+            // aca la inversa a lo anterior. Guardo en un array las rutas que se tendran que eliminar porque estaban en el array de rutas de imagenes recuperado de la base de datos pero no estan en el req.files al recibir el form
+            const pathsToRemove = existingPaths.filter(path => !newPaths.includes(path));
+    
+            // se hace el proceso de agregar las imagenes que no estaban asociadas al producto solo si hay cambios en las imágenes para evitar que se 'sobreescriba' pero vacio
+            if (pathsToAdd.length > 0) {
+                await Image.bulkCreate(pathsToAdd.map(path => ({ path, product_id: productId })));
+            }
+    
+            // haciendo la misma verificacion que recien, pero aca elimino las imagenes que estaban asociadas al producto pero no estan en el req.files al recibir el form
+            if (newPaths.length > 0) {
+                await Image.destroy({
+                    where: {
+                        product_id: productId,
+                        path: pathsToRemove,
+                    },
+                });
+            }
     
             res.redirect(`/products/catalog/${brandParam}`);
     
@@ -331,6 +353,7 @@ const productControllers = {
         }
     },
     
+
 
 
     deleteProduct: async (req, res) => {
