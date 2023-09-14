@@ -12,9 +12,6 @@ const changeImage = (newSrc) => {
 }
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     updateColorQuantity();
     /// FUNCION PARA DETERMINAR CANTIDAD DE COLORES SELECCIONADOS EN UN INPUT OCULTO DEL FORMULARIO
