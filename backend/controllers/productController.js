@@ -4,16 +4,11 @@ const { Op, Sequelize } = require('sequelize');
 
 const productControllers = {
 
-    getProducts: async (req, res) => {
+    searchProducts: async (req, res) => {
+        const query = req.query.q;
+
         try {
-            const selectedBrandraw = req.cookies.selectedBrand;
-            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
-            let category = req.params.category || null; // si no hay categoria en la url le asigno un null
-            if (category) {
-                category = category.charAt(0).toUpperCase() + category.slice(1);
-            }
-            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
-            let products = await Product.findAll({
+            const products = await Product.findAll({
                 raw: true,
                 include: [
                     { model: Brand, as: 'brand' },
@@ -23,32 +18,96 @@ const productControllers = {
                 nest: true,
                 where: {
                     deletedAt: {
-                        [Op.eq]: null // Filtra productos que no se les aplicó soft Delete
+                        [Op.eq]: null
                     },
+                    [Op.or]: [
+                        { title: { [Op.like]: `%${query}%` } },
+                        { description: { [Op.like]: `%${query}%` } },
+                    ],
                 },
             });
-            console.log('ESTOS SON LOS PRODUCTOS ANTES DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
-            // Creo un mapa (estructura de clave y valor) para almacenar productos con sus imágenes
+
+            res.render('products-list', { title: '| Productos', products, query });
+        } catch (error) {
+            res.status(500).send('Error en la búsqueda');
+        }
+    },
+
+    getProducts: async (req, res) => {
+        try {
+            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
+            let category = req.params.category || null;
+            console.log('ESTA ES LA CATEGORY CUANDO HAY QUERY ' + category);
+            if (category) {
+                category = category.charAt(0).toUpperCase() + category.slice(1);
+            }
+            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
+
+            let products;
+            console.log('ESTA ES REQ.QUERY ' + JSON.stringify(req.query, null, 2));
+
+            if (req.query.q) {
+                const query = req.query.q;
+                let brand = res.locals.brand; 
+                brand = brand.charAt(0).toUpperCase() + brand.slice(1);
+                products = await Product.findAll({
+                    raw: true,
+                    include: [
+                        { model: Brand, as: 'brand' },
+                        { model: Category, as: 'category' },
+                        { model: Image, as: 'images' },
+                    ],
+                    nest: true,
+                    where: {
+                        deletedAt: {
+                            [Op.eq]: null
+                        },
+                        [Op.or]: [
+                            { title: { [Op.like]: `%${query}%` } },
+
+                        ],
+                    },
+                });
+                console.log('ESTOS SON LOS PRODUCTOS DE LA BUSQUEDA ' + JSON.stringify(products, null, 2));
+            } else {
+                // Si no hay consulta de búsqueda, muestra todos los productos de la categoría y marca
+                products = await Product.findAll({
+                    raw: true,
+                    include: [
+                        { model: Brand, as: 'brand' },
+                        { model: Category, as: 'category' },
+                        { model: Image, as: 'images' },
+                    ],
+                    nest: true,
+                    where: {
+                        deletedAt: {
+                            [Op.eq]: null
+                        },
+                        // Agrega condiciones para la categoría y marca si están definidas
+                        ...(category && { '$category.name$': category }),
+                        ...(selectedBrand && { '$brand.name$': selectedBrand }),
+                    },
+                });
+            }
+
             const productMap = new Map();
 
             products.forEach(product => {
                 const productId = product.id;
 
-                // Si el producto aún no está en el mapa, se agrega
                 if (!productMap.has(productId)) {
                     productMap.set(productId, {
                         ...product,
-                        images: [], // Inicializa un array vacío para las imágenes
+                        images: [],
                     });
                 }
 
-                // recupero cada producto del mapa y le agrego cada imagen dentro del array de imagenes del producto
                 const productInMap = productMap.get(productId);
                 productInMap.images.push(product.images);
             });
 
             products = Array.from(productMap.values());
-            console.log('ESTOS SON LOS PRODUCTOS DESPUESSSSSS DE AGRUPAR EN EL CONTROLADOR ' + JSON.stringify(products, null, 2));
 
             res.render('products-list', { title: '| Productos', products, category, selectedBrand });
         } catch (error) {
@@ -244,7 +303,7 @@ const productControllers = {
         const newValues = req.body;
         const brandName = req.body.brand_id;
         let brandParam;
-    
+
         if (brandName === 'apple') {
             newValues.brand_id = 1;
             brandParam = 'apple';
@@ -252,9 +311,9 @@ const productControllers = {
             newValues.brand_id = 2;
             brandParam = 'samsung';
         }
-    
+
         const categoryName = req.body.category_id;
-    
+
         if (categoryName === 'smartphone') {
             newValues.category_id = 1;
         } else if (categoryName === 'smartwatch') {
@@ -262,19 +321,19 @@ const productControllers = {
         } else if (categoryName === 'tablet') {
             newValues.category_id = 3;
         }
-    
+
         const resultValidation = validationResult(req);
-    
+
         try {
             await Product.update(newValues, {
                 where: {
                     id: productId
                 }
             });
-    
+
             // Busca en la base de datos todos los colores que tenga el producto utilizando su ID y guárdalos en un array de IDs de colores
             const existingColorIds = (await ProductColor.findAll({ where: { product_id: productId } })).map(color => color.color_id);
-    
+
             // Recupera los colores del req.body
             const colorNames = req.body.colors || [];
             // Como req.body no trae los IDs (que es lo que luego necesitas), busca en la base de datos los registros de colores que coincidan con los nombres de colores que trae el req.body
@@ -287,14 +346,14 @@ const productControllers = {
             });
             // Guarda en selectedColors un array con los IDs de los colores que trajo de la base de datos recién
             const selectedColors = colorModels.map(color => color.id);
-    
+
             // Verifica dentro de selectedColors (que ahora es un array con los IDs de colores que vienen en el formulario) cuáles no estaban previamente asociados al producto que se está editando y guárdalos en colorsToAdd
             const colorsToAdd = selectedColors
                 .filter(color => !existingColorIds.includes(color));
             // Aquí verifica lo contrario: qué IDs de colores que estaban asociados al producto que se está editando no están en el array de IDs de colores que trajo del formulario. Estos se guardan en colorsToRemove
             const colorsToRemove = existingColorIds
                 .filter(id => !selectedColors.includes(id));
-    
+
             // Agrega los colores que no estaban asociados al producto y utiliza Promise.all para que se ejecuten todas las promesas al mismo tiempo
             await Promise.all(colorsToAdd.map(colorId => {
                 return ProductColor.create({
@@ -302,7 +361,7 @@ const productControllers = {
                     color_id: colorId
                 });
             }));
-    
+
             // Y aquí elimina los colores que estaban asociados al producto y que no están en el array de colores que trajo del formulario
             await ProductColor.destroy({
                 where: {
@@ -310,31 +369,31 @@ const productControllers = {
                     color_id: colorsToRemove
                 }
             });
-    
+
             // Parecido al enfoque hecho en los colores. Aca buscamos todas las imagenes asociadas al producto por product_id en la base de datos
             const existingImages = await Image.findAll({
                 where: {
                     product_id: productId,
                 },
             });
-    
+
             // Aca mapeo las rutas de las imagenes que nos trajimos recien de la base de datos
             const existingPaths = existingImages.map(image => image.path);
-    
+
             // Aca guardo en un array las rutas de imagenes enviadas en el form para editar y que recuperamos de req.files
             const newPaths = req.files.map(file => '/imgs/products-images/' + file.filename);
-    
+
             // ahora guardo en un array las rutas que se tendran que agregar porque estan en el req.files al recibir el form y no estaban en el array de rutas de imagenes recuperado de la base de datos
             const pathsToAdd = newPaths.filter(path => !existingPaths.includes(path));
-            
+
             // aca la inversa a lo anterior. Guardo en un array las rutas que se tendran que eliminar porque estaban en el array de rutas de imagenes recuperado de la base de datos pero no estan en el req.files al recibir el form
             const pathsToRemove = existingPaths.filter(path => !newPaths.includes(path));
-    
+
             // se hace el proceso de agregar las imagenes que no estaban asociadas al producto solo si hay cambios en las imágenes para evitar que se 'sobreescriba' pero vacio
             if (pathsToAdd.length > 0) {
                 await Image.bulkCreate(pathsToAdd.map(path => ({ path, product_id: productId })));
             }
-    
+
             // haciendo la misma verificacion que recien, pero aca elimino las imagenes que estaban asociadas al producto pero no estan en el req.files al recibir el form
             if (newPaths.length > 0) {
                 await Image.destroy({
@@ -344,15 +403,15 @@ const productControllers = {
                     },
                 });
             }
-    
+
             res.redirect(`/products/catalog/${brandParam}`);
-    
+
         } catch (error) {
             res.send("No se pudo actualizar");
             console.log('Este es el motivo de error al hacer la actualización: ' + error);
         }
     },
-    
+
 
 
 

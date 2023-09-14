@@ -50,7 +50,7 @@
                 <% }); %>
             <% } else { %>
                 <% products.forEach(el => { %>
-                    <% if (el.deletedAt === null && el.brand.name === brand) { %>
+                    <% if (el.deletedAt === null && el.brand.name === brand || el.brand.name === selectedBrand) { %>
                         <a class="selected-products" href="/products/<%= el.id %>/detail">
                             <article>
                                 <div class="box-img-product">
