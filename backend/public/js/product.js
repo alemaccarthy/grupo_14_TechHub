@@ -8,7 +8,13 @@ const changeImage = (newSrc) => {
 
     slider.removeChild(clickedImg);
     slider.insertBefore(clickedImg, slider.firstChild);
+
 }
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     updateColorQuantity();
     /// FUNCION PARA DETERMINAR CANTIDAD DE COLORES SELECCIONADOS EN UN INPUT OCULTO DEL FORMULARIO
@@ -153,6 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
             formDelete.action = `/products/${productId}/delete?_method=delete`;
         }
     }
+
+
+
+
 
 
 

@@ -1,8 +1,15 @@
-<section id="searchbar-container" class="searchbar-container">
+
+<section id="searchbar-container" class=" searchbar-container">
     <form action="/products/catalog/<%= brand %>" method="get" class="searchbar">
         <div>
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
             <input id="search-input" type="text" name="q" placeholder="¿Qué estás buscando?">
         </div>
     </form>
+    
 </section>
+<div id="search-results" class="search-results"></div>
+
+
+<script src="/js/product.js"></script>
+<script src="/js/header.js"></script>

@@ -92,33 +92,81 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /////////////////////////////
-    /// FUNCION PARA ABRIR Y CERRAR EL SEACHBAR ///
-    // const modal = document.querySelector('.modal'); /// REVISAR ESTO AL ORGANIZAR CODIGO YA QUE ESTE MISMO VALOR ES RECUPERADO EN LA FUNCION DEL CARRITO AL INICIO DEL MAIN.JS
-    const glass = document.getElementById('ma-glass');
-    let searchBarOpened = false;
+ // FUNCIONES PARA ABRIR Y CERRAR EL SEACHBAR
+const glass = document.getElementById('ma-glass');
+let searchBarOpened = false;
 
-    openSearchBar = () => {
-        searchBar.style.height = '80px';
-        searchBarOpened = true;
-        modal.addEventListener('click', (e) => {
-            closeSearchBar();
-        });
-    };
-
-    closeSearchBar = () => {
-        searchBar.style.height = '0';
-        searchBarOpened = false;
-    };
-
-    glass.addEventListener('click', (e) => {
-        if (searchBarOpened === false) {
-            openSearchBar();
-        }
-    });
-
+function openSearchBar() {
+    searchBar.style.height = '80px';
+    searchBarOpened = true;
+    /// Al hacer clic en cualquier parte de la vista cierra la barra de busqueda y tambien el div generado con los resultados
     modal.addEventListener('click', (e) => {
         closeSearchBar();
+        closeSearchResults();
     });
+}
+
+function closeSearchBar() {
+    searchBar.style.height = '0';
+    searchBarOpened = false;
+}
+
+glass.addEventListener('click', (e) => {
+    if (searchBarOpened === false) {
+        openSearchBar();
+    }
+});
+
+modal.addEventListener('click', (e) => {
+    closeSearchBar();
+    closeSearchResults();
+});
+
+// FUNCIONES PARA PREVISUALIZAR PRODUCTOS EN LA BARRA DE BÚSQUEDA
+const searchInput = document.querySelector('#search-input');
+const searchResults = document.querySelector('#search-results');
+
+searchInput.addEventListener('input', async () => {
+    const query = searchInput.value;
+
+    try {
+        let url;
+        if (query.trim() === '') {
+            // busca con la palabra entera y haciendo un clic
+            url = `/products/catalog/<%= brand %>?q=${query}`;
+        } else {
+            // busca en tiempo real
+            url = `/api/products/search?q=${query}`;
+        }
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // limpio los resultados previos
+        searchResults.innerHTML = '';
+
+        // muestra resultados creando un div para contenerlos
+        if (data.length > 0) {
+            data.forEach((result) => {
+                const resultItem = document.createElement('div');
+                resultItem.textContent = result.title;
+                searchResults.appendChild(resultItem);
+            });
+            searchResults.style.display = 'block'; 
+        } else {
+            // si la busqueda no devuelve nada que coincida, mostramos un mensaje
+            searchResults.innerHTML = 'Su búsqueda no ha arrojado resultados.';
+            searchResults.style.display = 'block';
+        }
+    } catch (error) {
+        console.error('Error al realizar la solicitud AJAX:', error);
+    }
+});
+
+// Función para cerrar los resultados en tiempo real
+function closeSearchResults() {
+    searchResults.style.display = 'none';
+}
 
     //////////////////////////////////////
     // FUNCION PARA DESPLEGAR Y CERRAR EL NAV ///

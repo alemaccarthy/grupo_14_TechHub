@@ -140,6 +140,11 @@ a{
     text-align: center;
 }
 
+.search-results {
+    background-color: grey !important;
+    color: red !important;
+}
+
 .searchbar-container div {
     padding: 10px;
     border-radius: 20px;

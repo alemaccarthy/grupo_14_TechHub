@@ -111,4 +111,37 @@ module.exports = {
 
         res.json(product);
     },
+
+    searchProducts: async (req, res) => {
+        try {
+            const query = req.query.q || '';
+
+            // Consulta para obtener productos que coincidan con la consulta
+            const products = await Product.findAll({
+                raw: true,
+                include: [
+                    { model: Brand, as: 'brand' },
+                    { model: Category, as: 'category' },
+                    { model: Image, as: 'images' },
+                ],
+                nest: true,
+                where: {
+                    deletedAt: {
+                        [Op.eq]: null
+                    },
+                    [Op.or]: [
+                        { title: { [Op.like]: `%${query}%` } },
+                        { description: { [Op.like]: `%${query}%` } },
+                    ],
+                },
+            });
+
+            res.json(products);
+            console.log('ESTOS SON MIS PRODUCTS EN LA API DE SEARCH ' + products);
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'No se pudieron obtener los productos de la base de datos' });
+        }
+    }
 }
