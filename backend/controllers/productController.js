@@ -1,6 +1,6 @@
 const { Product, Color, Category, Brand, Image, ProductColor } = require('../database/models');
 const { validationResult } = require('express-validator');
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 
 const productControllers = {
 
@@ -240,9 +240,11 @@ const productControllers = {
 
 
     updateProduct: async (req, res) => {
+        const productId = req.params.id;
         const newValues = req.body;
         const brandName = req.body.brand_id;
         let brandParam;
+    
         if (brandName === 'apple') {
             newValues.brand_id = 1;
             brandParam = 'apple';
@@ -250,8 +252,9 @@ const productControllers = {
             newValues.brand_id = 2;
             brandParam = 'samsung';
         }
+    
         const categoryName = req.body.category_id;
-
+    
         if (categoryName === 'smartphone') {
             newValues.category_id = 1;
         } else if (categoryName === 'smartwatch') {
@@ -259,51 +262,75 @@ const productControllers = {
         } else if (categoryName === 'tablet') {
             newValues.category_id = 3;
         }
+    
         const resultValidation = validationResult(req);
-
+    
         try {
             await Product.update(newValues, {
                 where: {
-                    id: req.params.id
+                    id: productId
                 }
             });
-
+    
+            // busco en la base de datos todos los colores tenga el producto utilizando su id. Y mediante map los guardo en un array de id de colores
+            const existingColorIds = (await ProductColor.findAll({ where: { product_id: productId } })).map(color => color.color_id);
+    
+            // recupero los colores del req.body
+            const colorNames = req.body.colors || [];
+            // como req.body no me trae los id (que es lo que luego necesito), busco en la base de datos los registros de colores que matcheen con los nombres de colores que me trajo el req.body
+            const colorModels = await Color.findAll({
+                where: {
+                    color: {
+                        [Op.in]: colorNames
+                    }
+                }
+            });
+            // guardo en selectedColors un array con los id de los colores que me traje de la base de datos recien
+            const selectedColors = colorModels.map(color => color.id);
+    
+            // Verifico dentro de selectedColors (que ahora es un array con los id de colores que vienen en el form) cuales no estaban previamente asociados al producto que se esta editando y esos los guardo en colorsToAdd
+            const colorsToAdd = selectedColors
+                .filter(color => !existingColorIds.includes(color));
+            // Aca verifico la inversa: que id de colores que estaban asociados al producto que se esta editando no estan en el array de id de colores que me traje del form. Esos los guardo en colorsToRemove
+            const colorsToRemove = existingColorIds
+                .filter(id => !selectedColors.includes(id));
+    
+            // Agrego los colores que no estaban asociados al producto y utilizo un Promise.all para que se ejecuten todas las promesas al mismo tiempo
+            await Promise.all(colorsToAdd.map(colorId => {
+                return ProductColor.create({
+                    product_id: productId,
+                    color_id: colorId
+                });
+            }));
+    
+            // Y aca elimino los colores que estaban asociados al producto y que no estan en el array de colores que me traje del form
             await ProductColor.destroy({
                 where: {
-                    product_id: req.params.id
+                    product_id: productId,
+                    color_id: colorsToRemove
                 }
             });
-
-            const selectedColors = req.body.colors || [];
-            await Promise.all(selectedColors.map(async (color) => {
-                const colorModel = await Color.findOne({ where: { color } });
-                if (colorModel) {
-                    await ProductColor.create({
-                        product_id: req.params.id,
-                        color_id: colorModel.id
-                    });
-                }
-            }));
-
+    
             await Image.destroy({
                 where: {
-                    product_id: req.params.id
+                    product_id: productId
                 }
             });
-
+    
             const imagesArray = req.files.map((el) => ({
                 path: '/imgs/products-images/' + el.filename,
-                product_id: req.params.id
+                product_id: productId
             }));
             await Image.bulkCreate(imagesArray);
-
+    
             res.redirect(`/products/catalog/${brandParam}`);
-
+    
         } catch (error) {
             res.send("No se pudo actualizar");
             console.log('Este es el motivo de error al hacer la actualización: ' + error);
         }
     },
+    
 
 
     deleteProduct: async (req, res) => {
