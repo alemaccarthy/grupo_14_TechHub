@@ -16,7 +16,6 @@ const userController = {
             email: user.email,
             detail: `http://localhost:3000/api/users/${user.id}`
         }));
-        console.log('ESTOS SON LOS USERS DE LA API ' + JSON.stringify(usersJSON, null, 2));
     
         res.json(usersJSON);
 

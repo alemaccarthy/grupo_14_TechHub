@@ -38,50 +38,49 @@ const middlewares = {
     },
 
     rememberMiddleware: async (req, res, next) => {
-        if (req.session.email) {
+        if (req.cookies.remember && req.session.user) {
             try {
                 const sessionUser = await User.findOne({
                     where: {
                         email: req.session.user.email
                     }
                 });
-
+    
                 if (sessionUser) {
                     delete sessionUser.id;
                     delete sessionUser.password;
-
+    
                     req.session.user = sessionUser;
                 }
             } catch (error) {
                 console.error(error);
             }
         }
-
+    
         next();
     },
+    
+    // sessionTimeoutMiddleware: (req, res, next) => {
+    //     if (req.session.user) {
+    //         // Obtén la hora actual
+    //         const now = Date.now();
+    //         const sessionTime = req.session.cookie.maxAge;
 
-    sessionTimeoutMiddleware: (req, res, next) => {
-        if (req.session.user) {
-            // Obtén la hora actual
-            const now = Date.now();
-            const sessionTime = req.session.cookie.maxAge;
-
-            // Verifica si ha pasado más tiempo del permitido
-            if (now - req.session.lastActivity > sessionTime) {
-                // Si ha pasado demasiado tiempo, destruye la sesión
-                req.session.destroy(err => {
-                    if (err) {
-                        console.error('Error al destruir la sesión:', err);
-                    }
-                });
-            } else {
-                // Actualiza la hora de la última actividad
-                req.session.lastActivity = now;
-            }
-        }
-        next();
-    },
-
+    //         // Verifica si ha pasado más tiempo del permitido
+    //         if (now - req.session.lastActivity > sessionTime) {
+    //             // Si ha pasado demasiado tiempo, destruye la sesión
+    //             req.session.destroy(err => {
+    //                 if (err) {
+    //                     console.error('Error al destruir la sesión:', err);
+    //                 }
+    //             });
+    //         } else {
+    //             // Actualiza la hora de la última actividad
+    //             req.session.lastActivity = now;
+    //         }
+    //     }
+    //     next();
+    // },
     async header(req, res, next) {
         try {
             const products = await Product.findAll({
@@ -96,14 +95,14 @@ const middlewares = {
                     deletedAt: {
                         [Op.eq]: null // Filtra productos que no se les aplico soft Delete
                     },
-                }           
+                }
             });
-    
+
             res.locals.products = products;
             res.locals.home = req.cookies.selectedBrand;
             res.locals.brand = (req.originalUrl).split('/')[3];
             res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
-    
+
             next();
         } catch (error) {
             res.locals.products = []; // array vacío en caso de error.

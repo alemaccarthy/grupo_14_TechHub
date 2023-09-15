@@ -68,7 +68,6 @@ const userController = {
 
     getProfile(req, res) {
         const loggedUser = req.session.user;
-        console.log('ESTE ES EL LOGGEDUSER DEL GETPROFILE' + JSON.stringify(loggedUser, null, 2));
         const selectedBrand = req.cookies.selectedBrand;
         res.render('profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand })
     },
@@ -76,6 +75,7 @@ const userController = {
     getLogin(req, res) {
         const error = req.query.error || '';
         const selectedBrand = req.cookies.selectedBrand;
+        res.cookie('selectedBrand', 'apple');
         res.render('login', { title: '| Ingresa', error, selectedBrand });
     },
 
@@ -86,34 +86,30 @@ const userController = {
                     email: req.body.email
                 }
             });
-            console.log('ESTE ES EL USUARIO QUE SE LOGUEA ' + JSON.stringify(loggedUser, null, 2));
 
             if (!loggedUser) {
                 return res.redirect('/user/login?error=El mail o la contraseña son incorrectos');
             }
-
+            // res.cookie('selectedBrand', 'apple');
             const { password: hashedPW } = loggedUser;
 
             const comparePW = bcrypt.compareSync(req.body.password, hashedPW);
 
             if (comparePW) {
                 // Configuración de las variables de sesión
+                if (!!req.body.remember) {
+                    // Si la casilla "Mantener sesión abierta" está marcada, crea una cookie adicional para mantener la sesión abierta.
+                    res.cookie('remember', 'true', {
+                        maxAge: 1000 * 60 * 60 * 24
+                    });
+                   
+                }
                 req.session.user = {
                     id: loggedUser.id,
                     name: loggedUser.name,
                     email: loggedUser.email,
                     profile_picture: loggedUser.profile_picture
                 };
-
-                if (!req.body.remember) {
-                    // Si la casilla "Mantener sesión abierta" está marcada,
-                    // crea una cookie adicional para mantener la sesión abierta.
-                    res.cookie('remember', 'true', {
-                        maxAge: 30 * 60 * 1000,
-                        httpOnly: true, // la cookie no es accesible desde el frontend
-                        sameSite: 'Lax' // Ajusta esta configuración según tus necesidades de seguridad
-                    });
-                }
 
                 delete loggedUser.password;
                 delete loggedUser.id;
@@ -132,14 +128,13 @@ const userController = {
 
 
     logOut(req, res) {
-
-        req.session.destroy();
-
         res.clearCookie('email');
-
-        res.redirect('/user/login');
+        res.clearCookie('remember');
+        req.session.destroy(() => {
+            res.redirect('/user/login');
+        });
     },
-
+    
     deleteProfile: async (req, res) => {
 
         try {
@@ -174,7 +169,7 @@ const userController = {
             if (loggedUser) {
                 const user = await User.findByPk(loggedUser.id);
                 const selectedBrand = req.cookies.selectedBrand;
-                console.log('ESTE ES EL USER QUE TRAE LA BASE DE DATOS ' + JSON.stringify(user, null, 2));
+
                 return res.render('update-profile', { title: `| Nombre del usuario`, loggedUser, selectedBrand, user });
             }
     

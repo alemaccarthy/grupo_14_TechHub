@@ -27,7 +27,6 @@ app.set('views', [
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
-// app.use(cookieParser());
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
@@ -36,11 +35,6 @@ app.use(session({
     secret: "pan, clave secreta, lechuga, tomate, mayonesa, pan",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        maxAge: 60 * 60 * 1000,
-        httpOnly: true,
-        sameSite: 'lax',
-    },
 }));
 
 app.use(cors());

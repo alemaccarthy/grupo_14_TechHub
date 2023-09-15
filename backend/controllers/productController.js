@@ -38,14 +38,12 @@ const productControllers = {
             const selectedBrandraw = req.cookies.selectedBrand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             let category = req.params.category || null;
-            console.log('ESTA ES LA CATEGORY CUANDO HAY QUERY ' + category);
+  
             if (category) {
                 category = category.charAt(0).toUpperCase() + category.slice(1);
             }
-            console.log('ESTA ES LA CATEGORY EN EL CONTROLADOR ' + category);
 
             let products;
-            console.log('ESTA ES REQ.QUERY ' + JSON.stringify(req.query, null, 2));
 
             if (req.query.q) {
                 const query = req.query.q;
@@ -69,7 +67,7 @@ const productControllers = {
                         ],
                     },
                 });
-                console.log('ESTOS SON LOS PRODUCTOS DE LA BUSQUEDA ' + JSON.stringify(products, null, 2));
+
             } else {
                 // Si no hay consulta de búsqueda, muestra todos los productos de la categoría y marca
                 products = await Product.findAll({
@@ -217,7 +215,6 @@ const productControllers = {
 
             // Obtener los IDs de los colores
             const colorIds = colorModels.map(color => color.id);
-            console.log('ESTOS SON LOS ID DE COLORES SELECCIONADOS ' + colorIds);
 
             await Promise.all(colorIds.map(colorId => {
                 return ProductColor.create({
@@ -278,8 +275,6 @@ const productControllers = {
                 }
             });
 
-            console.log('ESTE ES EL PRODUCTO A EDITAR VERSION SIN TRANSF ' + JSON.stringify(updatedProduct, null, 2));
-
             if (!updatedProduct) {
                 return res.render('product-not-found');
             }
@@ -288,8 +283,6 @@ const productControllers = {
                 brand_id: updatedProduct.brand.id,
                 category_id: updatedProduct.category.name
             };
-
-            console.log('ESTE ES EL PRODUCTO A EDITAR TRANSFORMADO ' + JSON.stringify(transformedProduct, null, 2));
 
             res.render('update-product', { title: 'Editar producto', product: transformedProduct, selectedBrand })
         } catch (error) {
@@ -407,8 +400,8 @@ const productControllers = {
             res.redirect(`/products/catalog/${brandParam}`);
 
         } catch (error) {
-            res.send("No se pudo actualizar");
-            console.log('Este es el motivo de error al hacer la actualización: ' + error);
+            res.send("No se pudo actualizar " + error);
+
         }
     },
 
