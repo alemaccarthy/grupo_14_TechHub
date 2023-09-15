@@ -145,16 +145,23 @@ searchInput.addEventListener('input', async () => {
         // limpio los resultados previos
         searchResults.innerHTML = '';
 
-        // muestra resultados creando un div para contenerlos
         if (data.length > 0) {
+            const resultList = document.createElement('ul'); // creo una lista para almacenar los resultados
             data.forEach((result) => {
-                const resultItem = document.createElement('div');
-                resultItem.textContent = result.title;
-                searchResults.appendChild(resultItem);
+                const resultItem = document.createElement('li'); // itero sobre los resultados y creo un elemento de lista para cada uno
+                const resultLink = document.createElement('a'); // genero un enlace para cada resultado
+        
+                // El texto del enlace sera el titulo del producto
+                resultLink.textContent = result.title;
+                resultLink.href = `/products/${result.id}/detail`; // genero el href del enlace
+        
+                resultItem.appendChild(resultLink); // agrego el enlace a cada elemento de la lista que hice mas arriba
+                resultList.appendChild(resultItem); // agrego cada elemento a la lista creada mas arriba
             });
-            searchResults.style.display = 'block'; 
+            searchResults.appendChild(resultList); // y ahora metemos la lista en el div de resultados creado en la vista
+            searchResults.style.display = 'block';
         } else {
-            // si la busqueda no devuelve nada que coincida, mostramos un mensaje
+            // si la busqueda no devuelve nada que coincida ke avisamos al usuario
             searchResults.innerHTML = 'Su búsqueda no ha arrojado resultados.';
             searchResults.style.display = 'block';
         }

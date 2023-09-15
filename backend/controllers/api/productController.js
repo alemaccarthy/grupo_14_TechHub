@@ -115,7 +115,7 @@ module.exports = {
     searchProducts: async (req, res) => {
         try {
             const query = req.query.q || '';
-
+    
             // Consulta para obtener productos que coincidan con la consulta
             const products = await Product.findAll({
                 raw: true,
@@ -131,17 +131,39 @@ module.exports = {
                     },
                     [Op.or]: [
                         { title: { [Op.like]: `%${query}%` } },
-                        { description: { [Op.like]: `%${query}%` } },
+                        // { description: { [Op.like]: `%${query}%` } },
                     ],
                 },
             });
-
-            res.json(products);
-            console.log('ESTOS SON MIS PRODUCTS EN LA API DE SEARCH ' + products);
-
+    
+            // Crear un mapa para almacenar productos con sus imágenes (misma solucion implementada en los metodos previos)
+            const productMap = new Map();
+    
+            products.forEach(product => {
+                const productId = product.id;
+    
+                // Si el producto aún no está en el mapa, lo agrego
+                if (!productMap.has(productId)) {
+                    productMap.set(productId, {
+                        ...product,
+                        images: [], // inicializo un array vacío para las imágenes
+                    });
+                }
+    
+                // se hace el mapeo y agrego cada imagen dentro del array de imágenes que recien creamos vacio
+                const productInMap = productMap.get(productId);
+                productInMap.images.push(product.images);
+            });
+    
+            // Convierte el mapa de productos de nuevo a un array
+            const uniqueProducts = Array.from(productMap.values());
+    
+            res.json(uniqueProducts);
+    
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'No se pudieron obtener los productos de la base de datos' });
         }
     }
+    
 }
