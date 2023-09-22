@@ -21,10 +21,12 @@ function App() {
       try {
         const dataProducts = await getAllProducts();
         const dataUsers = await getAllUsers();
+        console.log('ESTA ES LA DATAUSERS ' + JSON.stringify(dataUsers));
         setTotalProducts(dataProducts.totalProducts);
         setProducts(dataProducts.products);
         setProductsByCategory(dataProducts.productsByCategory);
         setUsers(dataUsers.users);
+        console.log('ESTA ES LA DATAUSER.USER ' + JSON.stringify(dataUsers.users));
       } catch (error) {
         console.error("Error fetching products:", error);
       }
