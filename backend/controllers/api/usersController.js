@@ -17,7 +17,7 @@ const userController = {
             detail: `http://localhost:3000/api/users/${user.id}`
         }));
     
-        res.json(usersJSON);
+        res.json({users: usersJSON});
 
     },
 
