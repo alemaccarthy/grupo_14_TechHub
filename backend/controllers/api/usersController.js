@@ -29,7 +29,7 @@ const userController = {
 
         delete userJSON.password;
 
-        res.json(userJSON);
+        res.json({user: userJSON});
 
     },
 
