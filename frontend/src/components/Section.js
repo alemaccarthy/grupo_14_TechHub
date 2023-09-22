@@ -11,7 +11,7 @@ function Section(props) {
                             <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">{props.title}</div>
                             {props.children}
                         </div>
-                        <div class="col-auto">
+                        <div className="col-auto">
                         {props.icon}
                         </div>
                     </div>

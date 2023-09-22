@@ -5,6 +5,7 @@ import Section from "../src/components/Section";
 import GenreCard from "./components/GenreCard";
 import Footer from "../src/components/Footer";
 import LastProduct from "./components/LastProduct";
+// import LastUser from "./components/LastUser";
 
 import { getAllProducts } from "./utils/api";
 import { getAllUsers } from "./utils/users";
@@ -20,18 +21,15 @@ function App() {
       try {
         const dataProducts = await getAllProducts();
         const dataUsers = await getAllUsers();
-        const sortedProducts = dataProducts.products.sort((a, b) =>
-          new Date(b.createdAt) - new Date(a.createdAt)
-        );
         setTotalProducts(dataProducts.totalProducts);
-        setProducts(sortedProducts);
+        setProducts(dataProducts.products);
         setProductsByCategory(dataProducts.productsByCategory);
         setUsers(dataUsers.users);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-  
+
     fetchData();
   }, []);
 
@@ -70,7 +68,7 @@ function App() {
               </div>
 
               <div className="row">
-              <LastProduct products={products} />
+                <LastProduct products={products} />
 
                 <div className="col-lg-6 mb-4">
                   <div className="card">
@@ -113,15 +111,15 @@ function App() {
                       </h4>
                     </div>
                     <div className="card-body">
-                       <div className="row">
-    {users !== undefined ? (
-      users.map((user) => (
-        <GenreCard key={user.id} name={user.name} />
-      ))
-    ) : (
-      <p>No hay usuarios en nuestra base de datos.</p>
-    )}
-  </div>
+                      <div className="row">
+                        {users !== undefined ? (
+                          users.map((user) => (
+                            <GenreCard key={user.id} name={user.name} />
+                          ))
+                        ) : (
+                          <p>No hay usuarios en nuestra base de datos.</p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
