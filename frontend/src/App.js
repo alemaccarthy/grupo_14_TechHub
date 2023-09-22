@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../src/components/Sidebar";
+import GenreCard from "../src/components/GenreCard";
 import Section from "../src/components/Section";
-import GenreCard from "./components/GenreCard";
+import Users from "./components/Users";
+import UserProfile from "./components/UserProfile";
 import Footer from "../src/components/Footer";
 import LastProduct from "./components/LastProduct";
-// import LastUser from "./components/LastUser";
-
 import { getAllProducts } from "./utils/api";
 import { getAllUsers } from "./utils/users";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const [products, setProducts] = useState([]); // Estado para almacenar los productos
-  const [users, setUsers] = useState([]); // Estado para almacenar los productos
-  const [totalProducts, setTotalProducts] = useState(0); // Estado para almacenar el total de productos
+  const [products, setProducts] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
   const [productsByCategory, setProductsByCategory] = useState({});
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const dataProducts = await getAllProducts();
         const dataUsers = await getAllUsers();
-        console.log('ESTA ES LA DATAUSERS ' + JSON.stringify(dataUsers));
         setTotalProducts(dataProducts.totalProducts);
         setProducts(dataProducts.products);
         setProductsByCategory(dataProducts.productsByCategory);
         setUsers(dataUsers.users);
-        console.log('ESTA ES LA DATAUSER.USER ' + JSON.stringify(dataUsers.users));
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -35,19 +35,28 @@ function App() {
     fetchData();
   }, []);
 
+  const handleUserSelect = (user) => {
+    setSelectedUser(user);
+  };
+
+  const clearSelectedUser = () => {
+    setSelectedUser(null);
+  };
+
   return (
-    <>
+    <Router>
       <div id="wrapper">
         <Sidebar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <div className="container-fluid">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">Total de productos: {totalProducts}</h1>
+                <h1 className="h3 mb-0 text-gray-800">
+                  Total de productos: {totalProducts}
+                </h1>
               </div>
 
               <div className="row first-row">
-
                 <Section title="Cellphones in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     {productsByCategory.Smartphone}
@@ -57,14 +66,12 @@ function App() {
                 <Section title="Smartwatches in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     {productsByCategory.Smartwatch}
-
                   </div>
                 </Section>
 
                 <Section title="Tablets in DataBase">
                   <div className="h5 mb-0 font-weight-bold text-gray-800">
                     {productsByCategory.Tablet}
-
                   </div>
                 </Section>
               </div>
@@ -83,9 +90,12 @@ function App() {
                       <h5>Samsung</h5>
                       <div className="row">
                         {products.map((product) => {
-                          if (product.brand.name === 'Samsung') {
+                          if (product.brand.name === "Samsung") {
                             return (
-                              <GenreCard key={product.id} name={product.title} />
+                              <GenreCard
+                                key={product.id}
+                                name={product.title}
+                              />
                             );
                           }
                           return null;
@@ -96,9 +106,12 @@ function App() {
                       <h5>Apple</h5>
                       <div className="row">
                         {products.map((product) => {
-                          if (product.brand.name === 'Apple') {
+                          if (product.brand.name === "Apple") {
                             return (
-                              <GenreCard key={product.id} name={product.title} />
+                              <GenreCard
+                                key={product.id}
+                                name={product.title}
+                              />
                             );
                           }
                           return null;
@@ -113,15 +126,40 @@ function App() {
                       </h4>
                     </div>
                     <div className="card-body">
-                      <div className="row">
-                        {users !== undefined ? (
-                          users.map((user) => (
-                            <GenreCard key={user.id} name={user.name} />
-                          ))
-                        ) : (
-                          <p>No hay usuarios en nuestra base de datos.</p>
-                        )}
-                      </div>
+                      {users.length > 0 ? (
+                        <Switch>
+                          <Route
+                            path="/user/:id"
+                            render={({ match }) => (
+                              <UserProfile
+                                user={users.find(
+                                  (user) => user.id === match.params.id
+                                )}
+                              />
+                            )}
+                          />
+                          <Route>
+                            {selectedUser ? (
+                              <>
+                                <button
+                                  className="btn btn-secondary mb-3"
+                                  onClick={clearSelectedUser}
+                                >
+                                  Back to Users
+                                </button>
+                                <UserProfile user={selectedUser} />
+                              </>
+                            ) : (
+                              <Users
+                                users={users}
+                                onUserSelect={handleUserSelect}
+                              />
+                            )}
+                          </Route>
+                        </Switch>
+                      ) : (
+                        <p>No hay usuarios en nuestra base de datos.</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -130,9 +168,8 @@ function App() {
           </div>
         </div>
       </div>
-
       <Footer />
-    </>
+    </Router>
   );
 }
 
