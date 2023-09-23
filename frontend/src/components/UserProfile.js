@@ -5,6 +5,8 @@ function UserProfile() {
     const { id } = useParams();
     const [user, setUser] = useState(null);
 
+    const url_base = 'http://localhost:3000';
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -35,7 +37,7 @@ function UserProfile() {
             <h2>User Profile</h2>
             <div className="row">
                 <div className="col-md-4">
-                    <img src={user.profile_picture} alt="User Profile" className="img-fluid" />
+                    <img src={url_base + user.profile_picture} alt="User Profile" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
                     <table className="table">
