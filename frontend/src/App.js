@@ -39,10 +39,6 @@ function App() {
     setSelectedUser(user);
   };
 
-  const clearSelectedUser = () => {
-    setSelectedUser(null);
-  };
-
   return (
     <Router>
       <div id="wrapper">
@@ -126,40 +122,28 @@ function App() {
                       </h4>
                     </div>
                     <div className="card-body">
-                      {users.length > 0 ? (
-                        <Switch>
-                          <Route
-                            path="/user/:id"
-                            render={({ match }) => (
-                              <UserProfile
-                                user={users.find(
-                                  (user) => user.id === match.params.id
-                                )}
-                              />
-                            )}
-                          />
-                          <Route>
-                            {selectedUser ? (
-                              <>
-                                <button
-                                  className="btn btn-secondary mb-3"
-                                  onClick={clearSelectedUser}
-                                >
-                                  Back to Users
-                                </button>
-                                <UserProfile user={selectedUser} />
-                              </>
-                            ) : (
-                              <Users
-                                users={users}
-                                onUserSelect={handleUserSelect}
-                              />
-                            )}
-                          </Route>
-                        </Switch>
-                      ) : (
-                        <p>No hay usuarios en nuestra base de datos.</p>
-                      )}
+                      <Switch>
+                        <Route
+                          path="/user/:id"
+                          render={({ match }) => (
+                            <UserProfile
+                              user={users.find(
+                                (user) => user.id === match.params.id
+                              )}
+                            />
+                          )}
+                        />
+                        <Route>
+                          {selectedUser ? (
+                            <UserProfile user={selectedUser} />
+                          ) : (
+                            <Users
+                              users={users}
+                              onUserSelect={handleUserSelect}
+                            />
+                          )}
+                        </Route>
+                      </Switch>
                     </div>
                   </div>
                 </div>

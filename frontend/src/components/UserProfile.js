@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function UserProfile() {
     const { id } = useParams();
@@ -14,6 +14,7 @@ function UserProfile() {
                 }
                 const userData = await response.json();
                 setUser(userData.user);
+                console.log('ESA ES LA USERDATA.USER DE USER PROFILE ' + JSON.stringify(userData.user, null, 2));
             } catch (error) {
                 console.error('Error al obtener los datos del usuario:', error);
             }
@@ -28,6 +29,9 @@ function UserProfile() {
 
     return (
         <div className="container mt-5">
+                    <Link to="/users" className="btn btn-secondary">
+                        Back to Users
+                    </Link>
             <h2>User Profile</h2>
             <div className="row">
                 <div className="col-md-4">
