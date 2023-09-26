@@ -100,8 +100,7 @@ const middlewares = {
 
             res.locals.products = products;
             res.locals.home = req.cookies.selectedBrand;
-            res.locals.brand = (req.originalUrl).split('/')[3];
-            res.locals.brand = res.locals.brand.charAt(0).toUpperCase() + res.locals.brand.slice(1);
+            res.locals.brand = req.cookies.brand;
 
             next();
         } catch (error) {
