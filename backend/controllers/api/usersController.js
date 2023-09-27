@@ -14,7 +14,7 @@ const userController = {
             name: user.name,
             lastName: user.lastName,
             email: user.email,
-            
+            profile_picture: user.profile_picture,
             detail: `http://localhost:3000/api/users/${user.id}`
         }));
     
