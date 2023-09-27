@@ -1,5 +1,15 @@
 .navbar-nav {
     background-color: #164194 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+#wrapper{
+    flex-direction: column;
+}
+
+.logo{
+    width: 280px;
 }
 
 div.h5 {
@@ -46,3 +56,4 @@ div.text-xs{
 div.border-left-primary{
     border-left: .25rem solid #164194 !important;
 }
+
