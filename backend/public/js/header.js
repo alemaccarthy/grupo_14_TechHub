@@ -97,7 +97,7 @@ const glass = document.getElementById('ma-glass');
 let searchBarOpened = false;
 
 function openSearchBar() {
-    searchBar.style.height = '80px';
+    searchBar.style.height = 'auto';
     searchBarOpened = true;
     /// Al hacer clic en cualquier parte de la vista cierra la barra de busqueda y tambien el div generado con los resultados
     modal.addEventListener('click', (e) => {
