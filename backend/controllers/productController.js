@@ -116,7 +116,7 @@ const productControllers = {
 
     getProductDetail: async (req, res) => {
         try {
-            const selectedBrandraw = req.cookies.selectedBrand;
+            const selectedBrandraw = req.cookies.selectedBrand || res.locals.brand;
             const selectedBrand = selectedBrandraw.charAt(0).toUpperCase() + selectedBrandraw.slice(1);
             const id = Number(req.params.id);
             const products = res.locals.products;

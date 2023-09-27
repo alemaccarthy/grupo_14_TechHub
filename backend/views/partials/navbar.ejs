@@ -2,8 +2,11 @@
     <li><button class="closebtn-nav" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></li>
 
     <% if (locals.isLogged) { %>
-        <li><a href="/user/profile/<%= locals.user.name %>/<%= locals.user.id %>">Perfil <img class="nav-profile-pic" src="<%= locals.user.profile %>" alt=""></a></li>
-        <li><form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form></li>
+        <li><a href="/user/profile/<%= locals.user.name %>/<%= locals.user.id %>">Perfil <img class="nav-profile-pic"
+                    src="<%= locals.user.profile %>" alt=""></a></li>
+        <li>
+            <form action="/user/sign-out" method="get"><input type="submit" value="Cerrar Sesión"></form>
+        </li>
 
         <% }else{ %>
             <li><a href="/user/login">Ingresa</a></li>
@@ -12,37 +15,37 @@
 
                 <li><a class="apple" href="/apple">Apple</a></li>
                 <li><a class="samsung" href="/samsung">Samsung</a></li>
-                <% if (home && brand) { %>
 
-                    <li><button><a href="
+
+                <li><button><a href="
                         <% if (home === 'apple' || brand == 'apple') { %>
                          /products/catalog/apple
                         <% }else if(home === 'samsung' || brand == 'samsung'){ %>
                          /products/catalog/samsung
                         <% } %>
                         ">Tienda</a></button></li>
-                    <li><button><a href="
+                <li><button><a href="
                         <% if (home === 'apple' || brand === 'apple') { %>
                          /products/catalog/apple/smartphone
                         <% }else if(home === 'samsung' || brand === 'samsung'){ %>
                          /products/catalog/samsung/smartphone
                         <% } %>
                         ">Smartphones</a></button></li>
-                    <li><button><a href="
+                <li><button><a href="
                         <% if (home === 'apple' || brand === 'apple') { %>
                          /products/catalog/apple/smartwatch
                         <% }else if(home === 'samsung' || brand === 'samsung'){ %>
                          /products/catalog/samsung/smartwatch
                         <% } %>
                         ">Smartwatch</a></button></li>
-                    <li><button><a href="
+                <li><button><a href="
                         <% if (home === 'apple' || brand === 'apple') { %>
                          /products/catalog/apple/tablet
                         <% }else if(home === 'samsung' || brand === 'samsung'){ %>
                          /products/catalog/samsung/tablet
                         <% } %>
                         ">Tablets</a></button></li>
-                <% } %>
+
 </ul>
 
 <!-- <img class="nav-profile-pic" src="<%#= locals.user && locals.user.profile? locals.user.profile : '/imgs/profile-images/no-image-profile.jpg' %>" alt=""> -->

@@ -1,9 +1,10 @@
-let selectedBrand = '';
+let selectedBrand = 'apple';
+document.cookie = "brand=apple; path=/";
 
 function handleClick(selectedBrand) {
     brand = selectedBrand;
-    document.cookie = `selectedBrand=${selectedBrand}; path=/`;
-    document.cookie = `brand=${brand}; path=/`;
+        document.cookie = `selectedBrand=${selectedBrand}; path=/`;
+        document.cookie = `brand=${brand}; path=/`;
 }
 
 document.addEventListener('DOMContentLoaded', function () {

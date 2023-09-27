@@ -99,9 +99,17 @@ const middlewares = {
             });
 
             res.locals.products = products;
-            res.locals.home = req.cookies.selectedBrand;
-            res.locals.brand = req.cookies.brand.charAt(0).toUpperCase() + req.cookies.brand.slice(1)
+            if(req.cookies.selectedBrand == undefined){
+                res.locals.home = 'Apple'
+            }else{
 
+                res.locals.home = req.cookies.selectedBrand;
+            }
+            if(req.cookies.brand == undefined){
+                res.locals.brand = 'Apple'
+            }else{
+                res.locals.brand = req.cookies.brand.charAt(0).toUpperCase() + req.cookies.brand.slice(1)
+            }
 
             next();
         } catch (error) {
