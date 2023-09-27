@@ -6,7 +6,7 @@ function LastUser({ users }) {
     }
     const url_base = 'http://localhost:3000';
 
-    const lastUser = users[users.length -1];
+    const lastUser = users[0];
 
     return (
         <div className="col-lg-6 mb-4">
@@ -16,23 +16,9 @@ function LastUser({ users }) {
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <h4>{lastUser.name}</h4>
-                        {/* <img
-                            className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-                            style={{ width: '40rem' }}
-                            src={lastUser.images.length > 0 ? url_base + lastProduct.images[0].path : ''}
-                            alt={lastUser.title}
-                        /> */}
+                        <h4>{lastUser.name + ' ' + lastUser.lastName}</h4>
+                        <img src={url_base + lastUser.profile_picture} alt="User Profile" className="img-fluid img-lastUser" />
                     </div>
-                    <p>{lastUser.name}</p>
-                    <a
-                        className="btn btn-danger"
-                        href={`${url_base}/profile/${lastUser.name}/${lastUser.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View product detail
-                    </a>
                 </div>
             </div>
         </div>

@@ -61,6 +61,12 @@ div.border-left-primary{
     border-left: .25rem solid #164194 !important;
 }
 
+.img-lastUser{
+    width: 80% !important;
+    margin: auto !important;
+    max-width: 250px !important;
+}
+
 @media(width >= 481px){
     .product {
         width: 50% !important;

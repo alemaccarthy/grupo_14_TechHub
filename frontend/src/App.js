@@ -7,6 +7,7 @@ import Users from "./components/Users";
 import UserProfile from "./components/UserProfile";
 import Footer from "../src/components/Footer";
 import LastProduct from "./components/LastProduct";
+import LastUser from "./components/LastUser";
 import { getAllProducts } from "./utils/api";
 import { getAllUsers } from "./utils/users";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -116,6 +117,7 @@ function App() {
                     </div>
                   </div>
                 </div>
+                <LastUser users={users}/>
                 <div className="card">
                   <div className="card-header py-3">
                     <h4 className="m-0 font-weight-bold text-gray-800">
