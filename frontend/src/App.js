@@ -92,6 +92,7 @@ function App() {
                               <ProductCard
                                 key={product.id}
                                 name={product.title}
+                                id={product.id}
                               />
                             );
                           }

@@ -67,6 +67,13 @@ div.border-left-primary{
     max-width: 250px !important;
 }
 
+div.product a.btn-danger{
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+
 @media(width >= 481px){
     .product {
         width: 50% !important;
