@@ -12,6 +12,10 @@
     width: 280px;
 }
 
+.card{
+    width: 100% !important;
+}
+
 div.h5 {
     display: flex;
     justify-content: space-between;
@@ -57,3 +61,8 @@ div.border-left-primary{
     border-left: .25rem solid #164194 !important;
 }
 
+@media(width >= 481px){
+    .product {
+        width: 50% !important;
+    }
+}

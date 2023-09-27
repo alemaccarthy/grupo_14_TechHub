@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../src/components/Sidebar";
-import GenreCard from "../src/components/GenreCard";
+import ProductCard from "./components/ProductCard";
 import Section from "../src/components/Section";
 import Users from "./components/Users";
 import UserProfile from "./components/UserProfile";
@@ -88,7 +88,7 @@ function App() {
                         {products.map((product) => {
                           if (product.brand.name === "Samsung") {
                             return (
-                              <GenreCard
+                              <ProductCard
                                 key={product.id}
                                 name={product.title}
                               />
@@ -104,7 +104,7 @@ function App() {
                         {products.map((product) => {
                           if (product.brand.name === "Apple") {
                             return (
-                              <GenreCard
+                              <ProductCard
                                 key={product.id}
                                 name={product.title}
                               />
@@ -115,36 +115,36 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <div className="card">
-                    <div className="card-header py-3">
-                      <h4 className="m-0 font-weight-bold text-gray-800">
-                        Users in DataBase
-                      </h4>
-                    </div>
-                    <div className="card-body">
-                      <Switch>
-                        <Route
-                          path="/user/:id"
-                          render={({ match }) => (
-                            <UserProfile
-                              user={users.find(
-                                (user) => user.id === match.params.id
-                              )}
-                            />
-                          )}
-                        />
-                        <Route>
-                          {selectedUser ? (
-                            <UserProfile user={selectedUser} />
-                          ) : (
-                            <Users
-                              users={users}
-                              onUserSelect={handleUserSelect}
-                            />
-                          )}
-                        </Route>
-                      </Switch>
-                    </div>
+                </div>
+                <div className="card">
+                  <div className="card-header py-3">
+                    <h4 className="m-0 font-weight-bold text-gray-800">
+                      Users in DataBase
+                    </h4>
+                  </div>
+                  <div className="card-body">
+                    <Switch>
+                      <Route
+                        path="/user/:id"
+                        render={({ match }) => (
+                          <UserProfile
+                            user={users.find(
+                              (user) => user.id === match.params.id
+                            )}
+                          />
+                        )}
+                      />
+                      <Route>
+                        {selectedUser ? (
+                          <UserProfile user={selectedUser} />
+                        ) : (
+                          <Users
+                            users={users}
+                            onUserSelect={handleUserSelect}
+                          />
+                        )}
+                      </Route>
+                    </Switch>
                   </div>
                 </div>
               </div>

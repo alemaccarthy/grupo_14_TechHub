@@ -1,8 +1,8 @@
 import React from 'react';
 
-function GenreCard(props) {
+function ProductCard(props) {
     return (
-        <div className="col-lg-6 mb-4">
+        <div className="col-lg-6 mb-4 product">
             <div className="productsInDB">
                 <div className="card-body">
                     {props.name}
@@ -12,4 +12,4 @@ function GenreCard(props) {
     );
 }
 
-export default GenreCard;
+export default ProductCard;
