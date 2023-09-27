@@ -102,7 +102,6 @@ const middlewares = {
             res.locals.home = req.cookies.selectedBrand;
             res.locals.brand = req.cookies.brand.charAt(0).toUpperCase() + req.cookies.brand.slice(1)
 
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' + res.locals.brand2);
 
             next();
         } catch (error) {
